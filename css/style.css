@@ -179,13 +179,14 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .report-per-program .nav-tabs  li:last-child { margin-right:0px;}
 .content .report-per-program .nav-tabs  li.active { background:#84b4ea; border:0px none;border-radius:8px; margin-top:0px;}
 .content .report-per-program .nav-tabs  li.active a { color:#fff; }
-.content .report-per-program .report-per-top{padding-left: 90px;}
-
-.content .report-per-program .report-per-top  ul { margin:0; padding:0;font-family: 'droid_sansbold'; }
-.content .report-per-program .report-per-top  ul li { width:99px; display:inline-block;text-align:center; margin-right:2px;}
-.content .report-per-program .report-per-top ul li:first-child a { font-size:13px; color:#84B4EA; text-decoration:none; }
-.content .report-per-program .report-per-top  ul li  a { font-size:13px; color:#84B4EA; text-decoration:none; }
-.content .report-per-program .report-per-top  ul li:last-child { margin-right:0px;}
+.content .report-per-program .report-per-top{}
+.content .report-per-program .report-per-top table { max-width:820px; width:100%; margin-bottom:40px;}
+.content .report-per-program .report-per-top table thead td { text-align:center;}
+.content .report-per-program .report-per-top table thead td a{ font-size: 13px;color: #84B4EA; text-align:center;  text-decoration: none;font-family: 'droid_sansbold';}
+.content .report-per-program .report-per-top table tbody tr { border-bottom:2px solid #e6e6e6;}
+.content .report-per-program .report-per-top table tbody tr td { background:#fff; text-align:center; vertical-align:middle; height:95px; border-left:6px solid #f2f2f2; }
+.content .report-per-program .report-per-top table tbody tr td:first-child { background:none;font-family: 'droid_sansbold'; }
+.content .report-per-program .report-per-top table tbody tr.average td { color:#f7931e;}
 .content .report-per-program  .slimScrollBar { display:none !important;}
 .content .report-per-program  .average-class-table { margin-bottom:39px; margin-top:16px;}
 .content .report-per-program  .average-class-table .average-table-row ul li:first-child { width:84px;}
@@ -456,13 +457,14 @@ header .header-right ul { float:none; display:inline-block;}
 .content .individual-tab-detail  { width:70%;}
 .usage-program-detail .chart-inner-detail { right:0px;}
 .content .report-per-program .nav-tabs { padding-left:30px;}
-.content .report-per-program .report-per-top { padding-left:120px;}
+ 
 .content .report-per-program .report-per-top ul li { width:13%;}
 .content .tab-inner-right-detail .class-tab-detail button { float:right;}
 .content .individual-tab-detail button { float:right;}
 
 }
 @media screen and (max-width:992px) { 
+table { overflow-y:scroll; max-width:100%;}
 .cumluative-time , .max-word { display:none !important; } 
 .content .usage-program-detail .chart-inner-detail { position:static;}
 .content .welcome-notice h3 { font-size:20px;}
@@ -472,6 +474,9 @@ header .header-right ul { float:none; display:inline-block;}
 .content .report-per-program .nav-tabs { padding-left:0px;}
 .content .report-per-program .nav-tabs li { padding:0px;}
 .content .report-per-program .nav-tabs li a{ padding:0 5px; font-size:13px;}
+.content .create-class-detail ul li select { width:80%;}
+.content .user-tab-right .all-user-detail table tr td .user-report { font-size:12px;}
+
 }
 @media screen and (max-width:767px) { 
 .content { padding:0 15px;}
@@ -486,8 +491,15 @@ header .header-right ul { float:none; display:inline-block;}
 .content .tabs-inner li a { border-radius:0px; line-height:40px;}
 .content .tab-inner-right-detail .class-tab-detail button { float:right; margin-bottom:20px;}
 .content .individual-tab-detail button { margin-left:0px; margin-bottom:20px; padding:7px 30px;}
+.content .classes-tab .class-tab-right { padding-left:0px;}
+.content .classes-tab .class-tab-right .choose-class ul li { max-width:100%;}
+.content .classes-tab .class-tab-right .choose-class { margin-bottom:50px;}
+.content .create-class-detail { max-width:100%;}
+.content .allclasse-detail .all-member-detail { max-width:100%;}
+.content .user-tab-right { padding-left:0px;}
 }
 @media screen and (max-width: 640px) {
+.content .report-per-program .report-per-top { overflow-y:scroll;}
 .max-place { display:none !important;}
 .content ul.print-button {float:none; width:100%; text-align:center;}
 .content ul.print-button li { float:none; display:inline-block;}
@@ -497,6 +509,8 @@ header .header-right ul { float:none; display:inline-block;}
 .content .reports-detail .average-class-detail .average-class-top ul li a { font-size:11px;}
 .nav-tabs  { text-align:center;}
 .nav-tabs > li { float:none; display:inline-block; margin-bottom:5px;}
+.content .user-tab-right .all-user-detail table tr td span { width:20px;}
+.content .allstudent-detail table tr td { padding:0 5px;}
 
 }
 @media screen and (max-width: 480px) { 
@@ -529,7 +543,11 @@ header .header-right ul li { float:none; display:inline-block;}
 .content ul.print-button li { margin-bottom:10px;}
 .content .report-per-program .nav-tabs li  { margin-right:0px;}
 .content .report-per-program .nav-tabs li a { display:block;}
+.content .modal-content { padding:110px 25px !important;}
+.content .create-class-detail ul li select { width:66%;}
+.content .modal-dialog { margin-top:20%;}
 }
 . highcharts-background { background-color:#000 !important;}
 #container18 .highcharts-legend-item { display:none !important;}
 .highcharts-legend { display:none !important;}
+#createuser .choose-class { display:block !important;}
