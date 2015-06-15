@@ -60,8 +60,8 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .nav-tabs { border:0px none; padding-left:7px; margin-bottom:34px;  }
 .main-tabs { float:left;}
 .content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover { border:0px none; background:none;}
-.content .nav-tabs li { width:68px; margin-right:4px;}
-.content .nav-tabs li.active {  background:#f7931e; border-radius:50% 50%;padding:15px 8px 12px 8px; margin-top:-14px;}
+.content .nav-tabs li { width:76px; margin-right:4px;}
+.content .nav-tabs li.active {  background:#f7931e; border-radius:50% 50%;padding:13px 8px 20px 8px; margin-top:-14px;}
 .content .nav-tabs li a { font-size:12px; color:#000; text-decoration:none; padding:0px;text-transform:uppercase; text-align:center; border:0px none; outline:none;}
 .content .nav-tabs li.active a { color:#fff;}
 .content .nav-tabs li a.reports { background:url(../images/reports-icon.png) top center no-repeat; padding-top:24px;}
@@ -119,6 +119,8 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .reports-detail .average-class-detail .average-class-top table thead td.cumulative-time a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'droid_sansbold'; }
 .content .reports-detail .average-class-detail .average-class-top table thead td a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'litera-regularregular'; }
 .content .reports-detail .average-class-detail .average-class-top table tbody tr {border-bottom:2px solid #f2f2f2;}
+.content .reports-detail .average-class-detail .average-class-top table tbody tr.average { color:#F7931E !important;}
+.content .reports-detail .average-class-detail .average-class-top table tbody tr.average a{ color:#F7931E !important; text-decoration:none !important;}
 .content .reports-detail .average-class-detail .average-class-top table tbody td { background:#fff;height:90px;
 text-align: center; border-left:8px solid #f2f2f2; }
 .content .reports-detail .average-class-detail .average-class-top table tbody td.cumulative-time a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'droid_sansbold'; text-decoration:underline; }
@@ -173,8 +175,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content #container2 .highcharts-data-labels { display:none;}
 .content .report-per-program { display:none;}
 .content .report-per-program h2 {  background: #fff;line-height: 30px;padding: 0 20px;font-size: 14px;color: #5D5D5D; font-family: 'droid_sansbold';margin: 0px; margin-bottom: 16px;}
-.content .report-per-program .nav-tabs { padding-left: 90px; margin-top:26px;}
-.content .report-per-program .nav-tabs  li {border:1px solid #b3b3b3;  margin-right:9px; padding:0 15px;border-radius:8px; width:auto;}
+.content .report-per-program .nav-tabs { padding-left: 60px; margin-top:26px;}
+.content .report-per-program .nav-tabs  li {border:1px solid #b3b3b3;  margin-right:4px; padding:0 15px;border-radius:8px; width:auto;}
 .content .report-per-program .nav-tabs  li a {color:#5D5D5D;text-decoration:none;font-family: 'litera-regularregular'; font-size:14px; line-height:31px; display:inline-block;}
 .content .report-per-program .nav-tabs  li:last-child { margin-right:0px;}
 .content .report-per-program .nav-tabs  li.active { background:#84b4ea; border:0px none;border-radius:8px; margin-top:0px;}
@@ -226,6 +228,10 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .indvidual-detail-left label span {  font-family: 'droid_sansregular';}
 .content .indvidual-detail-left label.last-login span { color:#ED1C24;}
 .content .individual-average-score { margin-top:30px;}
+.content .individual-average-score .performance {}
+.content .individual-average-score .performance .satisfactory { color:#FBB03B !important; background:url(../images/satisfactory-icon.png) center 20px no-repeat #fff !important;  padding-top:15px;}
+.content .individual-average-score .performance .notsatisfactory{ color:#F15A24 !important; background:url(../images/not-satisfactory.png) center 20px no-repeat #fff !important; line-height:15px; padding-top:20px;}
+.content .individual-average-score .performance .excellent{ color:#22B573 !important; background:url(../images/excellent.png) center 20px no-repeat #fff !important;}
 .content .individual-average-score h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;}
  .content .see-detail-report-btn { padding:25px 38px; background:none; border:1px solid #b3b3b3;margin-bottom:30px; float:right; }
  .content .see-detail-report-btn  a { background:url(../images/detail-repot-icon.png) left center no-repeat; padding-left:58px; line-height:40px; display:inline-block; font-size:18px; font-family: 'droid_sansbold';color:#5D5D5D; outline:none; text-decoration:none;}
@@ -323,9 +329,10 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail { max-width:590px;}
 .content  .create-class-detail ul { margin:0px; padding:0;}
 .content  .create-class-detail ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
+.content  .create-class-detail ul li span { width:20px; text-align:center; padding-right:0px !important; margin-right:120px !important;}
 .content  .create-class-detail ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
 .content  .create-class-detail ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#CCCCCC; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
-.content  .create-class-detail ul li select  { width:84.5%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
+.content  .create-class-detail ul li select  { width:83.5%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
 .content  .create-class-detail .all-member-detail { margin-top:36px;}
 .content  .create-class-detail .all-member-detail span { font-size:14px; color:#5D5D5D;font-family: 'droid_sansregular'; display:inline-block; margin-bottom:10px;}
 .content  .create-class-detail .all-member-detail span b {font-family: 'droid_sansbold';}
