@@ -63,6 +63,13 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .nav-tabs li { width:76px; margin-right:4px;}
 .content .nav-tabs li.active {  background:#f7931e; border-radius:50% 50%;padding:13px 8px 20px 8px; margin-top:-14px;}
 .content .nav-tabs li a { font-size:12px; color:#000; text-decoration:none; padding:0px;text-transform:uppercase; text-align:center; border:0px none; outline:none;}
+.content .top-tabs-headings { margin-top:30px;}
+.content .top-tabs-headings >li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover { border:0px none; background:none;}
+.content .top-tabs-headings  li { width:49%;background:#ffffff;display:inline-block;}
+.content .top-tabs-headings  li.active {  background:#84b4ea; border-radius:0px;  padding:0px; margin:0px;}
+.content .top-tabs-headings  li a { font-size:14px; color:#b3b3b3; text-decoration:none; padding:0px;text-transform:uppercase; text-align:center; border:0px none; outline:none; line-height:30px; font-weight:bold;}
+
+
 .content .nav-tabs li.active a { color:#fff;}
 .content .nav-tabs li a.reports { background:url(../images/reports-icon.png) top center no-repeat; padding-top:24px;}
 .content .nav-tabs li.active a.reports { background:url(../images/reports-icon-active.png) top center no-repeat; padding-top:24px;}
@@ -173,7 +180,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .highcharts-data-labels { background:#000;border-radius:50% 50%;}
 .content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,  .highcharts-tooltip ,#container4 .highcharts-legend{ display:none;}
 .content #container2 .highcharts-data-labels { display:none;}
-.content .report-per-program { display:none;}
+ 
 .content .report-per-program h2 {  background: #fff;line-height: 30px;padding: 0 20px;font-size: 14px;color: #5D5D5D; font-family: 'droid_sansbold';margin: 0px; margin-bottom: 16px;}
 .content .report-per-program .nav-tabs { padding-left: 60px; margin-top:26px;}
 .content .report-per-program .nav-tabs  li {border:1px solid #b3b3b3;  margin-right:4px; padding:0 15px;border-radius:8px; width:auto;}
@@ -276,7 +283,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .individual-report-per-program table thead td {background:none; text-align:center; font-size:13px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
 .content .individual-graphs { }
 .content .individual-graphs h2 { width:590px; display:inline-block;}
-.content .individual-graphs ul { margin:0px; padding:0; display:inline-block;}
+.content .individual-graphs ul { margin:0px; padding:0; display:block; text-align:right;}
 .content .individual-graphs ul li { font-size:13px; color:#5d5d5d;font-family: 'droid_sansregular'; background:url(../images/correct-icon.png) left center no-repeat; padding-left:37px; display:inline-block; line-height:32px; margin-left:25px;}
 .content .individual-graphs ul li + li {background:url(../images/uncorrect-icon.png) left center no-repeat;}
 .content .individual-report-per-program table tbody tr td { height:93px;background:none; text-align:center; vertical-align:middle; background:#fff; border-left:5px solid #f2f2f2;border-bottom:2px solid #f2f2f2; font-size:15px;color:#5D5D5D; font-family: 'droid_sansregular';}
@@ -375,20 +382,22 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content   #myModal4 .modal-content{  padding: 78px 87px 64px 95px;}
 
 /*User Tab Style*/
-.content .user-tab-right { padding-left:50px; max-width:660px;}
+.content .user-tab-right { padding-left:50px;}
 .content .user-tab-right h2 { font-size:14px;color:#5D5D5D;font-family: 'droid_sansbold'; margin-bottom:15px; margin-top:0px;}
 .content .user-tab-right .all-user-detail {}
 .content .user-tab-right .slimScrollDiv {margin-bottom:33px;}
-.content .user-tab-right .all-user-detail table { width:100%; max-width:600px; }
+.content .user-tab-right .all-user-detail {}
+.content .user-tab-right .all-user-detail table { width:100%; }
 .content .user-tab-right .all-user-detail table tr { margin-bottom:4px;}
 .content .user-tab-right .all-user-detail table tr td { border-right:4px solid #f2f2f2; border-bottom:4px solid #f2f2f2; background:#fff; line-height:37px; padding:0 15px; font-size:16px;color:#5D5D5D;font-family: 'droid_sansregular';}
 .content .user-tab-right .all-user-detail table tr td .user-report { background:url(../images/reports-icon.png) left center no-repeat; font-size:14px;color:#5D5D5D;  font-family: 'droid_sansbold'; padding-left:30px; display:inline-block;text-decoration:none; }
 .content .user-tab-right .all-user-detail table tr td a { outline:none;}
-.content .user-tab-right .all-user-detail table tr td span { display:inline-block; width:80px;}
+.content .user-tab-right .all-user-detail table tr td span { display:inline-block; }
 .content .user-tab-right .all-user-detail #myModal5 .modal-footer { text-align:center;}
 .content .user-tab-right .all-user-detail #myModal5 .modal-dialog { max-width:540px;}
 .content .user-tab-right .all-user-detail #myModal5 .modal-content{  padding: 78px 87px 64px 95px;}
-.content .user-tab-right .all-user-detail .edit-user-outer { display:none;}
+.content .user-tab-right .all-user-detail  .all-user-outer {max-width:660px;}
+.content .user-tab-right .all-user-detail .edit-user-outer { display:none; max-width:660px;}
 .content .user-tab-right .all-user-detail .edit-user-outer ul { margin:0px; padding:0;}
 .content .user-tab-right .all-user-detail .edit-user-outer ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
 .content .user-tab-right .all-user-detail .edit-user-outer ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
@@ -558,3 +567,8 @@ header .header-right ul li { float:none; display:inline-block;}
 #container18 .highcharts-legend-item { display:none !important;}
 .highcharts-legend { display:none !important;}
 #createuser .choose-class { display:block !important;}
+.lcs_label { display:none;}
+.lcs_wrap { display:block; text-align:right;}
+.lcs_switch.lcs_off { background:#fff;}
+.lcs_switch.lcs_on { background:#84b4ea;}
+.lcs_cursor { background:#ddd;}

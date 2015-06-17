@@ -9,13 +9,17 @@ $( document ).ready(function() {
 		$('.reports-detail').css('display','block');
 		$('.content ul.print-button').css('display','block');
 	});
-	$(".content .reports-detail .average-class-detail .average-class-top table tbody td.cumulative-time a").click(function(){
+ 
+
+ $(".content .user-tab-right .all-user-detail table tr td .user-report").click(function(){
 	
 	
-	$('.average-class-detail').css('display','none');
-	$('.report-per-program').css('display','block');
+	$('.content .all-user-detail').css('display','none');
+	$('.content .indvidual-detail-left-users').css('display','block');
 	
 	});
+ 
+ 
 	$(".content .individual-tab-detail button ").click(function(){
 	
 	
@@ -589,6 +593,68 @@ $(function () {
             data: [80, 70, 20 ,70, 20]
         } ]
     });
+	
+	   $('#container23').highcharts({
+        chart: {
+            type: 'column',
+			backgroundColor: '#f2f2f2'
+        },
+		 colors: [ '#ee8984','#84b4ea'] ,
+        title: {
+            text: 'Stacked column chart'
+        },
+        xAxis: {
+            categories: ['Main Idea', 'Detail', 'Inference', 'Compare', 'Vocabulary']
+        },
+        yAxis: {
+            min: 0,
+			max: 100,
+            title: {
+                text: 'Total fruit consumption'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: -30,
+            verticalAlign: 'top',
+            y: 25,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        credits: {
+    enabled: false
+  },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }
+        },
+        series: [
+		{
+            name: 'Un Correct',
+            data: [20, 30, 80 ,30, 80]
+        },{
+            name: 'Correct',
+            data: [80, 70, 20 ,70, 20]
+        } ]
+    });
 	 
 $(function () {
     var chart = new Highcharts.Chart({
@@ -633,6 +699,143 @@ $(function () {
             ]
         }]
     });
+	
+	
+	    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container25',
+            type:'pie',
+			backgroundColor: '#f2f2f2'
+        },
+		title: {
+    text: 'Hangman'
+},
+		 colors: [ '#ee8984','#84b4ea'] ,
+          credits: {
+    enabled: false
+  },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -30,
+                    color:'white'
+                }
+            }
+        },
+        
+       series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                 ['Safari',   25],
+                {
+                    name: 'Chrome',
+                    y: 75,
+                    sliced: true,
+                    selected: true
+                },
+               
+                
+            ]
+        }]
+    });
+	
+	
+	
+	
+	    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container26',
+            type:'pie',
+			backgroundColor: '#f2f2f2'
+        },
+		title: {
+    text: 'Hangman'
+},
+		 colors: [ '#ee8984','#84b4ea'] ,
+          credits: {
+    enabled: false
+  },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -30,
+                    color:'white'
+                }
+            }
+        },
+        
+       series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                 ['Safari',   25],
+                {
+                    name: 'Chrome',
+                    y: 75,
+                    sliced: true,
+                    selected: true
+                },
+               
+                
+            ]
+        }]
+    });
+	
+	
+	
+	    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container27',
+            type:'pie',
+			backgroundColor: '#f2f2f2'
+        },
+		title: {
+    text: 'Hangman'
+},
+		 colors: [ '#ee8984','#84b4ea'] ,
+          credits: {
+    enabled: false
+  },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    },
+                    distance: -30,
+                    color:'white'
+                }
+            }
+        },
+        
+       series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                 ['Safari',   25],
+                {
+                    name: 'Chrome',
+                    y: 75,
+                    sliced: true,
+                    selected: true
+                },
+               
+                
+            ]
+        }]
+    });
+	
+	
 });
   $(function () {
     var chart = new Highcharts.Chart({
@@ -723,6 +926,36 @@ $(function () {
     $('#container18').highcharts({
 	  chart: {
             renderTo: 'container18',
+            
+			backgroundColor: '#f2f2f2'
+
+        },
+		 credits: {
+    enabled: false
+  },
+         xAxis: {
+            tickInterval: 1
+        },
+
+        yAxis: {
+		
+            type: 'logarithmic',
+            minorTickInterval: 0.1
+        },
+
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br />',
+            pointFormat: 'x = {point.x}, y = {point.y}'
+        },
+
+        series: [{
+            data: [100,80,60,40,20],
+            pointStart: 1
+        }]
+    });
+	    $('#container24').highcharts({
+	  chart: {
+            renderTo: 'container24',
             
 			backgroundColor: '#f2f2f2'
 
