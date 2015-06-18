@@ -39,7 +39,9 @@ font-style: normal;
 body { background:#f2f2f2;font-family: 'droid_sansregular';}
 .clear {clear:both;}
 .container { max-width:1030px;}
-
+.slimScrollBar {  border-radius: 0px !important;
+  width: 11px !important;
+  background: #999999 !important;}
 /*Header css*/
 
 header { background:#2f2f2f; padding:10px 0 9px 0; margin-bottom:30px;}
@@ -83,7 +85,10 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .nav-tabs li.active a.material { background:url(../images/materials-icon-active.png) top center no-repeat; padding-top:24px;}
 .content .nav-tabs li a.tutors { background:url(../images/tutors-icon.png) top center no-repeat; padding-top:24px;}
 .content .nav-tabs li.active a.tutors { background:url(../images/tutors-icon-active.png) top center no-repeat; padding-top:24px;}
-.content ul.print-button { float:right; margin:0px; padding:0; display:none;}
+.content ul.print-button { float:right; margin:0px; padding:0; display:none; position:relative;}
+.content ul.print-button input[type="text"] { line-height:40px; background:#fff; border:1px solid #b3b3b3; border-radius:10px; width:146px; padding:0 13px; box-sizing:border-box; float:left; margin-right:15px; outline:none; padding-left:35px;}
+.content ul.print-button .search-filed-top {opacity:0;}
+.content ul.print-button a.search-icon { position:absolute; left:10px; top:10px; outline:none; }
 .content ul.print-button li { float:left; font-size:0px; list-style:none; width:auto; margin-right:11px;}
 .content ul.print-button li:last-child { margin-right:0px;}
 .content .welcome-notice { margin-top:26px;  margin:60px auto; text-align:center; max-width:310px; display:inline-block;}
@@ -120,8 +125,10 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .reports-detail label span {  font-family: 'droid_sansregular';}
 .content .reports-detail .average-class-detail { margin-top:30px;}
 .content .reports-detail .average-class-detail h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;}
+.content .reports-detail .average-class-detail h2 span { font-family: 'droid_sansregular'; display:}
 .content .reports-detail .average-class-detail .average-class-top {}
-.content .reports-detail .average-class-detail .average-class-top table { max-width:818px; width:100%; margin-bottom:27px;}
+.content .reports-detail .average-class-detail .slimScrollBar { margin-top:80px !important; display:block !important; }
+.content .reports-detail .average-class-detail .average-class-top table { max-width:800px; width:100%;  }
 .content .reports-detail .average-class-detail .average-class-top table thead td {text-align:center; vertical-align:bottom;}
 .content .reports-detail .average-class-detail .average-class-top table thead td.cumulative-time a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'droid_sansbold'; }
 .content .reports-detail .average-class-detail .average-class-top table thead td a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'litera-regularregular'; }
@@ -133,7 +140,9 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .reports-detail .average-class-detail .average-class-top table tbody td.cumulative-time a {font-size:13px; color:#84B4EA; text-decoration:none;font-family: 'droid_sansbold'; text-decoration:underline; }
 .content .reports-detail .average-class-detail .average-class-top table tbody td.satifactory { padding-top:30px;}
 .content .reports-detail .average-class-detail .average-class-top table tbody td.satifactory span { color:#FBB03B; background:url(../images/satisfactory-icon.png) center 0 no-repeat;  padding-top:20px;}
-.content .reports-detail .average-class-detail .average-class-top table tbody td.not-satifactory  span{ color:#F15A24;background:url(../images/not-satisfactory.png) 5px center no-repeat;line-height:20px; padding-top:40px; }
+.content .reports-detail .average-class-detail .average-class-top table tbody td.not-satifactory { padding-top:40px;}
+.content .reports-detail .average-class-detail .average-class-top table tbody td.not-satifactory  span{ color:#F15A24;background:url(../images/not-satisfactory.png) 50px 0 no-repeat;line-height:20px;  padding-top:40px;}
+.content .reports-detail .average-class-detail .average-class-top table tbody td.excellent { padding-top:40px;}
 .content .reports-detail .average-class-detail .average-class-top table tbody td.excellent span { color:#22B573;background:url(../images/excellent.png) center 0 no-repeat; line-height:20px; padding-top:20px; }
 
 
@@ -162,7 +171,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .reports-detail .average-class-table .average-table-row ul li.excellent span { color:#22B573;background:url(../images/excellent.png) center 0 no-repeat; line-height:20px; padding-top:20px; }
 .content .reports-detail .average-class-table .average-table-row ul li:last-child { margin-right:0px;}
 .content .reports-detail .average-class-table .average-table-row:last-child{ border-bottom:0px none;}
-.content .reports-detail .slimScrollBar { border-radius:0px !important; display:block !important; width:11px !important; background:#999999 !important;}
+.content .reports-detail .slimScrollBar { border-radius:0px !important;   width:11px !important; background:#999999 !important;}
 .content .reports-detail .slimScrollDiv { margin-bottom:30px;}
 .content .reports-detail .usage-program { }
 .content .reports-detail .usage-program  h2 span{ font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold';}
@@ -178,6 +187,19 @@ text-align: center; border-left:8px solid #f2f2f2; }
 #container2 .highcharts-title , #container2 .highcharts-yaxis-title , #container2 .highcharts-yaxis-labels , #container2 
 .content .highcharts-axis , #container2 .highcharts-grid ,#container2 .highcharts-tooltip { display:none;}
 .content .highcharts-data-labels { background:#000;border-radius:50% 50%;}
+#container1  .highcharts-data-labels text { color:#fff !important; font-size:17px !important; text-decoration:none !important; fill:#fff !important; background:#000;border-radius:50% 50%;font-family: 'droid_sansbold';}
+#container1  .highcharts-axis-labels text{ color:#fff !important; font-size:14px !important; text-decoration:none !important;fill:#f00!important; background:#000;border-radius:50% 50%;font-family: 'litera-regularregular' !important;}
+#container1 .highcharts-axis-labels tspan{ color:#fff !important; font-size:14px !important; text-decoration:none !important;fill:#f00 !important; background:#000;border-radius:50% 50%;}
+
+
+#container10  .highcharts-data-labels text { color:#fff !important; font-size:17px !important; text-decoration:none !important; fill:#fff !important; background:#000;border-radius:50% 50%;font-family: 'droid_sansbold';}
+#container10  .highcharts-axis-labels text{ color:#fff !important; font-size:14px !important; text-decoration:none !important;fill:#f00!important; background:#000;border-radius:50% 50%;font-family: 'litera-regularregular' !important;}
+#container10 .highcharts-axis-labels tspan{ color:#fff !important; font-size:14px !important; text-decoration:none !important;fill:#f00 !important; background:#000;border-radius:50% 50%;}
+#container10 .highcharts-yaxis-labels { display:none !important;}
+#container10 .highcharts-grid { display:none !important;}
+
+.content #maxread-indivdual .slimScrollBar { display:block !important;  border-radius: 0px !important;
+  width: 11px !important;background: #999999 !important; margin-top:36px;}
 .content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,  .highcharts-tooltip ,#container4 .highcharts-legend{ display:none;}
 .content #container2 .highcharts-data-labels { display:none;}
  
@@ -193,10 +215,11 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .report-per-program .report-per-top table thead td { text-align:center;}
 .content .report-per-program .report-per-top table thead td a{ font-size: 13px;color: #84B4EA; text-align:center;  text-decoration: none;font-family: 'droid_sansbold';}
 .content .report-per-program .report-per-top table tbody tr { border-bottom:2px solid #e6e6e6;}
+.content .report-per-program .report-per-top table tbody tr.average { border-bottom:0px;}
 .content .report-per-program .report-per-top table tbody tr td { background:#fff; text-align:center; vertical-align:middle; height:95px; border-left:6px solid #f2f2f2; }
 .content .report-per-program .report-per-top table tbody tr td:first-child { background:none;font-family: 'droid_sansbold'; }
 .content .report-per-program .report-per-top table tbody tr.average td { color:#f7931e;}
-.content .report-per-program  .slimScrollBar { display:none !important;}
+.content .report-per-program  .slimScrollBar {  }
 .content .report-per-program  .average-class-table { margin-bottom:39px; margin-top:16px;}
 .content .report-per-program  .average-class-table .average-table-row ul li:first-child { width:84px;}
 .content .report-per-program  .average-class-table .average-table-row ul li { width:97px;}
@@ -208,7 +231,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content #maxphonics .report-per-top ul li { width:48%;}
 .content #maxphonics .average-class-table .average-table-row ul li:first-child { width:84px;}
 .content #maxphonics .average-class-table .average-table-row ul li { width:44%;}
-.content #maxphonics .enter-individual-data { margin-top:17px; margin-bottom:60px; float:right; padding:28px 50px; border:1px solid #b3b3b3;}
+.content #maxphonics .enter-individual-data {  margin-bottom:60px; float:right; padding:28px 50px; border:1px solid #b3b3b3;}
 .content #maxphonics .enter-individual-data a {font-size:18px; color:#5D5D5D;font-family: 'droid_sansbold'; background:url(../images/individual-plus-icon.png) left center no-repeat; padding-left:65px; display:block; text-align:center; }
 
 .content #maxplace .report-per-top ul li { width:48%;}
@@ -247,7 +270,9 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .constant-detail .nav-tabs li a {font-size:14px; font-family: 'droid_sansbold' !important;}
 .content .constant-detail .nav-tabs li.active { background:#2f2f2f; color:#fff; border-radius:0px !important ;font-size:14px; font-family: 'droid_sansbold'!important;} 
 .content .constant-detail .constant-table-detail {}
-.content .constant-detail .constant-table-detail table { max-width:820px; width:100%;}
+.content .constant-detail .constant-table-detail table { max-width:820px; width:98.2%;}
+.content .constant-detail .slimScrollBar { display:block !important;  border-radius: 0px !important;
+  width: 11px !important;background: #999999 !important; margin-top:36px;}
 .content .constant-detail .constant-table-detail table thead td { height:40px; vertical-align:top;}
 .content .constant-detail .constant-table-detail table tbody tr td { height:95px;}
 .content .constant-detail .constant-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#CCCCCC; text-decoration:none; background:none;}
@@ -279,7 +304,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
  
  
  .content .individual-report-per-program h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;} 
-.content .individual-report-per-program table { width:100%; max-width:860px; margin-bottom:42px;}
+.content .individual-report-per-program table { width:98.5%; max-width:860px;  }
+.content .individual-report { margin-top:42px !important ;}
 .content .individual-report-per-program table thead td {background:none; text-align:center; font-size:13px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
 .content .individual-graphs { }
 .content .individual-graphs h2 { width:590px; display:inline-block;}
@@ -289,11 +315,12 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .individual-report-per-program table tbody tr td { height:93px;background:none; text-align:center; vertical-align:middle; background:#fff; border-left:5px solid #f2f2f2;border-bottom:2px solid #f2f2f2; font-size:15px;color:#5D5D5D; font-family: 'droid_sansregular';}
 .content .individual-report-per-program table tbody tr td a { line-height:25px; text-decoration:none; color:#fff; font-size:12px; font-family: 'droid_sansregular'; background:#84b4ea; display:inline-block; border-radius:5px;  width:74px; text-align:center;}
 .content .individual-report-per-program table tbody tr { border-bottom:10px solid #f2f2f2;}
-.content .individual-report-per-program table tbody tr td:first-child { font-size:15px; color:#84B4EA;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:13px; }
+.content .individual-report-per-program table tbody tr td:first-child {  color:#84B4EA;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:12px; }
 .content .book-completion-table {}
 .content .book-completion-table table { max-width:860px; width:100%;}
 .content .book-completion-table table thead td { background:none; font-size:13px; color:#84B4EA; text-align:center; vertical-align:middle;font-family: 'droid_sansbold'; line-height:34px;}
 .content .book-completion-table table tbody tr td { background:#c3ddf4; height:56px; text-align:center; font-size:16px; color:#5D5D5D; font-family: 'droid_sansregular';}
+.content .book-completion-table table tbody tr td.full-score { background:url(../images/full-scroe.png) 90% center no-repeat #c3ddf4;}
 .content .book-completion-table table tbody tr td:first-child { background:#c3ddf4; height:56px; text-align:center; font-size:16px; color:#5D5D5D; font-family: 'droid_sansregular';}
 .content .individual-average-score .report-per-top{padding-left:0px; margin-bottom:34px;}
 .content .individual-average-score .report-per-top table { max-width:818px; width:100%;}
@@ -356,13 +383,18 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail .all-member-detail #myModal3  .modal-content{ padding-right:100px;}
 .content  .create-class-detail .all-member-detail #myModal3 .modal-footer { text-align:center;}
 
-.content  .create-class-detail .all-member-detail .choose-member li { padding:0px;}
+.content  .create-class-detail .all-member-detail .choose-member li { padding:0px; width:98%;}
 .content  .create-class-detail .all-member-detail .choose-member li a { display:block;line-height: 37px;background: url(../images/chosse-member-icon.png) 98% center no-repeat #fff; padding: 0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none;}
 .content  .create-class-detail .all-member-detail .choose-member span { padding-right:120px; margin:0px;}
 .content  .create-class-detail .all-member-detail .add-student { margin-bottom:32px;}
 .content  .create-class-detail .all-member-detail .add-student span { padding-right:120px; margin:0px;}
 .content  .create-class-detail .all-member-detail .add-student ul { margin-top:4px;}
-.content  .create-class-detail .all-member-detail .add-student li { padding:0px;}
+.content  .create-class-detail .all-member-detail .add-student .slimScrollBar { display:block !important;  border-radius: 0px !important;width: 11px !important;background: #999999 !important; margin-top:4px;}
+
+.content .create-class-detail .all-member-detail  .slimScrollBar { display:block !important;  border-radius: 0px !important;width: 11px !important;background: #999999 !important; margin-top:4px;}
+
+
+.content  .create-class-detail .all-member-detail .add-student li { padding:0px; width:98%;}
 .content  .create-class-detail .all-member-detail .add-student li a { display:block;line-height: 37px;background: url(../images/add-student-icon.png) 98% center no-repeat #fff; padding: 0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none;}
 .content  .create-class-detail .all-member-detail .create-class-btn {float:right;}
 .content  .create-class-detail .all-member-detail .create-class-btn a { padding:25px 60px 25px 110px; background:url(../images/create-clss-icon.png) 41px center no-repeat; border:1px solid #b3b3b3;font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none; display:inline-block; margin-bottom:40px; }
@@ -387,7 +419,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .user-tab-right .all-user-detail {}
 .content .user-tab-right .slimScrollDiv {margin-bottom:33px;}
 .content .user-tab-right .all-user-detail {}
-.content .user-tab-right .all-user-detail table { width:100%; }
+.content .user-tab-right .all-user-detail table { width:98%; }
 .content .user-tab-right .all-user-detail table tr { margin-bottom:4px;}
 .content .user-tab-right .all-user-detail table tr td { border-right:4px solid #f2f2f2; border-bottom:4px solid #f2f2f2; background:#fff; line-height:37px; padding:0 15px; font-size:16px;color:#5D5D5D;font-family: 'droid_sansregular';}
 .content .user-tab-right .all-user-detail table tr td .user-report { background:url(../images/reports-icon.png) left center no-repeat; font-size:14px;color:#5D5D5D;  font-family: 'droid_sansbold'; padding-left:30px; display:inline-block;text-decoration:none; }
@@ -425,9 +457,12 @@ text-align: center; border-left:8px solid #f2f2f2; }
 /*Tutor Tab Detail*/
 .content .allstudent-detail {}
 .content .allstudent-detail {}
-.content .allstudent-detail table { width:100%; max-width:600px;}
+.content .allstudent-detail table { width:98%; max-width:600px;}
 .content .allstudent-detail table tr { margin-bottom:4px;}
 .content .allstudent-detail table tr td { border-right:4px solid #f2f2f2; border-bottom:4px solid #f2f2f2; background:#fff; line-height:37px; padding:0 15px; font-size:16px;color:#5D5D5D;font-family: 'droid_sansregular';}
+
+.content .allstudent-detail table tr td.session-total {background:none; text-align:right; color:#f7931e; font-weight:bold;}
+
 .content .allstudent-detail table tr td span { padding-right:30px; display:inline-block; width:30px; text-align:left;}
 .content .allstudent-detail .student-report{  background: url(../images/callender-icon.png) left center no-repeat;  font-size: 14px;color: #5D5D5D;font-family: 'droid_sansbold';padding-left: 30px;display: inline-block;text-decoration: none;}
 .content .allstudent-detail table tr td a.active { text-align:right;text-decoration:none; font-size:15px;font-family: 'droid_sansbold'; background:url(../images/student-active-icon.png) left center no-repeat; color:#5D5D5D; float:right; padding-left:15px; width:70px; text-align:left;}
@@ -459,6 +494,18 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .hidden-table { width:100%; display:none;}
  .nav > li > a:focus, .nav > li > a:hover { background:none;}
 .content .clover-tabs-detail .clover-table-detail table.hidden-table tbody tr td:first-child{ font-size:15px; color:#84B4EA !important;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:13px; }
+.content .complete-report { display:none; }
+.content .complete-report table { width:100%; max-width:600px;}
+.content .complete-report table tbody tr { border-bottom:6px solid #f2f2f2 ;}
+.content .complete-report table tbody tr td { background:#fff; height:100px;}
+.content .complete-report table tbody tr td.callender-left { text-align:center; border-right:6px solid #f2f2f2;}
+.content .complete-report table tbody tr td.report-description { padding:20px;}
+.content .complete-report table tbody tr td.report-description p {font-size:16px;font-family: 'droid_sansbold'; color:#5D5D5D;}
+.content .complete-report .callender-left a { background:url(../images/callender-2.png) left center no-repeat; width:50px; height:50px; display:inline-block; text-align:center; padding-top:20px; text-decoration:none; font-size:16px;font-family: 'droid_sansbold'; color:#5D5D5D;}
+.content .complete-report .callender-left span { display:block; font-size:12px;font-family: 'droid_sansbold'; color:#5D5D5D; margin-top:12px;}
+
+
+
 /*Media Quries*/
 @media screen and (max-width: 1200px) { 
 header .logo { width:40%;}

@@ -4,6 +4,13 @@ $( document ).ready(function() {
 	$(".content .nav-tabs li").click(function(){
    		$('.welcome-notice').css('display','none');
 	});
+	$(".user-tab-title").click(function(){
+   		$('.content ul.print-button').css('display','none');
+	})
+	$(".alluser-tab-detail").click(function(){
+   		$('.content ul.print-button').css('display','block');
+	})
+	
 	$(".class-tab-detail button").click(function(){
    		$('.class-tab-detail').css('display','none');
 		$('.reports-detail').css('display','block');
@@ -44,15 +51,14 @@ $( document ).ready(function() {
 	$('.content  .create-class-detail .all-member-detail .choose-member').show('slow');
  	});
 	$(".content  a.edit-user").click(function(){
-	
-	
-	$('.content  .all-user-outer').css('display','none');
+ 	$('.content  .all-user-outer').css('display','none');
 	$('.content  .edit-user-outer').css('display','block');
 	
  	});
 	
+
 	
-	$(".content .allstudent-detail .student-report").click(function(){
+	$(".content .allstudent-detail .enter-session").click(function(){
 	
 	
 	$('.content  .allstudent-detail').css('display','none');
@@ -64,24 +70,45 @@ $( document ).ready(function() {
 	
 	$('.content .enter-session-outer').css('display','none');
 	$('.content .new-session-outer').css('display','block');
+	$('.content .complete-report ').css('display','none');
 	
  	});
+	
+	
+	$(".material").click(function(){
+	
+	$('.content ul.print-button ').css('display','none');
+  	});
+	
+	$(".tutors").click(function(){
+	
+	$('.content ul.print-button ').css('display','block');
+  	});
 	
 	$(" .content .see-detail-report-btn").click(function(){
 	
 	
-	$('.content .individual-average-score').css('display','none');
+	$('.content .individual-average-score').css('display','block');
 	$('.content .individual-report-per-program').css('display','block');
 	
  	});
-	
+	$(" .individual-title").click(function(){
+ 	$('.content ul.print-button').css('display','none');
+  	});
+	$(".content .individual-tab-detail button").click(function(){
+ 	$('.content ul.print-button').css('display','block');
+  	});
 	
 	 $(function(){
     $('.average-class-detail .average-class-table').slimScroll({
         height: '450px'
     });
+	$('.content .create-class-detail .all-member-detail .modify-member').slimScroll({
+        height: '330px'
+    });
+	
 	 $('.add-student ul').slimScroll({
-        height: '420px'
+        height: '410px'
     });
 	 $('.user-tab-right .user-detail-table').slimScroll({
         height: '530px'
@@ -90,6 +117,20 @@ $( document ).ready(function() {
         height: '530px'
     });
  
+  $('.content .reports-detail .average-class-detail .average-class-top').slimScroll({
+        height: '500px' 
+     });
+	 
+	  $('.content .individual-report-per-program-table').slimScroll({
+        height: '400px' 
+     });
+	   $('.content .constant-table-detail').slimScroll({
+        height: '520px' 
+     });
+	
+	
+	 
+	 
 	 $('.content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a').on('click', function(e) {
      e.preventDefault();
      $(this).text(function(i,v) {
@@ -98,6 +139,7 @@ $( document ).ready(function() {
      });
 
 	 $('.content .hidden-table ').slideToggle('slow');
+	 $('.search-filed-top ').css('opacity','1');
 });
 }); 
 $(function () {
@@ -167,6 +209,7 @@ $(function () {
             // Create the chart
             $('#container1').highcharts({
                 chart: {
+			 		fill:'#f00',	
                     type: 'column',
 					 backgroundColor: '#f2f2f2'
 					 
@@ -177,8 +220,9 @@ $(function () {
                 xAxis: {
                     type: 'category'
                 },
-                
+            
                 legend: {
+					
                     enabled: false,
 					floating:false
                 },
@@ -190,8 +234,10 @@ $(function () {
                         borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '{point.y:.1f}%'
-                        }
+                            format: '{point.y:.1f}%',
+							backgroundColor: '#f84f4f',
+							borderRadius:'50%'  
+                         }
                     }
                 },
 
@@ -231,10 +277,13 @@ $(function () {
   },
                 plotOptions: {
                     series: {
+					 
                         borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '{point.y:.1f}%'
+                            format: '{point.y:.1f}%',
+								backgroundColor: '#f84f4f',
+							borderRadius:'50%'  
                         }
                     }
                 },
@@ -476,7 +525,7 @@ $(function () {
             text: 'Stacked column chart'
         },
         xAxis: {
-            categories: ['Main Idea', 'Detail', 'Inference', 'Compare' ]
+            categories: ['Syllabication', 'Questions', 'Complete Words', 'Complete Sentences' ]
         },
         yAxis: {
             min: 0,
@@ -1116,3 +1165,116 @@ $(function () {
 });
  
 });
+
+ 
+            
+            $(document).ready(function() {
+				$("#datepicker").datepicker({
+					showOn: 'button',
+					buttonText: '',
+					buttonImageOnly: true,
+					buttonImage: 'images/callender-icon.png',
+					dateFormat: 'dd/mm/yy',
+					constrainInput: true
+				});
+				
+				$(".ui-datepicker-trigger").mouseover(function() {
+					$(this).css('cursor', 'pointer');
+				});
+					$('input').lc_switch();
+
+	// triggered each time a field changes status
+	$('body').delegate('.lcs_check', 'lcs-statuschange', function() {
+		var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
+		console.log('field changed status: '+ status );
+	});
+				
+				$( ".lcs_wrap" ).click(function() {
+ 				if ($('.lcs_switch').hasClass('lcs_off')) {
+					$('.content .top-tabs-headings li.genralclass').removeClass('active');
+					$('.content .top-tabs-headings li.detailclass').addClass('active');
+ 					
+					$('#genralperformance').removeClass('active');
+ +					$('#detailscore').addClass('active');
+					 	
+				  
+				}
+				else {
+				
+					$('.content .top-tabs-headings li.detailclass').removeClass('active');
+					$('.content .top-tabs-headings li.genralclass').addClass('active');
+					$('#detailscore').removeClass('active');
+					$('#genralperformance').addClass('active');
+					
+				}
+ 				});
+				
+				 
+				 
+				 $( ".content .top-tabs-headings li.genralclass" ).click(function() {
+ 			 
+					 	$('.lcs_switch').removeClass('lcs_on');
+						$('.lcs_switch').addClass('lcs_off');
+				  
+				 
+ 				});
+				
+				 
+				 $( ".content .top-tabs-headings li.detailclass" ).click(function() {
+ 			 
+					 	$('.lcs_switch').addClass('lcs_on');
+						$('.lcs_switch').removeClass('lcs_off');
+				  
+				 
+ 				});
+				
+				
+				$( ".lcs_wrap" ).click(function() {
+ 				if ($('.lcs_switch').hasClass('lcs_off')) {
+					 $('.content .top-tabs-headings li.overallperformance').removeClass('active');
+					$('.content .top-tabs-headings li.overalldetail').addClass('active');
+					$('#individualgenralperformance').removeClass('active');
+					$('#individualdetailscore').addClass('active');
+					 	
+				  
+				}
+				else {
+					$('.content .top-tabs-headings li.overalldetail').removeClass('active');
+				 $('.content .top-tabs-headings li.overallperformance').addClass('active');
+				$('#individualgenralperformance').addClass('active');
+				 $('#individualdetailscore').removeClass('active');
+					
+ 				}
+				
+				
+ 				});
+				$( ".content .top-tabs-headings li.overallperformance" ).click(function() {
+ 			 
+					 	$('.lcs_switch').removeClass('lcs_on');
+						$('.lcs_switch').addClass('lcs_off');
+				  
+				 
+ 				});
+				
+				 
+				 $( ".content .top-tabs-headings li.overalldetail" ).click(function() {
+ 			 
+					 	$('.lcs_switch').addClass('lcs_on');
+						$('.lcs_switch').removeClass('lcs_off');
+				  
+				 
+ 				});
+				
+              });
+   $('.content .new-session-outer a.submit-changes').click(function(){
+ 	$('.enter-session-detail').css('display','block');
+  	$('.enter-session-outer').css('display','block');
+	$('.new-session-outer').css('display','none');
+  	});
+	
+	
+	
+	$('.content .allstudent-detail .student-report').click(function(){
+		$('.allstudent-detail').css('display','none');
+  	 	$('.content .complete-report ').css('display','block');
+  	});

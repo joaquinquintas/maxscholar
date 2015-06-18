@@ -52,12 +52,17 @@
               <ul class="nav nav-tabs main-tabs" role="tablist">
                 <li role="presentation"><a href="#reports" aria-controls="reports" role="tab" data-toggle="tab" class="reports">REPORTS</a></li>
                 <li role="presentation"><a href="#classes" aria-controls="classes" role="tab" data-toggle="tab" class="classes">classes</a></li>
-                <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab" class="users">users</a></li>
+                <li role="presentation" class="user-tab-title"><a href="#users" aria-controls="users" role="tab" data-toggle="tab" class="users">users</a></li>
                 <li role="presentation"><a href="#license" aria-controls="license" role="tab" data-toggle="tab" class="license">license</a></li>
                 <li role="presentation"><a href="#material" aria-controls="material" role="tab" data-toggle="tab" class="material"> materials</a></li>
                 <li role="presentation"><a href="#tutors" aria-controls="tutors" role="tab" data-toggle="tab" class="tutors">tutors</a></li>
               </ul>
               <ul class="print-button">
+              <!--	<div class="search-filed-top">
+                <input type="text" value="" placeholder="" >
+                <a href="#" class="search-icon"><img src="images/search-icon.png" alt="" ></a>
+                <div class="clear"></div>
+                </div>-->
                 <li><a href="#"><img src="images/download-icon.png" alt="" title="" ></a></li>
                 <li><a href="#"><img src="images/print-icon.png" alt="" title="" ></a></li>
               </ul>
@@ -72,7 +77,7 @@
                         <ul class="nav nav-tabs tabs-inner" role="tablist">
                           <li role="presentation"><a href="#district" aria-controls="district" role="tab" data-toggle="tab">district</a></li>
                           <li role="presentation"><a href="#class" aria-controls="class" role="tab" data-toggle="tab">class</a></li>
-                          <li role="presentation"><a href="#individual" aria-controls="individual" role="tab" data-toggle="tab">individual</a></li>
+                          <li role="presentation" class="individual-title"><a href="#individual" aria-controls="individual" role="tab" data-toggle="tab">individual</a></li>
                         </ul>
                       </div>
                     </div>
@@ -175,10 +180,10 @@
                                               </thead>
                                           <tbody>
                                             <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
                                               <td width="11%">82 </td>
                                               <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
                                               <td width="11%"> 82 </td>
                                               <td width="10%"> 160 </td>
                                               <td width="10%"> 82 </td>
@@ -186,10 +191,32 @@
                                               <td width="10%" class="satifactory"><span>Satisfactory </span></td>
                                             </tr>
                                             <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
                                               <td width="11%">82 </td>
                                               <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
+                                              <td width="11%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%" class="not-satifactory"><span>Not Satisfactory </span></td>
+                                            </tr>
+                                            <tr>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="11%">82 </td>
+                                              <td width="11%">160 </td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
+                                              <td width="11%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%" class="excellent"><span>Excellent </span></td>
+                                            </tr>
+                                            <tr>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="11%">82 </td>
+                                              <td width="11%">160 </td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
                                               <td width="11%"> 82 </td>
                                               <td width="10%"> 160 </td>
                                               <td width="10%"> 82 </td>
@@ -197,10 +224,10 @@
                                               <td width="10%" class="satifactory"><span>Satisfactory </span></td>
                                             </tr>
                                             <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
                                               <td width="11%">82 </td>
                                               <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
                                               <td width="11%"> 82 </td>
                                               <td width="10%"> 160 </td>
                                               <td width="10%"> 82 </td>
@@ -208,10 +235,21 @@
                                               <td width="10%" class="satifactory"><span>Satisfactory </span></td>
                                             </tr>
                                             <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
                                               <td width="11%">82 </td>
                                               <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
+                                              <td width="11%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%"> 82 </td>
+                                              <td width="10%"> 160 </td>
+                                              <td width="10%" class="excellent"><span>Excellent </span></td>
+                                            </tr>
+                                            <tr>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="11%">82 </td>
+                                              <td width="11%">160 </td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
                                               <td width="11%"> 82 </td>
                                               <td width="10%"> 160 </td>
                                               <td width="10%"> 82 </td>
@@ -219,48 +257,15 @@
                                               <td width="10%" class="satifactory"><span>Satisfactory </span></td>
                                             </tr>
                                             <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
+                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
                                               <td width="11%">82 </td>
                                               <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
+                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
                                               <td width="11%"> 82 </td>
                                               <td width="10%"> 160 </td>
                                               <td width="10%"> 82 </td>
                                               <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
+                                              <td width="10%" class="not-satifactory"><span>Not Satisfactory </span></td>
                                             </tr>
                                             <tr class="average">
                                               <td width="12%" class="cumulative-time" style="background : none"><a href="#">Class Average</a></td>
@@ -376,7 +381,7 @@
                                                     <td width="9.8%">5</td>
                                                   </tr>
                                                   <tr class="average">
-                                                    <td width="14.6%">Average</td>
+                                                    <td width="14.6%">Total</td>
                                                     <td width="9.8%">25</td>
                                                     <td width="9.8%">4</td>
                                                     <td width="9.8%">5</td>
@@ -808,8 +813,8 @@
                                        <div role="tabpanel"> 
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" role="tablist">
-                                          <li role="presentation" class="active"><a href="#maxread-indivdual" aria-controls="maxread-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXREADING</a></li>
-                                          <li role="presentation"><a href="#maxphonics-indivdual" aria-controls="maxphonics-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPHONICS</a></li>
+                                          <li role="presentation" class="active max-read-individual"><a href="#maxread-indivdual" aria-controls="maxread-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXREADING</a></li>
+                                          <li role="presentation" class="max-phonics"><a href="#maxphonics-indivdual" aria-controls="maxphonics-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPHONICS</a></li>
                                           <li role="presentation"><a href="#maxword-indivdual" aria-controls="maxword-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXWORDS</a></li>
                                           <li role="presentation"><a href="#maxplace-indivdual" aria-controls="maxplace-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPLACES</a></li>
                                           <li role="presentation"><a href="#maxbio-indivdual" aria-controls="maxbio-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXBIOS</a></li>
@@ -819,7 +824,8 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                           <div role="tabpanel" class="tab-pane active" id="maxread-indivdual">
-                                            <table>
+<div class="individual-report-per-program-table">                                           
+										   <table>
                                               <thead>
                                               <td width="10%">Level</td>
                                                 <td width="12%">Book</td>
@@ -868,6 +874,7 @@
                                                 </tr>
                                               </tbody>
                                             </table>
+											</div>
                                             <div class="individual-report">
                                               <div class="individual-graphs">
                                                 <h2>COMPREHENSION</h2>
@@ -894,7 +901,7 @@
                                                     <tr>
                                                       <td width="33%">Book 1</td>
                                                       <td width="33%">5</td>
-                                                      <td width="33%">100%</td>
+                                                      <td width="33%" class="full-score">100%</td>
                                                     </tr>
                                                     <tr>
                                                       <td width="33%">Book 1</td>
@@ -909,10 +916,12 @@
                                               <div class="individual-graphs">
                                                 <h2>VOCAB GAMES : </h2>
                                                 <ul>
-                                                  <li>Correct</li>
-                                                  <li>Incorrect</li>
+                                                  <li>Rounds won</li>
+                                                  <li>Rounds lost</li>
                                                 </ul>
-                                                <div id="container12" style=" width:33%;  max-width:235px; height: 400px;box-sizing:border-box; float:left"> </div>
+                                                <div id="container12" style=" width:33%;  max-width:235px; height: 400px;box-sizing:border-box; float:left">
+													 
+												</div>
                                                 <div id="container13" style=" width:33%; max-width:235px;  height: 400px;box-sizing:border-box; float:left;"> </div>
                                                 <div id="container14" style=" width:33%; max-width:235px;  height: 400px;box-sizing:border-box; float:left;"> </div>
                                               </div>
@@ -3472,7 +3481,7 @@
                     <div class="row"> 
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs tabs-inner" role="tablist">
-                        <li role="presentation"><a href="#allusers" aria-controls="allusers" role="tab" data-toggle="tab">ALL USERS</a></li>
+                        <li role="presentation" class="alluser-tab-detail"><a href="#allusers" aria-controls="allusers" role="tab" data-toggle="tab">ALL USERS</a></li>
                         <li role="presentation"><a href="#createuser" aria-controls="createuser" role="tab" data-toggle="tab">CREATE NEW</a></li>
                       </ul>
                     </div>
@@ -6669,8 +6678,8 @@
                         </div>
                         <div role="tabpanel" class="tab-pane all-user-detail" id="materailother">
                           <div class="all-user-outer">
-                            <h2>OTHERS : </h2>
-                            <div class="user-detail-table">
+                            <h2>MAXBIOS:</h2>
+                            <div class="other-table">
                               <table>
                                 <tbody>
                                   <tr>
@@ -6713,6 +6722,15 @@
                                                                  alt=""
                                                                 title=""></a></td>
                                   </tr>
+                                  
+                                </tbody>
+                              </table>
+                            </div>
+							 <h2>MAXPLACES:</h2>
+							 <div class="other-table">
+                              <table>
+                                <tbody>
+                                  
                                   <tr>
                                     <td width="78%"><span>1-</span>Material about a</td>
                                     <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
@@ -6745,6 +6763,13 @@
                                                                  alt=""
                                                                 title=""></a></td>
                                   </tr>
+                                </tbody>
+                              </table>
+                            </div>
+							<h2>MAXMUSIC:</h2>
+							 <div class="other-table">
+                              <table>
+                                <tbody>
                                   <tr>
                                     <td width="78%"><span>1-</span>Material about a</td>
                                     <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
@@ -6754,7 +6779,7 @@
                                                                 title=""></a></td>
                                   </tr>
                                   <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
+                                    <td width="78%"><span>2-</span>Material about b</td>
                                     <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
                                                                 title=""></a></td>
                                     <td width="11%"><a href="#"><img src="images/material-print-icon.png"
@@ -6762,53 +6787,14 @@
                                                                 title=""></a></td>
                                   </tr>
                                   <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
+                                    <td width="78%"><span>3-</span>Material about c</td>
                                     <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
                                                                 title=""></a></td>
                                     <td width="11%"><a href="#"><img src="images/material-print-icon.png"
                                                                  alt=""
                                                                 title=""></a></td>
                                   </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
+                                  
                                 </tbody>
                               </table>
                             </div>
@@ -7135,7 +7121,7 @@
                                   <label>Student Name : </label>
                                   <span>JOHN DOE</span>
                                   <div class="form-row">
-                                    <label>Username : </label>
+                                    <label>Session Date: </label>
                                     <input type="text" value="" placeholder=""  id='datepicker' >
                                   </div>
                                   <div class="form-row">
@@ -7150,12 +7136,24 @@
                                       <option>PM</option>
                                     </select>
                                   </div>
+                                   <div class="form-row">
+                                    <label>End Time : </label>
+                                    <select>
+                                      <option>-</option>
+                                    </select>
+                                    <select class="time-detail">
+                                      <option>-</option>
+                                    </select>
+                                    <select class="time-detail-2">
+                                      <option>-</option>
+                                    </select>
+                                  </div>
                                   <label>Progress Note : </label>
                                   <div class="form-row">
                                     <textarea></textarea>
                                   </div>
                                 </div>
-                                <div class="document-session-btn"> <a href="#" class="decoument-session">SUBMIT CHANGES</a>
+                                <div class="document-session-btn"> <a href="#" class="decoument-session submit-changes">SUBMIT CHANGES</a>
                                   <div class="clear"></div>
                                 </div>
                                 <div class="document-session-btn"> <a href="#" class="document-report">SUBMIT CHANGES & <br>
@@ -7164,6 +7162,59 @@
                                 </div>
                                 <div class="clear"></div>
                               </div>
+                              <div class="new-session-outer complete-report">
+                                <h2>REPORTS </h2>
+                                <div class="enter-session-detail ">
+                                  <label>Student Name : </label>
+                                  <span>JOHN DOE</span>
+                                 </div>
+                                 <div class="complete-report-table">
+                                 	<table>
+                                    	<tbody>
+                                        	<tr>
+                                            	<td class="callender-left" width="17%">
+                                                <a href="#">15</a>
+                                                <span>April <br> 2015</span>
+                                                </td>
+                                                <td class="report-description" width="80%">
+                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
+                                            </tr>
+                                            <tr>
+                                            	<td class="callender-left" width="17%">
+                                                <a href="#">15</a>
+                                                <span>April <br> 2015</span>
+                                                </td>
+                                                <td class="report-description" width="80%">
+                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
+                                            </tr>
+                                            <tr>
+                                            	<td class="callender-left" width="17%">
+                                                <a href="#">15</a>
+                                                <span>April <br> 2015</span>
+                                                </td>
+                                                <td class="report-description" width="80%">
+                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
+                                            </tr>
+                                            <tr>
+                                            	<td class="callender-left" width="17%">
+                                                <a href="#">15</a>
+                                                <span>April <br> 2015</span>
+                                                </td>
+                                                <td class="report-description" width="80%">
+                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
+                                            </tr>
+                                            <tr>
+                                            	<td class="callender-left" width="17%">
+                                                <a href="#">15</a>
+                                                <span>April <br> 2015</span>
+                                                </td>
+                                                <td class="report-description" width="80%">
+                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                 </div>
+                               </div>
                             </div>
                           </div>
                         </div>
@@ -7231,6 +7282,10 @@
                                         <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
                                         <td width="25%">4 hours</td>
                                       </tr>
+                                      <tr>
+                                        <td width="75%" class="session-total">Total</td>
+                                        <td width="25%" style="color:#f7931e; font-weight:bold;">4 hours</td>
+                                      </tr>
                                     </tbody>
                                   </table>
                                 </div>
@@ -7283,107 +7338,36 @@ MAXMUSIC 5.0	10%
 <script src="js/bootstrap-datepicker.js"></script> 
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="js/lc_switch.js" type="text/javascript"></script>
- <script type="text/javascript"> 
-            
-            $(document).ready(function() {
-				$("#datepicker").datepicker({
-					showOn: 'button',
-					buttonText: '',
-					buttonImageOnly: true,
-					buttonImage: 'images/callender-icon.png',
-					dateFormat: 'dd/mm/yy',
-					constrainInput: true
-				});
-				
-				$(".ui-datepicker-trigger").mouseover(function() {
-					$(this).css('cursor', 'pointer');
-				});
-					$('input').lc_switch();
-
-	// triggered each time a field changes status
-	$('body').delegate('.lcs_check', 'lcs-statuschange', function() {
-		var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
-		console.log('field changed status: '+ status );
-	});
-				
-				$( ".lcs_wrap" ).click(function() {
- 				if ($('.lcs_switch').hasClass('lcs_off')) {
-					$('.content .top-tabs-headings li.genralclass').removeClass('active');
-					$('.content .top-tabs-headings li.detailclass').addClass('active');
- 					
-					$('#genralperformance').removeClass('active');
- +					$('#detailscore').addClass('active');
-					 	
-				  
-				}
-				else {
-				
-					$('.content .top-tabs-headings li.detailclass').removeClass('active');
-					$('.content .top-tabs-headings li.genralclass').addClass('active');
-					$('#detailscore').removeClass('active');
-					$('#genralperformance').addClass('active');
-					
-				}
- 				});
-				
-				 
-				 
-				 $( ".content .top-tabs-headings li.genralclass" ).click(function() {
- 			 
-					 	$('.lcs_switch').removeClass('lcs_on');
-						$('.lcs_switch').addClass('lcs_off');
-				  
-				 
- 				});
-				
-				 
-				 $( ".content .top-tabs-headings li.detailclass" ).click(function() {
- 			 
-					 	$('.lcs_switch').addClass('lcs_on');
-						$('.lcs_switch').removeClass('lcs_off');
-				  
-				 
- 				});
-				
-				
-				$( ".lcs_wrap" ).click(function() {
- 				if ($('.lcs_switch').hasClass('lcs_off')) {
-					 $('.content .top-tabs-headings li.overallperformance').removeClass('active');
-					$('.content .top-tabs-headings li.overalldetail').addClass('active');
-					$('#individualgenralperformance').removeClass('active');
-					$('#individualdetailscore').addClass('active');
-					 	
-				  
-				}
-				else {
-					$('.content .top-tabs-headings li.overalldetail').removeClass('active');
-				 $('.content .top-tabs-headings li.overallperformance').addClass('active');
-				$('#individualgenralperformance').addClass('active');
-				 $('#individualdetailscore').removeClass('active');
-					
- 				}
-				
-				
- 				});
-				$( ".content .top-tabs-headings li.overallperformance" ).click(function() {
- 			 
-					 	$('.lcs_switch').removeClass('lcs_on');
-						$('.lcs_switch').addClass('lcs_off');
-				  
-				 
- 				});
-				
-				 
-				 $( ".content .top-tabs-headings li.overalldetail" ).click(function() {
- 			 
-					 	$('.lcs_switch').addClass('lcs_on');
-						$('.lcs_switch').removeClass('lcs_off');
-				  
-				 
- 				});
-				
-              });
-         </script>
+<script>
+$('.content .reports-detail .average-class-detail .average-class-top table tbody td.student-name') .click(function() {
+    $('.content .tabs-inner li').removeClass('active');
+	$('#class').removeClass('active');
+   $('.content .tabs-inner li.individual-title').addClass('active');
+   $('#individual').addClass('active');
+   $('.individual-tab-detail').css('display','none');
+   $('.indvidual-detail-left').css('display','block');
+});
+ $('.content .reports-detail .average-class-detail .average-class-top table tbody td.see-individual') .click(function() {
+    $('.content .tabs-inner li').removeClass('active');
+	$('#class').removeClass('active');
+   $('.content .tabs-inner li.individual-title').addClass('active');
+   $('#individual').addClass('active');
+   $('.individual-tab-detail').css('display','none');
+   $('.indvidual-detail-left').css('display','block');
+   $('.overallperformance').removeClass('active');
+   $('.overalldetail').addClass('active');
+   $('#individualgenralperformance').removeClass('active');
+   $('#individualdetailscore').addClass('active');
+   $('.max-read-individual').removeClass('active');
+   $('.max-phonics').addClass('active');
+   
+    $('#maxread-indivdual').removeClass('active');
+   $('#maxphonics-indivdual').addClass('active');
+  
+   
+   
+ });
+</script>
  
 </body>
 </html>
