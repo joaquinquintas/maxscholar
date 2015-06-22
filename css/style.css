@@ -620,12 +620,12 @@ header .header-right ul li { float:none; display:inline-block;}
 .lcs_cursor { background:#ddd;}
 .introjs-helperLayer { background-color:transparent !important; box-shadow:none !important; border:0px !important;}
 .introjs-helperNumberLayer { top:210px ; left:164px; border:0px none; background:#ee8984 !important; width:30px !important; height:30px !important; line-height:27px !important; box-shadow:none;}
-.introjs-tooltip { min-width:400px; min-height:245px; padding:22px 24px !important; box-sizing:border-box; top:197px;}
+.introjs-tooltip { min-width:400px; min-height:260px; padding:22px 24px !important; box-sizing:border-box; top:197px;}
 .introjs-overlay { background:#000;}
 .introjs-tooltip { }
-.introjs-tooltiptext { padding-top:20px;}
+.introjs-tooltiptext { padding-top:25px;}
 .introjs-tooltiptext b { display:block; font-size:14px; font-style:italic;color:#000; margin-bottom:16px; margin-top:20px;}
-.introjs-tooltiptext span {display:block; font-size:11px; font-style:italic; color:#000;}
+.introjs-tooltiptext span {line-height: 1.6;display:block; font-size:13px; font-style:italic; color:#000;}
 .introjs-tooltiptext span a{ color:#0071bc; text-decoration:none;}
 .introjs-arrow.top {border-left: 30px solid transparent;border-right: 0 solid transparent;border-bottom: 170px solid #fff;-ms-transform: rotate(16deg);-webkit-transform: rotate(16deg);transform: rotate(16deg);top: -150px;left: 150px;
 } 
