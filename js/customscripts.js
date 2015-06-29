@@ -125,10 +125,10 @@ $('.indvidual-detail-left').css('display','none');
 $('.individual-tab-detail').css('display','block');
 });
 
-$(".all-classes-tab-title").click(function(){
-$('.allclasse-detail').css('display','none');
-$('.choose-class').css('display','block');
-});
+//$(".all-classes-tab-title").click(function(){
+//$('.allclasse-detail').css('display','none');
+//$('.choose-class').css('display','block');
+//});
 
 $(".alluser-tab-detail").click(function(){
 $('.edit-user-outer').css('display','none');
