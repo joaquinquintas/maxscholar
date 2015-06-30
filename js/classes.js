@@ -76,11 +76,18 @@ $(document).ready(function() {
 		        done(function(data){
 		        	var items = [];
 		        	$.each( data, function( key, val ) {
-		        		items.push( "<li id='" + val.pk + "'>" +' <a href="#"data-toggle="modal" data-target="#myModal">'+val.name+'</a>' + "</li>" );
+		        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#myModal">'+val.name+'</a>' + "</li>" );
 		        		$( "#classes_list" ).html(items.join( "" ));
 		        	  });
 		        });
 			});
+	
+
+
+	$('#myModal').on('show.bs.modal', function(e) {
+		  var clase_selected = e.relatedTarget.dataset.clasePk;
+		  localStorage.setItem("selected_clase", parseInt(clase_selected));
+		});
 	
 	$(".content .modal-content .modal-footer .close-btn").click(function(){
 		
@@ -95,7 +102,8 @@ $(document).ready(function() {
 //		$('#myModal5').modal('hide');
 		var password = $('#clase_password').val();
 		$( "#error_clase_password" ).html("");
-		$.ajax({type: "POST",  url: checkClassPassword, data: { password: password, pk:446 } }).
+		var pk = localStorage.getItem("selected_clase");
+		$.ajax({type: "POST",  url: checkClassPassword, data: { password: password, pk:pk } }).
         fail(function(resp){
             console.log('Bad password')
             console.log(resp.responseJSON.non_field_errors[0]);
@@ -105,6 +113,9 @@ $(document).ready(function() {
         done(function(resp){
         	$('#myModal').modal('hide');
         	$( "#error_clase_password" ).html("");
+        	
+        	//Use the clase response Obj
+        	console.log(resp.pk);
         	$('.content .choose-class').css('display','none');
     		$('.content .allclasse-detail').css('display','block');
     		$('.content .modify ').css('display','block');
