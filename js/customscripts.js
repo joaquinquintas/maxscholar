@@ -52,17 +52,17 @@ $('.content .individual-tab-detail').css('display','none');
 $('.content .indvidual-detail-left').css('display','block');
 
 });
-$(".content .modal-content .modal-footer .enter-pass").click(function(){
+//$(".content .modal-content .modal-footer .enter-pass").click(function(){
 
-$('#myModal').modal('hide');
-$('#myModal4').modal('hide');
-$('#myModal5').modal('hide');
-$('.content .choose-class').css('display','none');
-$('.content .allclasse-detail').css('display','block');
-$('.content .modify ').css('display','block');
-$('.content .delete ').css('display','block');
-$('.content .print-button ').css('display','block');
-});
+//$('#myModal').modal('hide');
+//$('#myModal4').modal('hide');
+//$('#myModal5').modal('hide');
+//$('.content .choose-class').css('display','none');
+//$('.content .allclasse-detail').css('display','block');
+//$('.content .modify ').css('display','block');
+//$('.content .delete ').css('display','block');
+//$('.content .print-button ').css('display','block');
+//});
 $(".content  .create-class-detail .all-member-detail .search-field  button").click(function(){
 
 

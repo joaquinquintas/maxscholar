@@ -3260,7 +3260,8 @@
                                  <div class="modal-dialog">
                                    <div class="modal-content">
                                      <div class="modal-body"> <span>Please, enter the password : </span>
-                                       <input type="password" placeholder="" >
+                                     <span id="error_clase_password" style="color:red"></span>
+                                       <input id="clase_password" type="password" placeholder="" >
                                      </div>
                                      <div class="modal-footer">
                                        <button type="button" class="enter-pass">Enter</button>
@@ -3274,13 +3275,7 @@
                       <div class="tab-content class-tab-right">
                         <div role="tabpanel" class="tab-pane" id="allclasses">
                           <div class="choose-class"> <span>Choose a class : </span>
-                            <ul>
-                                
-							 <li> <a href="#"data-toggle="modal" data-target="#myModal">Class 205</a> </li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal">Class 208</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal">Class 2024</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal">Class 2030</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal">Class 2032</a></li>
+                            <ul id="classes_list">
                             </ul>
                           </div>
                           <div class="allclasse-detail">
