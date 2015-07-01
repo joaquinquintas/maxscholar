@@ -3279,14 +3279,14 @@
                             </ul>
                           </div>
                           <div class="allclasse-detail">
-                            <label>Class Name : <span>Class 205</span></label>
-                            <label>Teacher : <span>Mr. Smith</span></label>
-                            <label>Class type : <span>ELL</span></label>
-                            <label>Email : <span>mr.smith@thisplace.com</span></label>
-                            <label>Password : <span>*******</span></label>
+                            <label>Class Name : <span id="clase_name"></span></label>
+                            <label>Teacher : <span id="clase_teacher"></span></label>
+                            <!-- label>Class type : <span>ELL</span></label-->
+                            <label>Email : <span id="clase_email"></span></label>
+                            <label>Password : <span id="clase_password"></span></label>
                             <label>Members : </label>
                             <div class="all-member-detail">
-                              <ul>
+                              <ul id="clase_student_list">
                                 <li><span>1-</span>Kid 1 (jdoe)</li>
                                 <li><span>2-</span>Kid 2 (jdoe)</li>
                                 <li><span>3-</span>Kid 3 (jdoe)</li>
@@ -3377,60 +3377,44 @@
                             <ul>
                               <li>
                                 <label>Class Name : </label>
-                                <input type="text" value="Class 205" placeholder="Type here" >
+                                <input type="text" id="class_name_modify" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Teacher : </label>
-                                <input type="text" value="Mr Smith" placeholder="Type here" >
+                                <input type="text" id="class_teacher_modify" value="" placeholder="Type here" >
                               </li>
-                              <li>
+                              <!-- li>
                                 <label>Class Type : </label>
                                 <select>
                                   <option>ELL</option>
                                 </select>
-                              </li>
+                              </li-->
                               <li>
                                 <label>Email : </label>
-                                <input type="text" value="mr.smith@thisplace.com" placeholder="Type here" >
+                                <input type="text" id="class_email_modify" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Password : </label>
-                                <input type="text" value="**********" placeholder="Type here" >
+                                <input type="text" id="class_password_modify" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Retype password : </label>
-                                <input type="text" value="**********" placeholder="Type here" >
+                                <input type="text" id="class_repassword_modify" value="" placeholder="Type here" >
                               </li>
                             </ul>
                             <div class="all-member-detail"> <span><b>Members : </b></span>
-                              <div class="choose-member modify-member">
-                                <ul>
-                                  <li><a href="#"><span>1-</span>Kid 1 (jdoe)</a></li>
-                                  <li><a href="#"><span>2-</span>Kid 2 (jdoe)</a></li>
-                                  <li><a href="#"><span>3-</span>Kid 3 (jdoe)</a></li>
-                                  <li><a href="#"><span>4-</span>Kid 4 (jdoe)</a></li>
-                                  <li><a href="#"><span>5-</span>Kid 5 (jdoe)</a></li>
-                                  <li><a href="#"><span>6-</span>Kid 6 (jdoe)</a></li>
-                                  <li><a href="#"><span>7-</span>Kid 7 (jdoe)</a></li>
-                                  <li><a href="#"><span>8-</span>Kid 8 (jdoe)</a></li>
+                              <div  class="choose-member modify-member">
+                                <ul id="clase_student_list_modify">
+
                                 </ul>
                               </div>
                               <div class="search-field other-student-serach"> <span><b>Other students : </b> (click to add to your class)</span>
-                                <input type="search" value="" placeholder="" >
-                                <button type="button" value=""><img src="images/glass-icon.png"  														alt="" title="" ></button>
+                                <input id="search-student-modify" type="search" value="" placeholder="" >
+                                <button id="search-student-modify-button" type="button" value=""><img src="images/glass-icon.png"	alt="" title="" ></button>
                               </div>
                               <div class="add-student">
-                                <ul>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
-                                  <li><a href="#"> Kid x (jdoe)</a></li>
+                                <ul id="student-add-class-list">
+
                                 </ul>
                               </div>
                               <div class="create-class-btn"> <a href="#" data-toggle="modal" data-target="#myModal3">SAVE CHANGES</a>

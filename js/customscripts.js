@@ -151,7 +151,7 @@ $('.average-class-detail .average-class-table').slimScroll({
 height: '450px'
 });
 $('.content .create-class-detail .all-member-detail .modify-member').slimScroll({
-height: '330px'
+height: '300px',
 });
 
 $('.add-student ul').slimScroll({

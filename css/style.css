@@ -376,7 +376,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail .all-member-detail .search-field  button{ border:0px none;outline:none; position:absolute; top:8px; right:6px; background:none;  }
 .content  .create-class-detail .all-member-detail .other-student-serach button { top:36px;}
 .content  .create-class-detail .all-member-detail .choose-member { margin-bottom:17px; display:none;}
-.content  .create-class-detail .all-member-detail .modify-member { display:block;}
+.content  .create-class-detail .all-member-detail .modify-member { display:block;margin-bottom: 50px;}
 .content  .create-class-detail .all-member-detail #myModal2  .modal-content{ padding-right:100px;}
 .content  .create-class-detail .all-member-detail #myModal2 .modal-footer { text-align:center;}
 .content  .create-class-detail .all-member-detail #myModal3  .modal-content{ padding-right:100px;}

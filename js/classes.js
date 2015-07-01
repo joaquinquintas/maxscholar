@@ -38,6 +38,9 @@ $(document).ready(function() {
 	var allClasses = server + "classes/"
 	var login = server + "login/"
 	var checkClassPassword =  server + "classes-password-validator/"
+	var getClassDetail = server + "classes-detail/"
+	var getStudentFromSchool = server + "students/"
+	var getStudentSearchFromSchool = server + "students/search/"
 	
 	
 	function checkCredentials(username, password){
@@ -116,6 +119,17 @@ $(document).ready(function() {
         	
         	//Use the clase response Obj
         	console.log(resp.pk);
+        	$( "#clase_name" ).html(resp.name);
+        	$( "#clase_teacher" ).html("Teacher Name");
+        	$( "#clase_password" ).html(resp.password);
+        	$( "#clase_email" ).html(resp.email);
+        	var students = [];
+        	count = 1;
+        	$.each( resp.students, function( key, val ) {
+        		students.push( "<li><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</li>' );
+        		count = count + 1;
+        		$( "#clase_student_list" ).html(students.join( "" ));
+        	  });
         	$('.content .choose-class').css('display','none');
     		$('.content .allclasse-detail').css('display','block');
     		$('.content .modify ').css('display','block');
@@ -128,4 +142,61 @@ $(document).ready(function() {
 	
 	});
 	
+	$(".modify-classes-tab-title").click(function(){
+		
+		console.log("Modify Clases");
+		var pk = localStorage.getItem("selected_clase");
+		$.ajax({type: "GET",  url: getClassDetail+pk }).
+        
+        done(function(resp){
+        	
+        	//Use the clase response Obj
+        	console.log(resp.pk);
+        	$( "#class_name_modify" ).val(resp.name);
+        	$( "#class_teacher_modify" ).val("Teacher Name");
+        	$( "#class_password_modify" ).val(resp.password);
+        	$( "#class_repassword_modify" ).val(resp.password);
+        	$( "#class_email_modify" ).val(resp.email);
+        	var students = [];
+        	count = 1;
+        	$.each( resp.students, function( key, val ) {
+        		students.push( "<li><a href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		count = count + 1;
+        		$( "#clase_student_list_modify" ).html(students.join( "" ));
+        	  });
+
+        });
+		
+		$.ajax({type: "GET",  url: getStudentFromSchool+pk }).
+        
+        done(function(resp){
+        	
+        	//Use the clase response Obj
+        	var students = [];
+        	$.each( resp, function( key, val ) {
+        		students.push( "<li><a href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		$( "#student-add-class-list" ).html(students.join( "" ));
+        	  });
+
+        });
+		
+		
+		
+		
+	});
+	$("#search-student-modify-button").click(function(){
+		var student_name = $( "#search-student-modify" ).val();
+		$.ajax({type: "GET",  url: getStudentSearchFromSchool+student_name }).
+        
+        done(function(resp){
+        	
+        	//Use the clase response Obj
+        	var students = [];
+        	$.each( resp, function( key, val ) {
+        		students.push( "<li><a href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		$( "#student-add-class-list" ).html(students.join( "" ));
+        	  });
+
+        });
+	});
 });
