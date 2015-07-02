@@ -142,9 +142,12 @@ $(document).ready(function() {
 	
 	});
 	
+		
+
 	$(".modify-classes-tab-title").click(function(){
 		
 		console.log("Modify Clases");
+		localStorage.setItem("user_to_add_modifiy_clase", JSON.stringify([]));
 		var pk = localStorage.getItem("selected_clase");
 		$.ajax({type: "GET",  url: getClassDetail+pk }).
         
@@ -153,14 +156,15 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	console.log(resp.pk);
         	$( "#class_name_modify" ).val(resp.name);
-        	$( "#class_teacher_modify" ).val("Teacher Name");
+        	//$( "#class_teacher_modify" ).val(resp.teacher.first_name + " " + resp.teacher.last_name);
+        	$( "#class_teacher_modify" ).val(""	);
         	$( "#class_password_modify" ).val(resp.password);
         	$( "#class_repassword_modify" ).val(resp.password);
         	$( "#class_email_modify" ).val(resp.email);
         	var students = [];
         	count = 1;
         	$.each( resp.students, function( key, val ) {
-        		students.push( "<li><a href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a  class='user-to-delete' data-user-pk="+val.pk+" href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
         		count = count + 1;
         		$( "#clase_student_list_modify" ).html(students.join( "" ));
         	  });
@@ -174,7 +178,7 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	var students = [];
         	$.each( resp, function( key, val ) {
-        		students.push( "<li><a href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a class='user-to-add' data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
         		$( "#student-add-class-list" ).html(students.join( "" ));
         	  });
 
@@ -184,19 +188,97 @@ $(document).ready(function() {
 		
 		
 	});
+	
+	function IsEmail(email) {
+		  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		  return regex.test(email);
+		};
+	
 	$("#search-student-modify-button").click(function(){
+		$( "#student-add-class-list" ).html( "Searching ..." );
+		var pk = localStorage.getItem("selected_clase");
 		var student_name = $( "#search-student-modify" ).val();
-		$.ajax({type: "GET",  url: getStudentSearchFromSchool+student_name }).
+		$.ajax({type: "GET",  url: getStudentSearchFromSchool+pk+"/"+student_name }).
         
         done(function(resp){
+        	if (resp.length > 0 ){
+        		//Use the clase response Obj
+            	var students = [];
+            	$.each( resp, function( key, val ) {
+            		students.push( "<li><a class='user-to-add' data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+            		$( "#student-add-class-list" ).html(students.join( "" ));
+            	  });
+        	}else{
+        		$( "#student-add-class-list" ).html( "No Results" );
+        	}
         	
-        	//Use the clase response Obj
-        	var students = [];
-        	$.each( resp, function( key, val ) {
-        		students.push( "<li><a href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
-        		$( "#student-add-class-list" ).html(students.join( "" ));
-        	  });
 
         });
+	});
+	
+	$("#save-modified-class").click(function(e){
+		e.preventDefault();
+		console.log("Click Saved Clase");
+		var errors = false;
+		var errors_list = []
+		
+		var class_name = $( "#class_name_modify" ).val();
+		if (class_name == ""){
+			//$("#class_m_name_error").html("This field is required.")
+			errors_list.push( "<li>Class Name is required</li>" );
+			errors = true;
+		}
+		var teacher_name = $( "#class_teacher_modify" ).val();
+		var password = $( "#class_password_modify" ).val();
+		var repassword = $( "#class_repassword_modify" ).val();
+		
+		if(password != repassword){
+			//$("#class_m_password_error").html("Password mismatch.")
+			errors_list.push( "<li>Password mismatch</li>");
+
+			errors = true;
+		}
+		var email = $( "#class_email_modify" ).val();
+		
+		if(!IsEmail(email)){
+			//$("#class_m_email_error").html("Invalid Email.")
+			errors_list.push( "<li>Invalid Email</li>" );
+			errors = true;
+		}
+		
+		if (errors){
+			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+			$(".modal-body span").html(message);
+			
+		}else{
+			//SaveItems
+			class_name
+			password
+			email
+			//SaveStudents
+			//Recorrer  todos los items de clase_student_list_modify y guardarlos
+			//Redirect close to allClases.
+		}
+		
+		$('#savedModifiedClassModal').modal('show');
+		
+	});
+	
+	
+	
+	$('#student-add-class-list').on('click', '.user-to-add', function(e) {
+
+		
+		e.preventDefault();
+		console.log("User to add ");
+		var user_to_add = this.dataset.userPk;
+		$( this ).parent().hide();
+		
+		var list_add = JSON.parse(localStorage.getItem("user_to_add_modifiy_clase"));
+		console.log(list_add);
+		list_add.push(user_to_add);
+		localStorage.setItem("user_to_add_modifiy_clase", JSON.stringify(list_add));
+		console.log(user_to_add);
+		
 	});
 });

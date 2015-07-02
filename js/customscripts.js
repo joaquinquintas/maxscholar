@@ -154,9 +154,9 @@ $('.content .create-class-detail .all-member-detail .modify-member').slimScroll(
 height: '300px',
 });
 
-$('.add-student ul').slimScroll({
-height: '410px'
-});
+//$('.add-student ul').slimScroll({
+//height: '410px'
+//});
 $('.user-tab-right .user-detail-table').slimScroll({
 height: '530px'
 });
