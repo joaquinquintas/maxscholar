@@ -68,6 +68,7 @@ $(document).ready(function() {
 	$(".all-classes-tab-title").click(
 			function() {
 				$('.allclasse-detail').css('display', 'none');
+				$('.choose-class').find("span").html("Loading ...");
 				$('.choose-class').css('display', 'block');
 
 				
@@ -77,6 +78,7 @@ $(document).ready(function() {
 		            console.log('bad credentials.')
 		        }).
 		        done(function(data){
+		        	$('.choose-class').find("span").html("Choose a class :");
 		        	var items = [];
 		        	$.each( data, function( key, val ) {
 		        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#myModal">'+val.name+'</a>' + "</li>" );
@@ -146,6 +148,7 @@ $(document).ready(function() {
 
 	$(".modify-classes-tab-title").click(function(){
 		
+		$("#modify .create-class-detail").hide();
 		console.log("Modify Clases");
 		localStorage.setItem("user_to_add_modifiy_clase", JSON.stringify([]));
 		var pk = localStorage.getItem("selected_clase");
@@ -164,11 +167,11 @@ $(document).ready(function() {
         	var students = [];
         	count = 1;
         	$.each( resp.students, function( key, val ) {
-        		students.push( "<li><a  class='user-to-delete' data-user-pk="+val.pk+" href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a  class='user-to-delete' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
         		count = count + 1;
         		$( "#clase_student_list_modify" ).html(students.join( "" ));
         	  });
-
+        	$("#modify .create-class-detail").show();
         });
 		
 		$.ajax({type: "GET",  url: getStudentFromSchool+pk }).
@@ -178,7 +181,7 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	var students = [];
         	$.each( resp, function( key, val ) {
-        		students.push( "<li><a class='user-to-add' data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
         		$( "#student-add-class-list" ).html(students.join( "" ));
         	  });
 
@@ -198,14 +201,14 @@ $(document).ready(function() {
 		$( "#student-add-class-list" ).html( "Searching ..." );
 		var pk = localStorage.getItem("selected_clase");
 		var student_name = $( "#search-student-modify" ).val();
-		$.ajax({type: "GET",  url: getStudentSearchFromSchool+pk+"/"+student_name }).
+		$.ajax({type: "GET",  url: getStudentSearchFromSchool+"?clase="+pk+"&username="+student_name }).
         
         done(function(resp){
         	if (resp.length > 0 ){
         		//Use the clase response Obj
             	var students = [];
             	$.each( resp, function( key, val ) {
-            		students.push( "<li><a class='user-to-add' data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+            		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +"  data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
             		$( "#student-add-class-list" ).html(students.join( "" ));
             	  });
         	}else{
@@ -228,7 +231,7 @@ $(document).ready(function() {
 			errors_list.push( "<li>Class Name is required</li>" );
 			errors = true;
 		}
-		var teacher_name = $( "#class_teacher_modify" ).val();
+		var teacher = $( "#class_teacher_modify" ).val();
 		var password = $( "#class_password_modify" ).val();
 		var repassword = $( "#class_repassword_modify" ).val();
 		
@@ -252,12 +255,29 @@ $(document).ready(function() {
 			
 		}else{
 			//SaveItems
+			teacher
 			class_name
 			password
 			email
 			//SaveStudents
 			//Recorrer  todos los items de clase_student_list_modify y guardarlos
+			var users_class = []
+			$( "#clase_student_list_modify" ).children().each(function () {
+				users_class.push($( this ).find("a").attr("data-user-pk"));
+				
+			});
+			
 			//Redirect close to allClases.
+			var pk = localStorage.getItem("selected_clase");
+			$.ajax({type: "PUT",  url: getClassDetail+pk, data: { class_name: class_name, password:password, email:email, teacher:teacher, students: users_class} }).
+	        fail(function(resp){
+	            console.log('Bad saving')
+	            
+	        }).
+	        done(function(resp){
+	        	console.log('Good saving')
+	        	
+	        });
 		}
 		
 		$('#savedModifiedClassModal').modal('show');
@@ -265,6 +285,24 @@ $(document).ready(function() {
 	});
 	
 	
+	$('#clase_student_list_modify').on('click', '.user-to-delete', function(e) {
+
+		
+		e.preventDefault();
+		console.log("User to delete ");
+		var user_to_delete = this.dataset.userPk;
+
+		$( this ).parent().remove();
+		var count = 1;
+		var users_class = []
+		$( "#clase_student_list_modify" ).children().each(function () {
+			$( this ).find("span").html(count+" -");
+			
+			count = count +1;
+		});
+		
+		
+	});
 	
 	$('#student-add-class-list').on('click', '.user-to-add', function(e) {
 
@@ -272,13 +310,28 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log("User to add ");
 		var user_to_add = this.dataset.userPk;
+		var user_fir = this.dataset.userFirstName;
+		var user_to_add = this.dataset.userPk;
 		$( this ).parent().hide();
-		
-		var list_add = JSON.parse(localStorage.getItem("user_to_add_modifiy_clase"));
-		console.log(list_add);
-		list_add.push(user_to_add);
-		localStorage.setItem("user_to_add_modifiy_clase", JSON.stringify(list_add));
+		var count = 1;
+		var users_class = []
+		$( "#clase_student_list_modify" ).children().each(function () {
+			users_class.push($( this ).find("a").attr("data-user-pk"));
+			
+			count = count +1;
+		});
+		console.log(users_class);
 		console.log(user_to_add);
+		if (users_class.indexOf(user_to_add) == -1){
+			$( "#clase_student_list_modify" ).append( "<li><a  class='user-to-delete' data-user-last-name="+this.dataset.userLastName+" data-user-first-name="+this.dataset.userFirstName+" data-user-pk="+this.dataset.userPk+" href='#'><span>" +count+" -</span>"+ this.dataset.userFirstName +" "+ this.dataset.userLastName+"</a></li>");
+			//$(this).find("span").html(count + " -");
+		}
+		
+		//var list_add = JSON.parse(localStorage.getItem("user_to_add_modifiy_clase"));
+		//console.log(list_add);
+		//list_add.push(user_to_add);
+		//localStorage.setItem("user_to_add_modifiy_clase", JSON.stringify(list_add));
+		//console.log(user_to_add);
 		
 	});
 });

@@ -367,7 +367,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#CCCCCC; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
 .content  .create-class-detail ul li select  { width:83.5%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
 .content  .create-class-detail .all-member-detail { margin-top:36px;}
-.content  .create-class-detail .all-member-detail span { font-size:14px; color:#5D5D5D;font-family: 'droid_sansregular'; display:inline-block; margin-bottom:10px;}
+.content  .create-class-detail .all-member-detail span { font-size:14px; color:#5D5D5D;font-family: 'droid_sansregular'; margin-bottom:10px;}
 .content  .create-class-detail .all-member-detail span b {font-family: 'droid_sansbold';}
 .content  .create-class-detail .all-member-detail .search-field { position:relative; margin-bottom:25px;}
 .content  .create-class-detail .all-member-detail .other-student-serach { margin-bottom:10px;}
