@@ -40,7 +40,9 @@ $(document).ready(function() {
 	var checkClassPassword =  server + "classes-password-validator/"
 	var getClassDetail = server + "classes-detail/"
 	var getStudentFromSchool = server + "students/"
+	var getAdminsFromSchool = server + "teachers/"
 	var getStudentSearchFromSchool = server + "students/search/"
+	
 	
 	
 	function checkCredentials(username, password){
@@ -64,12 +66,20 @@ $(document).ready(function() {
 	//Read this data from the Login PopUp :) 
 	checkCredentials("eliecer", "max123")
 
-	
+	$(".createclass-tab-title").click(function(){
+		$('.modify-classes-tab-title').css('display', 'none');
+		$('.delete-classes-tab-title').css('display', 'none');
+		
+	});
 	$(".all-classes-tab-title").click(
 			function() {
 				$('.allclasse-detail').css('display', 'none');
 				$('.choose-class').find("span").html("Loading ...");
+				$( "#classes_list" ).hide();
 				$('.choose-class').css('display', 'block');
+				$('.modify-classes-tab-title').css('display', 'none');
+				$('.delete-classes-tab-title').css('display', 'none');
+				
 
 				
 				
@@ -84,6 +94,7 @@ $(document).ready(function() {
 		        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#myModal">'+val.name+'</a>' + "</li>" );
 		        		$( "#classes_list" ).html(items.join( "" ));
 		        	  });
+		        	$( "#classes_list" ).show();
 		        });
 			});
 	
@@ -99,6 +110,8 @@ $(document).ready(function() {
 		$( "#error_clase_password" ).html("");
 		 $('#clase_password').val("");
 	});
+	
+	var teacher_selection_modify= null;
 	
 	$(".content .modal-content .modal-footer .enter-pass").click(function(){
 
@@ -118,11 +131,32 @@ $(document).ready(function() {
         done(function(resp){
         	$('#myModal').modal('hide');
         	$( "#error_clase_password" ).html("");
+        	$.ajax({type: "GET",  url: getAdminsFromSchool} ).done(function(response){
+        		
+        		teacher_selection_modify = $('#magicsuggest').magicSuggest({
+            		allowFreeEntries:false,
+            		data: JSON.parse(response),
+            		valueField: 'pk',
+                    displayField: 'name',
+                    placeholder: 'Type Here',
+                });
+        		
+        		teachers = []
+            	$.each(resp.teachers, function(i, data){
+            		teachers.push(data.pk);
+            	});
+            	teacher_selection_modify.setValue(teachers);
+        	});
+        	
         	
         	//Use the clase response Obj
         	console.log(resp.pk);
         	$( "#clase_name" ).html(resp.name);
-        	$( "#clase_teacher" ).html("Teacher Name");
+        	teachers = []
+        	$.each(resp.teachers, function(i, data){
+        		teachers.push(data.first_name + " " + data.last_name );
+        	});
+        	$( "#clase_teacher" ).html(teachers.join( ", " ));
         	$( "#clase_password" ).html(resp.password);
         	$( "#clase_email" ).html(resp.email);
         	var students = [];
@@ -137,6 +171,8 @@ $(document).ready(function() {
     		$('.content .modify ').css('display','block');
     		$('.content .delete ').css('display','block');
     		$('.content .print-button ').css('display','block');
+    		$('.modify-classes-tab-title').css('display', 'block');
+			$('.delete-classes-tab-title').css('display', 'block');
         });
 		
 		
@@ -159,8 +195,8 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	console.log(resp.pk);
         	$( "#class_name_modify" ).val(resp.name);
-        	//$( "#class_teacher_modify" ).val(resp.teacher.first_name + " " + resp.teacher.last_name);
-        	$( "#class_teacher_modify" ).val(""	);
+        	//$( ".class_teacher_modify" ).val(resp.teacher.first_name + " " + resp.teacher.last_name);
+        	$( ".class_teacher_modify" ).val(""	);
         	$( "#class_password_modify" ).val(resp.password);
         	$( "#class_repassword_modify" ).val(resp.password);
         	$( "#class_email_modify" ).val(resp.email);
@@ -231,7 +267,8 @@ $(document).ready(function() {
 			errors_list.push( "<li>Class Name is required</li>" );
 			errors = true;
 		}
-		var teacher = $( "#class_teacher_modify" ).val();
+		var teacher = teacher_selection_modify.getValue();
+		console.log(teacher_selection_modify.getValue());
 		var password = $( "#class_password_modify" ).val();
 		var repassword = $( "#class_repassword_modify" ).val();
 		
@@ -252,13 +289,11 @@ $(document).ready(function() {
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
 			$(".modal-body span").html(message);
+			$('#savedModifiedClassModal').modal('show');
 			
 		}else{
 			//SaveItems
-			teacher
-			class_name
-			password
-			email
+			
 			//SaveStudents
 			//Recorrer  todos los items de clase_student_list_modify y guardarlos
 			var users_class = []
@@ -269,18 +304,21 @@ $(document).ready(function() {
 			
 			//Redirect close to allClases.
 			var pk = localStorage.getItem("selected_clase");
-			$.ajax({type: "PUT",  url: getClassDetail+pk, data: { class_name: class_name, password:password, email:email, teacher:teacher, students: users_class} }).
+			$.ajax({type: "PUT",  url: getClassDetail+pk, data: JSON.stringify({ class_name: class_name, password:password, email:email, teachers:teacher, students: users_class}) }).
 	        fail(function(resp){
-	            console.log('Bad saving')
+				$(".modal-body span").html("Internal Error, Please try again later.");
+	        	$('#savedModifiedClassModal').modal('show');
 	            
 	        }).
 	        done(function(resp){
 	        	console.log('Good saving')
+				$(".modal-body span").html("Your class has been modified successfully");
+	        	$('#savedModifiedClassModal').modal('show');
 	        	
 	        });
 		}
 		
-		$('#savedModifiedClassModal').modal('show');
+		$
 		
 	});
 	

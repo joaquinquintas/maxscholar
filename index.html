@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="css/lc_switch.css">
 <link href="css/introjs.css" rel="stylesheet">
 <link href="css/demo.css" rel="stylesheet">
+<link href="js/magicsuggest/magicsuggest-min.css" rel="stylesheet">
+
 
 <!-- Custom Style -->
 <link href="css/style.css" rel="stylesheet">
@@ -3311,12 +3313,12 @@
                                 <label>Teacher : </label>
                                 <input type="text" value="" placeholder="Type here" >
                               </li>
-                              <li>
+                              <!-- li>
                                 <label>Class Type : </label>
                                 <select>
                                   <option>-</option>
                                 </select>
-                              </li>
+                              </li-->
                               <li>
                                 <label>Email : </label>
                                 <input type="text" value="" placeholder="Type here" >
@@ -3340,7 +3342,7 @@
                               </div>
                               <div class="search-field">
                                 <input type="search" value="" placeholder="" >
-                                <button type="button" value=""><img src="images/glass-icon.png"  														alt="" title="" ></button>
+                                <button type="button" value=""><img src="images/glass-icon.png"  alt="" title="" ></button>
                               </div>
                               <div class="add-student"> <span><b>Add students : </b></span>
                                 <ul>
@@ -3381,8 +3383,8 @@
                                 <input type="text" id="class_name_modify" value="" placeholder="Type here" >
                               </li>
                               <li>
-                                <label>Teacher : </label>
-                                <input type="text" id="class_teacher_modify" value="" placeholder="Type here" >
+                                <label>Teachers : </label>
+								<input id="magicsuggest" class="class_teacher_modify" name="modify_teachers[]" type="text" value="" >
                               </li>
                               <!-- li>
                                 <label>Class Type : </label>
@@ -3426,7 +3428,7 @@
                                     <div class="modal-content">
                                       <div class="modal-body"> <span>Your class has been modified successfully</span> </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                        <button  type="button" class="close-btn" data-dismiss="modal">Close</button>
                                       </div>
                                     </div>
                                   </div>
@@ -4881,7 +4883,9 @@ MAXMUSIC 5.0	10%
 <script src="js/data.js"></script> 
 <script src="js/drilldown.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
+
 <script src="js/bootstrap.min.js"></script> 
+<script src="js/magicsuggest/magicsuggest-min.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script> 
 <script src="js/customscripts.js"></script> 
 <script src="js/classes.js"></script> 
