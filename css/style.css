@@ -338,6 +338,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .classes-tab .class-tab-right { padding-left:56px;}
 .content .classes-tab .class-tab-right .choose-class {}
 .content .classes-tab .class-tab-right .choose-class span{ font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin-bottom:20px; display:inline-block;}
+.content .classes-tab .class-tab-right .message span{ font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin-bottom:20px; display:inline-block;}
+
 .content .classes-tab .class-tab-right .choose-class ul { margin:0; padding:0;}
 .content .classes-tab .class-tab-right .choose-class ul li { display:block; background:#fff; margin-bottom:4px; max-width:234px;}
 .content .classes-tab .class-tab-right .choose-class ul li a{font-family: 'droid_sansregular'; font-size:16px;color:#5D5D5D; background:url(../images/choose-class-icon.png) 24px  center no-repeat;  text-decoration:none; line-height:30px; display:block; padding:7px 24px 7px 75px; outline:none;}

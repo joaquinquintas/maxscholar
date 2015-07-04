@@ -3258,7 +3258,7 @@
                     <div class="row"> 
                       <!-- Tab panes -->
                      <!-- Modal -->
-                               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                               <div class="modal fade" id="clase-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                  <div class="modal-dialog">
                                    <div class="modal-content">
                                      <div class="modal-body"> <span>Please, enter the password : </span>
@@ -3285,33 +3285,25 @@
                             <label>Teacher : <span id="clase_teacher"></span></label>
                             <!-- label>Class type : <span>ELL</span></label-->
                             <label>Email : <span id="clase_email"></span></label>
-                            <label>Password : <span id="clase_password"></span></label>
+                            <label>Password : <span id="clase_password_value"></span></label>
                             <label>Members : </label>
                             <div class="all-member-detail">
                               <ul id="clase_student_list">
-                                <li><span>1-</span>Kid 1 (jdoe)</li>
-                                <li><span>2-</span>Kid 2 (jdoe)</li>
-                                <li><span>3-</span>Kid 3 (jdoe)</li>
-                                <li><span>4-</span>Kid 4 (jdoe)</li>
-                                <li><span>5-</span>Kid 5 (jdoe)</li>
-                                <li><span>6-</span>Kid 6 (jdoe)</li>
-                                <li><span>7-</span>Kid 7 (jdoe)</li>
-                                <li><span>8-</span>Kid 8 (jdoe)</li>
-                                <li><span>9-</span>Kid 9 (jdoe)</li>
                               </ul>
                             </div>
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="createclass">
+                        <div class="message"> <span>Loading ... </span></div>
                           <div class="create-class-detail">
                             <ul>
                               <li>
                                 <label>Class Name : </label>
-                                <input type="text" value="" placeholder="Type here" >
+                                <input type="text" id="class_name_create" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Teacher : </label>
-                                <input type="text" value="" placeholder="Type here" >
+                                <input id="magicsuggest_create" class="class_teacher_create" name="create_teachers[]" type="text" value="" >
                               </li>
                               <!-- li>
                                 <label>Class Type : </label>
@@ -3321,45 +3313,34 @@
                               </li-->
                               <li>
                                 <label>Email : </label>
-                                <input type="text" value="" placeholder="Type here" >
+                                <input type="text" id="class_email_create" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Password : </label>
-                                <input type="text" value="" placeholder="Type here" >
+                                <input type="text" id="class_password_create" value="" placeholder="Type here" >
                               </li>
                               <li>
                                 <label>Retype password : </label>
-                                <input type="text" value="" placeholder="Type here" >
+                                <input type="text" id="class_repassword_create" value="" placeholder="Type here" >
                               </li>
                             </ul>
-                            <div class="all-member-detail"> <span><b>Members : </b>(choose from the list below)</span>
-                              <div class="choose-member">
-                                <ul>
-                                  <li><a href="#"><span>1-</span>Kid 1 (jdoe)</a></li>
-                                  <li><a href="#"><span>2-</span>Kid 2 (jdoe)</a></li>
-                                  <li><a href="#"><span>3-</span>Kid 3 (jdoe)</a></li>
+                             <div class="all-member-detail"> <span><b>Members : </b></span>
+                              <div  class="choose-member create-member">
+                                <ul id="clase_student_list_create">
+
                                 </ul>
                               </div>
-                              <div class="search-field">
-                                <input type="search" value="" placeholder="" >
-                                <button type="button" value=""><img src="images/glass-icon.png"  alt="" title="" ></button>
+                              <div class="search-field other-student-serach"> <span><b>Other students : </b> (click to add to your class)</span>
+                                <input id="search-student-create" type="search" value="" placeholder="" >
+                                <button id="search-student-create-button" type="button" value=""><img src="images/glass-icon.png"	alt="" title="" ></button>
                               </div>
-                              <div class="add-student"> <span><b>Add students : </b></span>
-                                <ul>
-                                  <li><a href="#"><span>1-</span>Kid 1 (jdoe)</a></li>
-                                  <li><a href="#"><span>2-</span>Kid 2 (jdoe)</a></li>
-                                  <li><a href="#"><span>3-</span>Kid 3 (jdoe)</a></li>
-                                  <li><a href="#"><span>4-</span>Kid 4 (jdoe)</a></li>
-                                  <li><a href="#"><span>5-</span>Kid 5 (jdoe)</a></li>
-                                  <li><a href="#"><span>6-</span>Kid 6 (jdoe)</a></li>
-                                  <li><a href="#"><span>7-</span>Kid 7 (jdoe)</a></li>
-                                  <li><a href="#"><span>8-</span>Kid 8 (jdoe)</a></li>
-                                  <li><a href="#"><span>9-</span>Kid 9 (jdoe)</a></li>
-                                  <li><a href="#"><span>10-</span>Kid 10 (jdoe)</a></li>
+                              <div class="add-student">
+                                <ul id="student-add-class-list-created">
+
                                 </ul>
                               </div>
-                              <div class="create-class-btn"> <a href="#" data-toggle="modal" data-target="#myModal2">CREATE CLASS</a>
-                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="create-class-btn"> <a href="#" id="save-created-class"  data-toggle="modal" >CREATE CLASS</a>
+                                <div class="modal fade" id="savedCreateClassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-body"> <span>Your class has been created successfully</span> </div>
@@ -3439,11 +3420,8 @@
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="delete">
-                          <div class="delete-class"> <span>Delete a class : </span>
-                            <ul>
-                              <li> <a href="#"data-toggle="modal" data-target="#myModal4">Class 205</a> 
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                         <!-- Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-body"> <span> <b>Are you sure you want to delete this class?</b> The accounts and their progress will not be erased </span> </div>
@@ -3454,11 +3432,9 @@
                                     </div>
                                   </div>
                                 </div>
-                              </li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal4">Class 208</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal4">Class 2024</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal4">Class 2030</a></li>
-                              <li><a href="#"data-toggle="modal" data-target="#myModal4">Class 2032</a></li>
+                          <div class="delete-class"> <span>Delete a class : </span>
+                            <ul id="clases-to-delete">
+      
                             </ul>
                           </div>
                         </div>
@@ -3774,7 +3750,7 @@
                 <div role="tabpanel" class="tab-pane" id="license">
                   <div class="col-sm-4 col-sm-offset-4">
                     <div class="license-notice">
-                      <p>Your school is currently using <span>231 out of 250</span> purchased licenses.</p>
+                      <p></p>
                       <div class="create-class-btn"> <a target="_blank" href="http://maxscholar.com/contact/">Contact Us</a> </div>
                     </div>
                   </div>
@@ -3785,7 +3761,7 @@
                     <div class="row"> 
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs tabs-inner" role="tablist">
-                        <li role="presentation"><a href="#materailmaxread" aria-controls="materailmaxread" role="tab" data-toggle="tab">MAXREADING</a></li>
+                        <li role="presentation"><a  id="material_maxreading" href="#materailmaxread" aria-controls="materailmaxread" role="tab" data-toggle="tab">MAXREADING</a></li>
                         <li role="presentation"><a href="#materailmaxword" aria-controls="materailmaxword" role="tab" data-toggle="tab">MAXWORDS</a></li>
                         <li role="presentation"><a href="#materailmaxphonics" aria-controls="materailmaxphonics" role="tab" data-toggle="tab">MAXPHONICS</a></li>
                         <li role="presentation"><a href="#materailother" aria-controls="materailother" role="tab" data-toggle="tab">OTHERS</a></li>
@@ -3799,146 +3775,12 @@
                       <div class="tab-content user-tab-right">
                         <div role="tabpanel" class="tab-pane all-user-detail" id="materailmaxread">
                           <div class="all-user-outer">
-                            <h2>Material available : </h2>
+                            <h2>MAXREADING : </h2>
                             <div class="user-detail-table">
                               <table>
-                                <tbody>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>2-</span>Material about b</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>3-</span>Material about c</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>4-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
-                                  <tr>
-                                    <td width="78%"><span>1-</span>Material about a</td>
-                                    <td width="11%"><a href="#"><img src="images/download-arrow.png" alt=""
-                                                                title=""></a></td>
-                                    <td width="11%"><a href="#"><img src="images/material-print-icon.png"
-                                                                 alt=""
-                                                                title=""></a></td>
-                                  </tr>
+                                <tbody id="maxreading_list">
+                                  
+                              
                                 </tbody>
                               </table>
                             </div>
@@ -4888,7 +4730,11 @@ MAXMUSIC 5.0	10%
 <script src="js/magicsuggest/magicsuggest-min.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script> 
 <script src="js/customscripts.js"></script> 
+<script src="js/urls.js"></script> 
+<script src="js/auth.js"></script> 
 <script src="js/classes.js"></script> 
+<script src="js/licenses.js"></script> 
+<script src="js/materials.js"></script>
 <script src="js/bootstrap-datepicker.js"></script> 
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="js/lc_switch.js" type="text/javascript"></script>
