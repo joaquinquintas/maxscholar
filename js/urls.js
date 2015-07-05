@@ -9,6 +9,7 @@ $(document).ready(function() {
 	getAdminsFromSchool = server + "teachers/"
 	getStudentSearchFromSchool = server + "students/search/"
 	getStudentSearch = server + "students-school/search/"
+	getStudentDetail = server + "students-detail/"
 	getLicense = server + "license/"
 	getMaterials = server + "materials/"
 	

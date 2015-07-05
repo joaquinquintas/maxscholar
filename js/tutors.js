@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('#material_maxreading').click(function(){
-		$('#maxreading_list').html("");
 		$('#materailmaxread h2').html("Loading ...");
 		$.ajax({type: "GET",  url: getMaterials+"maxreading"}).
 			done(function(data) {
@@ -37,8 +36,6 @@ $(document).ready(function() {
 	
 	
 	$('#material_maxword').click(function(){
-		$('#maxword_list').html("");
-		
 		$('#materailmaxword h2').html("Loading ...");
 		$.ajax({type: "GET",  url: getMaterials+"maxwords"}).
 			done(function(data) {
@@ -74,7 +71,6 @@ $(document).ready(function() {
 	});
 	
 	$('#material_phonics').click(function(){
-		$('#maxphonics_list').html("");
 		$('#materailmaxphonics h2').html("Loading ...");
 		$.ajax({type: "GET",  url: getMaterials+"maxphonics"}).
 			done(function(data) {
