@@ -16,7 +16,7 @@ $(document).ready(function() {
 				count = count + 1;
 				});
 				
-				if(data.lenght == 0){
+				if(data.length == 0){
 					$('#materailmaxread h2').html("No Materials");
 				}else{
 					$('#materailmaxread h2').html("MAXREADING :");
@@ -54,7 +54,7 @@ $(document).ready(function() {
 				count = count + 1;
 				});
 				
-				if(data.lenght == 0){
+				if(data.length == 0){
 					$('#materailmaxword h2').html("No Materials");
 				}else{
 					$('#materailmaxword h2').html("MAXWORDS :");
@@ -90,10 +90,46 @@ $(document).ready(function() {
 				count = count + 1;
 				});
 				
-				if(data.lenght == 0){
+				if(data.length == 0){
 					$('#materailmaxphonics h2').html("No Materials");
 				}else{
 					$('#materailmaxphonics h2').html("MAXPHONICS :");
+				}
+				
+			});
+		
+	});
+	
+	$('#maxphonics_list').on('click', '.printMaxphonics', function(e){
+		console.log("Printing...");
+		e.preventDefault();
+		doc = $(this).attr( "href" );
+		console.log(doc);
+		var w = window.open(doc);
+	    w.print();
+	});
+	
+	$('#material_other').click(function(){
+		$('#maxother_list').html("");
+		$('#materailother h2').html("Loading ...");
+		$.ajax({type: "GET",  url: getMaterials+"others"}).
+			done(function(data) {
+				count = 1;
+				$.each( data, function( key, val ) {
+					tr ='<tr>'+
+                    '<td width="78%"><span>'+count+'-</span>'+ val.title+'</td>'+
+                     '<td width="11%"><a href="http://maxscholar.com'+val.file+'">'+
+                     '<img src="images/download-arrow.png" alt="" title=""></a></td>'+
+                      '<td width="11%"><a class="printMaxphonics" href="http://maxscholar.com'+val.file+'"><img src="images/material-print-icon.png" alt="" title=""></a></td>'+
+                       '</tr>';
+				$('#maxother_list').append(tr);
+				count = count + 1;
+				});
+				
+				if(data.length == 0){
+					$('#materailother h2').html("No Materials");
+				}else{
+					$('#materailother h2').html("OTHERS :");
 				}
 				
 			});

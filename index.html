@@ -33,9 +33,9 @@
       <div class="row">
         <div class="logo"> <a href="index.html">DASHBOARD</a> </div>
         <div class="header-right"> 
-          <a href="#" class="mymax-btn" id="step4" ><span>Go to</span> MYMAX</a>
+          <a href="http://maxscholar.com/mymax/" target="_blank" class="mymax-btn" id="step4" ><span>Go to</span> MYMAX</a>
           <ul>
-            <li><a href="#" ><img src="images/help-icon.png" alt="" title="" id="step1" ></a></li>
+            <li><a id="help_icon" href="#" ><img src="images/help-icon.png" alt="" title="" id="step1" ></a></li>
             <li><a href="#"><img src="images/setting-icon.png" alt="" title="" ></a></li>
             <li class="seprator"><a href="#"><img src="images/seprator-top.png" alt="" title="" ></a></li>
             <li><a href="#" class="logout">LOGOUT</a></li>
@@ -3448,7 +3448,7 @@
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs tabs-inner" role="tablist">
                         <li role="presentation" class="alluser-tab-detail"><a id="max_user_list" href="#allusers" aria-controls="allusers" role="tab" data-toggle="tab">ALL USERS</a></li>
-                        <li role="presentation" class="createuser-tab-detail"><a href="#createuser" aria-controls="createuser" role="tab" data-toggle="tab">CREATE NEW</a></li>
+                        <li role="presentation" class="createuser-tab-detail"><a href="#createuser" id="max_user_create" aria-controls="createuser" role="tab" data-toggle="tab">CREATE NEW</a></li>
                       </ul>
                     </div>
                   </div>
@@ -3486,44 +3486,49 @@
                             </div>
                           </div>
                           <div class="edit-user-outer">
+                          <h2>Loading ... </h2>
                             <ul>
                               <li>
-                                <label>Student Name : </label>
-                                <input type="text" value="John Do" placeholder="Type here">
+                                <label>Fisrt Name : </label>
+                                <input id="fist-name-edit-user" type="text" value="John" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Last Name : </label>
+                                <input id="last-name-edit-user" type="text" value="Doe" placeholder="Type here">
                               </li>
                               <li>
                                 <label>Assigned Level : </label>
-                                <select style="width : 79%;">
-                                  <option>5</option>
+                                <select id="level-edit-user" style="width : 79%;">
+                                <option value="no" id="no">Select Level</option>
                                 </select>
                               </li>
                               <li>
                                 <label>Student Type : </label>
-                                <select style="width:81%;">
-                                  <option>Ell</option>
+                                <select id="type-edit-user" style="width:81%;">
+                                <option value="no" id="no">Select Type</option>
                                 </select>
                               </li>
                               <li>
                                 <label>Pretest : </label>
-                                <select style="width:89%;">
-                                  <option>Yes</option>
+                                <select id="pretest-edit-user" style="width:88%;">
+                                  <option id="yes">Yes</option>
+                                  <option id="no">No</option>
                                 </select>
                               </li>
                               <li>
                                 <label>Username : </label>
-                                <input type="text" value="Jdoe" placeholder="Type here">
+                                <input id="user-name-edit-user" type="text" value="Jdoe" placeholder="Type here">
                               </li>
                               <li>
                                 <label>Password : </label>
-                                <input type="text" value="********" placeholder="Type here">
+                                <input id="password-edit-user" type="text" value="********" placeholder="Type here">
                               </li>
                               <li>
                                 <label>Retype password : </label>
-                                <input type="text" value="********" placeholder="Type here">
+                                <input id="repassword-edit-user" type="text" value="********" placeholder="Type here">
                               </li>
                             </ul>
-                            <div class="create-class-btn"> <a href="#" data-toggle="modal" data-target="#myModal7">SAVE CHANGES</a>
-                              <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="SaveEditUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-body"> <span>The user has been modified successfully</span> </div>
@@ -3533,6 +3538,9 @@
                                   </div>
                                 </div>
                               </div>
+                              
+                            <div id="editConfirmation" class="create-class-btn"> <a href="#">SAVE CHANGES</a>
+                              
                             </div>
                           </div>
                           
@@ -3541,54 +3549,61 @@
                           <div class="create-class-detail">
                             <div class="choose-class">
                               <div class="edit-user-outer create-user-outer">
-                                <ul>
-                                  <li>
-                                    <label>Student Name : </label>
-                                    <input type="text" value="" placeholder="Type here">
-                                  </li>
-                                  <li>
-                                    <label>Assigned Level : </label>
-                                    <select style="width : 78.9%;">
-                                      <option>-</option>
-                                    </select>
-                                  </li>
-                                  <li>
-                                    <label>Student Type : </label>
-                                    <select style="width : 80%;">
-                                      <option>-</option>
-                                    </select>
-                                  </li>
-                                  <li>
-                                    <label>Pretest : </label>
-                                    <select style="width:87.9%;">
-                                      <option>-</option>
-                                    </select>
-                                  </li>
-                                  <li>
-                                    <label>Username : </label>
-                                    <input type="text" value="" placeholder="Type here">
-                                  </li>
-                                  <li>
-                                    <label>Password : </label>
-                                    <input type="text" value="" placeholder="Type here">
-                                  </li>
-                                  <li>
-                                    <label>Retype password : </label>
-                                    <input type="text" value="" placeholder="Type here">
-                                  </li>
-                                </ul>
-                                <div class="create-class-btn"> <a href="#" data-toggle="modal" data-target="#myModal8">CREATE USER</a>
-                                  <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-body"> <span>Your new user has been created successfully</span> </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="close-btn" data-dismiss="modal">Close</button>
-                                        </div>
-                                      </div>
+                                <h2></h2>
+                            <ul>
+                              <li>
+                                <label>Fisrt Name : </label>
+                                <input id="fist-name-create-user" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Last Name : </label>
+                                <input id="last-name-create-user" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Assigned Level : </label>
+                                <select id="level-create-user" style="width : 77%;">
+                                <option value="no" id="no">Select Level</option>
+                                </select>
+                              </li>
+                              <li>
+                                <label>Student Type : </label>
+                                <select id="type-create-user" style="width:79%;">
+                                <option value="no" id="no">Select Type</option>
+                                </select>
+                              </li>
+                              <li>
+                                <label>Pretest : </label>
+                                <select id="pretest-create-user" style="width:87%;">
+                                  <option id="yes">Yes</option>
+                                  <option id="no">No</option>
+                                </select>
+                              </li>
+                              <li>
+                                <label>Username : </label>
+                                <input id="user-name-create-user" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Password : </label>
+                                <input id="password-create-user" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Retype password : </label>
+                                <input id="repassword-create-user" type="text" placeholder="Type here">
+                              </li>
+                            </ul>
+                            <div class="modal fade" id="CreateUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-body"> <span>Your new user has been created successfully</span> </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="close-btn" data-dismiss="modal">Close</button>
                                     </div>
                                   </div>
                                 </div>
+                              </div>
+                                <div id="craeteUserConfirmation" class="create-class-btn"> <a href="#">CREATE USER</a>
+                              
+                            </div>
                               </div>
                             </div>
                           </div>
@@ -3616,7 +3631,7 @@
                         <li role="presentation"><a id="material_maxword" href="#materailmaxword" aria-controls="materailmaxword" role="tab" data-toggle="tab">MAXWORDS</a></li>
                         <li role="presentation"><a id="material_phonics" href="#materailmaxphonics" aria-controls="materailmaxphonics" role="tab" data-toggle="tab">MAXPHONICS</a></li>
                         <li role="presentation"><a id="material_other" href="#materailother" aria-controls="materailother" role="tab" data-toggle="tab">OTHERS</a></li>
-                        <li role="presentation"><a id="material_help"  href="#materailhelp" aria-controls="materailhelp" role="tab" data-toggle="tab">HELP</a></li>
+                        <!-- li role="presentation"><a id="material_help"  href="#materailhelp" aria-controls="materailhelp" role="tab" data-toggle="tab">HELP</a></li -->
                       </ul>
                     </div>
                   </div>
@@ -3663,6 +3678,19 @@
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane all-user-detail" id="materailother">
+                          <div class="all-user-outer">
+                            <h2>OTHERS : </h2>
+                            <div class="user-detail-table">
+                              <table>
+                                <tbody id="maxother_list">
+                                  
+                                
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- div role="tabpanel" class="tab-pane all-user-detail" id="materailother">
                           <div class="all-user-outer">
                             <h2>MAXBIOS:</h2>
                             <div class="other-table">
@@ -3716,7 +3744,7 @@
                               </table>
                             </div>
                           </div>
-                        </div>
+                        </div-->
                         <div role="tabpanel" class="tab-pane all-user-detail" id="materailhelp">
                           <div class="all-user-outer">
                             <h2>HELP TUTORIALS</h2>
@@ -3746,9 +3774,9 @@
                     <div class="row"> 
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs tabs-inner" role="tablist">
-                        <li role="presentation" class="myprofile-tab-title"><a href="#myprofile" aria-controls="myprofile" role="tab" data-toggle="tab">MY PROFILE</a></li>
-                        <li role="presentation" class="mystudent-tab-title"><a href="#mystudent" aria-controls="mystudent" role="tab" data-toggle="tab">MY STUDENTS</a></li>
-                        <li role="presentation" class="mysessions-tab-title"><a href="#mysessions" aria-controls="mysessions" role="tab" data-toggle="tab">MY SESSIONS</a></li>
+                        <li role="presentation" class="myprofile-tab-title"><a id="tutor_my_profile" href="#myprofile" aria-controls="myprofile" role="tab" data-toggle="tab">MY PROFILE</a></li>
+                        <li role="presentation" class="mystudent-tab-title"><a id="student_tutor_list" href="#mystudent" aria-controls="mystudent" role="tab" data-toggle="tab">MY STUDENTS</a></li>
+                        <li role="presentation" class="mysessions-tab-title"><a id="tutor_session_list" href="#mysessions" aria-controls="mysessions" role="tab" data-toggle="tab">MY SESSIONS</a></li>
                       </ul>
                     </div>
                   </div>
@@ -3759,49 +3787,64 @@
                         <div role="tabpanel" class="tab-pane" id="myprofile">
                           <div class="create-class-detail">
                             <div class="choose-class">
-                              <div class="edit-user-outer create-user-outer">
+                            <h2 id="my_profile"></h2>
+                              <div id="my_profile_info" class="edit-user-outer create-user-outer">
+                              
                                 <ul>
                                   <li>
                                     <label>First name : </label>
-                                    <input type="text" value="Deborah" placeholder="Type here">
+                                    <input id="my_profile_first_name" type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Last name : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_last_name"  type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Address : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_address"  type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>City : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_city" type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>State : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_state"  type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Zip : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_zip"  type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Home Phone : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_home_phone"  type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Work Phone : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_work_phone" type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
                                     <label>Email : </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <input id="my_profile_email" type="text" value="" placeholder="Type here">
                                   </li>
                                   <li>
-                                    <label>Updated </label>
-                                    <input type="text" value="" placeholder="Type here">
+                                    <label>Last Login </label>
+                                    <input id="my_profile_last_login" readonly type="text" value="" placeholder="Type here">
                                   </li>
                                 </ul>
+                                <div class="modal fade" id="tutorProfileSave" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-body"> <span>Your profile has been saved successfully</span> </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                                <div id="saveTutorProfile" class="create-class-btn"> <a href="#">SAVE PROFILE</a>
+                              
+                            </div>
                               </div>
                             </div>
                           </div>
@@ -3810,80 +3853,11 @@
                           <div class="create-class-detail">
                             <div class="choose-class">
                               <div class="allstudent-detail">
-                                <h2>All Students : </h2>
-                                <div class="allstudent-table">
+                                <h2></h2>
+                                <div  class="allstudent-table">
                                   <table>
-                                    <tbody>
-                                      <tr>
-                                        <td width="50%"><span>1-</span>Kid 1 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>2-</span>Kid 2 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>3-</span>Kid 3 (jdoe) <a href="#" class="inactive">Inactive</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>4-</span>Kid 4 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>5-</span>Kid 5 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>6-</span>Kid 6 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>7-</span>Kid 7 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>8-</span>Kid 8 (jdoe) <a href="#" class="inactive">Inactive</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>9-</span>Kid 9 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>10-</span>Kid 10 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>11-</span>Kid 11 (jdoe) <a href="#" class="inactive">Inactive</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>12-</span>Kid 12 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>13-</span>Kid 13 (jdoe) <a href="#" class="active">Active</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
-                                      <tr>
-                                        <td width="50%"><span>14-</span>Kid 14 (jdoe) <a href="#" class="inactive">Inactive</a></td>
-                                        <td width="25%"><a href="#" class="student-report">See report</a></td>
-                                        <td width="25%" class="enter-session"><a href="#">Enter Session</a></td>
-                                      </tr>
+                                    <tbody id="tutor_list_students">
+                                      
                                     </tbody>
                                   </table>
                                 </div>
@@ -3892,11 +3866,11 @@
                                 <h2>Enter Session : </h2>
                                 <div class="enter-session-detail">
                                   <label>Student Name : </label>
-                                  <input type="text" value=" John Doe" placeholder="" >
+                                  <input id="pre_new_session_user_name" type="text" value="" placeholder="" >
                                   <label>Username : </label>
-                                  <input type="text" value=" John Doe" placeholder="" >
-                                  <span>YOU HAVE COMPLETED 2 OUT OF 6 SESSIONS WITH THIS STUDENT.</span> </div>
-                                <div class="document-session-btn"> <a href="#" class="decoument-session">DOCUMENT NEW<br>
+                                  <input id="pre_new_session_user_username" type="text" value=" " placeholder="" >
+                                  <span id="message_sessions_used"></span> </div>
+                                <div id="new_session_outer_btn" class="document-session-btn"> <a id="new_session_btn" href="#" class="decoument-session">DOCUMENT NEW<br>
                                   SESSION</a>
                                   <div class="clear"></div>
                                 </div>
@@ -3909,48 +3883,83 @@
                                 <h2>New Session : </h2>
                                 <div class="enter-session-detail">
                                   <label>Student Name : </label>
-                                  <span>JOHN DOE</span>
+                                  <span id="new_session_user_name"></span>
                                   <div class="form-row">
                                     <label>Session Date: </label>
-                                    <input type="text" value="" placeholder=""  id='datepicker' >
+                                    <input  type="text" value="" placeholder=""  id='session_date' >
                                   </div>
                                   <div class="form-row">
                                     <label>Start Time : </label>
-                                    <select>
-                                      <option>3</option>
+                                    <select id="hour_start" >
+                                    	<option value="1">01</option>
+                                      	<option value="2">02</option>
+                                      	<option value="3">03</option>
+                                      	<option selected=selected  value="4">04</option>
+                                      	<option value="5">05</option>
+                                      	<option value="6">06</option>
+                                      	<option value="7">07</option>
+                                      	<option value="8">08</option>
+                                      	<option value="9">09</option>
+                                      	<option value="10">10</option>
+                                      	<option value="11" >11</option>
+                                      	<option value="12">12</option>
                                     </select>
-                                    <select class="time-detail">
-                                      <option>00</option>
+                                    <select id="minutes_start" class="time-detail">
+                                    <option>00</option>
                                     </select>
-                                    <select class="time-detail-2">
-                                      <option>PM</option>
+                                    <select id="period_start" class="time-detail-2">
+                                      <option selected=selected>PM</option>
+                                      <option>AM</option>
                                     </select>
                                   </div>
                                    <div class="form-row">
                                     <label>End Time : </label>
-                                    <select>
-                                      <option>-</option>
+                                    <select id="hour_end">
+                                      	<option value="1">01</option>
+                                      	<option value="2">02</option>
+                                      	<option value="3">03</option>
+                                      	<option value="4">04</option>
+                                      	<option selected=selected value="5">05</option>
+                                      	<option value="6">06</option>
+                                      	<option value="7">07</option>
+                                      	<option value="8">08</option>
+                                      	<option value="9">09</option>
+                                      	<option value="10">10</option>
+                                      	<option value="11" >11</option>
+                                      	<option value="12">12</option>
                                     </select>
-                                    <select class="time-detail">
-                                      <option>-</option>
+                                    <select id="minutes_end"  class="time-detail">
+                                    
+                                    
                                     </select>
-                                    <select class="time-detail-2">
-                                      <option>-</option>
+                                    <select id="period_end" class="time-detail-2">
+                                      <option selected=selected>PM</option>
+                                      <option>AM</option>
                                     </select>
                                   </div>
                                   <label>Progress Note : </label>
                                   <div class="form-row">
-                                    <textarea></textarea>
+                                    <textarea id="progress_session_note"></textarea>
                                   </div>
                                 </div>
-                                <div class="document-session-btn"> <a href="#" class="decoument-session submit-changes">SUBMIT CHANGES</a>
+                                <div class="document-session-btn"> <a id="insert_session" href="#" class="decoument-session submit-changes">SUBMIT CHANGES</a>
                                   <div class="clear"></div>
                                 </div>
-                                <div class="document-session-btn"> <a href="#" class="document-report">SUBMIT CHANGES & <br>
+                                <div class="document-session-btn"> <a id="insert_session_add_another" href="#" class="document-report">SUBMIT CHANGES & <br>
                                   ADD ANOTHER SESSION</a>
                                   <div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>
+                                <div class="modal fade" id="TutorSessionSave" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-body"> <span></span> </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               </div>
                               <div class="new-session-outer complete-report">
                                 <h2>REPORTS </h2>
@@ -4012,59 +4021,13 @@
                           <div class="create-class-detail">
                             <div class="choose-class">
                               <div class="allstudent-detail">
-                                <h2>All Sessions : </h2>
+                                <h2 id="tutor_sessions_lists_title"></h2>
                                 <div class="allstudent-table">
                                   <table>
-                                    <tbody>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
-                                        <td width="25%">4 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
-                                        <td width="25%">4 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
-                                        <td width="25%">4 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
-                                        <td width="25%">4 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>2-</span>Kid 2 (jdoe) </td>
-                                        <td width="25%">4 hours</td>
-                                      </tr>
-                                      <tr>
-                                        <td width="75%"><span>1-</span>Kid 1 (jdoe) </td>
-                                        <td width="25%">2 hours</td>
-                                      </tr>
+                                    <tbody id="table_session_list">
+
                                        
-                                      <tr>
-                                        <td width="75%" class="session-total">Total</td>
-                                        <td width="25%" style="color:#f7931e; font-weight:bold;">4 hours</td>
-                                      </tr>
+                                      
                                     </tbody>
                                   </table>
                                 </div>
@@ -4080,10 +4043,28 @@
             </div>
           </div>
         </div>
+        
+        <div class="modal fade" id="login-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                <span id="error_login" style="color:red"></span>
+                 <span>username : </span>
+                  <input id="user_login_username" type="text" placeholder="" >
+                 <span>password : </span>
+                  <input id="user_login_password" type="password" placeholder="" >
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="enter-pass">Login</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
         <div class="col-sm-4 col-sm-offset-4 welcome-notice-outer">
           <div class="welcome-notice"> <img src="images/welcome-arrow.png" alt="" title="" >
             <h2>DASHBOARD</h2>
-            <h3>Welcome, Mr. Smith.</h3>
+            <h3>Welcome</h3>
             <p>Choose an option from the menu.</p>
           </div>
         </div>
@@ -4122,13 +4103,14 @@ MAXMUSIC 5.0	10%
 <script src="js/users.js"></script> 
 <script src="js/licenses.js"></script> 
 <script src="js/materials.js"></script>
+<script src="js/tutors.js"></script>
 <script src="js/bootstrap-datepicker.js"></script> 
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="js/lc_switch.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/intro.js"></script>
     <script type="text/javascript">
       function startIntro(){
-        var intro = introJs();
+    	  var intro = introJs();
           intro.setOptions({
             steps: [
               {
@@ -4156,19 +4138,16 @@ MAXMUSIC 5.0	10%
           });
 
           intro.start();
-      }
-	  window.onload = function() {
-  startIntro();
-  
-  $('.introjs-skipbutton') .click(function() {
-	 $('.reports-tab-title').removeClass('active');
-	 $('#reports').removeClass('active');
-	 $('.individual-title').removeClass('active');
-	 $('.content .welcome-notice ').css('opacity','1');
-	 $('#class').removeClass('active');
-	 $('.content ul.print-button ').css('display','none');
-	  });
-};
+          $('.introjs-skipbutton') .click(function() {
+     		 $('.reports-tab-title').removeClass('active');
+     		 $('#reports').removeClass('active');
+     		 $('.individual-title').removeClass('active');
+     		 $('.content .welcome-notice ').css('opacity','1');
+     		 $('#class').removeClass('active');
+     		 $('.content ul.print-button ').css('display','none');
+     		  });
+      };
+	  
  
     </script>
  </body>

@@ -16,11 +16,11 @@ $('.reports-detail').css('display','block');
 $('.content ul.print-button').css('display','block');
 });
 
-$('.content .new-session-outer a.submit-changes').click(function(){
-$('.enter-session-detail').css('display','block');
-$('.enter-session-outer').css('display','block');
-$('.new-session-outer').css('display','none');
-});
+//$('.content .new-session-outer a.submit-changes').click(function(){
+//$('.enter-session-detail').css('display','block');
+//$('.enter-session-outer').css('display','block');
+//$('.new-session-outer').css('display','none');
+//});
 
 
 $('.content .allstudent-detail .student-report').click(function(){
@@ -68,29 +68,18 @@ $(".content  .create-class-detail .all-member-detail .search-field  button").cli
 
 $('.content  .create-class-detail .all-member-detail .choose-member').show('slow');
 });
-$(".content  a.edit-user").click(function(){
-$('.content  .all-user-outer').css('display','none');
-$('.content  .edit-user-outer').css('display','block');
-
-});
 
 
 
-$(".content .allstudent-detail .enter-session").click(function(){
+
+//$(".content .allstudent-detail .enter-session").click(function(){
 
 
-$('.content  .allstudent-detail').css('display','none');
-$('.content .enter-session-outer ').css('display','block');
+//$('.content  .allstudent-detail').css('display','none');
+//$('.content .enter-session-outer ').css('display','block');
 
-});
-$(".content .enter-session-outer a.decoument-session").click(function(){
+//});
 
-
-$('.content .enter-session-outer').css('display','none');
-$('.content .new-session-outer').css('display','block');
-$('.content .complete-report ').css('display','none');
-
-});
 
 
 $(".material").click(function(){
@@ -991,7 +980,7 @@ selected: true
 
 
 $(document).ready(function() {
-$("#datepicker").datepicker({
+$("#session_date").datepicker({
 showOn: 'button',
 buttonText: '',
 buttonImageOnly: true,

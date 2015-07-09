@@ -10,7 +10,16 @@ $(document).ready(function() {
 	getStudentSearchFromSchool = server + "students/search/"
 	getStudentSearch = server + "students-school/search/"
 	getStudentDetail = server + "students-detail/"
+	getStudentLevels = server + "students-level-list/"
 	getLicense = server + "license/"
 	getMaterials = server + "materials/"
+	getStudentLevels = server + "students-level-list/"
+	getUserType = server + "students-type-list/"
+	validateUsername = server + "validate-username/"
+	getTutorDetail = server + "tutor-detail/"
+	getStudentTutorList = server + "student-tutor-list/"
+	setSession = server + "session/"
+	validateSessionTime = server + "session-validate-time/"
+	getSessionsList = server + "session-list/"
 	
 });
