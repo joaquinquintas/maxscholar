@@ -13,7 +13,6 @@ $(document).ready(function() {
 	getStudentLevels = server + "students-level-list/"
 	getLicense = server + "license/"
 	getMaterials = server + "materials/"
-	getStudentLevels = server + "students-level-list/"
 	getUserType = server + "students-type-list/"
 	validateUsername = server + "validate-username/"
 	getTutorDetail = server + "tutor-detail/"
@@ -22,5 +21,6 @@ $(document).ready(function() {
 	validateSessionTime = server + "session-validate-time/"
 	getSessionsList = server + "session-list/"
 	getSessionReport = server + "report/"
+	getIndividualReportReading = server + "reports/reading/"
 	
 });

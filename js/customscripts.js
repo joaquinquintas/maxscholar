@@ -39,7 +39,7 @@ $('#reports').addClass('active');
 $('.individual-title').addClass('active');
 $('#individual').addClass('active');
 $('.individual-tab-detail').css('display','none');
-$('.indvidual-detail-left').css('display','block');
+//$('.indvidual-detail-left').css('display','block');
 $('.overallperformance').removeClass('active');
 $('#individualgenralperformance').removeClass('active');
 $('.overalldetail').addClass('active');
@@ -48,8 +48,8 @@ $('#individualdetailscore').addClass('active');
  $(".content .individual-tab-detail button ").click(function(){
 
 
-$('.content .individual-tab-detail').css('display','none');
-$('.content .indvidual-detail-left').css('display','block');
+//$('.content .individual-tab-detail').css('display','none');
+//$('.content .indvidual-detail-left').css('display','block');
 
 });
 //$(".content .modal-content .modal-footer .enter-pass").click(function(){
@@ -109,10 +109,11 @@ $(".class-inner-tab-title").click(function(){
 $('.reports-detail').css('display','none');
 $('.class-tab-detail').css('display','block');
 });
-$(".individual-title").click(function(){
-$('.indvidual-detail-left').css('display','none');
-$('.individual-tab-detail').css('display','block');
-});
+
+//$(".individual-title").click(function(){
+//$('.indvidual-detail-left').css('display','none');
+//$('.individual-tab-detail').css('display','block');
+//});
 
 //$(".all-classes-tab-title").click(function(){
 //$('.allclasse-detail').css('display','none');

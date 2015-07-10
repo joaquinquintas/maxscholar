@@ -635,3 +635,16 @@ header .header-right ul li { float:none; display:inline-block;}
 .introjs-tooltiptext span a{ color:#0071bc; text-decoration:none;}
 .introjs-arrow.top {border-left: 30px solid transparent;border-right: 0 solid transparent;border-bottom: 170px solid #fff;-ms-transform: rotate(16deg);-webkit-transform: rotate(16deg);transform: rotate(16deg);top: -150px;left: 150px;
 } 
+
+@media screen and (max-width: 1380px) { 
+.introjs-tooltipReferenceLayer { left:38% !important;}
+.introjs-arrow { display:none !important;}
+.introjs-tooltip { left:0px !important;}
+}
+@media screen and (max-width: 768px) { 
+.introjs-tooltipReferenceLayer { left:10% !important;}
+}
+@media screen and (max-width: 480px) { 
+.introjs-tooltip { min-width:250px !important;}
+.introjs-tooltipReferenceLayer { left:5% !important;}
+}
