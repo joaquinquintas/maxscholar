@@ -3874,7 +3874,7 @@
                                   SESSION</a>
                                   <div class="clear"></div>
                                 </div>
-                                <div class="document-session-btn"> <a href="#" class="document-report">SEE REPORTS</a>
+                                <div class="document-session-btn"> <a id="see_report_from_detail" href="#" class="document-report">SEE REPORTS</a>
                                   <div class="clear"></div>
                                 </div>
                                 <div class="clear"></div>
@@ -3882,8 +3882,8 @@
                               <div class="new-session-outer">
                                 <h2>New Session : </h2>
                                 <div class="enter-session-detail">
-                                  <label>Student Name : </label>
-                                  <span id="new_session_user_name"></span>
+                                  <label style="margin-right: 13px;margin-left: 16px">Student Name : </label>
+                                  <span id="new_session_user_name" ></span>
                                   <div class="form-row">
                                     <label>Session Date: </label>
                                     <input  type="text" value="" placeholder=""  id='session_date' >
@@ -3962,54 +3962,16 @@
                               </div>
                               </div>
                               <div class="new-session-outer complete-report">
-                                <h2>REPORTS </h2>
+                                <h2 id="report_title"> </h2>
                                 <div class="enter-session-detail ">
-                                  <label>Student Name : </label>
-                                  <span>JOHN DOE</span>
+                                  <label id="report_student_name_label"></label>
+                                  <span id="report_student_name"></span>
                                  </div>
                                  <div class="complete-report-table">
                                  	<table>
-                                    	<tbody>
-                                        	<tr>
-                                            	<td class="callender-left" width="17%">
-                                                <a href="#">15</a>
-                                                <span>April <br> 2015</span>
-                                                </td>
-                                                <td class="report-description" width="80%">
-                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
-                                            </tr>
-                                            <tr>
-                                            	<td class="callender-left" width="17%">
-                                                <a href="#">15</a>
-                                                <span>April <br> 2015</span>
-                                                </td>
-                                                <td class="report-description" width="80%">
-                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
-                                            </tr>
-                                            <tr>
-                                            	<td class="callender-left" width="17%">
-                                                <a href="#">15</a>
-                                                <span>April <br> 2015</span>
-                                                </td>
-                                                <td class="report-description" width="80%">
-                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
-                                            </tr>
-                                            <tr>
-                                            	<td class="callender-left" width="17%">
-                                                <a href="#">15</a>
-                                                <span>April <br> 2015</span>
-                                                </td>
-                                                <td class="report-description" width="80%">
-                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
-                                            </tr>
-                                            <tr>
-                                            	<td class="callender-left" width="17%">
-                                                <a href="#">15</a>
-                                                <span>April <br> 2015</span>
-                                                </td>
-                                                <td class="report-description" width="80%">
-                                                <p>On this day this happened and it was great He is doing it so well...</p></td>
-                                            </tr>
+                                    	<tbody id="tutor_user_report">
+                                        	
+                                           
                                         </tbody>
                                     </table>
                                  </div>

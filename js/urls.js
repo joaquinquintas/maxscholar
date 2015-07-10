@@ -21,5 +21,6 @@ $(document).ready(function() {
 	setSession = server + "session/"
 	validateSessionTime = server + "session-validate-time/"
 	getSessionsList = server + "session-list/"
+	getSessionReport = server + "report/"
 	
 });

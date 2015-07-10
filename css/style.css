@@ -70,6 +70,8 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .top-tabs-headings  li.active {  background:#84b4ea; border-radius:0px;  padding:0px; margin:0px;}
 .content .top-tabs-headings  li a { font-size:14px; color:#b3b3b3; text-decoration:none; padding:0px;text-transform:uppercase; text-align:center; border:0px none; outline:none; line-height:30px; font-weight:bold;}
 
+#report_calendar{width:17%}
+#report_note{width:80%}
 
 .content .nav-tabs li.active a { color:#fff;}
 .content .nav-tabs li a.reports { background:url(../images/reports-icon.png) top center no-repeat; padding-top:24px;}
