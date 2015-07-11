@@ -24,6 +24,7 @@ $(document).ready(function() {
 	$("#generate_individual_report").click(function(e){
 		$('.content .individual-tab-detail').css('display','none');
 		$('.content .indvidual-detail-left').css('display','none');
+		$('.content #indvidual-detail-message').css('display','block');
 		user_pk = $("#report_individual_selector").val();
 		
 		from_day = $("#invidiual_report_to_day").val();
@@ -87,6 +88,7 @@ $(document).ready(function() {
 				$("#individual_maxreading_hl_modals").append(modal);
 				
 		    	});
+			$('.content #indvidual-detail-message').css('display','none');
 		});
 		
 		
