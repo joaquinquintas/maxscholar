@@ -61,10 +61,31 @@ $(document).ready(function() {
 			$("#invidual_report_user_pretest").html(data.student.pretest_score + " %");
 			$("#invidual_report_user_last_login").html(data.student.last_login);
 			
+			$("#individual_maxreading").html("");
+			$("#individual_maxreading_hl_modals").html("");
+			
 			$('.content .indvidual-detail-left').css('display','block');
 			
 			$.each( data.reports, function( key, val ) {
-				console.log(val);
+				tr = '<tr><td width="10%">5</td>'+
+                      '<td width="12%">'+ val.exercise.book.title+'</td>'+
+                      '<td width="14%">'+val.exercise.title +'</td>'+
+                      '<td width="8%">'+ val.hl_score+'</td>'+
+                      '<td width="10%">'+val.quiz_score +'</td>'+
+                      '<td width="33%"><a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> <a href="#"> Outline </a> <a href="#">Summary</a></td>'+
+                      '<td width="12%">'+val.created +'</td>'+
+              
+                      +'</tr>';
+				modal = '<div class="modal fade" id="HL_'+val.exercise.pk+'" " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                '<div class="modal-activity"><div class="modal-content-activity">'+
+                '<div class="modal-body">'+val.hl_text+'</div>'+
+                '<div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>'+
+                '</div></div></div>';
+				
+				$("#individual_maxreading").append(tr);
+				console.log(modal);
+				$("#individual_maxreading_hl_modals").append(modal);
+				
 		    	});
 		});
 		
