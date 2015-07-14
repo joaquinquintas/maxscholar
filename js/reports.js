@@ -21,6 +21,10 @@ $(document).ready(function() {
 		
 	});
 	
+	$("#individual_maxreading").on("click", "#not_clickable", function(e){
+		e.preventDefault();
+	})
+	
 	$("#generate_individual_report").click(function(e){
 		$('.content .individual-tab-detail').css('display','none');
 		$('.content .indvidual-detail-left').css('display','none');
@@ -53,7 +57,6 @@ $(document).ready(function() {
 			start_date = from_month +"/"+from_day+"/"+from_year;
 			end_date = to_month +"/"+to_day+"/"+to_year;
 			data = JSON.parse(data);
-			console.log(data.student);
 			$("#invidual_report_user_name").html(data.student.first_name +" "+ data.student.last_name);
 			$("#invidual_report_user_username").html(data.student.username);
 			$("#invidual_report_user_level").html(data.student.level.name);
@@ -63,31 +66,87 @@ $(document).ready(function() {
 			$("#invidual_report_user_last_login").html(data.student.last_login);
 			
 			$("#individual_maxreading").html("");
+			$("#individual_book_avg").html("");
 			$("#individual_maxreading_hl_modals").html("");
 			
 			$('.content .indvidual-detail-left').css('display','block');
 			
 			$.each( data.reports, function( key, val ) {
-				tr = '<tr><td width="10%">5</td>'+
+				
+				avg_score = (val.hl_score+val.quiz_score)/2;
+				avg_score = Math.round( avg_score * 10 ) / 10;
+
+				tr_book = '<tr><td width="33%">'+val.exercise.book.title+'</td>'+
+                           '<td width="33%">'+val.exercise.book.level.name+'</td>';
+				
+				if(avg_score ==100){
+					tr_book = tr_book + '<td class="full-score" width="33%">'+avg_score+'%</td></tr>';
+				}else{
+					tr_book = tr_book + '<td width="33%">'+avg_score+'%</td></tr>';
+				}
+                           
+				$("#individual_book_avg").append(tr_book);
+				
+				tr = '<tr><td width="10%">'+ val.exercise.book.level.name+'</td>'+
                       '<td width="12%">'+ val.exercise.book.title+'</td>'+
                       '<td width="14%">'+val.exercise.title +'</td>'+
                       '<td width="8%">'+ val.hl_score+'</td>'+
                       '<td width="10%">'+val.quiz_score +'</td>'+
-                      '<td width="33%"><a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> <a href="#"> Outline </a> <a href="#">Summary</a></td>'+
-                      '<td width="12%">'+val.created +'</td>'+
-              
-                      +'</tr>';
-				modal = '<div class="modal fade" id="HL_'+val.exercise.pk+'" " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
-                '<div class="modal-activity"><div class="modal-content-activity">'+
+                      '<td width="33%"><a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
+				
+				 if (val.outline!= undefined && val.outline.outline !=""){
+	            	 a_outline = '<a href="#" data-toggle="modal" data-target="#OUT_'+val.exercise.pk+'"> Outline </a> ';
+	             }else{
+	            	 a_outline = '<a href="#" id="not_clickable"> Outline </a> ';
+	            	 
+	             }
+	             tr = tr + a_outline; 
+	             
+				if (val.summary!= undefined && val.summary.summary !=""){
+					a_summary = '<a href="#" data-toggle="modal" data-target="#SUM_'+val.exercise.pk+'">Summary </a></td>';
+					
+				}else{
+					a_summary = '<a href="#" id="not_clickable"> Summary </a></td>';
+				}
+				tr = tr + a_summary;     
+	            
+                      
+                 end_tr ='<td width="12%">'+val.created +'</td></tr>';
+                 tr = tr +  end_tr
+                      
+				modal = '<div class="modal fade" id="HL_'+val.exercise.pk+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                '<div class="modal-activity-hl"><div class="modal-content-activity">'+
                 '<div class="modal-body">'+val.hl_text+'</div>'+
                 '<div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>'+
                 '</div></div></div>';
 				
 				$("#individual_maxreading").append(tr);
-				console.log(modal);
 				$("#individual_maxreading_hl_modals").append(modal);
+				if (val.summary!= undefined && val.summary.summary !=""){
+					modal = '<div class="modal fade" id="SUM_'+val.exercise.pk+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+	                '<div class="modal-activity"><div class="modal-content-activity">'+
+	                '<div class="modal-body">'+val.summary.summary+'</div>'+
+	                '<div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>'+
+	                '</div></div></div>';
+					console.log(val.summary);
+					$("#individual_maxreading_hl_modals").append(modal);
+				}
+				
+				if (val.outline!= undefined && val.outline.outline !=""){
+					console.log(val.outline);
+					modal = '<div class="modal fade" id="OUT_'+val.exercise.pk+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+	                '<div class="modal-activity"><div class="modal-content-activity">'+
+	                '<div class="modal-body">'+val.outline.outline+'</div>'+
+	                '<div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>'+
+	                '</div></div></div>';
+					$("#individual_maxreading_hl_modals").append(modal);
+				}
+
 				
 		    	});
+			
+			
+			
 			$('.content #indvidual-detail-message').css('display','none');
 		});
 		
