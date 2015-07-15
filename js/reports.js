@@ -51,7 +51,6 @@ $(document).ready(function() {
 		$("#invidual_report_user_last_login").html("");
 		
 		to_send={start_date:start_date, end_date, student_id:user_pk}
-		console.log(to_send);
 		$.ajax({type: "GET",  url: getIndividualReportReading, data:to_send}).
 		done(function(data){
 			start_date = from_month +"/"+from_day+"/"+from_year;
@@ -71,21 +70,26 @@ $(document).ready(function() {
 			
 			$('.content .indvidual-detail-left').css('display','block');
 			
+			var books = {};
+			var books_name = {};
+			
 			$.each( data.reports, function( key, val ) {
 				
-				avg_score = (val.hl_score+val.quiz_score)/2;
+				console.log(val.exercise.book.pk);
+				avg_score = (val.hl_score+val.quiz_score+val.hl_topic_score+val.hl_idea_score+val.hl_detail_score)/5;
 				avg_score = Math.round( avg_score * 10 ) / 10;
-
-				tr_book = '<tr><td width="33%">'+val.exercise.book.title+'</td>'+
-                           '<td width="33%">'+val.exercise.book.level.name+'</td>';
-				
-				if(avg_score ==100){
-					tr_book = tr_book + '<td class="full-score" width="33%">'+avg_score+'%</td></tr>';
-				}else{
-					tr_book = tr_book + '<td width="33%">'+avg_score+'%</td></tr>';
+				//Iterate and aggregate by Book
+				if (!(val.exercise.book.pk in books )){
+					books[val.exercise.book.pk] = [];
+					books_name[val.exercise.book.pk] = {"name": val.exercise.book.title, "level":val.exercise.book.level.name};
+						
+		
 				}
-                           
-				$("#individual_book_avg").append(tr_book);
+				
+				books[val.exercise.book.pk].push(avg_score)
+				
+
+				
 				
 				tr = '<tr><td width="10%">'+ val.exercise.book.level.name+'</td>'+
                       '<td width="12%">'+ val.exercise.book.title+'</td>'+
@@ -128,12 +132,10 @@ $(document).ready(function() {
 	                '<div class="modal-body">'+val.summary.summary+'</div>'+
 	                '<div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>'+
 	                '</div></div></div>';
-					console.log(val.summary);
 					$("#individual_maxreading_hl_modals").append(modal);
 				}
 				
 				if (val.outline!= undefined && val.outline.outline !=""){
-					console.log(val.outline);
 					modal = '<div class="modal fade" id="OUT_'+val.exercise.pk+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
 	                '<div class="modal-activity"><div class="modal-content-activity">'+
 	                '<div class="modal-body">'+val.outline.outline+'</div>'+
@@ -145,6 +147,30 @@ $(document).ready(function() {
 				
 		    	});
 			
+			console.log(books);
+			console.log(books_name);
+			
+			for (var key in books) {
+				scores = books[key];
+				sum_scores = 0;
+				var scores_length = scores.length;
+				for (var i = 0; i < scores_length; i++) {
+					sum_scores = sum_scores +scores[i];
+				}
+				avg_score = sum_scores/scores_length;
+				avg_score = Math.round( avg_score * 10 ) / 10;
+				
+				tr_book = '<tr><td width="33%">'+books_name[key].name+'</td>'+
+	            '<td width="33%">'+books_name[key].level+'</td>';
+		
+				if(avg_score ==100){
+					tr_book = tr_book + '<td class="full-score" width="33%">'+avg_score+'%</td></tr>';
+				}else{
+					tr_book = tr_book + '<td width="33%">'+avg_score+'%</td></tr>';
+				}
+			            
+				$("#individual_book_avg").append(tr_book);
+			}
 			
 			
 			$('.content #indvidual-detail-message').css('display','none');
