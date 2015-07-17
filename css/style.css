@@ -201,7 +201,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 .content #maxread-indivdual .slimScrollBar { display:block !important;  border-radius: 0px !important;
   width: 11px !important;background: #999999 !important; margin-top:36px;}
-.content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,  .highcharts-tooltip ,#container4 .highcharts-legend{ display:none;}
+.content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,#container4 .highcharts-legend{ display:none;}
 .content #container2 .highcharts-data-labels { display:none;}
  
 .content .report-per-program h2 {  background: #fff;line-height: 30px;padding: 0 20px;font-size: 14px;color: #5D5D5D; font-family: 'droid_sansbold';margin: 0px; margin-bottom: 16px;}
@@ -629,7 +629,6 @@ header .header-right ul li { float:none; display:inline-block;}
 .content .modal-dialog { margin-top:20%;}
 }
 . highcharts-background { background-color:#000 !important;}
-#container18 .highcharts-legend-item { display:none !important;}
 .highcharts-legend { display:none !important;}
 #createuser .choose-class { display:block !important;}
 .lcs_label { display:none;}

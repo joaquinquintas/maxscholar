@@ -70,12 +70,129 @@ $(document).ready(function() {
 			
 			$('.content .indvidual-detail-left').css('display','block');
 			
+			levelk = data.level["level-k"]
+			level1 = data.level["level-1"]
+			level2 = data.level["level-2"]
+			level3 = data.level["level-3"]
+			level4 = data.level["level-4"]
+			level5 = data.level["level-5"]
+			level6 = data.level["level-6"]
+			level7 = data.level["level-7"]
+			level8 = data.level["level-8"]
+			level9 = data.level["level-9"]
+			level10 = data.level["level-10"]
+			level11 = data.level["level-11"]
+			level12 = data.level["level-12"]
+			
+			$('#container18').highcharts({
+				chart: {
+				renderTo: 'container18',
+
+				backgroundColor: '#f2f2f2'
+
+				},
+				credits: {
+					enabled: false
+				},
+				xAxis: {
+
+					categories: ["Level K", "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6",
+					             "Level 7", "Level 8", "Level 9", "Level 10", "Level 11", "Level 12"]    
+
+				},
+
+				yAxis: {
+					tickPositions: [0, 10, 20, 30,40,50,60,70,80,90, 100],
+					ceiling: 100,
+					type: 'linear',
+					floor: 0,
+					labels: {
+		                format: '{value} %'
+		            }
+				},
+
+				tooltip: {
+					headerFormat: '<b>{point.key}</b><br />',
+					pointFormat: '{point.y} %'
+				},
+
+				series: [{
+					data: [levelk, level1, level2, level3, level4, level5, level6, level7, level8,
+					       level9, level10, level11,level12],
+				}]
+				});
+			
+			$('#container11').highcharts({
+				chart: {
+				type: 'column',
+				backgroundColor: '#f2f2f2'
+				},
+				colors: [ '#ee8984','#84b4ea'] ,
+				title: {
+				text: 'Stacked column chart'
+				},
+				xAxis: {
+				categories: ['Main Idea', 'Detail', 'Inference', 'Compare', 'Vocabulary']
+				},
+				yAxis: {
+				min: 0,
+				max: 100,
+				title: {
+				text: 'Total fruit consumption'
+				},
+				stackLabels: {
+				enabled: true,
+				style: {
+				fontWeight: 'bold',
+				color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+				}
+				}
+				},
+				legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+				},
+				credits: {
+				enabled: false
+				},
+				plotOptions: {
+				column: {
+				stacking: 'normal',
+				dataLabels: {
+				enabled: true,
+				color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+				style: {
+				textShadow: '0 0 3px black'
+				}
+				}
+				}
+				},
+				series: [
+				{
+				name: 'Un Correct',
+				data: [data.comprehension.main_idea.incorrect, data.comprehension.detail.incorrect,
+				       data.comprehension.inference.incorrect ,data.comprehension.compare.incorrect,
+				       data.comprehension.vacabulary.incorrect]
+				},{
+				name: 'Correct',
+				data: [data.comprehension.main_idea.correct, data.comprehension.detail.correct,
+				       data.comprehension.inference.correct ,data.comprehension.compare.correct,
+				       data.comprehension.vacabulary.correct]
+				} ]
+				});
+			
 			var books = {};
 			var books_name = {};
 			
 			$.each( data.reports, function( key, val ) {
 				
-				console.log(val.exercise.book.pk);
 				avg_score = (val.hl_score+val.quiz_score+val.hl_topic_score+val.hl_idea_score+val.hl_detail_score)/5;
 				avg_score = Math.round( avg_score * 10 ) / 10;
 				//Iterate and aggregate by Book
@@ -147,9 +264,7 @@ $(document).ready(function() {
 				
 		    	});
 			
-			console.log(books);
-			console.log(books_name);
-			
+
 			for (var key in books) {
 				scores = books[key];
 				sum_scores = 0;

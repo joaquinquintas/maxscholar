@@ -617,69 +617,8 @@ data: [80, 70, 20 , 60  ]
 }); 
 });
 
-$(function () {
-$('#container11').highcharts({
-chart: {
-type: 'column',
-backgroundColor: '#f2f2f2'
-},
-colors: [ '#ee8984','#84b4ea'] ,
-title: {
-text: 'Stacked column chart'
-},
-xAxis: {
-categories: ['Main Idea', 'Detail', 'Inference', 'Compare', 'Vocabulary']
-},
-yAxis: {
-min: 0,
-max: 100,
-title: {
-text: 'Total fruit consumption'
-},
-stackLabels: {
-enabled: true,
-style: {
-fontWeight: 'bold',
-color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-}
-}
-},
-legend: {
-align: 'right',
-x: -30,
-verticalAlign: 'top',
-y: 25,
-floating: true,
-backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-borderColor: '#CCC',
-borderWidth: 1,
-shadow: false
-},
-credits: {
-enabled: false
-},
-plotOptions: {
-column: {
-stacking: 'normal',
-dataLabels: {
-enabled: true,
-color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-style: {
-textShadow: '0 0 3px black'
-}
-}
-}
-},
-series: [
-{
-name: 'Un Correct',
-data: [20, 30, 80 ,30, 80]
-},{
-name: 'Correct',
-data: [80, 70, 20 ,70, 20]
-} ]
-});
- 
+
+
 
 $(function () {
 var chart = new Highcharts.Chart({
@@ -814,37 +753,7 @@ selected: true
 });
 
 
-$(function () {
-$('#container18').highcharts({
-chart: {
-renderTo: 'container18',
 
-backgroundColor: '#f2f2f2'
-
-},
-credits: {
-enabled: false
-},
-xAxis: {
-tickInterval: 1
-},
-
-yAxis: {
-
-type: 'logarithmic',
-minorTickInterval: 0.1
-},
-
-tooltip: {
-headerFormat: '<b>{series.name}</b><br />',
-pointFormat: 'x = {point.x}, y = {point.y}'
-},
-
-series: [{
-data: [100,80,60,40,20],
-pointStart: 1
-}]
-}); });
 
 
 
@@ -974,8 +883,6 @@ selected: true
 ]
 }]
 });
-});
-
 });
 
 
