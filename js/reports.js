@@ -68,6 +68,197 @@ $(document).ready(function() {
 			$("#individual_book_avg").html("");
 			$("#individual_maxreading_hl_modals").html("");
 			
+			$("#container12").hide();
+			$("#container13").hide();
+			$("#container14").hide();
+			$("#containerMaxVocab").hide();
+			
+			if(!(data.vocab.definitions.won == 0 && data.vocab.definitions.lost == 0)){
+				$("#containerMaxVocab").show();
+				var chart = new Highcharts.Chart({
+					chart: {
+					renderTo: 'containerMaxVocab',
+					type:'pie',
+					backgroundColor: '#f2f2f2'
+
+					},
+					title: {
+						text: 'Definitions'
+						},
+					colors: [ '#ee8984','#84b4ea'] ,
+					credits: {
+					enabled: false
+					},
+					plotOptions: {
+					series: {
+					dataLabels: {
+					enabled: true,
+					formatter: function() {
+					return Math.round(this.percentage*100)/100 + ' %';
+					},
+					distance: -30,
+					color:'white'
+					}
+					}
+					},
+
+					series: [{
+					type: 'pie',
+					name: 'Definitions',
+					data: [
+					['Lost',   data.vocab.definitions.lost],
+					{
+					name: 'Won',
+					y: data.vocab.definitions.won,
+					sliced: true,
+					selected: true
+					},
+
+
+					]
+					}]
+					});
+			}
+			
+			if(!(data.vocab.wordsearch.won == 0 && data.vocab.wordsearch.lost == 0)){
+				$("#container14").show();
+				var chart = new Highcharts.Chart({
+					chart: {
+					renderTo: 'container14',
+					type:'pie',
+					backgroundColor: '#f2f2f2'
+
+					},
+					title: {
+						text: 'Wordsearch'
+						},
+					colors: [ '#ee8984','#84b4ea'] ,
+					credits: {
+					enabled: false
+					},
+					plotOptions: {
+					series: {
+					dataLabels: {
+					enabled: true,
+					formatter: function() {
+					return Math.round(this.percentage*100)/100 + ' %';
+					},
+					distance: -30,
+					color:'white'
+					}
+					}
+					},
+
+					series: [{
+					type: 'pie',
+					name: 'Wordsearch',
+					data: [
+					['Lost',   data.vocab.wordsearch.lost],
+					{
+					name: 'Won',
+					y: data.vocab.wordsearch.won,
+					sliced: true,
+					selected: true
+					},
+
+
+					]
+					}]
+					});
+			}
+			if(!(data.vocab.hangman.won == 0 && data.vocab.hangman.lost == 0)){
+				$("#container13").show();
+				var chart = new Highcharts.Chart({
+					chart: {
+					renderTo: 'container13',
+					type:'pie',
+					backgroundColor: '#f2f2f2'
+					},
+					title: {
+						text: 'Hangman'
+						},
+					colors: [ '#ee8984','#84b4ea'] ,
+					credits: {
+					enabled: false
+					},
+					plotOptions: {
+					series: {
+					dataLabels: {
+					enabled: true,
+					formatter: function() {
+					return Math.round(this.percentage*100)/100 + ' %';
+					},
+					distance: -30,
+					
+					color:'white'
+					}
+					}
+					},
+
+					series: [{
+					type: 'pie',
+					name: 'Hangman',
+					data: [
+					['Lost',   data.vocab.hangman.lost],
+					{
+					name: 'Won',
+					y: data.vocab.hangman.won,
+					sliced: true,
+					selected: true
+					},
+
+
+					]
+					}]
+					});
+			}
+			if(!(data.vocab.wiseguy.won == 0 && data.vocab.wiseguy.lost == 0)){
+				$("#container12").show();
+				var chart = new Highcharts.Chart({
+					chart: {
+					renderTo: 'container12',
+					type:'pie',
+					backgroundColor: '#f2f2f2'
+					},
+					title: {
+					text: 'Wiseguy'
+					},
+					colors: [ '#ee8984','#84b4ea'] ,
+					credits: {
+					enabled: false
+					},
+					plotOptions: {
+					series: {
+					dataLabels: {
+					enabled: true,
+					formatter: function() {
+					return Math.round(this.percentage*100)/100 + ' %';
+					},
+					distance: -30,
+					color:'white'
+					}
+					}
+					},
+
+					series: [{
+					type: 'pie',
+					name: 'Wiseguy',
+					data: [
+					['Lost',   data.vocab.wiseguy.lost],
+					{
+					name: 'Won',
+					y: data.vocab.wiseguy.won,
+					sliced: true,
+					selected: true
+					},
+
+
+					]
+					}]
+					});
+
+					 
+			}
 			$('.content .indvidual-detail-left').css('display','block');
 			
 			levelk = data.level["level-k"]
@@ -176,7 +367,7 @@ $(document).ready(function() {
 				},
 				series: [
 				{
-				name: 'Un Correct',
+				name: 'Incorrect',
 				data: [data.comprehension.main_idea.incorrect, data.comprehension.detail.incorrect,
 				       data.comprehension.inference.incorrect ,data.comprehension.compare.incorrect,
 				       data.comprehension.vacabulary.incorrect]
@@ -287,8 +478,60 @@ $(document).ready(function() {
 				$("#individual_book_avg").append(tr_book);
 			}
 			
+			$('#maxplaces_individual_list').html("");
+			$.each( data.places.places, function( key, val ) {
+				tr = '<tr>'+
+					 '<td width="33%">'+val.name+'</td>'+
+                     '<td width="33%">'+val.score+'</td>'+
+                     '<td width="33%">'+val.finished+'</td>'+
+                  	 '</tr>';
+				$("#maxplaces_individual_list").append(tr);
+				
+			});
+			tr = '<tr class="average">'+
+			 '<td width="33%">AVERAGE</td>'+
+            '<td width="33%">'+data.places.avg_score+'</td>'+
+            '<td width="33%">-</td>'+
+         	 '</tr>';
+			$("#maxplaces_individual_list").append(tr);
+			
+			$('#maxbios_individual_list').html("");
+			$.each( data.bios.bios, function( key, val ) {
+				tr = '<tr>'+
+					 '<td width="33%">'+val.name+'</td>'+
+                     '<td width="33%">'+val.score+'</td>'+
+                     '<td width="33%">'+val.finished+'</td>'+
+                  	 '</tr>';
+				$("#maxbios_individual_list").append(tr);
+				
+			});
+			tr = '<tr class="average">'+
+			 '<td width="33%">AVERAGE</td>'+
+            '<td width="33%">'+data.bios.avg_score+'</td>'+
+            '<td width="33%">-</td>'+
+         	 '</tr>';
+			$("#maxbios_individual_list").append(tr);
 			
 			$('.content #indvidual-detail-message').css('display','none');
+			
+			$("#maxmusic_individual_list").html("");
+			
+			for (var key in data.music.scores) {
+				tr = '<tr>'+
+				 '<td width="25%">'+key+'</td>'+
+                '<td width="25%">'+data.music.scores[key].identify+'</td>'+
+                '<td width="25%">'+data.music.scores[key].filler+'</td>'+
+                '<td width="25%">'+data.music.scores[key].piano+'</td>'+
+             	 '</tr>';
+			$("#maxmusic_individual_list").append(tr);
+			}
+			tr = '<tr class="average">'+
+			 '<td width="25%">AVERAGE</td>'+
+           '<td width="25%">'+data.music.avg.identify+'</td>'+
+           '<td width="25%">'+data.music.avg.filler+'</td>'+
+           '<td width="25%">'+data.music.avg.piano+'</td>'+
+        	 '</tr>';
+			$("#maxmusic_individual_list").append(tr);
 		});
 		
 		

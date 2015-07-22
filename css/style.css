@@ -201,7 +201,9 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 .content #maxread-indivdual .slimScrollBar { display:block !important;  border-radius: 0px !important;
   width: 11px !important;background: #999999 !important; margin-top:36px;}
-.content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,#container4 .highcharts-legend{ display:none;}
+/*.content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,#container4 .highcharts-legend{ display:none;}*/
+.highcharts-title{font-size: 15px!important; color:#5C5C5C!important}
+.content #container3 .highcharts-legend , .highcharts-axis ,#container4 .highcharts-legend{ display:none;}
 .content #container2 .highcharts-data-labels { display:none;}
  
 .content .report-per-program h2 {  background: #fff;line-height: 30px;padding: 0 20px;font-size: 14px;color: #5D5D5D; font-family: 'droid_sansbold';margin: 0px; margin-bottom: 16px;}
@@ -309,7 +311,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .individual-report { margin-top:42px !important ;}
 .content .individual-report-per-program table thead td {background:none; text-align:center; font-size:12px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
 .content .individual-graphs { }
-.content .individual-graphs h2 { width:590px; display:inline-block;}
+/* .content .individual-graphs h2 { width:590px; display:inline-block;}*/
 .content .individual-graphs ul { margin:0px; padding:0; display:block; text-align:right;}
 .content .individual-graphs ul li { font-size:13px; color:#5d5d5d;font-family: 'droid_sansregular'; background:url(../images/correct-icon.png) left center no-repeat; padding-left:37px; display:inline-block; line-height:32px; margin-left:25px;}
 .content .individual-graphs ul li + li {background:url(../images/uncorrect-icon.png) left center no-repeat;}
