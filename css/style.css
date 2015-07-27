@@ -689,3 +689,23 @@ header .header-right ul li { float:none; display:inline-block;}
     text-decoration: none;
     width: 74px;
 }
+
+.addDetail, .addIdea{
+	display: none;
+}
+
+.edit{width:100%}
+
+#categories,#categories ul, #categories ol, .detailsList{
+	 list-style-type: none;
+  margin: 0;
+  padding: 0;
+	
+}
+
+#container18 .highcharts-title, #container11 .highcharts-title, #container10 .highcharts-title {display:none;}
+
+.form-row p {
+    margin: 10px 0 10px 120px;
+    width: 40%;
+}

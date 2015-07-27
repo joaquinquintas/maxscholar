@@ -1,6 +1,6 @@
 $(document).ready(function() {	
-	//server = "http://localhost:8080/dashboard/v1/"
-	server = "http://maxscholar.com/dashboard/v1/"
+	server = "http://localhost:8080/dashboard/v1/"
+	//server = "http://maxscholar.com/dashboard/v1/"
 	allClasses = server + "classes/"
 	login = server + "login/"
 	checkClassPassword =  server + "classes-password-validator/"
@@ -22,6 +22,13 @@ $(document).ready(function() {
 	validateSessionTime = server + "session-validate-time/"
 	getSessionsList = server + "session-list/"
 	getSessionReport = server + "report/"
-	getIndividualReportReading = server + "reports/reading/"
+	getIndividualReportReading = server + "reports/maxreading/"
+	getIndividualReportBios = server + "reports/maxbios/"
+	getIndividualReportPlaces = server + "reports/maxplaces/"
+	getIndividualReportMusic = server + "reports/maxmusic/"
+	getIndividualReportPhonics = server + "reports/maxphonics/"
+	getIndividualReportUsage = server + "reports/usage/"
+	getScoreAvg = server + "reports/score/avg/"
+	getClassScoreAvg = server + "reports/class/score/avg/"
 	
 });

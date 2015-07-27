@@ -82,7 +82,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tabs-inner" role="tablist">
                           <li role="presentation" class="district-tab-title"><a href="#district" aria-controls="district" role="tab" data-toggle="tab">district</a></li>
-                          <li role="presentation" class="class-inner-tab-title"><a href="#class" aria-controls="class" role="tab" data-toggle="tab"  id="step3">class</a></li>
+                          <li role="presentation" class="class-inner-tab-title"><a id="class_report" href="#class" aria-controls="class" role="tab" data-toggle="tab"  id="step3">class</a></li>
                           <li role="presentation" class="individual-title active"><a id="individual_report" href="#individual" aria-controls="individual" role="tab" data-toggle="tab">individual</a></li>
                         </ul>
                       </div>
@@ -95,16 +95,19 @@
                             <div class="district-detail"> <span>COMING SOON</span> </div>
                           </div>
                           <div role="tabpanel" class="tab-pane active" id="class">
+                          <label style="float:left" id="report_class_info_text"> </label>
+                          
                             <div class=" col-sm-6 col-xs-12 class-tab-detail">
                               <form>
                                 <div class="form-row">
                                   <label>Class Name : </label>
-                                  <select>
+                                  <select id="report_class_selector">
                                   </select>
                                 </div>
                                 <div class="form-row">
                                   <label>Password : </label>
-                                  <input type="password" placeholder="">
+                                  <input id="class_password" type="password" placeholder="">
+                                  <p id="error_class_password" style="color:red"></p>
                                 </div>
                                 <div class="dates-detail">
                                   <div class="form-row">
@@ -112,7 +115,7 @@
                                   </div>
                                   <div class="form-row">
                                     <label>From : </label>
-                                    <select class="month">
+                                    <select id="class_report_from_month" class="month">
                                     <option value="1">January</option>
                                     <option value="2">February</option>
                                     <option value="3">March</option>
@@ -126,7 +129,7 @@
                                     <option value="11">November</option>
                                       <option value="12">December</option>
                                     </select>
-                                    <select class="day">
+                                    <select id="class_report_from_day"  class="day">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -159,7 +162,7 @@
                                      <option>30</option>
                                      <option>31</option>
                                     </select>
-                                    <select class="year">
+                                    <select id="class_report_from_year"  class="year">
                                       <option>2010</option>
                                       <option>2011</option>
                                       <option>2012</option>
@@ -170,7 +173,7 @@
                                   </div>
                                   <div class="form-row">
                                     <label>To : </label>
-                                    <select class="month">
+                                    <select id="class_report_to_month"  class="month">
                                       <option value="1">January</option>
                                     <option value="2">February</option>
                                     <option value="3">March</option>
@@ -184,7 +187,7 @@
                                     <option value="11">November</option>
                                       <option value="12">December</option>
                                     </select>
-                                    <select class="day">
+                                    <select id="class_report_to_day"  class="day">
                                       <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -217,7 +220,7 @@
                                      <option>30</option>
                                      <option>31</option>
                                     </select>
-                                    <select class="year">
+                                    <select id="class_report_to_year"  class="year">
                                       <option value="2010">2010</option>
                                       <option value="2011">2011</option>
                                       <option value="2012">2012</option>
@@ -233,13 +236,16 @@
                             </div>
                             <div class="col-sm-6"></div>
                             <div class="clearfix"></div>
+                            <div class="reports-detail" id="class-detail-message">
+                            <label>Loading Report ... </label></div>
+                            
                             <div class="reports-detail">
-                              <label>Class Name : <span>Class 205</span></label>
-                              <label>Teacher : <span>Mr. Smith</span></label>
-                              <label>Class type : <span>ELL</span></label>
-                              <label>Email : <span>mr.smith@thisplace.com</span></label>
-                              <label>Dates : <span>4/13/2015 - 4/27/2015</span></label>
-                              <label>Students online : <span>15</span></label>
+                              <label>Class Name : <span id="report_class_name"></span></label>
+                              <label>Teacher : <span id="report_teacher_name" ></span></label>
+                              <!-- label>Class type : <span >ELL</span></label -->
+                              <label>Email : <span id="report_class_email"></span></label>
+                              <label>Dates : <span id="report_class_dates"></span></label>
+                              <label>Students online : <span id="report_class_online"></span></label>
                               <div role="tabpanel"> 
                                <input type="checkbox" name="check-1" checked="checked" value="4" class="lcs_check" autocomplete="off" />
 
@@ -267,121 +273,24 @@
                                             <td style=" width="10%""><a href="#">MAXMUSIC </a></td>
                                             <td  style="width="10%""><a href="#">Perfomance </a></td>
                                               </thead>
-                                          <tbody>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="not-satifactory"><span>Not Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="excellent"><span>Excellent </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="excellent"><span>Excellent </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
-                                            <tr>
-                                              <td width="12%" class="cumulative-time student-name" style="background : none"><a href="#">Johnny Smith</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="not-satifactory"><span>Not Satisfactory </span></td>
-                                            </tr>
-                                            <tr class="average">
-                                              <td width="12%" class="cumulative-time" style="background : none"><a href="#">Class Average</a></td>
-                                              <td width="11%">82 </td>
-                                              <td width="11%">160 </td>
-                                              <td width="11%" class="cumulative-time">-</td>
-                                              <td width="11%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%"> 82 </td>
-                                              <td width="10%"> 160 </td>
-                                              <td width="10%" class="satifactory"><span>Satisfactory </span></td>
-                                            </tr>
+                                          <tbody id="class_score_report_table">
+                                            
+                                           
                                           </tbody>
                                         </table>
                                       </div>
                                       <div class="usage-program-detail ">
-                                        <h2>USAGE % PER PROGRAM : <span>of the total time that students 	 														are in the software</span></h2>
-                                        <div id="container1" style=" width:100%; max-width:818px;   	 														height: 400px; margin: 0 auto ;box-sizing:border-box;" ></div>
+                                        <h2>USAGE % PER PROGRAM : <span>of the total time that students are in the software</span></h2>
+                                        <div id="container1" style=" width:100%; max-width:818px; height: 400px; margin: 0 auto ;box-sizing:border-box;" ></div>
                                       </div>
                                       <div class="usage-program-detail ">
                                         <h2>CLASS PERFORMANCE : <span>the overall Maxscholar score (average score on all programs)</span></h2>
                                         <div id="container2" style=" width:100%; max-width:818px; height: 400px; margin: 0 auto ;box-sizing:border-box;"> </div>
                                         <div class="chart-inner-detail">
                                           <ul>
-                                            <li><span>80%</span> <img src="images/satisfactory-icon-2.png" alt="">Satisfactory</li>
-                                            <li><span>14%</span><img src="images/excellent-icon-2.png" alt=""> Excellent</li>
-                                            <li><span>3%</span> <img src="images/unsatisfactory-icon-2.png" alt="">Unsatisfactory</li>
+                                            <li><span id="satis_per"></span> <img src="images/satisfactory-icon-2.png" alt="">Satisfactory</li>
+                                            <li><span id="excell_per"></span><img src="images/excellent-icon-2.png" alt=""> Excellent</li>
+                                            <li><span id="unsatis_per"></span> <img src="images/unsatisfactory-icon-2.png" alt="">Unsatisfactory</li>
                                           </ul>
                                         </div>
                                       </div>
@@ -930,7 +839,7 @@
                               <label>Dates : <span id="invidual_report_user_date"></span></label>
                               <label>Pretest score : <span id="invidual_report_user_pretest"></span></label>
                               <label class="last-login">Last login : <span id="invidual_report_user_last_login"></span></label>
-                               <input type="checkbox" name="check-3" value="6" checked="checked" class="lcs_check lcs_tt1"   autocomplete="off">
+                               <input type="checkbox" name="check-3" value="6" checked="checked" class="lcs_check lcs_tt1 lcs_off"   autocomplete="off">
                               <div role="tabpanel"> 
                                 
                                 <!-- Nav tabs -->
@@ -958,30 +867,30 @@
                                           <tbody>
                                             <tr>
                                               <td width="16%" style="background:none;">Score</td>
-                                              <td width="12%">45</td>
-                                              <td width="12%"> 75 </td>
-                                              <td width="12%"><a href="#">See <br>
+                                              <td width="12%" id="ind_time"></td>
+                                              <td width="12%" id="ind_score_reading"></td>
+                                              <td width="12%"><a href="#" id="see_maxphonics_individual_report">See <br>
                                                 Individual Report</a></td>
-                                              <td width="12%"> 26 </td>
-                                              <td width="12%"> 54 </td>
-                                              <td width="10%"> NA </td>
-                                              <td width="10%"> 82 </td>
+                                              <td width="12%" id="ind_score_words"></td>
+                                              <td width="12%" id="ind_score_places"></td>
+                                              <td width="10%" id="ind_score_bios"></td>
+                                              <td width="10%" id="ind_score_music"></td>
                                             </tr>
                                             <tr class="performance">
                                               <td width="16%">Performance</td>
                                               <td width="12%">-</td>
-                                              <td width="12%" class="satisfactory"> Satisfactory </td>
+                                              <td width="12%" id="ind_per_reading" > </td>
                                               <td width="12%">-</td>
-                                              <td width="12%" class="notsatisfactory"> Not Satisfactory </td>
-                                              <td width="12%" class="notsatisfactory"> Not Satisfactory </td>
-                                              <td width="10%"> NA </td>
-                                              <td width="10%" class="excellent"> Excellent </td>
+                                              <td width="12%" id="ind_per_words"></td>
+                                              <td width="12%" id="ind_per_places"></td>
+                                              <td width="10%" id="ind_per_bios"></td>
+                                              <td width="10%" id="ind_per_music"></td>
                                             </tr>
                                           </tbody>
                                         </table>
                                       </div>
                                       <h2>USAGE % PER PROGRAM : </h2>
-                                      <div id="container10" style=" width:100%; max-width:818px;   	 														height: 400px; margin: 0 auto ;box-sizing:border-box;" ></div>
+                                      <div id="container10" style=" width:100%; max-width:818px; height: 400px; margin: 0 auto ;box-sizing:border-box;" ></div>
                                       <div class="see-detail-report-btn"> <a href="#">SEE DETAILED REPORT</a> </div>
                                     </div>
                                   </div>
@@ -991,11 +900,11 @@
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" role="tablist">
                                           <li role="presentation" class="active max-read-individual"><a href="#maxread-indivdual" aria-controls="maxread-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXREADING</a></li>
-                                          <li role="presentation" class="max-phonics"><a href="#maxphonics-indivdual" aria-controls="maxphonics-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPHONICS</a></li>
+                                          <li role="presentation" class="max-phonics"><a id="maxphonics_ind" href="#maxphonics-indivdual" aria-controls="maxphonics-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPHONICS</a></li>
                                           <li role="presentation"><a href="#maxword-indivdual" aria-controls="maxword-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXWORDS</a></li>
-                                          <li role="presentation"><a href="#maxplace-indivdual" aria-controls="maxplace-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPLACES</a></li>
-                                          <li role="presentation"><a href="#maxbio-indivdual" aria-controls="maxbio-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXBIOS</a></li>
-                                          <li role="presentation"><a href="#maxmusic-indivdual" aria-controls="maxmusic-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXMUSIC</a></li>
+                                          <li role="presentation"><a href="#maxplace-indivdual" id="maxplaces_ind" aria-controls="maxplace-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPLACES</a></li>
+                                          <li role="presentation"><a href="#maxbio-indivdual" id="maxbios_ind" aria-controls="maxbio-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXBIOS</a></li>
+                                          <li role="presentation"><a href="#maxmusic-indivdual" id="maxmusic_ind" aria-controls="maxmusic-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXMUSIC</a></li>
                                         </ul>
                                         
                                         <!-- Tab panes -->
@@ -1063,7 +972,8 @@
                                               <div class="constant-detail"> 
                                                 <!-- Nav tabs -->
                                                 <ul class="nav nav-tabs" role="tablist">
-                                                  <li role="presentation" class="active"><a href="#constant" aria-controls="constant" role="tab" data-toggle="tab">CONSONANTS</a></li>
+                                                  <li role="presentation" class="active"><a href="#pre-k" aria-controls="pre-k" role="tab" data-toggle="tab">PRE-K</a></li>
+                                                  <li role="presentation"><a href="#teen" aria-controls="teen" role="tab" data-toggle="tab">TEEN</a></li>
                                                   <li role="presentation"><a href="#blends" aria-controls="blends" role="tab" data-toggle="tab">BLENDS</a></li>
                                                   <li role="presentation"><a href="#digraphs" aria-controls="digraphs" role="tab" data-toggle="tab">DIGRAPHS</a></li>
                                                 </ul>
@@ -1144,6 +1054,82 @@
                                                       </table>
                                                     </div>
                                                   </div>
+                                                  
+                                                  <div role="tabpanel" class="tab-pane" id="teen">
+                                                    <div class="constant-table-detail">
+                                                      <table>
+                                                        <thead>
+                                                        <td width="8%">&nbsp;</td>
+                                                          <td width="11.5%">Visual Drill</td>
+                                                          <td width="11.5%">Handwriting Drill</td>
+                                                          <td width="11.5%">Auditory Drill</td>
+                                                          <td width="11.5%">Sound Blending Drill</td>
+                                                          <td width="11.5%">Fluency Drill (wpm)</td>
+                                                          <td width="11.5%">Sight Words</td>
+                                                          <td width="11.5%">Controlled Readers</td>
+                                                          <td width="11.5%">Comments</td>
+                                                            </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="8%">p</td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="36" placeholder="Type" ></td>
+                                                            <td width="11.5%"><input type="text" value="A and, in" placeholder="Type" ></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><input type="text" value="This kid is so smart OMG" placeholder="Type" ></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td width="8%">f</td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="22" placeholder="Type" ></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td width="8%">n</td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="Not So Good" placeholder="Type" ></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td width="8%">t</td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td width="8%">a</td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><img src="images/check-mark-icon.png" alt="" title=""></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><input type="text" value="62" placeholder="Type" ></td>
+                                                            <td width="11.5%"><input type="text" value="" placeholder="Type" ></td>
+                                                            <td width="11.5%"><a href="#">Click To Check</a></td>
+                                                            <td width="11.5%"><input type="text" value="Fine" placeholder="Type" ></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  
                                                   <div role="tabpanel" class="tab-pane" id="blends">
                                                     <div class="constant-table-detail">
                                                       <table>
@@ -4115,6 +4101,7 @@ MAXMUSIC 5.0	10%
 <script src="js/materials.js"></script>
 <script src="js/tutors.js"></script>
 <script src="js/reports.js"></script>
+<script src="js/reports_class.js"></script>
 <script src="js/bootstrap-datepicker.js"></script> 
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="js/lc_switch.js" type="text/javascript"></script>

@@ -1,5 +1,27 @@
 
 $(document).ready(function() {
+	$('.lcs_switch').removeClass('lcs_on');
+	$('.lcs_switch').addClass('lcs_off');
+	
+	$("#see_maxphonics_individual_report").click(function(e){
+		e.preventDefault();
+		$( ".lcs_wrap" ).trigger( "click" );
+		$('.lcs_switch').removeClass('lcs_off');
+		$('.lcs_switch').addClass('lcs_on');
+		$('.max-read-individual').removeClass('active');
+		$('.max-phonics').addClass('active');
+		$('#maxread-indivdual').removeClass('active');
+		$('#maxphonics-indivdual').addClass('active');
+	});
+	
+	$(".see-detail-report-btn a").click(function(e){
+		e.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, 0);
+		$( ".lcs_wrap" ).trigger( "click" );
+		$('.lcs_switch').removeClass('lcs_off');
+		$('.lcs_switch').addClass('lcs_on');
+
+		});
 	
 	$("#individual_report").click(function(e){
 		$("#report_info_text").html("Loading ...");
@@ -31,6 +53,10 @@ $(document).ready(function() {
 		$('.content #indvidual-detail-message').css('display','block');
 		user_pk = $("#report_individual_selector").val();
 		
+		if (user_pk == undefined){
+			user_pk = localStorage.getItem("individual_report_student_id");
+		}
+		
 		from_day = $("#invidiual_report_to_day").val();
 		from_month = $("#invidiual_report_from_month").val();
 		from_year = $("#invidiual_report_from_year").val();
@@ -50,7 +76,105 @@ $(document).ready(function() {
 		$("#invidual_report_user_pretest").html("");
 		$("#invidual_report_user_last_login").html("");
 		
-		to_send={start_date:start_date, end_date, student_id:user_pk}
+		localStorage.setItem("individual_report_start_date", start_date);
+		localStorage.setItem("individual_report_end_date", end_date);
+		localStorage.setItem("individual_report_student_id", user_pk);
+		
+		
+		
+		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
+
+		$.ajax({type: "GET",  url: getScoreAvg, data:to_send}).
+				done(function(data){
+					data = JSON.parse(data);
+					$("#ind_time").html(data.times_per_week.value);
+					$("#ind_score_reading").html(data.maxreading.value);
+					$("#ind_score_words").html(data.maxwords.value);
+					$("#ind_score_places").html(data.maxplaces.value);
+					$("#ind_score_bios").html(data.maxbios.value);
+					$("#ind_score_music").html(data.maxmusic.value);
+					
+					$('#ind_per_reading').removeClass();
+					$('#ind_per_words').removeClass();
+					$('#ind_per_places').removeClass();
+					$('#ind_per_bios').removeClass();
+					$('#ind_per_music').removeClass();
+					
+					$("#ind_per_reading").html(data.maxreading.eval.label);
+					$('#ind_per_reading').addClass(data.maxreading.eval.id);
+					$("#ind_per_words").html(data.maxwords.eval.label);
+					$('#ind_per_words').addClass(data.maxwords.eval.id);
+					$("#ind_per_places").html(data.maxplaces.eval.label);
+					$('#ind_per_places').addClass(data.maxplaces.eval.id);
+					$("#ind_per_bios").html(data.maxbios.eval.label);
+					$('#ind_per_bios').addClass(data.maxbios.eval.id);
+					$("#ind_per_music").html(data.maxmusic.eval.label);
+					$('#ind_per_music').addClass(data.maxmusic.eval.id);
+				});
+		
+		$("#container10").hide();
+		$.ajax({type: "GET",  url: getIndividualReportUsage, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
+			logs = [{name: "MAXREADING", y: data.maxreading,drilldown: "MAXREADING"},
+			        {name: "MAXPHONICS", y: data.maxphonics,drilldown: "MAXPHONICS"},
+			        {name: "MAXWORDS", y: data.maxwords,drilldown: "MAXWORDS"},
+			        {name: "MAXPLACES", y: data.maxplaces,drilldown: "MAXPLACES"},
+			        {name: "MAXBIOS", y: data.maxbios,drilldown: "MAXBIOS"},
+			        {name: "MAXMUSIC", y: data.maxmusic,drilldown: "MAXMUSIC"}]
+						
+			// Create the chart
+			$('#container10').highcharts({
+			chart: {
+			type: 'column',
+			backgroundColor: '#f2f2f2'
+
+			},
+
+			colors: ['#47c1c8', '#1488c9', '#9b5bb8', '#eac84c', '#25a89a', 
+			'#ef655f', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'] ,
+			xAxis: {
+			type: 'category'
+			},
+
+			legend: {
+			enabled: false,
+			floating:false
+			},
+			credits: {
+			enabled: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.key}</b><br />',
+				pointFormat: '{point.y} %'
+			},
+			plotOptions: {
+			series: {
+
+			borderWidth: 0,
+			dataLabels: {
+					enabled: true,
+					format: '{point.y:.1f}%',
+						backgroundColor: '#f84f4f',
+					borderRadius:'50%'  
+				}
+			}
+			},
+
+
+			series: [{
+
+				colorByPoint: true,
+				data: logs
+				}],
+			drilldown: {
+				series: []
+			}
+
+			});
+			$("#container10").show();
+		});
+		
 		$.ajax({type: "GET",  url: getIndividualReportReading, data:to_send}).
 		done(function(data){
 			start_date = from_month +"/"+from_day+"/"+from_year;
@@ -382,7 +506,7 @@ $(document).ready(function() {
 			var books = {};
 			var books_name = {};
 			
-			$.each( data.reports, function( key, val ) {
+			$.each( data.scores, function( key, val ) {
 				
 				avg_score = (val.hl_score+val.quiz_score+val.hl_topic_score+val.hl_idea_score+val.hl_detail_score)/5;
 				avg_score = Math.round( avg_score * 10 ) / 10;
@@ -395,9 +519,6 @@ $(document).ready(function() {
 				}
 				
 				books[val.exercise.book.pk].push(avg_score)
-				
-
-				
 				
 				tr = '<tr><td width="10%">'+ val.exercise.book.level.name+'</td>'+
                       '<td width="12%">'+ val.exercise.book.title+'</td>'+
@@ -478,6 +599,30 @@ $(document).ready(function() {
 				$("#individual_book_avg").append(tr_book);
 			}
 			
+			
+			
+			
+			
+			$('.content #indvidual-detail-message').css('display','none');
+			
+			
+			
+		});
+		
+		
+	});
+	
+	
+	$("#maxplaces_ind").click(function(){
+		start_date = localStorage.getItem("individual_report_start_date");
+		end_date = localStorage.getItem("individual_report_end_date");
+		user_pk = localStorage.getItem("individual_report_student_id");
+		
+		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
+		
+		$.ajax({type: "GET",  url: getIndividualReportPlaces, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
 			$('#maxplaces_individual_list').html("");
 			$.each( data.places.places, function( key, val ) {
 				tr = '<tr>'+
@@ -495,6 +640,21 @@ $(document).ready(function() {
          	 '</tr>';
 			$("#maxplaces_individual_list").append(tr);
 			
+		});
+		
+	});
+	
+	$("#maxbios_ind").click(function(){
+		start_date = localStorage.getItem("individual_report_start_date");
+		end_date = localStorage.getItem("individual_report_end_date");
+		user_pk = localStorage.getItem("individual_report_student_id");
+		
+		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
+		
+		$.ajax({type: "GET",  url: getIndividualReportBios, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
+			console.log(data);
 			$('#maxbios_individual_list').html("");
 			$.each( data.bios.bios, function( key, val ) {
 				tr = '<tr>'+
@@ -512,11 +672,27 @@ $(document).ready(function() {
          	 '</tr>';
 			$("#maxbios_individual_list").append(tr);
 			
-			$('.content #indvidual-detail-message').css('display','none');
+		});
+		
+	});
+	
+	$("#maxmusic_ind").click(function(){
+		start_date = localStorage.getItem("individual_report_start_date");
+		end_date = localStorage.getItem("individual_report_end_date");
+		user_pk = localStorage.getItem("individual_report_student_id");
+		
+		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
+		
+		$.ajax({type: "GET",  url: getIndividualReportMusic, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
+			console.log(data);
 			
 			$("#maxmusic_individual_list").html("");
+			show_music_avg = false;
 			
 			for (var key in data.music.scores) {
+				show_music_avg = true;
 				tr = '<tr>'+
 				 '<td width="25%">'+key+'</td>'+
                 '<td width="25%">'+data.music.scores[key].identify+'</td>'+
@@ -525,15 +701,40 @@ $(document).ready(function() {
              	 '</tr>';
 			$("#maxmusic_individual_list").append(tr);
 			}
-			tr = '<tr class="average">'+
-			 '<td width="25%">AVERAGE</td>'+
-           '<td width="25%">'+data.music.avg.identify+'</td>'+
-           '<td width="25%">'+data.music.avg.filler+'</td>'+
-           '<td width="25%">'+data.music.avg.piano+'</td>'+
-        	 '</tr>';
-			$("#maxmusic_individual_list").append(tr);
+			if(show_music_avg){
+				tr = '<tr class="average">'+
+				 	   '<td width="25%">AVERAGE</td>'+
+			           '<td width="25%">'+data.music.avg.identify+'</td>'+
+			           '<td width="25%">'+data.music.avg.filler+'</td>'+
+			           '<td width="25%">'+data.music.avg.piano+'</td>'+
+	        	 '</tr>';
+				$("#maxmusic_individual_list").append(tr);
+			}else{
+				tr = '<tr class="average">'+
+				 '<td width="25%">NO RESULTS</td>'+
+	        	 '</tr>';
+				$("#maxmusic_individual_list").append(tr);
+			}
+			
+			
 		});
 		
+	});
+	
+	$("#maxphonics_ind").click(function(){
+		start_date = localStorage.getItem("individual_report_start_date");
+		end_date = localStorage.getItem("individual_report_end_date");
+		user_pk = localStorage.getItem("individual_report_student_id");
+		
+		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
+		
+		$.ajax({type: "GET",  url: getIndividualReportPhonics, data:to_send}).
+		done(function(data){
+			console.log(data);
+			
+		});
 		
 	});
+	
+	
 });

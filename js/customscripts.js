@@ -10,18 +10,6 @@ $(".alluser-tab-detail").click(function(){
 $('.content ul.print-button').css('display','block');
 })
 
-$(".class-tab-detail button").click(function(){
-$('.class-tab-detail').css('display','none');
-$('.reports-detail').css('display','block');
-$('.content ul.print-button').css('display','block');
-});
-
-//$('.content .new-session-outer a.submit-changes').click(function(){
-//$('.enter-session-detail').css('display','block');
-//$('.enter-session-outer').css('display','block');
-//$('.new-session-outer').css('display','none');
-//});
-
 
 $('.content .allstudent-detail .student-report').click(function(){
 $('.allstudent-detail').css('display','none');
@@ -39,30 +27,12 @@ $('#reports').addClass('active');
 $('.individual-title').addClass('active');
 $('#individual').addClass('active');
 $('.individual-tab-detail').css('display','none');
-//$('.indvidual-detail-left').css('display','block');
 $('.overallperformance').removeClass('active');
 $('#individualgenralperformance').removeClass('active');
 $('.overalldetail').addClass('active');
 $('#individualdetailscore').addClass('active');
  });
- $(".content .individual-tab-detail button ").click(function(){
 
-
-//$('.content .individual-tab-detail').css('display','none');
-//$('.content .indvidual-detail-left').css('display','block');
-
-});
-//$(".content .modal-content .modal-footer .enter-pass").click(function(){
-
-//$('#myModal').modal('hide');
-//$('#myModal4').modal('hide');
-//$('#myModal5').modal('hide');
-//$('.content .choose-class').css('display','none');
-//$('.content .allclasse-detail').css('display','block');
-//$('.content .modify ').css('display','block');
-//$('.content .delete ').css('display','block');
-//$('.content .print-button ').css('display','block');
-//});
 $(".content  .create-class-detail .all-member-detail .search-field  button").click(function(){
 
 
@@ -70,15 +40,6 @@ $('.content  .create-class-detail .all-member-detail .choose-member').show('slow
 });
 
 
-
-
-//$(".content .allstudent-detail .enter-session").click(function(){
-
-
-//$('.content  .allstudent-detail').css('display','none');
-//$('.content .enter-session-outer ').css('display','block');
-
-//});
 
 
 
@@ -92,33 +53,14 @@ $(".tutors").click(function(){
 $('.content ul.print-button ').css('display','block');
 });
 
-$(" .content .see-detail-report-btn").click(function(){
 
-
-$('.content .individual-average-score').css('display','block');
-$('.content .individual-report-per-program').css('display','block');
-
-});
 $(" .individual-title").click(function(){
 $('.content ul.print-button').css('display','none');
 });
 $(".content .individual-tab-detail button").click(function(){
 $('.content ul.print-button').css('display','block');
 });
-$(".class-inner-tab-title").click(function(){
-$('.reports-detail').css('display','none');
-$('.class-tab-detail').css('display','block');
-});
 
-//$(".individual-title").click(function(){
-//$('.indvidual-detail-left').css('display','none');
-//$('.individual-tab-detail').css('display','block');
-//});
-
-//$(".all-classes-tab-title").click(function(){
-//$('.allclasse-detail').css('display','none');
-//$('.choose-class').css('display','block');
-//});
 
 $(".alluser-tab-detail").click(function(){
 $('.edit-user-outer').css('display','none');
@@ -144,9 +86,7 @@ $('.content .create-class-detail .all-member-detail .modify-member').slimScroll(
 height: '300px',
 });
 
-//$('.add-student ul').slimScroll({
-//height: '410px'
-//});
+
 $('.user-tab-right .user-detail-table').slimScroll({
 height: '530px'
 });
@@ -243,185 +183,14 @@ drilldown: versions[name] ? name : null
 });
 
 
-// Create the chart
-$('#container1').highcharts({
-chart: {
-fill:'#f00',	
-type: 'column',
-backgroundColor: '#f2f2f2'
-
-},
-
-colors: ['#47c1c8', '#1488c9', '#9b5bb8', '#eac84c', '#25a89a', 
-'#ef655f', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'] ,
-xAxis: {
-type: 'category'
-},
-
-legend: {
-
-enabled: false,
-floating:false
-},
-credits: {
-enabled: false
-},
-plotOptions: {
-series: {
-borderWidth: 0,
-dataLabels: {
-	enabled: true,
-	format: '{point.y:.1f}%',
-	backgroundColor: '#f84f4f',
-	borderRadius:'50%'  
- }
-}
-},
 
 
-series: [{
-
-colorByPoint: true,
-data: brandsData
-}],
-drilldown: {
-series: drilldownSeries
-}
 
 
-});
-
-// Create the chart
-$('#container10').highcharts({
-chart: {
-type: 'column',
-backgroundColor: '#f2f2f2'
-
-},
-
-colors: ['#47c1c8', '#1488c9', '#9b5bb8', '#eac84c', '#25a89a', 
-'#ef655f', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'] ,
-xAxis: {
-type: 'category'
-},
-
-legend: {
-enabled: false,
-floating:false
-},
-credits: {
-enabled: false
-},
-plotOptions: {
-series: {
-
-borderWidth: 0,
-dataLabels: {
-	enabled: true,
-	format: '{point.y:.1f}%',
-		backgroundColor: '#f84f4f',
-	borderRadius:'50%'  
-}
-}
-},
-
-
-series: [{
-
-colorByPoint: true,
-data: brandsData
-}],
-drilldown: {
-series: drilldownSeries
-}
-
-});
-// Create the chart
-$('#container2').highcharts({
-chart: {
-type: 'pie',
-backgroundColor: '#f2f2f2'
-
-},
-
-colors: ['#47c1c8', '#1488c9', '#9b5bb8', '#eac84c', '#25a89a', 
-'#ef655f', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'] ,
-xAxis: {
-type: 'category'
-},
-
-legend: {
-enabled: false,
-floating:false
-},
-credits: {
-enabled: false
-},
-plotOptions: {
-series: {
-borderWidth: 0,
-dataLabels: {
-	enabled: true,
-	format: '{point.y:.1f}%'
-}
-}
-},
-
-
-series: [{
-
-colorByPoint: true,
-data: brandsData
-}],
-drilldown: {
-series: drilldownSeries
-}
-
-});
 }
 });
 });
-$(function() {
-var chart = new Highcharts.Chart({
-chart: {
-renderTo: 'container2',
-type: 'pie',
-backgroundColor: '#f2f2f2'
-},
-colors: [ '#eac84c', '#25a89a', 
-'#ef655f', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'] ,
-credits: {
-enabled: false
-},
-plotOptions: {
-pie: {
 
-innerSize: '55%'
-}
-},
-series: [{
-data: [
-['Satisfactory', 80],
-['Excellent', 14],
-['Unsatisfactory', 3] 
-]}]
-},
-// using 
-			 
-function(chart) { // on complete
-
-var xpos = '50%';
-var ypos = '53%';
-var circleradius = 102;
-
-// Render the circle
-chart.renderer.circle(xpos, ypos, circleradius).attr({
-fill:'#f2f2f2'
-}).add();
-
-
-});
-});
 
 $(function () {
 $('#container3').highcharts({
@@ -769,25 +538,7 @@ var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
 console.log('field changed status: '+ status );
 });
 
-$( ".lcs_wrap" ).click(function() {
-if ($('.lcs_switch').hasClass('lcs_off')) {
-$('.content .top-tabs-headings li.genralclass').removeClass('active');
-$('.content .top-tabs-headings li.detailclass').addClass('active');
 
-$('#genralperformance').removeClass('active');
-+					$('#detailscore').addClass('active');
-
-
-}
-else {
-
-$('.content .top-tabs-headings li.detailclass').removeClass('active');
-$('.content .top-tabs-headings li.genralclass').addClass('active');
-$('#detailscore').removeClass('active');
-$('#genralperformance').addClass('active');
-
-}
-});
 
 
 
@@ -809,12 +560,35 @@ $('.lcs_switch').removeClass('lcs_off');
 });
 
 
+
 $( ".lcs_wrap" ).click(function() {
+	if ($('.lcs_switch').hasClass('lcs_off')) {
+	$('.content .top-tabs-headings li.genralclass').removeClass('active');
+	$('.content .top-tabs-headings li.detailclass').addClass('active');
+
+	$('#genralperformance').removeClass('active');
+	$('#detailscore').addClass('active');
+
+
+	}
+	else {
+
+	$('.content .top-tabs-headings li.detailclass').removeClass('active');
+	$('.content .top-tabs-headings li.genralclass').addClass('active');
+	$('#detailscore').removeClass('active');
+	$('#genralperformance').addClass('active');
+
+	}
+	});
+
+
+$( ".indvidual-detail-left .lcs_wrap" ).click(function() {
 if ($('.lcs_switch').hasClass('lcs_off')) {
-$('.content .top-tabs-headings li.overallperformance').removeClass('active');
-$('.content .top-tabs-headings li.overalldetail').addClass('active');
-$('#individualgenralperformance').removeClass('active');
-$('#individualdetailscore').addClass('active');
+	console.log("Entra lcs_switch");
+	$('.content .top-tabs-headings li.overallperformance').removeClass('active');
+	$('.content .top-tabs-headings li.overalldetail').addClass('active');
+	$('#individualgenralperformance').removeClass('active');
+	$('#individualdetailscore').addClass('active');
 
 
 }
