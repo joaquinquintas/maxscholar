@@ -703,7 +703,11 @@ header .header-right ul li { float:none; display:inline-block;}
 	
 }
 
-#container18 .highcharts-title, #container11 .highcharts-title, #container10 .highcharts-title {display:none;}
+#container3 .highcharts-title,
+#container4 .highcharts-title,
+#container18 .highcharts-title, 
+#container11 .highcharts-title, 
+#container10 .highcharts-title {display:none;}
 
 .form-row p {
     margin: 10px 0 10px 120px;

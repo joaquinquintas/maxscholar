@@ -98,7 +98,6 @@ $(document).ready(function() {
 	// END CREATE USER   ------------------
 	// EDIT USER   ------------------
 	$('#user-list').on('click', '#edit-user-action',  function(e) {
-		console.log("Edit user");
 		e.preventDefault();
 		$('.content  .edit-user-outer').css('display','block');
 		$('.content  .all-user-outer').css('display','none');
@@ -252,8 +251,38 @@ $(document).ready(function() {
 		
 	});
 	
-	
+
 	// END EDIT USER ------------------
+	
+	$('#user-list').on('click', '#report-user-action',  function(e) {
+		e.preventDefault();
+		$(".user-tab-title").removeClass("active");
+		$(".reports-tab-title").addClass("active");
+		$(".individual-title").addClass("active");
+		$("#users").removeClass("active");
+		//$(".user-tab-right").css('display','none');
+		$('.content #class-detail-message').css('display','block');
+		$("#reports").addClass("active");
+		$("#individual").addClass("active");
+		var user_selected = this.dataset.userReportPk;
+		localStorage.setItem("individual_report_student_id", user_selected);
+		var from_date = new Date();
+		from_date.setDate(from_date.getDate()-7);
+		var to_date = new Date();
+
+		
+		$("#invidiual_report_from_day").val(from_date.getUTCDate());
+		$("#invidiual_report_from_month").val(from_date.getUTCMonth() + 1);
+		$("#invidiual_report_from_year").val(from_date.getUTCFullYear());
+		
+		$("#invidiual_report_to_day").val(to_date.getUTCDate());
+		$("#invidiual_report_to_month").val(to_date.getUTCMonth() + 1);
+		$("#invidiual_report_to_year").val(to_date.getUTCFullYear());
+	
+		$( "#generate_individual_report" ).trigger( "click" );
+		
+	});
+	
 	
 	// LIST USER ------------------
 	$('#max_user_list').click(function(){
@@ -268,7 +297,7 @@ $(document).ready(function() {
                     '<td width="55%"><span>'+count+'-</span>'+ val.first_name +' '+ val.last_name+'</td>'+
                      '<td width="11%"><a href="#" data-user-edit-pk="' + val.pk + '" id="edit-user-action" class="edit-user"><img src="images/edit-icon.png" alt="" title=""></a></td>'+
                       '<td width="11%"><a href="#" data-user-delete-pk="' + val.pk + '" data-toggle="modal" data-target="#deleteUserModal" class="delete-user"><img src="images/chosse-member-icon.png" alt="" title=""></a></td>'+
-                      '<td><a href="#" class="user-report">see report</a></td>'+ 
+                      '<td><a href="#" data-user-report-pk="' + val.pk + '" id="report-user-action" class="user-report">see report</a></td>'+ 
                       '</tr>';
 				$('#user-list').append(tr);
 				count = count + 1;

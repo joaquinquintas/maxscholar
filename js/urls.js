@@ -1,6 +1,6 @@
 $(document).ready(function() {	
-	server = "http://localhost:8080/dashboard/v1/"
-	//server = "http://maxscholar.com/dashboard/v1/"
+	//server = "http://localhost:8080/dashboard/v1/"
+	server = "http://maxscholar.com/dashboard/v1/"
 	allClasses = server + "classes/"
 	login = server + "login/"
 	checkClassPassword =  server + "classes-password-validator/"
@@ -30,5 +30,6 @@ $(document).ready(function() {
 	getIndividualReportUsage = server + "reports/usage/"
 	getScoreAvg = server + "reports/score/avg/"
 	getClassScoreAvg = server + "reports/class/score/avg/"
+	getClassMaxreadingReport = server + "reports/class/maxreading/"
 	
 });

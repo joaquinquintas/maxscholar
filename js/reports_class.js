@@ -49,7 +49,7 @@ $(document).ready(function() {
 		end_month = localStorage.getItem("class_report_end_month");
 		end_day = localStorage.getItem("class_report_end_day");
 		
-		$("#invidiual_report_to_day").val(start_day);
+		$("#invidiual_report_from_day").val(start_day);
 		$("#invidiual_report_from_month").val(start_month);
 		$("#invidiual_report_from_year").val(start_year);
 		
@@ -257,7 +257,7 @@ $(document).ready(function() {
 
     				});
     			
-    			$.ajax({type: "GET", async:false, url: getIndividualReportUsage, data:to_send}).
+    			$.ajax({type: "GET", async:true, url: getIndividualReportUsage, data:to_send}).
         		done(function(data){
         			data = JSON.parse(data);
         			logs = [{name: "MAXREADING", y: data.maxreading,drilldown: "MAXREADING"},
@@ -327,16 +327,136 @@ $(document).ready(function() {
     		$('.content ul.print-button').css('display','block');
     		$('.content #class-detail-message').css('display','none');
     		
-    		/*
     		
-    		
-    		*/
+    		$.ajax({type: "GET", async:true, url: getClassMaxreadingReport, data:to_send}).
+    		done(function(data){
+    			
+    			$("#reading_class_report_table").html("");
+    			data = JSON.parse(data);
+    			
+    			sum_time = 0;
+    			sum_chapters_started = 0;
+    			sum_chapters_completed = 0;
+    			sum_summaries = 0;
+    			sum_outlines = 0;
+    			
+    			$.each( data.reports, function( key, val ) {
+    				sum_time = sum_time + val.time.value;
+    				sum_chapters_started = sum_chapters_started +val.chapters_started.value;
+    				sum_chapters_completed = sum_chapters_completed +val.chapters_completed.value;
+    				sum_summaries = sum_summaries + val.summaries_written.value;
+    				sum_outlines = sum_outlines +val.outlines_written.value;
+    				
+    				tr =  '<tr><td width="14.6%">'+val.student.name+'</td>'+
+                          '<td width="9.8%">'+val.time.value+'</td>'+
+                          '<td width="9.8%">'+val.start_level+'</td>'+
+                          '<td width="9.8%">'+val.current_level+'</td>'+
+                          '<td width="9.8%">'+val.chapters_started.value+'</td>'+
+                          '<td width="9.8%">'+val.chapters_completed.value+'</td>'+
+                          '<td width="9.8%">'+val.summaries_written.value+'</td>'+
+                          '<td width="9.8%">'+val.outlines_written.value+'</td></tr>';
+    				$("#reading_class_report_table").append(tr);
+    			});
+    			
+    			tr_ = '<tr class="average">'+
+                        '<td width="14.6%">Total</td>'+
+                        '<td width="9.8%">'+sum_time+'</td>'+
+                        '<td width="9.8%">---</td>'+
+                        '<td width="9.8%">---</td>'+
+                        '<td width="9.8%">'+sum_chapters_started+'</td>'+
+                        '<td width="9.8%">'+sum_chapters_completed+'</td>'+
+                        '<td width="9.8%">'+sum_summaries+'</td>'+
+                        '<td width="9.8%">'+sum_outlines+'</td>'+
+                      '</tr>';
+    			
+    			$("#reading_class_report_table").append(tr_);
+    			
+    			$(function () {
+    				$('#container4').highcharts({
+    				chart: {
+    				type: 'column',
+    				backgroundColor: '#f2f2f2'
+    				},
+    				colors: [ '#ee8984','#84b4ea'] ,
+    				title: {
+    				text: 'Stacked column chart'
+    				},
+    				xAxis: {
+    				categories: ['Main Idea', 'Detail', 'Inference', 'Compare' ]
+    				},
+    				yAxis: {
+    				min: 0,
+    				max: 100,
+    				title: {
+    				text: ''
+    				},
+    				stackLabels: {
+    				enabled: true,
+    				style: {
+    				fontWeight: 'bold',
+    				color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+    				}
+    				}
+    				},
+    				legend: {
+    				align: 'right',
+    				x: -30,
+    				verticalAlign: 'top',
+    				y: 25,
+    				floating: true,
+    				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+    				borderColor: '#CCC',
+    				borderWidth: 1,
+    				shadow: false
+    				},
+    				credits: {
+    				enabled: false
+    				},
+    				plotOptions: {
+    				column: {
+    				stacking: 'normal',
+    				dataLabels: {
+    				enabled: true,
+    				color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+    				style: {
+    				textShadow: '0 0 3px black'
+    				}
+    				}
+    				}
+    				},
+    				series: [
+    				{
+    				name: 'Inorrect',
+    				data: [data.comprehension.main_idea.incorrect, 
+    				       data.comprehension.detail.incorrect, 
+    				       data.comprehension.inference.incorrect, 
+    				       data.comprehension.compare.incorrect ]
+    				},{
+    				name: 'Correct',
+    				data: [data.comprehension.main_idea.correct,
+    				       data.comprehension.detail.correct, 
+    				       data.comprehension.inference.correct , 
+    				       data.comprehension.compare.correct   ]
+    				} ]
+    				});
+
+    				}); 
+    			
+    		});
         	
         });
 		
         
 	});
 
+	
+	$("").click(function(e){
+		e.preventDefault();
+		
+		
+		
+	})
+	
 function percentage(value, total){
 	if (total != 0){
 		return ((value * 100)/total).toFixed(0);

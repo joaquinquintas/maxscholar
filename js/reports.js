@@ -57,7 +57,7 @@ $(document).ready(function() {
 			user_pk = localStorage.getItem("individual_report_student_id");
 		}
 		
-		from_day = $("#invidiual_report_to_day").val();
+		from_day = $("#invidiual_report_from_day").val();
 		from_month = $("#invidiual_report_from_month").val();
 		from_year = $("#invidiual_report_from_year").val();
 		
