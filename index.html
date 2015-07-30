@@ -305,9 +305,9 @@
                                           <li role="presentation" class="active"><a href="#maxread" aria-controls="maxread" role="tab" data-toggle="tab">MAXREADING</a></li>
                                           <li role="presentation"><a href="#maxphonics" aria-controls="maxphonics" role="tab" data-toggle="tab">MAXPHONICS</a></li>
                                           <li role="presentation"><a href="#maxword" aria-controls="maxword" role="tab" data-toggle="tab">MAXWORDS</a></li>
-                                          <li role="presentation"><a href="#maxplace" aria-controls="maxplace" role="tab" data-toggle="tab">MAXPLACES</a></li>
-                                          <li role="presentation"><a href="#maxbio" aria-controls="maxbio" role="tab" data-toggle="tab">MAXBIOS</a></li>
-                                          <li role="presentation"><a href="#maxmusic" aria-controls="maxmusic" role="tab" data-toggle="tab">MAXMUSIC</a></li>
+                                          <li role="presentation"><a id="class_place_report" href="#maxplace" aria-controls="maxplace" role="tab" data-toggle="tab">MAXPLACES</a></li>
+                                          <li role="presentation"><a id="class_bio_report" href="#maxbio" aria-controls="maxbio" role="tab" data-toggle="tab">MAXBIOS</a></li>
+                                          <li role="presentation"><a id="class_music_report" href="#maxmusic" aria-controls="maxmusic" role="tab" data-toggle="tab">MAXMUSIC</a></li>
                                         </ul>
                                         
                                         <!-- Tab panes -->
@@ -486,35 +486,11 @@
                                               <table>
                                                 <thead>
                                                 <td width="14.6%"></td>
-                                                  <td width="42.7%"><a href="#">Time per week average (minutes)</a></td>
-                                                  <td width="42.7%"><a href="#">Game Score</a></a></td>
+                                                  <td width="42.7%"><a href="#">Cumulative Time (minutes)</a></td>
+                                                  <td width="42.7%"><a href="#">Quiz Score</a></a></td>
                                                     </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr class="average">
-                                                    <td width="14.6%">Total</td>
-                                                    <td width="42.7%">116 </td>
-                                                    <td width="42.7%">78.25</td>
-                                                  </tr>
+                                                <tbody id="places_class_report">
+
                                                 </tbody>
                                               </table>
                                             </div>
@@ -524,35 +500,10 @@
                                               <table>
                                                 <thead>
                                                 <td width="14.6%"></td>
-                                                  <td width="42.7%"><a href="#">Time per week average (minutes)</a></td>
-                                                  <td width="42.7%"><a href="#">Game Score</a></a></td>
+                                                  <td width="42.7%"><a href="#">Cumulative Time (minutes)</a></td>
+                                                  <td width="42.7%"><a href="#">Quiz Score</a></a></td>
                                                     </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="42.7%"> 25</td>
-                                                    <td width="42.7%">82 </td>
-                                                  </tr>
-                                                  <tr class="average">
-                                                    <td width="14.6%">Total</td>
-                                                    <td width="42.7%">116 </td>
-                                                    <td width="42.7%">78.25</td>
-                                                  </tr>
+                                                <tbody id="bios_class_report">     
                                                 </tbody>
                                               </table>
                                             </div>
@@ -562,63 +513,14 @@
                                               <table>
                                                 <thead>
                                                 <td width="14.6%"></td>
-                                                  <td width="17%"><a href="#">Cumulative 
-                                                    time per week (minutes)</a></td>
-                                                  <td width="17%"><a href="#">Clover</a></a></td>
-                                                  <td width="17%"><a href="#">Spelling</a></td>
-                                                  <td width="17%"><a href="#">Prefixes & <br>
-                                                    Suffixes</a></td>
-                                                  <td width="17%"><a href="#">Latin Roots</a></td>
+                                                  <td width="17%"><a href="#">Songs Played</a></td>
+                                                  <td width="17%"><a href="#">Identify Score</a></td>
+                                                  <td width="17%"><a href="#">Fillers Score</a></td>
+                                                  <td width="17%"><a href="#">Piano Score</a></td>
+                                                  <td width="17%"><a href="#">Cumulative Time (minutes)</a></td>
                                                     </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td width="14.6%">Johnny Smith</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
-                                                  <tr class="average">
-                                                    <td width="14.6%">Total</td>
-                                                    <td width="17%">25</td>
-                                                    <td width="17%">4</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                    <td width="17%">5</td>
-                                                  </tr>
+                                                <tbody id="music_class_report">
+                                                 
                                                 </tbody>
                                               </table>
                                             </div>

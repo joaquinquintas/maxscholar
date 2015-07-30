@@ -442,6 +442,75 @@ $(document).ready(function() {
 
     				}); 
     			
+    			$(function () {
+    				$('#container3').highcharts({
+    				chart: {
+    				type: 'column',
+    				backgroundColor: '#f2f2f2'
+    				},
+    				colors: [ '#ee8984','#84b4ea'] ,
+    				title: {
+    				text: 'Stacked column chart'
+    				},
+    				xAxis: {
+    				categories: ['Topic', 'Main Idea', 'Detail']
+    				},
+    				yAxis: {
+    				min: 0,
+    				max: 100,
+    				title: {
+    				text: ''
+    				},
+    				stackLabels: {
+    				enabled: true,
+    				style: {
+    				fontWeight: 'bold',
+    				color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+    				}
+    				}
+    				},
+    				legend: {
+    				align: 'right',
+    				x: -30,
+    				verticalAlign: 'top',
+    				y: 25,
+    				floating: true,
+    				backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+    				borderColor: '#CCC',
+    				borderWidth: 1,
+    				shadow: false
+    				},
+    				credits: {
+    				enabled: false
+    				},
+    				plotOptions: {
+    				column: {
+    				stacking: 'normal',
+    				dataLabels: {
+    				enabled: true,
+    				color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+    				style: {
+    				textShadow: '0 0 3px black'
+    				}
+    				}
+    				}
+    				},
+    				series: [
+    				{
+    				name: 'Incorrect',
+    				data: [data.highlighting.hl_topic_score.correct,
+    				       data.highlighting.hl_idea_score.correct, 
+    				       data.highlighting.hl_detail_score.correct,]
+    				},{
+    				name: 'Correct',
+    				data: [data.highlighting.hl_topic_score.incorrect,
+    				       data.highlighting.hl_idea_score.incorrect,
+    				       data.highlighting.hl_detail_score.incorrect]
+    				} ]
+    				});
+
+    				});
+    			
     		});
         	
         });
@@ -450,12 +519,148 @@ $(document).ready(function() {
 	});
 
 	
-	$("").click(function(e){
+	$("#class_place_report").click(function(e){
+		e.preventDefault();
+			
+		start_date = localStorage.getItem("class_report_start_date");
+		end_date = localStorage.getItem("class_report_end_date");
+		class_pk = localStorage.getItem("class_id_report");
+		
+		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
+		
+		$.ajax({type: "GET", async:true, url: getClassMaxplacesReport, data:to_send}).
+		done(function(data){
+			
+			$("#places_class_report").html("");
+			data = JSON.parse(data);
+			sum_time = 0;
+			sum_score = 0;
+			
+			$.each( data.reports, function( key, val ) {
+				sum_time = sum_time + val.time.value;
+				sum_score = sum_score + val.score.value;
+				
+				tr = '<tr>' +
+                '<td width="14.6%">'+ val.student.name +'</td>'+
+                '<td width="42.7%"> '+ val.time.value+'</td>'+
+                '<td width="42.7%">'+ val.score.value+' </td>'+
+                '</tr>';
+				$("#places_class_report").append(tr);
+			});
+			
+			avg_time = sum_time/data.reports.length;
+			avg_score = sum_score/data.reports.length;
+			tr = '<tr class="average">' +
+            '<td width="14.6%">Average</td>'+
+            '<td width="42.7%"> '+ avg_time.toFixed(1) +'</td>'+
+            '<td width="42.7%">'+ avg_score.toFixed(1) +' </td>'+
+            '</tr>';
+			
+			$("#places_class_report").append(tr);
+		});
+		
+		
+	});
+	$("#class_bio_report").click(function(e){
 		e.preventDefault();
 		
+		start_date = localStorage.getItem("class_report_start_date");
+		end_date = localStorage.getItem("class_report_end_date");
+		class_pk = localStorage.getItem("class_id_report");
+		
+		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
+		
+		$.ajax({type: "GET", async:true, url: getClassMaxbiosReport, data:to_send}).
+		done(function(data){
+			
+			$("#bios_class_report").html("");
+			data = JSON.parse(data);
+			sum_time = 0;
+			sum_score = 0;
+			
+			$.each( data.reports, function( key, val ) {
+				sum_time = sum_time + val.time.value;
+				sum_score = sum_score + val.score.value;
+				
+				tr = '<tr>' +
+                '<td width="14.6%">'+ val.student.name +'</td>'+
+                '<td width="42.7%"> '+ val.time.value+'</td>'+
+                '<td width="42.7%">'+ val.score.value+' </td>'+
+                '</tr>';
+				$("#bios_class_report").append(tr);
+			});
+			
+			avg_time = sum_time/data.reports.length;
+			avg_score = sum_score/data.reports.length;
+			tr = '<tr class="average">' +
+            '<td width="14.6%">Average</td>'+
+            '<td width="42.7%"> '+ avg_time.toFixed(1) +'</td>'+
+            '<td width="42.7%">'+ avg_score.toFixed(1) +' </td>'+
+            '</tr>';
+			
+			$("#bios_class_report").append(tr);
+		});
 		
 		
-	})
+	});
+	$("#class_music_report").click(function(e){
+		e.preventDefault();
+		
+		start_date = localStorage.getItem("class_report_start_date");
+		end_date = localStorage.getItem("class_report_end_date");
+		class_pk = localStorage.getItem("class_id_report");
+		
+		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
+		
+		$.ajax({type: "GET", async:true, url: getClassMaxmusicReport, data:to_send}).
+		done(function(data){
+			
+			$("#music_class_report").html("");
+			data = JSON.parse(data);
+			sum_time = 0;
+			sum_songs_played = 0;
+			sum_identify_score = 0;
+			sum_fillers_score = 0;
+			sum_piano_score = 0;
+			
+			$.each( data.reports, function( key, val ) {
+				sum_time = sum_time + val.time.value;
+				sum_songs_played = sum_songs_played + val.songs_played.value;
+				sum_identify_score = sum_identify_score + val.identify_score.value;
+				sum_fillers_score = sum_fillers_score + val.fillers_score.value;
+				sum_piano_score = sum_piano_score + val.piano_score.value;
+				
+				tr = '<tr>' +
+                '<td width="14.6%">'+ val.student.name +'</td>'+
+                '<td width="17%"> '+ val.songs_played.value+'</td>'+
+                '<td width="17%">'+ val.identify_score.value+' </td>'+
+                '<td width="17%">'+ val.fillers_score.value+' </td>'+
+                '<td width="17%">'+ val.piano_score.value+' </td>'+
+                '<td width="17%">'+ val.time.value+' </td>'+
+                '</tr>';
+				$("#music_class_report").append(tr);
+			});
+			
+			avg_time = sum_time/data.reports.length;
+			avg_songs_played = sum_songs_played/data.reports.length;
+			avg_identify_score = sum_identify_score/data.reports.length;
+			avg_fillers_score = sum_fillers_score/data.reports.length;
+			avg_piano_score = sum_piano_score/data.reports.length;
+			
+			tr = '<tr class="average">' +
+            '<td width="14.6%">Average</td>'+
+            '<td width="17%"> '+ avg_songs_played.toFixed(1) +'</td>'+
+            '<td width="17%">'+ avg_identify_score.toFixed(1) +' </td>'+
+            '<td width="17%"> '+ avg_fillers_score.toFixed(1) +'</td>'+
+            '<td width="17%">'+ avg_piano_score.toFixed(1) +' </td>'+
+            '<td width="17%"> '+ avg_time.toFixed(1) +'</td>'+
+            '</tr>';
+			
+			$("#music_class_report").append(tr);
+		});
+		
+		
+	});
 	
 function percentage(value, total){
 	if (total != 0){

@@ -31,5 +31,8 @@ $(document).ready(function() {
 	getScoreAvg = server + "reports/score/avg/"
 	getClassScoreAvg = server + "reports/class/score/avg/"
 	getClassMaxreadingReport = server + "reports/class/maxreading/"
+	getClassMaxplacesReport = server + "reports/class/maxplaces/"
+	getClassMaxbiosReport = server + "reports/class/maxbios/"
+	getClassMaxmusicReport = server + "reports/class/maxmusic/"
 	
 });
