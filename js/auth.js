@@ -118,6 +118,43 @@ $(document).ready(function() {
 	password = localStorage.getItem("password");
 	first_name = localStorage.getItem("first_name");
 	last_name = localStorage.getItem("last_name");
+	schools = localStorage.getItem("schools");
+	school_pk = localStorage.getItem("school_pk");
+	
+	$("#selected_dashboard_school").html("");
+	
+	if (schools!=null){
+		
+		schools = JSON.parse(schools);
+		if (schools.length == 0){
+			console.log("Redirect!");
+			window.location.replace("http://maxscholar.com/mymax")
+		}else{
+			if (schools.length == 1){
+				selected_school = schools[0];
+	      	  	localStorage.setItem("school_pk", selected_school.pk);
+	      	  $("#selected_dashboard_school").css('display','none');
+			}else{
+				$.each(schools, function (i, item) {
+					var o = new Option(item.name , item.pk);
+					$(o).html(item.name);
+					if (school_pk == item.pk){
+						o.setAttribute("selected", "selected");
+					}
+					
+					$("#selected_dashboard_school").append(o);
+					$("#selected_dashboard_school").css('display','block');
+			  });
+			}
+		}
+		
+		
+			
+			
+			
+	}
+	
+	
 	pk = localStorage.getItem("pk");
 	if(username == null || password == null || pk == null){
 		$('#login-modal').modal('show');
@@ -149,19 +186,63 @@ $(document).ready(function() {
 	            $( "#error_login" ).html("Invalid username and/or password");
 	        }).
 	        done(function(resp){
+	        	
+	        	resp = JSON.parse(resp);
+	        	 localStorage.setItem("schools",JSON.stringify(resp.schools) );
+	        	if (resp.schools.length == 0){
+	        		console.log("Redirect!");
+	        		window.location.replace("http://maxscholar.com/mymax")
+	        	}else{
+	        		if (resp.schools.length == 1){
+	        			selected_school = resp.schools[0];
+	  	        	  	localStorage.setItem("school_pk", selected_school.pk);
+	  	        	  $("#selected_dashboard_school").css('display','none');
+	        		}else{
+	        			$("#selected_dashboard_school").html("");
+	        			selected_school = resp.schools[0];
+	  	        	  localStorage.setItem("school_pk", selected_school.pk);
+	  	        	  var o = new Option(selected_school.name , selected_school.pk);
+	  	      			/// jquerify the DOM object 'o' so we can use the html method
+	  	      			$(o).html(selected_school.name);
+	  	      			o.setAttribute("selected", "selected");
+	      			
+	  	      			$("#selected_dashboard_school").append(o);
+	  	      		 $.each(resp.schools.slice(1), function (i, item) {
+		        			var o = new Option(item.name , item.pk);
+		        			/// jquerify the DOM object 'o' so we can use the html method
+		        			$(o).html(item.name);
+		        			
+		        			
+		        			$("#selected_dashboard_school").append(o);
+		        			
+		        	  });
+	  	      		$("#selected_dashboard_school").css('display','block');
+	        		}
+	        	}
+	        	
+	        	
+	        	  
+	        	 
+	        	  
+	        	 
+	        	
+	        	console.log(resp);
 	        	localStorage.setItem("username", username);
 	        	localStorage.setItem("password", password);
-	        	localStorage.setItem("first_name", resp.first_name);
-	        	localStorage.setItem("last_name",  resp.last_name);
-	        	localStorage.setItem("pk", resp.pk);
-	        	$(".welcome-notice h3").html("Welcome, "+resp.first_name +" "+ resp.last_name+".");
+	        	localStorage.setItem("first_name", resp.user.first_name);
+	        	localStorage.setItem("last_name",  resp.user.last_name);
+	        	localStorage.setItem("pk", resp.user.pk);
+	        	
+	        	
+	        	
+	        	$(".welcome-notice h3").html("Welcome, "+resp.user.first_name +" "+ resp.user.last_name+".");
 	        	$('#login-modal').modal('hide');
 	        	var intro = introJs();
 	            intro.setOptions({
 	              steps: [
 	                {
 	                  element: '#step1',
-	                  intro: "<b>Hello "+resp.first_name +"</b><span>Welcome to MaxReports!</span><span>Click <a href = '#' >here</a> to see a video tutorial of all the features available for you.</span>"
+	                  intro: "<b>Hello "+resp.user.first_name +"</b><span>Welcome to MaxReports!</span><span>Click <a href = '#' >here</a> to see a video tutorial of all the features available for you.</span>"
 	                 } ,
 	  			   {
 	                  element: '#step2',
@@ -193,6 +274,10 @@ $(document).ready(function() {
 	        		 $('#class').removeClass('active');
 	        		 $('.content ul.print-button ').css('display','none');
 	        		  });
+	        	  
+	        	  
+	        	  
+	        	  
 	        	$.ajax({type: "GET",  url: getStudentLevels}).
 	        	done(function(response){
 	        		
@@ -260,12 +345,21 @@ $(document).ready(function() {
 		startIntro();
 		
 	});
+	
+	$( "#selected_dashboard_school" ).change(function() {
+		  console.log($(this).val());
+		  localStorage.setItem("school_pk", $(this).val());
+		  location.reload();
+		});
+	
 	$(".logout").click(function(e){
 		e.preventDefault();
 		
 		localStorage.setItem("username", null);
     	localStorage.setItem("password", null);
     	localStorage.setItem("pk", null);
+    	localStorage.setItem("schools", null);
+    	localStorage.setItem("school_pk", null);
     	$('#login-modal').modal('show');
 	});
 });

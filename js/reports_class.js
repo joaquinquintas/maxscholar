@@ -12,7 +12,10 @@ $(document).ready(function() {
 		$('.class-tab-detail').css('display','none');
 		$("#report_class_selector").html("");
 		$("#individual .individual-tab-detail").css("display", "none");
-		$.ajax({type: "GET",  url: allClasses}).
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+		
+		$.ajax({type: "GET",  url: allClasses, data:toSend}).
         fail(function(resp){
             console.log('bad credentials.')
         }).

@@ -344,7 +344,7 @@ $(document).ready(function() {
 	});
 	
 	
-	function processReport(e){
+	function processReport(e, dataset){
 		e.preventDefault();
 		
 		$('#tutor_user_report').html("");
@@ -352,6 +352,9 @@ $(document).ready(function() {
 		$('.allstudent-detail').css('display','none');
 		$('.content .complete-report ').css('display','block');
 		rel_pk = localStorage.getItem("tutor_session_pk");
+		if (rel_pk == null){
+			rel_pk= dataset.userRelPk;
+		}
 		$("#report_student_name_label").html("");
 		$("#report_title").html("Loading ... ");
 		$.ajax({type: "GET",  url: getSessionReport+rel_pk}).
@@ -388,7 +391,7 @@ $(document).ready(function() {
 	
 
 	$("#tutor_list_students").on('click', '#see_student_report', function(e){
-		processReport(e);
+		processReport(e, this.dataset);
 	});
 	
 	$("#see_report_from_detail").click(function(e){

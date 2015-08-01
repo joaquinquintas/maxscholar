@@ -15,9 +15,10 @@ $(document).ready(function() {
 				$('.delete-class').css('display', 'block');
 				$( "#clases-to-delete" ).hide();
 			
+				school_pk = localStorage.getItem("school_pk");
+				toSend = {school_id:school_pk};
 				
-				
-				$.ajax({type: "GET",  url: allClasses}).
+				$.ajax({type: "GET",  url: allClasses, data:toSend}).
 		        fail(function(resp){
 		            console.log('bad credentials.')
 		        }).
@@ -79,9 +80,10 @@ $(document).ready(function() {
 		$('#createclass .message').css('display', 'block');
 		$('.modify-classes-tab-title').css('display', 'none');
 		$('.content .create-class-detail .all-member-detail .choose-member').css('display', 'block');
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
 		
-		
-		$.ajax({type: "GET",  url: getAdminsFromSchool} ).done(function(response){
+		$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend} ).done(function(response){
     		
     		teacher_selection_modify = $('#magicsuggest_create').magicSuggest({
         		allowFreeEntries:false,
@@ -93,7 +95,9 @@ $(document).ready(function() {
     		
     	});
 		
-		$.ajax({type: "GET",  url: getStudentList }).
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+		$.ajax({type: "GET",  url: getStudentList,data:toSend }).
         
         done(function(resp){
         	
@@ -117,7 +121,8 @@ $(document).ready(function() {
 		$( "#student-add-class-list-created" ).html( "Searching ..." );
 		var pk = localStorage.getItem("selected_clase");
 		var student_name = $( "#search-student-create" ).val();
-		$.ajax({type: "GET",  url: getStudentSearch+"?username="+student_name }).
+		school_pk = localStorage.getItem("school_pk");
+		$.ajax({type: "GET",  url: getStudentSearch+"?username="+student_name+"&school_id="+school_pk }).
         
         done(function(resp){
         	if (resp.length > 0 ){
@@ -181,8 +186,11 @@ $(document).ready(function() {
 				
 			});
 			
+			school_pk = localStorage.getItem("school_pk");
+			
 			//Redirect close to allClases.
-			$.ajax({type: "POST",  url: allClasses, data: JSON.stringify({ class_name: class_name, password:password, email:email, teachers:teacher, students: users_class}) }).
+			$.ajax({type: "POST",  url: allClasses, data: JSON.stringify({ class_name: class_name, school_id:school_pk, 
+									password:password, email:email, teachers:teacher, students: users_class}) }).
 	        fail(function(resp){
 				$("#savedCreateClassModal .modal-body span").html("Internal Error, Please try again later.");
 	        	$('#savedCreateClassModal').modal('show');
@@ -259,9 +267,11 @@ $(document).ready(function() {
 				$('.modify-classes-tab-title').css('display', 'none');
 				
 
+				school_pk = localStorage.getItem("school_pk");
+				toSend = {school_id:school_pk};
 				
 				
-				$.ajax({type: "GET",  url: allClasses}).
+				$.ajax({type: "GET",  url: allClasses, data:toSend}).
 		        fail(function(resp){
 		            console.log('bad credentials.')
 		        }).
@@ -312,7 +322,9 @@ $(document).ready(function() {
         done(function(resp){
         	$('#clase-password-modal').modal('hide');
         	$( "#error_clase_password" ).html("");
-        	$.ajax({type: "GET",  url: getAdminsFromSchool} ).done(function(response){
+        	school_pk = localStorage.getItem("school_pk");
+    		toSend = {school_id:school_pk};
+        	$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend} ).done(function(response){
         		
         		teacher_selection_modify = $('#magicsuggest').magicSuggest({
             		allowFreeEntries:false,
@@ -417,7 +429,9 @@ $(document).ready(function() {
 		$( "#student-add-class-list" ).html( "Searching ..." );
 		var pk = localStorage.getItem("selected_clase");
 		var student_name = $( "#search-student-modify" ).val();
-		$.ajax({type: "GET",  url: getStudentSearchFromSchool+"?clase="+pk+"&username="+student_name }).
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+		$.ajax({type: "GET",  url: getStudentSearchFromSchool+"?clase="+pk+"&username="+student_name+"&school_id="+school_pk}).
         
         done(function(resp){
         	if (resp.length > 0 ){

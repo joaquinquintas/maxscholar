@@ -31,8 +31,14 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="logo"> <a href="index.html">DASHBOARD</a> </div>
+        <div class="logo"> <a href="index.html">DASHBOARD</a> 
+        
+        </div>
+		<div class="header-center">
+		<select id="selected_dashboard_school" class="select_school"></select>
+		</div>
         <div class="header-right"> 
+        
           <a href="http://maxscholar.com/mymax/" target="_blank" class="mymax-btn" id="step4" ><span>Go to</span> MYMAX</a>
           <ul>
             <li><a id="help_icon" href="#" ><img src="images/help-icon.png" alt="" title="" id="step1" ></a></li>
@@ -822,8 +828,15 @@
                                                 
                                                 <!-- Tab panes -->
                                                 <div class="tab-content">
-                                                  <div role="tabpanel" class="tab-pane active" id="constant">
-                                                    <div class="constant-table-detail">
+                                                  <div role="tabpanel" class="tab-pane active" id="pre-k">
+                                                  <ul class="nav nav-tabs chapters" role="tablist">
+                                                  <li role="presentation" class="active"><a href="#prek-pfnta" aria-controls="pre-k" role="tab" data-toggle="tab">pfnta</a></li>
+                                                  <li role="presentation"><a href="#prek-srcke" aria-controls="teen" role="tab" data-toggle="tab">srcke</a></li>
+                                                  <li role="presentation"><a href="#prek-bgmli" aria-controls="blends" role="tab" data-toggle="tab">bgmli</a></li>
+                                                  <li role="presentation"><a href="#prek-dvjho" aria-controls="digraphs" role="tab" data-toggle="tab">dvjho</a></li>
+                                                  <li role="presentation"><a href="#prek-qwxyzu" aria-controls="digraphs" role="tab" data-toggle="tab">qwxyzu</a></li>
+                                                </ul>
+                                                    <div class="constant-table-detail" id="prek-pfnta">
                                                       <table>
                                                         <thead>
                                                         <td width="8%">&nbsp;</td>

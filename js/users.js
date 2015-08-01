@@ -78,6 +78,10 @@ $(document).ready(function() {
 			if(save_user_type == true){
 				to_send_data.user_type = user_type;
 			}
+			school_pk = localStorage.getItem("school_pk");
+			
+			to_send_data.school_id = school_pk;
+			
 			$.ajax({type: "POST",  url: getStudentList, data: JSON.stringify(to_send_data) }).
 	        fail(function(resp){
 				$("#CreateUserModal .modal-body span").html("Internal Error, Please try again later.");
@@ -288,7 +292,9 @@ $(document).ready(function() {
 	$('#max_user_list').click(function(){
 		$('#user-list').html("");
 		$('#allusers h2').html("Loading ...");
-		$.ajax({type: "GET",  url: getStudentSearch}).
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+		$.ajax({type: "GET",  url: getStudentSearch, data:toSend}).
 			done(function(data) {
 				count = 1;
 				$.each( data, function( key, val ) {

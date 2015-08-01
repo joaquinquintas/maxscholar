@@ -29,7 +29,9 @@ $(document).ready(function() {
     	$('.individual-tab-detail').css('display','none');
 		$("#report_individual_selector").html("");
 		$("#individual .individual-tab-detail").css("display", "none");
-		$.ajax({type: "GET",  url: getStudentList}).
+		school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+		$.ajax({type: "GET",  url: getStudentList, data:toSend }).
 	    done(function(resp){
 	    	$.each( resp, function( key, val ) {
 	    	var o = new Option(val.first_name+" "+val.last_name , val.pk);
@@ -62,6 +64,11 @@ $(document).ready(function() {
 		from_year = $("#invidiual_report_from_year").val();
 		
 		to_day = $("#invidiual_report_to_day").val();
+		console.log(to_day);
+		if (to_day == null){
+			var to_date = new Date();
+			to_day = to_date.getUTCDate();
+		}
 		to_month = $("#invidiual_report_to_month").val();
 		to_year = $("#invidiual_report_to_year").val();
 		
@@ -721,20 +728,7 @@ $(document).ready(function() {
 		
 	});
 	
-	$("#maxphonics_ind").click(function(){
-		start_date = localStorage.getItem("individual_report_start_date");
-		end_date = localStorage.getItem("individual_report_end_date");
-		user_pk = localStorage.getItem("individual_report_student_id");
-		
-		to_send={start_date:start_date, end_date:end_date, student_id:user_pk}
-		
-		$.ajax({type: "GET",  url: getIndividualReportPhonics, data:to_send}).
-		done(function(data){
-			console.log(data);
-			
-		});
-		
-	});
+	
 	
 	
 });
