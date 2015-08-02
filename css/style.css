@@ -742,3 +742,11 @@ header .header-right ul li { float:none; display:inline-block;}
       display: block;
       width: 100%;
 }
+
+#user_login_username{
+	    margin-bottom: 20px;
+	width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
+}

@@ -131,14 +131,17 @@ $(document).ready(function() {
 			window.location.replace("http://maxscholar.com/mymax")
 		}else{
 			if (schools.length == 1){
-				selected_school = schools[0];
-	      	  	localStorage.setItem("school_pk", selected_school.pk);
+				//selected_school = schools[0];
+	      	  	//localStorage.setItem("school_pk", selected_school.pk);
 	      	  $("#selected_dashboard_school").css('display','none');
 			}else{
 				$.each(schools, function (i, item) {
 					var o = new Option(item.name , item.pk);
 					$(o).html(item.name);
+					console.log(school_pk);
+					console.log(item.pk);
 					if (school_pk == item.pk){
+						console.log("match!");
 						o.setAttribute("selected", "selected");
 					}
 					
