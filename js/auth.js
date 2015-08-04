@@ -16,6 +16,8 @@ $(document).ready(function() {
 	    return cookieValue;
 	}
 	var csrftoken = getCookie('csrftoken');
+	var sessionId = getCookie('sessionid');
+	console.log(sessionId);
 	
 	function csrfSafeMethod(method) {
 	    // these HTTP methods do not require CSRF protection
@@ -122,10 +124,10 @@ $(document).ready(function() {
 	school_pk = localStorage.getItem("school_pk");
 	
 	$("#selected_dashboard_school").html("");
-	
+	schools = JSON.parse(schools);
 	if (schools!=null){
 		
-		schools = JSON.parse(schools);
+		
 		if (schools.length == 0){
 			console.log("Redirect!");
 			window.location.replace("http://maxscholar.com/mymax")
@@ -138,10 +140,8 @@ $(document).ready(function() {
 				$.each(schools, function (i, item) {
 					var o = new Option(item.name , item.pk);
 					$(o).html(item.name);
-					console.log(school_pk);
-					console.log(item.pk);
+
 					if (school_pk == item.pk){
-						console.log("match!");
 						o.setAttribute("selected", "selected");
 					}
 					

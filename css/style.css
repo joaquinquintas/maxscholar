@@ -396,11 +396,11 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 .content  .create-class-detail .all-member-detail .search-field  input[type="search"] { line-height:37px; color:#CCCCCC; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:100%; padding:0 10px; box-sizing:border-box;}
 .content  .create-class-detail .all-member-detail .search-field  button{ border:0px none;outline:none; position:absolute; top:8px; right:6px; background:none;  }
-.content  .create-class-detail .all-member-detail .other-student-serach button { top:36px;}
+.content  .create-class-detail .all-member-detail .other-student-serach button { top:28px;}
 .content  .create-class-detail .all-member-detail .choose-member { margin-bottom:17px; display:none;}
 .content  .create-class-detail .all-member-detail .modify-member { display:block;margin-bottom: 50px;}
-.content  .create-class-detail .all-member-detail #myModal2  .modal-content{ padding-right:100px;}
-.content  .create-class-detail .all-member-detail #myModal2 .modal-footer { text-align:center;}
+.content  .create-class-detail .all-member-detail #savedCreateClassModal  .modal-content{ padding-right:100px;}
+.content  .create-class-detail .all-member-detail #savedCreateClassModal .modal-footer { text-align:center;}
 .content  .create-class-detail .all-member-detail #myModal3  .modal-content{ padding-right:100px;}
 .content  .create-class-detail .all-member-detail #myModal3 .modal-footer { text-align:center;}
 
@@ -750,3 +750,5 @@ header .header-right ul li { float:none; display:inline-block;}
     border: 1px solid #b3b3b3;
     height: 32px;
 }
+
+#phonics_table_content tr td img{ cursor:pointer;}

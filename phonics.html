@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/datepicker.css">
+<link rel="stylesheet" href="css/lc_switch.css">
+<link href="css/introjs.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<link href="js/magicsuggest/magicsuggest-min.css" rel="stylesheet">
+
+
+<!-- Custom Style -->
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper"> 
+  <!-- Header Goes here -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="logo"> <a href="index.html">DASHBOARD</a> 
+        
+        </div>
+		<div class="header-center">
+		<select id="selected_dashboard_school" class="select_school"></select>
+		</div>
+        <div class="header-right"> 
+        
+          <a href="http://maxscholar.com/mymax/" target="_blank" class="mymax-btn" id="step4" ><span>Go to</span> MYMAX</a>
+          <ul>
+            <li><a id="help_icon" href="#" ><img src="images/help-icon.png" alt="" title="" id="step1" ></a></li>
+            <li><a href="#"><img src="images/setting-icon.png" alt="" title="" ></a></li>
+            <li class="seprator"><a href="#"><img src="images/seprator-top.png" alt="" title="" ></a></li>
+            <li><a href="#" class="logout">LOGOUT</a></li>
+          </ul>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </header>
+  <section class="content">
+     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+                                        <div role="tabpanel" class="tab-pane" id="individualdetailscore">
+                                    <div class="report-per-program individual-report-per-program">
+                                       <div role="tabpanel"> 
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                          <li role="presentation" class="active max-read-individual"><a href="#maxread-indivdual" aria-controls="maxread-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXREADING</a></li>
+                                          <li role="presentation" class="max-phonics"><a id="maxphonics_ind" href="#maxphonics-indivdual" aria-controls="maxphonics-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPHONICS</a></li>
+                                          <li role="presentation"><a href="#maxword-indivdual" aria-controls="maxword-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXWORDS</a></li>
+                                          <li role="presentation"><a href="#maxplace-indivdual" id="maxplaces_ind" aria-controls="maxplace-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPLACES</a></li>
+                                          <li role="presentation"><a href="#maxbio-indivdual" id="maxbios_ind" aria-controls="maxbio-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXBIOS</a></li>
+                                          <li role="presentation"><a href="#maxmusic-indivdual" id="maxmusic_ind" aria-controls="maxmusic-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXMUSIC</a></li>
+                                        </ul>
+                                        
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                       <div role="tabpanel" class="tab-pane" id="maxphonics-indivdual">
+                                            <div>
+                                              <div class="constant-detail"> 
+                                                <!-- Nav tabs -->
+                                                <ul class="nav nav-tabs" id="apps">
+                                                  <li class="active"><a href="#" class="phonics_apps" data-app="1" data-chapters="pfnta,srcke,bgmli,dvjho,qwxyzu">PRE-K</a></li>
+                                                  <li><a href="#" class="phonics_apps" data-app="2" data-chapters="pfnta,srcke,bgmli,dvjho,qwxyzu">TEEN</a></li>
+                                                  <li><a href="#" class="phonics_apps" data-app="3" data-chapters="cl-bl-pl-fl-gl-sl-a,br-cr-dr-fr-gr-pr-tr-e,sk-sw-st-tw-i,sk-sw-st-tw-i,sc-sm-sn-sp-o,thr-scr-str-spr-spl-u">BLENDS</a></li>
+                                                  <li><a href="#" class="phonics_apps" data-app="4" data-chapters="sh-th-wh-ch-ph-qu,ck-nk-ng-tch,mb-ss-zz-dge">DIGRAPHS</a></li>
+                                                </ul>
+                                                
+                                                <!-- Tab panes -->
+                                                <div class="tab-content">
+                                                  <div class="tab-pane active" >
+                                                  <ul class="nav nav-tabs chapters" id="chapters">
+                                                </ul>
+                                                    <div class="constant-table-detail">
+                                                      <table>
+                                                        <thead id="phonics_table_header">
+                                                        <td width="8%">&nbsp;</td>
+                                                          <td width="11.5%">Visual Drill</td>
+                                                          <td width="11.5%">Handwriting Drill</td>
+                                                          <td width="11.5%">Auditory Drill</td>
+                                                          <td width="11.5%">Sound Blending Drill</td>
+                                                          <td width="11.5%">Fluency Drill (wpm)</td>
+                                                          <td width="11.5%">Sight Words</td>
+                                                          <td width="11.5%">Controlled Readers</td>
+                                                          <td width="11.5%">Comments</td>
+                                                            </thead>
+                                                        <tbody id="phonics_table_content">
+                                                          </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                             
+                      
+
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            
+                                          </div>
+                                          </div>
+                                            </div>
+                                          </div></div>
+                                          </div>
+                                         </section> 
+                                         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.1.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/magicsuggest/magicsuggest-min.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script> 
+<script src="js/urls.js"></script> 
+<script src="js/reports_phonics.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+<script src="js/lc_switch.js" type="text/javascript"></script>
+                               
+                                </body>
+</html>

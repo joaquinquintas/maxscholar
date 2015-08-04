@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	
-
+	$('.add-student ul').slimScroll({
+        height: '420px'
+    });
 	
 	$('.classes-tab-title').click(function(){
 		$('.content .delete ').css('display','block');
@@ -152,7 +154,6 @@ $(document).ready(function() {
 			errors = true;
 		}
 		var teacher = teacher_selection_modify.getValue();
-		console.log(teacher_selection_modify.getValue());
 		var password = $( "#class_password_create" ).val();
 		var repassword = $( "#class_repassword_create" ).val();
 		
@@ -173,6 +174,7 @@ $(document).ready(function() {
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
 			$("#savedCreateClassModal .modal-body span").html(message);
+			localStorage.setItem("errors_in_class_creation", true);
 			$('#savedCreateClassModal').modal('show');
 			
 		}else{
@@ -186,6 +188,13 @@ $(document).ready(function() {
 				
 			});
 			
+			$( "#clase_student_list_create" ).html("");
+			$( "#class_password_create" ).val("");
+			 $( "#class_repassword_create" ).val("");
+			 $( "#class_email_create" ).val("");
+			 $( "#class_name_create" ).val("");
+			 //teacher_selection_modify.empty();
+			 teacher_selection_modify.removeFromSelection(teacher_selection_modify.getSelection(), true);
 			school_pk = localStorage.getItem("school_pk");
 			
 			//Redirect close to allClases.
@@ -207,9 +216,16 @@ $(document).ready(function() {
 		
 	});
 	
-	//$(".content #savedCreateClassModal .modal-content .modal-footer .close-btn").click(function(){
-	//	$('#savedCreateClassModal').modal('hide');	
-	//});
+	$(".content #savedCreateClassModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_class_creation") );
+		if (localStorage.getItem("errors_in_class_creation") == "true"  || localStorage.getItem("errors_in_class_creation") == undefined ){
+			
+			localStorage.setItem("errors_in_class_creation", "false");
+		}else{
+			$( ".createclass-tab-title" ).trigger( "click" );
+		}
+		
+	});
 	
 
 	$('#clase_student_list_create').on('click', '.user-to-delete', function(e) {
