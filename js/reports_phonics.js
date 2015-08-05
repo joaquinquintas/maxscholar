@@ -3,18 +3,9 @@ $(document).ready(function() {
 
 $("#maxphonics_ind").click(function(){
 	$("#phonics_table").css("display","none");
-	//start_date = localStorage.getItem("individual_report_start_date");
-	//end_date = localStorage.getItem("individual_report_end_date");
-	user_pk = localStorage.getItem("individual_report_student_id");
+	$(".constant-table-detail h2").css("display","block");
+	$( "li.active .phonics_apps" ).trigger( "click" );
 	
-	to_send={ student_id:user_pk}
-	
-	//$.ajax({type: "GET",  url: getIndividualReportPhonics, data:to_send}).
-	//done(function(data){
-	//	console.log(data);
-		
-	//});
-		
 	
 	
 	});
@@ -42,8 +33,8 @@ $(".phonics_apps").click(function(e){
 		
 		if(i==0){
 			 li.attr('class','active');
-			 createTable(exer_list);
-			$("#phonics_table").css("display","block");
+			 active_list = exer_list;
+			 
 			
 		}
 		
@@ -55,7 +46,7 @@ $(".phonics_apps").click(function(e){
 				)));
 		  
 	});
-	
+	createTable(active_list);
 	
 })
 
@@ -70,39 +61,127 @@ $("#chapters").on("click", ".phonics_chapters", function(e){
 	$(this).parent().parent().children().removeClass('active');
 	$(this).parent().addClass("active");
 	createTable(exercises_list);
-	$("#phonics_table").css("display","block");
+	
 	});
 
 function createTable(exercises_list){
+	$(".constant-table-detail h2").css("display","block");
 	app_id = $("#apps").children( ".active" ).eq(0).children('a').data("app");
 	capther_slug = $("#chapters").children( ".active" ).eq(0).children('a').html();
-	console.log(app_id);
-	console.log(capther_slug);
-	//user_pk = localStorage.getItem("individual_report_student_id");
-	user_pk = 3;
+
+	user_pk = localStorage.getItem("individual_report_student_id");
+	//user_pk = 3;
 	
 	to_send={ user_id:user_pk,capther_slug:capther_slug, app_id:app_id}
 	
-	$.ajax({type: "GET",  url: getIndividualReportPhonics, data:to_send}).
+	$.ajax({type: "GET",async:false,  url: getIndividualReportPhonics, data:to_send}).
 	done(function(data){
-		console.log(data);
+		data = JSON.parse(data);
+		$("#phonics_table_content").html("");
+		exercises_list.forEach(function(item, i) {
+			visual_drill = false;
+			handwriting_drill = false;
+			auditory_drill = false;
+			sound_blending_drill = false;
+			fluency_drill = null;
+			sight_words = null;
+			controlled_readers = false;
+			comments = null;
+			
+			$.each( data, function( key, val ) {
+
+				if (val.term == item){
+					visual_drill = val.visual_drill;
+					handwriting_drill = val.handwriting_drill;
+					auditory_drill = val.auditory_drill;
+					sound_blending_drill = val.sound_blending_drill;
+					fluency_drill = val.fluency_drill;
+					sight_words = val.sight_words;
+					controlled_readers = val.controlled_readers;
+					comments = val.comments;
+					
+					return false
+					
+				}
+			});
+			
+			
+			img = $('<img>').attr("src","images/check-mark-icon.png");
+			click = $('<a>').attr("href","#").append("Click to Check");
+			
+			var tr = $('<tr>');
+			tr.append($('<td>').attr('class','exercise_letter').attr('width','8%').append(item));
+
+			if(visual_drill == true){
+				img = $('<img>').attr("src","images/check-mark-icon.png");
+				tr.append($('<td>').attr('class','visual_drill').attr('width','11.5%').append(img));
+
+			}else{
+				click = $('<a>').attr("href","#").append("Click to Check");
+				tr.append($('<td>').attr('class','visual_drill').attr('width','11.5%').append(click));
+
+			}
+			if (handwriting_drill == true){
+				img = $('<img>').attr("src","images/check-mark-icon.png");
+				tr.append($('<td>').attr('class','handwriting_drill').attr('width','11.5%').append(img));
+			}else{
+				click = $('<a>').attr("href","#").append("Click to Check");
+				tr.append($('<td>').attr('class','handwriting_drill').attr('width','11.5%').append(click));
+			}
+			
+			if (auditory_drill == true){
+				img = $('<img>').attr("src","images/check-mark-icon.png");
+				tr.append($('<td>').attr('class','auditory_drill').attr('width','11.5%').append(img));
+			}else{
+				click = $('<a>').attr("href","#").append("Click to Check");
+				tr.append($('<td>').attr('class','auditory_drill').attr('width','11.5%').append(click));
+			}
+			
+			if(sound_blending_drill == true){
+				img = $('<img>').attr("src","images/check-mark-icon.png");
+				tr.append($('<td>').attr('class','sound_blending_drill').attr('width','11.5%').append(img));
+			}else{
+				click = $('<a>').attr("href","#").append("Click to Check");
+				tr.append($('<td>').attr('class','sound_blending_drill').attr('width','11.5%').append(click));
+			}
+			
+			
+			
+			if(fluency_drill == null){
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','fluency_drill').attr("type","text").attr("placeholder","Type")));
+			}else{
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','fluency_drill').attr("type","text").val(fluency_drill)));
+			}
+			
+			if(sight_words == null){
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','sight_words').attr("type","text").attr("placeholder","Type")));
+			}else{
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','sight_words').attr("type","text").val(sight_words)));
+			}
+			
+			if(controlled_readers == true){
+				img = $('<img>').attr("src","images/check-mark-icon.png");
+				tr.append($('<td>').attr('class','controlled_readers').attr('width','11.5%').append(img));
+			}else{
+				click = $('<a>').attr("href","#").append("Click to Check");
+				tr.append($('<td>').attr('class','controlled_readers').attr('width','11.5%').append(click));
+
+			}
+			
+			if(comments == null){
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','comments').attr("type","text").attr("placeholder","Type")));
+			}else{
+				tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','comments').attr("type","text").val(comments)));
+			}
+			
+			$("#phonics_table_content").append(tr);
+		});
+		$("#phonics_table").css("display","block");
+		$(".constant-table-detail h2").css("display","none");
 		
 	});
 	
-	$("#phonics_table_content").html("");
-	exercises_list.forEach(function(item, i) {
-		var tr = $('<tr>');
-		tr.append($('<td>').attr('class','exercise_letter').attr('width','8%').append(item));
-		tr.append($('<td>').attr('class','visual_drill').attr('width','11.5%').append($('<a>').attr("href","#").append("Click to Check")));
-		tr.append($('<td>').attr('class','handwriting_drill').attr('width','11.5%').append($('<a>').attr("href","#").append("Click to Check")));
-		tr.append($('<td>').attr('class','auditory_drill').attr('width','11.5%').append($('<a>').attr("href","#").append("Click to Check")));
-		tr.append($('<td>').attr('class','sound_blending_drill').attr('width','11.5%').append($('<a>').attr("href","#").append("Click to Check")));
-		tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','fluency_drill').attr("type","text").attr("placeholder","Type")));
-		tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','sight_words').attr("type","text").attr("placeholder","Type")));
-		tr.append($('<td>').attr('class','controlled_readers').attr('width','11.5%').append($('<a>').attr("href","#").append("Click to Check")));
-		tr.append($('<td>').attr('width','11.5%').append($('<input>').attr('class','comments').attr("type","text").attr("placeholder","Type")));
-		$("#phonics_table_content").append(tr);
-	});
+	
 }
 
 
@@ -141,9 +220,10 @@ $("#phonics_table_content").on("focusout", ".fluency_drill, .sight_words, .comme
 	value = $(this).val();
 	if( value == ""){
 		$(this).attr('placeholder', "Type");
-	}else{
-		post_maxphonics_data(option_to_post, value, $(this).parent().parent().children( ".exercise_letter" ).eq(0).html());
+		value =null;
 	}
+		post_maxphonics_data(option_to_post, value, $(this).parent().parent().children( ".exercise_letter" ).eq(0).html());
+	
 	
 	
 });
@@ -161,8 +241,8 @@ function post_maxphonics_data(field, value, exercise_letter){
 	app_id = $("#apps").children( ".active" ).eq(0).children('a').data("app");
 	capther_slug = $("#chapters").children( ".active" ).eq(0).children('a').html();
 
-	//user_pk = localStorage.getItem("individual_report_student_id");
-	user_pk = 3;
+	user_pk = localStorage.getItem("individual_report_student_id");
+	//user_pk = 3;
 	$.ajax({type: "POST",  url: getIndividualReportPhonics, data: JSON.stringify({ field: field, value:value, 
 		exercise_letter:exercise_letter, capther_slug:capther_slug, app_id:app_id, user_id:user_pk}) }).
 	done(function(resp){
