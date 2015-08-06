@@ -501,14 +501,14 @@ $(document).ready(function() {
     				series: [
     				{
     				name: 'Incorrect',
-    				data: [data.highlighting.hl_topic_score.correct,
-    				       data.highlighting.hl_idea_score.correct, 
-    				       data.highlighting.hl_detail_score.correct,]
+    				data: [data.highlighting.hl_topic_score.incorrect,
+    				       data.highlighting.hl_idea_score.incorrect, 
+    				       data.highlighting.hl_detail_score.incorrect,]
     				},{
     				name: 'Correct',
-    				data: [data.highlighting.hl_topic_score.incorrect,
-    				       data.highlighting.hl_idea_score.incorrect,
-    				       data.highlighting.hl_detail_score.incorrect]
+    				data: [data.highlighting.hl_topic_score.correct,
+    				       data.highlighting.hl_idea_score.correct,
+    				       data.highlighting.hl_detail_score.correct]
     				} ]
     				});
 
@@ -687,4 +687,54 @@ function performance(score){
         
         
 };
+
+$("#class_phonics_report").click(function(e){
+	e.preventDefault();
+		
+	start_date = localStorage.getItem("class_report_start_date");
+	end_date = localStorage.getItem("class_report_end_date");
+	class_pk = localStorage.getItem("class_id_report");
+	
+	to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
+	
+	$.ajax({type: "GET", async:true, url: getClassMaxphonicsReport, data:to_send}).
+	done(function(data){
+		
+		$("#phonics_class_report").html("");
+		data = JSON.parse(data);
+		sum_time = 0;
+		sum_score = 0;
+
+		
+		$.each( data.reports, function( key, val ) {
+			sum_time = sum_time + val.time.value;
+			sum_score = sum_score + val.score.value;
+
+			
+			tr = '<tr>' +
+            '<td width="14.6%">'+ val.student.name +'</td>'+
+            '<td width="42.7%"> '+ val.time.value+'</td>'+
+            '<td width="42.7%">'+ val.score.value+' </td>'+
+            '</tr>';
+			$("#phonics_class_report").append(tr);
+		});
+		
+		total = data.reports.length;
+		
+		tr = '<tr class="average">' +
+        '<td width="14.6%">Average</td>'+
+        '<td width="42.7%"> '+ getAvg(sum_time, total) +'</td>'+
+        '<td width="42.7%">'+ getAvg(sum_score, total) +' </td>'+
+        '</tr>';
+		
+		$("#phonics_class_report").append(tr);
+	});
+	
+	
+	
+});
+
+function getAvg(sum, total){
+return  (sum/total).toFixed(1);
+}
 });

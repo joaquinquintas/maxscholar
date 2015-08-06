@@ -12,6 +12,7 @@ $(document).ready(function() {
 		$('.max-phonics').addClass('active');
 		$('#maxread-indivdual').removeClass('active');
 		$('#maxphonics-indivdual').addClass('active');
+		$( "#maxphonics_ind" ).trigger( "click" );
 	});
 	
 	$(".see-detail-report-btn a").click(function(e){

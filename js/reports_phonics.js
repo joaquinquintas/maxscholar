@@ -6,6 +6,20 @@ $("#maxphonics_ind").click(function(){
 	$(".constant-table-detail h2").css("display","block");
 	$( "li.active .phonics_apps" ).trigger( "click" );
 	
+	start_date = localStorage.getItem("individual_report_start_date");
+	end_date = localStorage.getItem("individual_report_end_date");
+	user_pk = localStorage.getItem("individual_report_student_id");
+	
+	to_send={start_date:start_date, end_date:end_date, user_id:user_pk}
+	
+	$.ajax({type: "GET",async:true,  url: getMaxphonicsGamesReport, data:to_send}).
+	done(function(data){
+		data = JSON.parse(data);
+		prepare_word_builder_chart(data.maxwordbuilder);
+		prepare_memory_chart(data.memory);
+		prepare_spacerhyming_chart(data.spacerhyming);
+		prepare_withinwords_chart(data.withinwords);
+	});
 	
 	
 	});
@@ -250,6 +264,185 @@ function post_maxphonics_data(field, value, exercise_letter){
 	
 	})
 	
+}
+
+function prepare_word_builder_chart(data){
+	var chart = new Highcharts.Chart({
+		chart: {
+		renderTo: 'container20',
+		type:'pie',
+		backgroundColor: '#f2f2f2'
+		},
+		title: {
+		text: 'Max Word Builder'
+		},
+		colors: [ '#ee8984','#84b4ea'] ,
+		credits: {
+		enabled: false
+		},
+		plotOptions: {
+		series: {
+		dataLabels: {
+		enabled: true,
+		formatter: function() {
+		return Math.round(this.percentage*100)/100 + ' %';
+		},
+		distance: -30,
+		color:'white'
+		}
+		}
+		},
+
+		series: [{
+		type: 'pie',
+		name: 'Max Word Builder',
+		data: [
+		['Incorrect',   data.incorrect],
+		{
+		name: 'Correct',
+		y: data.correct,
+		sliced: true,
+		selected: true
+		},
+
+
+		]
+		}]
+		});
+}
+function prepare_memory_chart(data){
+	var chart = new Highcharts.Chart({
+		chart: {
+		renderTo: 'containerMaxphonicGame4',
+		type:'pie',
+		backgroundColor: '#f2f2f2'
+
+		},
+		title: {
+			text: 'Max Memory'
+			},
+		colors: [ '#ee8984','#84b4ea'] ,
+		credits: {
+		enabled: false
+		},
+		plotOptions: {
+		series: {
+		dataLabels: {
+		enabled: true,
+		formatter: function() {
+		return Math.round(this.percentage*100)/100 + ' %';
+		},
+		distance: -30,
+		color:'white'
+		}
+		}
+		},
+
+		series: [{
+		type: 'pie',
+		name: 'Max Memory',
+		data: [
+		['Incorrect',   data.incorrect],
+		{
+		name: 'Correct',
+		y: data.correct,
+		sliced: true,
+		selected: true
+		},
+
+
+		]
+		}]
+		});
+}
+function prepare_spacerhyming_chart(data){
+	var chart = new Highcharts.Chart({
+		chart: {
+		renderTo: 'container21',
+		type:'pie',
+		backgroundColor: '#f2f2f2'
+		},
+		title: {
+			text: 'Max Space Rhyming'
+			},
+		colors: [ '#ee8984','#84b4ea'] ,
+		credits: {
+		enabled: false
+		},
+		plotOptions: {
+		series: {
+		dataLabels: {
+		enabled: true,
+		formatter: function() {
+		return Math.round(this.percentage*100)/100 + ' %';
+		},
+		distance: -30,
+		color:'white'
+		}
+		}
+		},
+
+		series: [{
+		type: 'pie',
+		name: 'Max Space Rhyming',
+		data: [
+		['Incorrect',   data.incorrect],
+		{
+		name: 'Correct',
+		y: data.correct,
+		sliced: true,
+		selected: true
+		},
+
+
+		]
+		}]
+		});
+}
+function prepare_withinwords_chart(data){
+	var chart = new Highcharts.Chart({
+		chart: {
+		renderTo: 'container22',
+		type:'pie',
+		backgroundColor: '#f2f2f2'
+		
+		},
+		title: {
+			text: 'Max Words Within Words'
+			},
+		colors: [ '#ee8984','#84b4ea'] ,
+		credits: {
+		enabled: false
+		},
+		plotOptions: {
+		series: {
+		dataLabels: {
+		enabled: true,
+		formatter: function() {
+		return Math.round(this.percentage*100)/100 + ' %';
+		},
+		distance: -30,
+		color:'white'
+		}
+		}
+		},
+
+		series: [{
+		type: 'pie',
+		name: 'Max Words Within Words',
+		data: [
+		['Incorrect',   data.incorrect],
+		{
+		name: 'Correct',
+		y: data.correct,
+		sliced: true,
+		selected: true
+		},
+
+
+		]
+		}]
+		});
 }
 
 });

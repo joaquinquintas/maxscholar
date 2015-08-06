@@ -34,5 +34,8 @@ $(document).ready(function() {
 	getClassMaxplacesReport = server + "reports/class/maxplaces/"
 	getClassMaxbiosReport = server + "reports/class/maxbios/"
 	getClassMaxmusicReport = server + "reports/class/maxmusic/"
+	getClassMaxwordsReport = server + "reports/class/maxwords/"
+	getClassMaxphonicsReport = server + "reports/class/maxphonics/"
+	getMaxphonicsGamesReport = server + "reports/games/maxphonics/"
 	
 });

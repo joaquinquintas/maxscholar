@@ -203,7 +203,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content #maxread-indivdual .slimScrollBar { display:block !important;  border-radius: 0px !important;
   width: 11px !important;background: #999999 !important; margin-top:36px;}
 /*.content #container3 .highcharts-legend , .highcharts-axis , .highcharts-title ,#container4 .highcharts-legend{ display:none;}*/
-.highcharts-title{font-size: 15px!important; color:#5C5C5C!important}
+.highcharts-title{font-size: 14px!important; color:#5C5C5C!important}
 .content #container3 .highcharts-legend , .highcharts-axis ,#container4 .highcharts-legend{ display:none;}
 .content #container2 .highcharts-data-labels { display:none;}
  
@@ -712,7 +712,8 @@ header .header-right ul li { float:none; display:inline-block;}
 #container4 .highcharts-title,
 #container18 .highcharts-title, 
 #container11 .highcharts-title, 
-#container10 .highcharts-title {display:none;}
+#container10 .highcharts-title,
+#container6  .highcharts-title {display:none;}
 
 .form-row p {
     margin: 10px 0 10px 120px;
