@@ -1,4 +1,17 @@
 $(document).ready(function() {
+	
+
+		  $("#maxhelp_list a").click(function() {
+		    var theModal = $(this).data( "target" ),
+		    videoSRC = $(this).attr( "data-theVideo" ), 
+		    videoSRCauto = "https://www.youtube.com/embed/"+videoSRC+"?rel=0&VQ=HD720&autoplay=1" ;
+		    $(theModal+' iframe').attr('src', videoSRCauto);
+		    $(theModal+' button.close').click(function () {
+		        $(theModal+' iframe').attr('src', videoSRC);
+		    });   
+		  });
+
+	
 	$('#material_maxreading').click(function(){
 		$('#maxreading_list').html("");
 		$('#materailmaxread h2').html("Loading ...");
