@@ -6,9 +6,7 @@ $('.welcome-notice').css('display','none');
 $(".user-tab-title").click(function(){
 $('.content ul.print-button').css('display','none');
 })
-$(".alluser-tab-detail").click(function(){
-$('.content ul.print-button').css('display','block');
-})
+
 
 
 $('.content .allstudent-detail .student-report').click(function(){
@@ -48,18 +46,12 @@ $(".material").click(function(){
 $('.content ul.print-button ').css('display','none');
 });
 
-$(".tutors").click(function(){
-
-$('.content ul.print-button ').css('display','block');
-});
 
 
 $(" .individual-title").click(function(){
 $('.content ul.print-button').css('display','none');
 });
-$(".content .individual-tab-detail button").click(function(){
-$('.content ul.print-button').css('display','block');
-});
+
 
 
 $(".alluser-tab-detail").click(function(){
@@ -262,6 +254,11 @@ data: [80, 70, 20 , 60  ]
 
 
 
+function preparePrint(selector, removeStyle){
+	$(".myDivToPrint").removeClass("myDivToPrint");
+	$(selector).addClass("myDivToPrint");
+	$('.content .print-button ').css('display','block');
+}
 
 $(document).ready(function() {
 $("#session_date").datepicker({

@@ -753,3 +753,11 @@ header .header-right ul li { float:none; display:inline-block;}
 }
 
 #phonics_table_content tr td img{ cursor:pointer;}
+
+.content .user-tab-right .all-user-detail .all-user-outer-other {
+    max-width: 660px;
+}
+
+.user-detail-table a{
+	color: #5d5d5d;
+}

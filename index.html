@@ -75,8 +75,8 @@
                 <a href="#" class="search-icon"><img src="images/search-icon.png" alt="" ></a>
                 <div class="clear"></div>
                 </div>-->
-                <li><a href="#"><img src="images/download-icon.png" alt="" title="" ></a></li>
-                <li><a href="#"><img src="images/print-icon.png" alt="" title="" ></a></li>
+                <li><a class="printButton" href="#"><img src="images/download-icon.png" alt="" title="" ></a></li>
+                <li><a class="printButton" href="#"><img src="images/print-icon.png" alt="" title="" ></a></li>
               </ul>
               <div class="clear"></div>
               <!-- Tab panes -->
@@ -3215,13 +3215,31 @@
                           </div>
                         </div>
                         <div role="tabpanel" class="tab-pane all-user-detail" id="materailother">
-                          <div class="all-user-outer">
+                          <div class="all-user-outer-other">
                             <h2>OTHERS : </h2>
                             <div class="user-detail-table">
                               <table>
                                 <tbody id="maxother_list">
                                   
                                 
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="all-user-outer">
+                            <h2>HELP : </h2>
+                            <div class="user-detail-table">
+                              <table>
+                                <tbody id="maxhelp_list">
+                                  
+                                <tr>
+                                    <td width="78%"><span>1-</span><a href="#">Memory</a></td>
+                                    
+                                  </tr>
+                                  <tr>
+                                    <td width="78%"><span>2-</span><a href="#">Music</a></td>
+                                    
+                                  </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -3519,7 +3537,7 @@
                         <div role="tabpanel" class="tab-pane" id="mysessions">
                           <div class="create-class-detail">
                             <div class="choose-class">
-                              <div class="allstudent-detail">
+                              <div class="allstudent-detail" id="session_tutors">
                                 <h2 id="tutor_sessions_lists_title"></h2>
                                 <div class="allstudent-table">
                                   <table>
@@ -3595,6 +3613,8 @@ MAXMUSIC 5.0	10%
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/magicsuggest/magicsuggest-min.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script> 
+<script src="js/jquery.printelement.js"></script>
+<script src="js/print.js"></script>
 <script src="js/customscripts.js"></script> 
 <script src="js/urls.js"></script> 
 <script src="js/auth.js"></script> 
@@ -3608,6 +3628,8 @@ MAXMUSIC 5.0	10%
 <script src="js/reports_phonics.js"></script>
 <script src="js/reports_words.js"></script>
 <script src="js/bootstrap-datepicker.js"></script> 
+<!--script src="js/jquery.jplayer.js"></script-->
+
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 
 <script src="js/lc_switch.js" type="text/javascript"></script>

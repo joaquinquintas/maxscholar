@@ -122,15 +122,14 @@ $(document).ready(function() {
 					}
 					tr ='<tr id="' + val.pk + '">'+
                     '<td width="50%"><span>'+count+'-</span>'+ val.first_name +' '+ val.last_name+'<a href="#" class="'+cls+'">'+tl+'</a></td>'+
-                    '<td width="25%"><a href="#" id="see_student_report" data-user-rel-pk="'+val.rel_pk+'" class="student-report">See report</a></td>'+
-                    '<td width="25%" class="enter-session"><a href="#" data-user-active="'+val.active+'" data-user-rel-pk="'+val.rel_pk+'" data-user-session-name="'+ val.first_name +' '+ val.last_name+'" data-user-session-username="'+val.username+'" data-user-session-total="'+val.total_session+'" data-user-session-used="'+val.used_session+'" data-user-session-pk="' + val.pk + '">Enter Session</a></td>'+
+                    '<td class="removeOnPrint"  width="25%"><a href="#" id="see_student_report" data-user-rel-pk="'+val.rel_pk+'" class="student-report">See report</a></td>'+
+                    '<td width="25%" class="enter-session removeOnPrint"><a href="#" data-user-active="'+val.active+'" data-user-rel-pk="'+val.rel_pk+'" data-user-session-name="'+ val.first_name +' '+ val.last_name+'" data-user-session-username="'+val.username+'" data-user-session-total="'+val.total_session+'" data-user-session-used="'+val.used_session+'" data-user-session-pk="' + val.pk + '">Enter Session</a></td>'+
                     '</tr>';
 				$('#tutor_list_students').append(tr);
 				count = count + 1;
 				});
-				console.log(data.length);
 				
-				
+				preparePrint("#mystudent");
 				$("#tutor_list_students").css('display', 'block');
 				
 			});
@@ -400,7 +399,10 @@ $(document).ready(function() {
 	});
 	
 	$("#tutor_session_list").click(function(e){
+		
+		
 		e.preventDefault();
+		preparePrint("#session_tutors")
 		$("#table_session_list").css('display', 'none');
 		pk = localStorage.getItem("pk");
 		$("#tutor_sessions_lists_title").html("Loading ...");

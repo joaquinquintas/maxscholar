@@ -111,7 +111,7 @@ $(document).ready(function() {
 	
 	$('#material_other').click(function(){
 		$('#maxother_list').html("");
-		$('#materailother h2').html("Loading ...");
+		$('.all-user-outer-other h2').html("Loading ...");
 		$.ajax({type: "GET",  url: getMaterials+"others"}).
 			done(function(data) {
 				count = 1;
@@ -127,9 +127,9 @@ $(document).ready(function() {
 				});
 				
 				if(data.length == 0){
-					$('#materailother h2').html("No Materials");
+					$('.all-user-outer-other h2').html("No Materials");
 				}else{
-					$('#materailother h2').html("OTHERS :");
+					$('.all-user-outer-other h2').html("OTHERS :");
 				}
 				
 			});

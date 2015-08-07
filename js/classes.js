@@ -16,6 +16,7 @@ $(document).ready(function() {
 				$('.delete-class').find("span").html("Loading ...");
 				$('.delete-class').css('display', 'block');
 				$( "#clases-to-delete" ).hide();
+				$('.content .print-button ').css('display','none');
 			
 				school_pk = localStorage.getItem("school_pk");
 				toSend = {school_id:school_pk};
@@ -77,6 +78,7 @@ $(document).ready(function() {
 	// CREATE CLASE ----------
 	
 	$(".createclass-tab-title").click(function(){
+		$('.content .print-button ').css('display','none');
 		$('.create-class-detail').css('display', 'none');
 		$('#createclass').css('display', 'block');
 		$('#createclass .message').css('display', 'block');
@@ -305,6 +307,8 @@ $(document).ready(function() {
 		        		$( "#classes_list" ).show();
 		        	}
 		        	
+		        	
+		        	preparePrint(".choose-class")
 		        });
 			});
 	
@@ -375,11 +379,14 @@ $(document).ready(function() {
         		count = count + 1;
         		$( "#clase_student_list" ).html(students.join( "" ));
         	  });
+        	
+
+        	preparePrint(".allclasse-detail")
         	$('.content .choose-class').css('display','none');
     		$('.content .allclasse-detail').css('display','block');
     		$('.content .modify ').css('display','block');
     		$('.content .delete ').css('display','block');
-    		$('.content .print-button ').css('display','block');
+    		
     		$('.modify-classes-tab-title').css('display', 'block');
 
         });
@@ -392,7 +399,7 @@ $(document).ready(function() {
 		
 
 	$(".modify-classes-tab-title").click(function(){
-		
+		$('.content .print-button ').css('display','none');
 		$("#modify .create-class-detail").hide();
 		$('#createclass').css('display', 'none');
 		console.log("Modify Clases");
