@@ -270,6 +270,7 @@ $(document).ready(function() {
 		$("#reports").addClass("active");
 		$("#individual").addClass("active");
 		var user_selected = this.dataset.userReportPk;
+		$("#report_individual_selector").val(undefined);
 		localStorage.setItem("individual_report_student_id", user_selected);
 		var from_date = new Date();
 		from_date.setDate(from_date.getDate()-7);

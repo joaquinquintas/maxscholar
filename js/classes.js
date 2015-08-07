@@ -195,6 +195,7 @@ $(document).ready(function() {
 			 $( "#class_repassword_create" ).val("");
 			 $( "#class_email_create" ).val("");
 			 $( "#class_name_create" ).val("");
+			 $("#search-student-create").val("");
 			 //teacher_selection_modify.empty();
 			 teacher_selection_modify.removeFromSelection(teacher_selection_modify.getSelection(), true);
 			school_pk = localStorage.getItem("school_pk");
@@ -224,12 +225,27 @@ $(document).ready(function() {
 			
 			localStorage.setItem("errors_in_class_creation", "false");
 		}else{
-			$( ".createclass-tab-title" ).trigger( "click" );
+			//$(".all-classes-tab-title").addClass("active");
+			//$(".createclass-tab-title").removeClass("active");
+			//$('.choose-class').css('display', 'block');
+			$("#all-classes-tab-title_id").trigger( "click" );
+			//$(".all-classes-tab-title").trigger( "click" );
+			
 		}
 		
 	});
 	
-
+	$('#search-student-create').keypress(function (e) {
+		 var key = e.which;
+		 
+		 if(key == 13)  // the enter key code
+		  {
+			 console.log("go to searhc");
+			 $('#search-student-create-button').trigger( "click" );
+		    return false;  
+		  }
+		});  
+	
 	$('#clase_student_list_create').on('click', '.user-to-delete', function(e) {
 
 		

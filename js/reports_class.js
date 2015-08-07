@@ -6,6 +6,7 @@ $(document).ready(function() {
 
 	
 	$("#class_report").click(function(e){
+		$( "#class_password" ).select();
 		$('.reports-detail').css('display','none');
 		$( "#error_class_password" ).html("");
 		$("#report_class_info_text").html("Loading ...");
@@ -31,6 +32,16 @@ $(document).ready(function() {
         });
 		
 	});
+	
+	$('#class_password').keypress(function (e) {
+		 var key = e.which;
+		 
+		 if(key == 13)  // the enter key code
+		  {
+			 $('.class-tab-detail button').trigger( "click" );
+		    return false;  
+		  }
+		});  
 	
 	
 	$("#class_score_report_table").on('click', '.report_class_user_list', function(e){
