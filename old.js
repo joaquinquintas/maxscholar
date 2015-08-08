@@ -1,3 +1,26 @@
+			done(function(data) {
+				count = 1;
+				$.each( data, function( key, val ) {
+					tr ='<tr>'+
+                    '<td width="78%"><span>'+count+'-</span>'+ val.title+'</td>'+
+                     '<td width="11%"><a href="http://maxscholar.com'+val.file+'">'+
+                     '<img src="images/download-arrow.png" alt="" title=""></a></td>'+
+                      '<td width="11%"><a id="'+ val.pk+'" class="printMaxreading" href="http://maxscholar.com'+val.file+'"><img src="images/material-print-icon.png" alt="" title=""></a></td>'+
+                       '</tr>';
+				$('#maxreading_list').append(tr);
+				doc = '<iframe id="doc_'+ val.pk+'" width="300px" height="500px" src="http://docs.google.com/viewerng/viewer?url=http://maxscholar.com'+val.file+'&embedded=true&print=true" style="display:block;"></iframe>'
+				
+				$("#doc_container").append(doc);
+				count = count + 1;
+				});
+				
+				if(data.length == 0){
+					$('#materailmaxread h2').html("No Materials");
+				}else{
+					$('#materailmaxread h2').html("MAXREADING :");
+				}
+
+
 $( document ).ready(function() {
    
 

@@ -15,17 +15,19 @@ $(document).ready(function() {
 	$('#material_maxreading').click(function(){
 		$('#maxreading_list').html("");
 		$('#materailmaxread h2').html("Loading ...");
+		$("#doc_container").html("");
 		$.ajax({type: "GET",  url: getMaterials+"maxreading"}).
 			done(function(data) {
 				count = 1;
 				$.each( data, function( key, val ) {
 					tr ='<tr>'+
                     '<td width="78%"><span>'+count+'-</span>'+ val.title+'</td>'+
-                     '<td width="11%"><a href="http://maxscholar.com'+val.file+'">'+
-                     '<img src="images/download-arrow.png" alt="" title=""></a></td>'+
-                      '<td width="11%"><a class="printMaxreading" href="http://maxscholar.com'+val.file+'"><img src="images/material-print-icon.png" alt="" title=""></a></td>'+
+                     '<td width="22%"><iframe id="doc_'+ val.pk+'" frameBorder="0" height="340px" src="http://docs.google.com/viewerng/viewer?url=http://maxscholar.com'+val.file+'&embedded=true&print=true" style="display:block;"></iframe></td>'+
                        '</tr>';
 				$('#maxreading_list').append(tr);
+				//doc = ''
+				
+				//$("#doc_container").append(doc);
 				count = count + 1;
 				});
 				
@@ -40,14 +42,20 @@ $(document).ready(function() {
 	});
 	
 	$('#maxreading_list').on('click', '.printMaxreading', function(e){
-		console.log("Printing...");
 		e.preventDefault();
+		 console.log("Printing...");
 		doc = $(this).attr( "href" );
+		id = $(this).attr( "id" );
+		id = "doc_"+id;
 		console.log(doc);
-		var w = window.open(doc);
-	    w.print();
+		//var w = window.open(doc);
+	    //w.print();
+		var getMyFrame = document.getElementById(id);
+	    getMyFrame.focus();
+	    getMyFrame.contentWindow.print();
+	    
 	});
-	
+
 	
 	$('#material_maxword').click(function(){
 		$('#maxword_list').html("");
