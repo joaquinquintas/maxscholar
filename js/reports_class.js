@@ -123,7 +123,7 @@ $(document).ready(function() {
 	    	    	});
 	        	
 			$("#report_teacher_name").html(teachers.join());
-			$("#report_class_email").html(resp.email);
+			$("#report_class_email").html(resp.email.join( ", " ));
 			$("#report_class_dates").html(start_date+" - "+end_date);
 
 			start_date = from_year+"-"+from_month+"-"+from_day;

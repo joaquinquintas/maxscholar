@@ -100,6 +100,12 @@ $(document).ready(function() {
     	});
 		
 		school_pk = localStorage.getItem("school_pk");
+		$( "#clase_student_list_create" ).html("");
+		$( "#class_password_create" ).val("");
+		 $( "#class_repassword_create" ).val("");
+		 $( "#class_email_create" ).val("");
+		 $( "#class_name_create" ).val("");
+		 $("#search-student-create").val("");
 		toSend = {school_id:school_pk};
 		$.ajax({type: "GET",  url: getStudentList,data:toSend }).
         
@@ -165,7 +171,10 @@ $(document).ready(function() {
 
 			errors = true;
 		}
-		var email = $( "#class_email_create" ).val();
+		var email = $( "#class_email_create" ).val().replace(/ /g,'').split(",");
+		
+		console.log("email");
+		console.log(email);
 		
 		if(!IsEmail(email)){
 			//$("#class_m_email_error").html("Invalid Email.")
@@ -216,6 +225,22 @@ $(document).ready(function() {
 	        });
 		}
 		
+		
+	});
+	
+	$(".content #savedModifiedClassModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_class_edition") );
+		if (localStorage.getItem("errors_in_class_edition") == "true"  || localStorage.getItem("errors_in_class_edition") == undefined ){
+			
+			localStorage.setItem("errors_in_class_edition", "false");
+		}else{
+			//$(".all-classes-tab-title").addClass("active");
+			//$(".createclass-tab-title").removeClass("active");
+			//$('.choose-class').css('display', 'block');
+			$("#all-classes-tab-title_id").trigger( "click" );
+			//$(".all-classes-tab-title").trigger( "click" );
+			
+		}
 		
 	});
 	
@@ -387,9 +412,12 @@ $(document).ready(function() {
         	});
         	$( "#clase_teacher" ).html(teachers.join( ", " ));
         	$( "#clase_password_value" ).html(resp.password);
-        	$( "#clase_email" ).html(resp.email);
-        	var students = [];
+        	console.log(resp.email);
+
+        	$( "#clase_email" ).html(resp.email.join( ", " ));
+        	
         	count = 1;
+        	students = [];
         	$.each( resp.students, function( key, val ) {
         		students.push( "<li><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</li>' );
         		count = count + 1;
@@ -430,7 +458,7 @@ $(document).ready(function() {
         	$( "#class_name_modify" ).val(resp.name);
         	$( "#class_password_modify" ).val(resp.password);
         	$( "#class_repassword_modify" ).val(resp.password);
-        	$( "#class_email_modify" ).val(resp.email);
+        	$( "#class_email_modify" ).val(resp.email.join( ", " ));
         	var students = [];
         	count = 1;
         	$.each( resp.students, function( key, val ) {
@@ -460,8 +488,15 @@ $(document).ready(function() {
 	});
 	
 	function IsEmail(email) {
-		  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		  return regex.test(email);
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var arrayLength = email.length;
+		for (var i = 0; i < arrayLength; i++) {
+			if (regex.test(email[i]) == false){
+				return false
+			};
+		}
+		return true
+		  
 		};
 	
 	$("#search-student-modify-button").click(function(){
@@ -501,7 +536,6 @@ $(document).ready(function() {
 			errors = true;
 		}
 		var teacher = teacher_selection_modify.getValue();
-		console.log(teacher_selection_modify.getValue());
 		var password = $( "#class_password_modify" ).val();
 		var repassword = $( "#class_repassword_modify" ).val();
 		
@@ -511,7 +545,10 @@ $(document).ready(function() {
 
 			errors = true;
 		}
-		var email = $( "#class_email_modify" ).val();
+		var email = $( "#class_email_modify" ).val().replace(/ /g,'').split(",");
+		
+		console.log("email");
+		console.log(email);
 		
 		if(!IsEmail(email)){
 			//$("#class_m_email_error").html("Invalid Email.")
@@ -521,8 +558,10 @@ $(document).ready(function() {
 		
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+			localStorage.setItem("errors_in_class_edition", true);
 			$("#savedModifiedClassModal .modal-body span").html(message);
 			$('#savedModifiedClassModal').modal('show');
+			
 			
 		}else{
 			//SaveItems

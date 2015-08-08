@@ -401,6 +401,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail .all-member-detail .modify-member { display:block;margin-bottom: 50px;}
 .content  .create-class-detail .all-member-detail #savedCreateClassModal  .modal-content{ padding-right:100px;}
 .content  .create-class-detail .all-member-detail #savedCreateClassModal .modal-footer { text-align:center;}
+.content  .create-class-detail .all-member-detail #savedModifiedClassModal  .modal-content{ padding-right:100px;}
+.content  .create-class-detail .all-member-detail #savedModifiedClassModal .modal-footer { text-align:center;}
 .content  .create-class-detail .all-member-detail #myModal3  .modal-content{ padding-right:100px;}
 .content  .create-class-detail .all-member-detail #myModal3 .modal-footer { text-align:center;}
 

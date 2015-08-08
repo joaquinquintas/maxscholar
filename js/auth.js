@@ -171,6 +171,17 @@ $(document).ready(function() {
 		 $('.content ul.print-button ').css('display','none');
 	}
 	
+	
+	$('#user_login_password').keypress(function (e) {
+		 var key = e.which;
+		 
+		 if(key == 13)  // the enter key code
+		  {
+			 $('.content #login-modal .modal-content .modal-footer .enter-pass').trigger( "click" );
+		    return false;  
+		  }
+		});
+	
 	//$('#user_login_username').focus();
 	$(".content #login-modal .modal-content .modal-footer .enter-pass").click(function(){
 

@@ -112,6 +112,9 @@
                                 </div>
                                 <div class="form-row">
                                   <label>Password : </label>
+                                  <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+									<input style="display:none" type="text" name="fakeusernameremembered"/>
+									<input style="display:none" type="password" name="fakepasswordremembered"/>
                                   <input id="class_password" type="password" placeholder="">
                                   <p id="error_class_password" style="color:red"></p>
                                 </div>
@@ -2800,7 +2803,10 @@
                                    <div class="modal-content">
                                      <div class="modal-body"> <span>Please, enter the password : </span>
                                      <span id="error_clase_password" style="color:red"></span>
-                                       <input id="clase_password" type="password" placeholder="" >
+                                     <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+								<input style="display:none" type="text" name="fakeusernameremembered1"/>
+								<input style="display:none" type="password" name="fakepasswordremembered1"/>
+								      <input id="clase_password" type="password" placeholder="" >
                                      </div>
                                      <div class="modal-footer">
                                        <button type="button" class="enter-pass">Enter</button>
@@ -3741,6 +3747,9 @@
                  <span>username : </span>
                   <input id="user_login_username" type="text" placeholder="" >
                  <span>password : </span>
+                 <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+				<input style="display:none" type="text" name="fakeusernameremembered"/>
+				<input style="display:none" type="password" name="fakepasswordremembered"/>
                   <input id="user_login_password" type="password" placeholder="" >
                 </div>
                 <div class="modal-footer">
