@@ -1,6 +1,6 @@
 $(document).ready(function() {	
-	//server = "http://localhost:8080/dashboard/v1/"
-	server = "http://maxscholar.com/dashboard/v1/"
+	server = "http://localhost:8080/dashboard/v1/"
+	//server = "http://maxscholar.com/dashboard/v1/"
 	allClasses = server + "classes/"
 	login = server + "login/"
 	checkClassPassword =  server + "classes-password-validator/"
