@@ -1,5 +1,18 @@
 
 $(document).ready(function() {
+	var from_date = new Date();
+	from_date.setDate(from_date.getDate()-7);
+	var to_date = new Date();
+
+	
+	$("#invidiual_report_from_day").val(from_date.getUTCDate());
+	$("#invidiual_report_from_month").val(from_date.getUTCMonth() + 1);
+	$("#invidiual_report_from_year").val(from_date.getUTCFullYear());
+	
+	$("#invidiual_report_to_day").val(to_date.getUTCDate());
+	$("#invidiual_report_to_month").val(to_date.getUTCMonth() + 1);
+	$("#invidiual_report_to_year").val(to_date.getUTCFullYear());
+	
 	$('.lcs_switch').removeClass('lcs_on');
 	$('.lcs_switch').addClass('lcs_off');
 	
@@ -63,6 +76,12 @@ $(document).ready(function() {
 		from_day = $("#invidiual_report_from_day").val();
 		from_month = $("#invidiual_report_from_month").val();
 		from_year = $("#invidiual_report_from_year").val();
+		
+		if (from_day == null){
+			var from_date = new Date();
+			from_date.setDate(from_date.getDate()-7);
+			from_day = from_date.getUTCDate();
+		}
 		
 		to_day = $("#invidiual_report_to_day").val();
 		console.log(to_day);

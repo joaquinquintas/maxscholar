@@ -3,7 +3,18 @@ $(document).ready(function() {
 	$('.lcs_switch').removeClass('lcs_on');
 	$('.lcs_switch').addClass('lcs_off');
 	
+	var from_date = new Date();
+	from_date.setDate(from_date.getDate()-7);
+	var to_date = new Date();
 
+	
+	$("#class_report_from_day").val(from_date.getUTCDate());
+	$("#class_report_from_month").val(from_date.getUTCMonth() + 1);
+	$("#class_report_from_year").val(from_date.getUTCFullYear());
+	
+	$("#class_report_to_day").val(to_date.getUTCDate());
+	$("#class_report_to_month").val(to_date.getUTCMonth() + 1);
+	$("#class_report_to_year").val(to_date.getUTCFullYear());
 	
 	$("#class_report").click(function(e){
 		$( "#class_password" ).select();
