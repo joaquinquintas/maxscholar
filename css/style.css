@@ -732,6 +732,7 @@ header .header-right ul li { float:none; display:inline-block;}
 }
 
 .select_school{
+	-webkit-appearance:none;
 	-moz-appearance: none;
     background: #fff url("../images/select-arrow.png") no-repeat scroll 96% center;
     border: 1px solid #b3b3b3;
