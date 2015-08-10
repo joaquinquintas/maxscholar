@@ -21,6 +21,25 @@
 				}
 
 
+				
+				count = 1;
+				$.each( data, function( key, val ) {
+					tr ='<tr>'+
+                    '<td width="78%"><span>'+count+'-</span>'+ val.title+'</td>'+
+                     '<td width="22%"><iframe id="doc_'+ val.pk+'" frameBorder="0" height="340px" src="http://docs.google.com/viewerng/viewer?url=http://maxscholar.com'+val.file+'&embedded=true&print=true" style="display:block;"></iframe></td>'+
+                       '</tr>';
+				$('#maxreading_list').append(tr);
+				//doc = ''
+				
+				//$("#doc_container").append(doc);
+				count = count + 1;
+				});
+				
+				if(data.length == 0){
+					$('#materailmaxread h2').html("No Materials");
+				}else{
+					$('#materailmaxread h2').html("MAXREADING :");
+				}
 $( document ).ready(function() {
    
 

@@ -125,19 +125,24 @@ $(document).ready(function() {
 	
 	$("#selected_dashboard_school").html("");
 	schools = JSON.parse(schools);
+	console.log("My Schools");
 	if (schools!=null){
 		
-		
+		console.log("Schools is not null");
 		if (schools.length == 0){
+			console.log("schools.length == 0");
 			console.log("Redirect!");
 			window.location.replace("http://maxscholar.com/mymax")
 		}else{
 			if (schools.length == 1){
+				console.log("schools.length == 1");
 				//selected_school = schools[0];
 	      	  	//localStorage.setItem("school_pk", selected_school.pk);
 	      	  $("#selected_dashboard_school").css('display','none');
 			}else{
+				console.log("schools.length > 1");
 				$.each(schools, function (i, item) {
+					console.log(item.name);
 					var o = new Option(item.name , item.pk);
 					$(o).html(item.name);
 
@@ -146,8 +151,10 @@ $(document).ready(function() {
 					}
 					
 					$("#selected_dashboard_school").append(o);
-					$("#selected_dashboard_school").css('display','block');
+					
 			  });
+				console.log("Showing the selector");
+				$("#selected_dashboard_school").css('display','block');
 			}
 		}
 		
