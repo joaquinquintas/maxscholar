@@ -55,6 +55,43 @@ $(document).ready(function() {
 		});  
 	
 	
+	$("#class_score_report_table").on('click', '.maxphonic_class_to_ind', function(e){
+		e.preventDefault();
+		$(".class-inner-tab-title").removeClass("active");
+		$(".individual-title").addClass("active");
+		$('.class-tab-detail').css('display','none');
+    	$('.reports-detail').css('display','none');
+    	$('.content #class-detail-message').css('display','block');
+    	
+    	//this.dataset.userReport;
+		//$("#report_individual_selector").val("22707");
+		localStorage.setItem("individual_report_student_id", this.dataset.userReport);
+		
+		start_year = localStorage.getItem("class_report_start_year");
+		start_month = localStorage.getItem("class_report_start_month");
+		start_day = localStorage.getItem("class_report_start_day");
+		end_year = localStorage.getItem("class_report_end_year");
+		end_month = localStorage.getItem("class_report_end_month");
+		end_day = localStorage.getItem("class_report_end_day");
+		
+		$("#invidiual_report_from_day").val(start_day);
+		$("#invidiual_report_from_month").val(start_month);
+		$("#invidiual_report_from_year").val(start_year);
+		
+		$("#invidiual_report_to_day").val(end_day);
+		$("#invidiual_report_to_month").val(end_month);
+		$("#invidiual_report_to_year").val(end_year);
+		$( "#generate_individual_report" ).trigger( "click" );
+		
+		$("#class").removeClass("active");
+		$(".individual-tab-detail").css('display','none');
+		$("#individual").addClass("active");
+		$( "#maxphonics_ind" ).trigger( "click" );
+		
+		
+	})
+	
+	
 	$("#class_score_report_table").on('click', '.report_class_user_list', function(e){
 		e.preventDefault();
 		$(".class-inner-tab-title").removeClass("active");
@@ -196,7 +233,7 @@ $(document).ready(function() {
     						'<a class="report_class_user_list" data-user-report=' + val.student.pk +' href="#">'+val.student.name+'</a></td>'+
                         '<td width="11%">'+val.time.value.toFixed(1)+'</td>'+
                         '<td width="11%">'+val.maxreading.value.toFixed(1)+' </td>'+
-                        '<td width="11%" class="cumulative-time see-individual"><a href="#">See individual report</a></td>'+
+                        '<td width="11%" class="cumulative-time see-individual"><a class="maxphonic_class_to_ind" data-user-report=' + val.student.pk +' href="#">See individual report</a></td>'+
                         '<td width="11%"> '+val.maxwords.value.toFixed(1)+'  </td>'+
                         '<td width="10%"> '+val.maxplaces.value.toFixed(1)+'  </td>'+
                         '<td width="10%"> '+val.maxbios.value.toFixed(1)+'  </td>'+
