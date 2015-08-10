@@ -17,17 +17,37 @@ $(document).ready(function() {
 		$('#materailmaxread h2').html("Loading ...");
 		$.ajax({type: "GET",  url: getMaterials+"maxreading"}).
 			done(function(data) {
+				
 				count = 1;
 				$.each( data, function( key, val ) {
 					tr ='<tr>'+
                     '<td width="78%"><span>'+count+'-</span>'+ val.title+'</td>'+
                      '<td width="11%"><a href="http://maxscholar.com'+val.file+'">'+
                      '<img src="images/download-arrow.png" alt="" title=""></a></td>'+
-                      '<td width="11%"><a class="printMaxreading" href="http://maxscholar.com'+val.file+'"><img src="images/material-print-icon.png" alt="" title=""></a></td>'+
                        '</tr>';
 				$('#maxreading_list').append(tr);
+				//doc = '<iframe  type="application/pdf" style="display:none;position:relative;height:4em;overflow:scroll;" id="doc_'+ val.pk+'" src="http://maxscholar.com/media/materials/maxwords-materials/MaxScholar Clover wordtables.pdf"></iframe>'
+				
+				//$("#doc_container").append(doc);
 				count = count + 1;
 				});
+				
+				
+				/***
+				count = 1;
+				$.each( data, function( key, val ) {
+					tr ='<tr>'+
+                    '<td width="75%"><span>'+count+'-</span>'+ val.title+'</td>'+
+                     '<td width="25%"><iframe id="doc_'+ val.pk+'" frameBorder="0" height="340px" src="http://maxscholar.com/media/materials/maxwords-materials/MaxScholar Clover wordtables.pdf" style="display:block;"></iframe></td>'+
+                       '</tr>';
+				$('#maxreading_list').append(tr);
+				//doc = ''
+				
+				//$("#doc_container").append(doc);
+				count = count + 1;
+				});
+				
+				**/
 				
 				if(data.length == 0){
 					$('#materailmaxread h2').html("No Materials");
@@ -42,12 +62,18 @@ $(document).ready(function() {
 	$('#maxreading_list').on('click', '.printMaxreading', function(e){
 		console.log("Printing...");
 		e.preventDefault();
-		doc = $(this).attr( "href" );
-		console.log(doc);
-		var w = window.open(doc);
-		w.document.write(doc);
-	    w.print();
+		doc = $(this).attr( "id" );
+		id_doc = "doc_" + doc;
+		$iframe = $('iframe#'+id_doc);
+		$iframe.load(function() {
+			console.log("print IFRAME");
+			var PDF = document.getElementById(iframeId);
+		      PDF.focus();
+		      PDF.contentWindow.print();
+	      });
 	});
+	
+	
 	
 	
 	$('#material_maxword').click(function(){
