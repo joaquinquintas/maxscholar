@@ -37,7 +37,6 @@ function Popup(data) {
     mywindow.document.write('<link rel="stylesheet" href="css/lc_switch.css">');  
     mywindow.document.write('<link href="css/introjs.css" rel="stylesheet">'); 
     mywindow.document.write('<link href="css/print.css" rel="stylesheet">');
-    mywindow.document.write('<link href="css/demo.css" rel="stylesheet">');
     
     mywindow.document.write('<link href="js/magicsuggest/magicsuggest-min.css" rel="stylesheet">');  
     mywindow.document.write('<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">'); 
