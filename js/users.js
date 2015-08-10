@@ -67,9 +67,11 @@ $(document).ready(function() {
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
 			$("#CreateUserModal .modal-body span").html(message);
+			localStorage.setItem("errors_in_user_creation", "true");
 			$('#CreateUserModal').modal('show');
 			
 		}else{
+			localStorage.setItem("errors_in_user_creation", "false");
 			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
 				to_send_data.password = password;
 				
@@ -97,6 +99,29 @@ $(document).ready(function() {
 	        });
 		}
 		
+		
+	});
+	
+	$(".content #CreateUserModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_user_creation") );
+		if (localStorage.getItem("errors_in_user_edition") == "false" ){
+
+
+			$("#max_user_list").trigger( "click" );
+			
+		}
+		
+	});
+	
+	$(".content #SaveEditUserModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_user_edition") );
+		if (localStorage.getItem("errors_in_user_edition") == "false" ){
+
+
+			$("#max_user_list").trigger( "click" );
+
+			
+		}
 		
 	});
 	
@@ -224,9 +249,11 @@ $(document).ready(function() {
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
 			$("#SaveEditUserModal .modal-body span").html(message);
+			localStorage.setItem("errors_in_user_edition", "true");
 			$('#SaveEditUserModal').modal('show');
 			
 		}else{
+			localStorage.setItem("errors_in_user_edition", "false");
 			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
 			if(save_password == true){
 				to_send_data.password = password;

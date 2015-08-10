@@ -185,12 +185,12 @@ $(document).ready(function() {
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
 			$("#savedCreateClassModal .modal-body span").html(message);
-			localStorage.setItem("errors_in_class_creation", true);
+			localStorage.setItem("errors_in_class_creation", "true");
 			$('#savedCreateClassModal').modal('show');
 			
 		}else{
 			//SaveItems
-			
+			localStorage.setItem("errors_in_class_creation", "false");
 			//SaveStudents
 			//Recorrer  todos los items de clase_student_list_modify y guardarlos
 			var users_class = []
@@ -230,10 +230,8 @@ $(document).ready(function() {
 	
 	$(".content #savedModifiedClassModal .modal-content .modal-footer .close-btn").click(function(){
 		console.log(localStorage.getItem("errors_in_class_edition") );
-		if (localStorage.getItem("errors_in_class_edition") == "true"  || localStorage.getItem("errors_in_class_edition") == undefined ){
-			
-			localStorage.setItem("errors_in_class_edition", "false");
-		}else{
+		if (localStorage.getItem("errors_in_class_edition") == "false" ){
+
 			//$(".all-classes-tab-title").addClass("active");
 			//$(".createclass-tab-title").removeClass("active");
 			//$('.choose-class').css('display', 'block');
@@ -246,10 +244,8 @@ $(document).ready(function() {
 	
 	$(".content #savedCreateClassModal .modal-content .modal-footer .close-btn").click(function(){
 		console.log(localStorage.getItem("errors_in_class_creation") );
-		if (localStorage.getItem("errors_in_class_creation") == "true"  || localStorage.getItem("errors_in_class_creation") == undefined ){
-			
-			localStorage.setItem("errors_in_class_creation", "false");
-		}else{
+		if (localStorage.getItem("errors_in_class_creation") == "false"){
+		
 			//$(".all-classes-tab-title").addClass("active");
 			//$(".createclass-tab-title").removeClass("active");
 			//$('.choose-class').css('display', 'block');
@@ -558,7 +554,7 @@ $(document).ready(function() {
 		
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			localStorage.setItem("errors_in_class_edition", true);
+			localStorage.setItem("errors_in_class_edition", "true");
 			$("#savedModifiedClassModal .modal-body span").html(message);
 			$('#savedModifiedClassModal').modal('show');
 			
