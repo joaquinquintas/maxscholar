@@ -1,6 +1,8 @@
 
 $(document).ready(function() {
 
+	//$("#")
+	
 	$("#class_words_report").click(function(e){
 		e.preventDefault();
 			
