@@ -91,8 +91,8 @@ MAXMUSIC 5.0	10%
                                                   <li role="presentation"><a id="spelling_report" href="#spellingrule" aria-controls="spellingrule" role="tab" data-toggle="tab">SPELLING RULES</a></li>
                                                   <li role="presentation"><a id="pre_suf_report" href="#sprefixes" aria-controls="sprefixes" role="tab" data-toggle="tab">PREFIXES <br>
                                                     & SUFFIXES</a></li>
-                                                  <li role="presentation"><a href="#latinroot" aria-controls="latinroot" role="tab" data-toggle="tab">LATIN ROOTS</a></li>
-                                                  <li role="presentation"><a href="#greekroot" aria-controls="greekroot" role="tab" data-toggle="tab">GREEK ROOTS</a></li>
+                                                  <li role="presentation"><a id="latin_roots"  href="#latinroot" aria-controls="latinroot" role="tab" data-toggle="tab">LATIN ROOTS</a></li>
+                                                  <li role="presentation"><a id="greek_roots"  href="#greekroot" aria-controls="greekroot" role="tab" data-toggle="tab">GREEK ROOTS</a></li>
                                                 </ul>
                                                 
                                                 <!-- Tab panes -->
@@ -841,11 +841,11 @@ MAXMUSIC 5.0	10%
                                                     </div>
                                                   </div>
                                                   <div role="tabpanel" class="tab-pane" id="latinroot">
-                                                    <div class="sprefixes-detail clover-table-detail">
+                                                    <div class="sprefixes-detail clover-table-detail" id="latin_roots_table">
                                                       <table>
                                                         <thead>
                                                         <td width="14.6%"></td>
-                                                          <td width="9.4%">Sillabication</td>
+                                                          <td width="9.4%">Syllabication</td>
                                                           <td width="9.5%">Definition</td>
                                                           <td width="9.5%">Roots into words</td>
                                                           <td width="9.5%">Roots into sentences</td>
@@ -855,1221 +855,214 @@ MAXMUSIC 5.0	10%
                                                           <td width="9.5%">Fluency (WPM)</td>
                                                           <td width="9.5%">Comments</td>
                                                             </thead>
-                                                        <tbody>
-                                                          <tr>
+                                                      
+                                                          <tbody>
+                                                          <tr id="latin_set-1" data-set="set-1">
                                                             <td width="14.6%">Set 1</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="latin_set-2" data-set="set-2">
                                                             <td width="14.6%">Set 2</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="latin_set-3" data-set="set-3">
                                                             <td width="14.6%">Set 3</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="latin_set-4" data-set="set-4">
                                                             <td width="14.6%">Set 4</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="latin_set-5" data-set="set-5">
                                                             <td width="14.6%">Set 5</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="latin_set-6" data-set="set-6">
                                                             <td width="14.6%">Set 6</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
                                                         </tbody>
                                                       </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                    </div>
+                                                     
+                                                    <div class="modal fade" id="latin_set-1_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                    <div class="modal fade" id="latin_set-2_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                    <div class="modal fade" id="latin_set-3_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                    <div class="modal fade" id="latin_set-4_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                    <div class="modal fade" id="latin_set-5_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                    <div class="modal fade" id="latin_set-6_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                    
+                                                  </div>
                                                   </div>
                                                   <div role="tabpanel" class="tab-pane" id="greekroot">
-                                                    <div class="sprefixes-detail clover-table-detail">
+                                                    <div class="sprefixes-detail clover-table-detail" id="greek_roots_table">
                                                       <table>
                                                         <thead>
                                                         <td width="14.6%"></td>
-                                                          <td width="9.4%">Sillabication</td>
+                                                          <td width="9.4%">Syllabication</td>
                                                           <td width="9.5%">Definition</td>
                                                           <td width="9.5%">Roots into words</td>
                                                           <td width="9.5%">Roots into sentences</td>
                                                           <td width="9.5%">Roots words (each root)</td>
                                                           <td width="9.5%">Roots sentences (each root)</td>
-                                                          <td width="9.5%"> Writing</td>
+                                                          <td width="9.5%">Writing</td>
                                                           <td width="9.5%">Fluency (WPM)</td>
                                                           <td width="9.5%">Comments</td>
                                                             </thead>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tbody>
+                                                          
+                                                          <tr id="greek_set-1" data-set="set-1">
                                                             <td width="14.6%">Set 1</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="greek_set-2" data-set="set-2">
                                                             <td width="14.6%">Set 2</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="greek_set-3" data-set="set-3">
                                                             <td width="14.6%">Set 3</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
-                                                      <table>
-                                                        <tbody>
-                                                          <tr>
+                                                          <tr id="greek_set-4" data-set="set-4">
                                                             <td width="14.6%">Set 4</td>
-                                                            <td width="" colspan="9" class="show-all"><a href="#">Show all (8) </a></td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
                                                           </tr>
+                                                
+                                                  
                                                         </tbody>
                                                       </table>
-                                                      <table class="hidden-table">
-                                                        <tbody>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td width="14.6%">aud (to hear)</td>
-                                                            <td width="9.4%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%">80%</td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><a href="#">Click Here</a></td>
-                                                            <td width="9.5%"><input type="text" value="" placeholder="Type Here" ></td>
-                                                          </tr>
-                                                        </tbody>
-                                                      </table>
+                                           
+                                                 
+                                               	<div class="modal fade" id="greek_set-1_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+										                <div class="modal fade" id="greek_set-2_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+										                <div class="modal fade" id="greek_set-3_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+										                <div class="modal fade" id="greek_set-4_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										                <div class="modal-activity"><div class="modal-content">
+										                <div class="modal-body">No text</div>
+										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+										                </div></div></div>
+                                                     
+                                                      
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2107,6 +1100,7 @@ MAXMUSIC 5.0	10%
 <script src="js/reports_class.js"></script>
 <script src="js/reports_phonics.js"></script>
 <script src="js/reports_words.js"></script>
+<script src="js/reports_words_roots.js"></script>
 <script src="js/bootstrap-datepicker.js"></script> 
 
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 

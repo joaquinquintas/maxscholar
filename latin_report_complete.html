@@ -1,0 +1,788 @@
+<script>
+
+
+$("#latin_set_1_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_1_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+$("#latin_set_2_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_2_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+$("#latin_set_3_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_3_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+$("#latin_set_4_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_4_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+$("#latin_set_5_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_5_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+$("#latin_set_6_col").on('click', function(e) {
+	e.preventDefault();
+	if($(this).text().indexOf("Hide") > 0){
+		$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+	}else{
+		$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+	}
+	$(this).text(function(i,v) {
+		if(v.indexOf("Hide") > 0){
+			$(this).css('background' , 'url(../images/show-all-icon.png) left center no-repeat;');
+			return 'Show all (8)'
+		}else{
+			$(this).css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
+			return 'Hide all (8)'
+		}
+	});
+	$('.latin_set_6_table ').slideToggle('slow');
+	$('.search-filed-top ').css('opacity','1');
+	});
+</script>
+
+
+<div class="sprefixes-detail clover-table-detail" id="latin_roots_table">
+                                                      <table>
+                                                        <thead>
+                                                        <td width="14.6%"></td>
+                                                          <td width="9.4%">Syllabication</td>
+                                                          <td width="9.5%">Definition</td>
+                                                          <td width="9.5%">Roots into words</td>
+                                                          <td width="9.5%">Roots into sentences</td>
+                                                          <td width="9.5%">Roots words (each root)</td>
+                                                          <td width="9.5%">Roots sentences (each root)</td>
+                                                          <td width="9.5%"> Writing</td>
+                                                          <td width="9.5%">Fluency (WPM)</td>
+                                                          <td width="9.5%">Comments</td>
+                                                            </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 1</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_1_col" href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_1_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_1_1" data-set="1" data-id="1">
+                                                            <td width="14.6%">aud (to hear)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_2" data-set="1" data-id="2">
+                                                            <td width="14.6%">vid, vis (to see)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_3" data-set="1" data-id="3">
+                                                            <td width="14.6%">spec, spect (to look)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_4" data-set="1" data-id="4">
+                                                            <td width="14.6%">dic, dict (to say)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_5" data-set="1" data-id="5">
+                                                            <td width="14.6%">jac, ject (to throw)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_6" data-set="1" data-id="6">
+                                                            <td width="14.6%">mis, mit (to send)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_7" data-set="1" data-id="7">
+                                                            <td width="14.6%">mob, mot, mov (to move)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_1_8" data-set="1" data-id="8">
+                                                            <td width="14.6%">pel, puls (to push)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          
+                                                        </tbody>
+                                                      </table>
+                                                      <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 2</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_2_col"  href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_2_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_2_9" data-set="2" data-id="9">
+                                                            <td width="14.6%">cap, ceive, cip (to take)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_10" data-set="2" data-id="10">
+                                                            <td width="14.6%">fed, fid (to trust)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_11" data-set="2" data-id="11">
+                                                            <td width="14.6%">grad, gress, gree (to walk)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_12" data-set="2" data-id="12">
+                                                            <td width="14.6%">pen, pend, pens (to hang)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_13" data-set="2" data-id="13">
+                                                            <td width="14.6%">quest, quir, quis (to seek)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_14" data-set="2" data-id="14">
+                                                            <td width="14.6%">port (to carry)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_15" data-set="2" data-id="15">
+                                                            <td width="14.6%">spir, spire (to breathe)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_2_16" data-set="2" data-id="16">
+                                                            <td width="14.6%">vita, viv (to live)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                         
+                                                        </tbody>
+                                                      </table>
+                                                      <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 3</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_3_col"  href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_3_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_3_25" data-set="3" data-id="25">
+                                                            <td width="14.6%">cred (to believe)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_26" data-set="3" data-id="26">
+                                                            <td width="14.6%">fer (to carry)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_27" data-set="3" data-id="27">
+                                                            <td width="14.6%">plic, ply (to fold)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_28" data-set="3" data-id="28">
+                                                            <td width="14.6%">sed, sid, sess (to sit)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_30" data-set="3" data-id="30">
+                                                            <td width="14.6%">rupt (to break)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_31" data-set="3" data-id="31">
+                                                            <td width="14.6%">flect, flex (to bend)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_32" data-set="3" data-id="32">
+                                                            <td width="14.6%">pon, pos, pound (to place)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_3_33" data-set="3" data-id="33">
+                                                            <td width="14.6%">gen (to origin)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          
+                                                        </tbody>
+                                                      </table>
+                                                      <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 4</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_4_col" href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_4_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_4_17" data-set="4" data-id="17">
+                                                            <td width="14.6%">scrib, script (to write)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_18" data-set="4" data-id="18">
+                                                            <td width="14.6%">fac, fic (to make)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_19" data-set="4" data-id="19">
+                                                            <td width="14.6%">tract (to drag)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_20" data-set="4" data-id="20">
+                                                            <td width="14.6%">duc, duct (to lead)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_21" data-set="4" data-id="21">
+                                                            <td width="14.6%">cid, cis (to cut)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_22" data-set="4" data-id="22">
+                                                            <td width="14.6%">cur, cour (to run)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_23" data-set="4" data-id="23">
+                                                            <td width="14.6%">form (to shape)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_4_24" data-set="4" data-id="24">
+                                                            <td width="14.6%">press (to press)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          
+                                                        </tbody>
+                                                      </table>
+                                                      <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 5</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_5_col"  href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_5_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_5_34" data-set="5" data-id="34">
+                                                            <td width="14.6%">ced, cess, ceed (to yield)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_35" data-set="5" data-id="35">
+                                                            <td width="14.6%">fin (to end)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_36" data-set="5" data-id="36">
+                                                            <td width="14.6%">pod, ped (to foot)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_37" data-set="5" data-id="37">
+                                                            <td width="14.6%">claim, clam (to break)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_38" data-set="5" data-id="38">
+                                                            <td width="14.6%">lect, leg, lig (to choose)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_39" data-set="5" data-id="39">
+                                                            <td width="14.6%">claus, clos, clud (to shut)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_40" data-set="5" data-id="40">
+                                                            <td width="14.6%">vers, vert (to turn)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_5_49" data-set="5" data-id="49">
+                                                            <td width="14.6%">fact, fect (to make)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          
+                                                        </tbody>
+                                                      </table>
+                                                      <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td width="14.6%">Set 6</td>
+                                                            <td width="" colspan="9" class="show-all"><a id="latin_set_6_col"  href="#">Show all (8) </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                      <table class="hidden-table latin_set_6_table">
+                                                        <tbody>
+                                                          <tr id="latin_set_6_41" data-set="6" data-id="41">
+                                                            <td width="14.6%">sens, sent (to feel)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_42" data-set="6" data-id="42">
+                                                            <td width="14.6%">vail, val (to be strong)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_43" data-set="6" data-id="43">
+                                                            <td width="14.6%">sist, sta, stat, stit (to stand)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_44" data-set="6" data-id="44">
+                                                            <td width="14.6%">tain, tin (to hold)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_45" data-set="6" data-id="45">
+                                                            <td width="14.6%">struct (to build)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_46" data-set="6" data-id="46">
+                                                            <td width="14.6%">tend, tens, ten (to strain)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_47" data-set="6" data-id="47">
+                                                            <td width="14.6%">vent, ven (to come)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          <tr id="latin_set_6_48" data-set="6" data-id="48">
+                                                            <td width="14.6%">voc, vok (to call)</td>
+                                                            <td class="syllabication" width="9.4%">-</td>
+                                                            <td class="definition" width="9.5%">-</td>
+                                                            <td class="roots_into_words" width="9.5%">-</td>
+                                                            <td class="roots_into_sentences" width="9.5%">-</td>
+                                                            <td class="roots_words" width="9.5%">-</td>
+                                                            <td class="roots_sentences" width="9.5%">-</td>
+                                                            <td width="9.5%"><a class="see_text" href="#">Click to see text</a></td>
+                                                            <td width="9.5%"><input class="wpm" type="text" value="" placeholder="Type Here" ></td>
+                                                            <td width="9.5%"><input class="comment" type="text" value="" placeholder="Type Here" ></td>
+                                                          </tr>
+                                                          
+                                                        </tbody>
+                                                      </table>
+                                                    </div>

@@ -41,5 +41,7 @@ $(document).ready(function() {
 	getMaxwordsCloverReportFinal = server + "reports/maxwords/clover/final/"
 	getMaxwordsSpellingReport = server +"reports/maxwords/spelling/"
 	getMaxwordsPreSufReport = server + "reports/maxwords/prefixes_suffixes/"
+	getMaxwordsLatinReport = server + "reports/maxwords/latin/"
+	getMaxwordsGreekReport = server + "reports/maxwords/greek/"
 	
 });

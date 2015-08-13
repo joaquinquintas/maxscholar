@@ -1,8 +1,8 @@
 
 function post_maxwords_pre_suf_data(field, value, group_id, type){
 
-		//studen_pk = localStorage.getItem("individual_report_student_id");
-		studen_pk = "11421";
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "11421";
 		$.ajax({type: "POST",  url: getMaxwordsPreSufReport, data: JSON.stringify({ field: field, value:value, 
 			group_id:group_id, user_id:studen_pk, type:type}) }).
 		done(function(resp){
@@ -13,8 +13,8 @@ function post_maxwords_pre_suf_data(field, value, group_id, type){
 
 function post_maxwords_spelling_data(field, value, rule_id){
 
-	//studen_pk = localStorage.getItem("individual_report_student_id");
-	studen_pk = "25922";
+	studen_pk = localStorage.getItem("individual_report_student_id");
+	//studen_pk = "25922";
 	$.ajax({type: "POST",  url: getMaxwordsSpellingReport, data: JSON.stringify({ field: field, value:value, 
 		rule_id:rule_id, user_id:studen_pk}) }).
 	done(function(resp){
@@ -24,8 +24,8 @@ function post_maxwords_spelling_data(field, value, rule_id){
 };
 
 function post_maxwords_clover_final_comment(value){
-	//studen_pk = localStorage.getItem("individual_report_student_id");
-	studen_pk = "15536";
+	studen_pk = localStorage.getItem("individual_report_student_id");
+	//studen_pk = "15536";
 	$.ajax({type: "POST",  url: getMaxwordsCloverReportFinal, data: JSON.stringify({ value: value, user_id:studen_pk}) }).
 	done(function(resp){
 	//Nothings happends
@@ -36,8 +36,8 @@ function post_maxwords_clover_final_comment(value){
 
 function post_maxwords_clover_data(field, value, group_id, chapter_id){
 
-		//studen_pk = localStorage.getItem("individual_report_student_id");
-		studen_pk = "15536";
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "15536";
 		$.ajax({type: "POST",  url: getMaxwordsCloverReport, data: JSON.stringify({ field: field, value:value, 
 			group_id:group_id, chapter_id:chapter_id, user_id:studen_pk}) }).
 		done(function(resp){
@@ -133,6 +133,7 @@ $(document).ready(function() {
 	$('#clover-table-detail').find('input:text').val(''); 
 	$('#speeling-table-detail').find('input:text').val('');  
 	$('#pre_suf-table-detail').find('input:text').val(''); 
+
 
 	
 	$('#prefixes_col').on('click', function(e) {
@@ -324,8 +325,8 @@ $(document).ready(function() {
 	$("#spelling_report").click(function(e){
 		$("#speeling-table-detail").css("display","none");
 		e.preventDefault();
-		//studen_pk = localStorage.getItem("individual_report_student_id");
-		studen_pk = "25922";
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "25922";
 		to_send={user_id:studen_pk};
 		
 		$.ajax({type: "GET", async:true, url: getMaxwordsSpellingReport, data:to_send}).
@@ -347,8 +348,8 @@ $(document).ready(function() {
 	$("#pre_suf_report").click(function(e){
 		$("#pre_suf-table-detail").css("display","none");
 		e.preventDefault();
-		//studen_pk = localStorage.getItem("individual_report_student_id");
-		studen_pk = "11421";
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "11421";
 		to_send={user_id:studen_pk};
 		
 		$.ajax({type: "GET", async:true, url: getMaxwordsPreSufReport, data:to_send}).
@@ -375,9 +376,9 @@ $(document).ready(function() {
 	$("#maxwords_ind").click(function(e){
 		
 		e.preventDefault();
-		$(".clover-table-detail").css("display","none");
-		//studen_pk = localStorage.getItem("individual_report_student_id");
-		studen_pk = "15536";
+		$("#clover-table-detail").css("display","none");
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "15536";
 		to_send={user_id:studen_pk};
 		
 		$.ajax({type: "GET", async:true, url: getMaxwordsCloverReport, data:to_send}).
@@ -433,7 +434,7 @@ $(document).ready(function() {
 				console.log(selector);
 				$(selector).html(val.score+" %");
 			});
-			$(".clover-table-detail").css("display","block");
+			$("#clover-table-detail").css("display","block");
 		});
 	});
 	
