@@ -1,6 +1,6 @@
 $(document).ready(function() {	
-	//server = "http://localhost:8080/dashboard/v1/"
-	server = "http://maxscholar.com/dashboard/v1/"
+	server = "http://localhost:8080/dashboard/v1/"
+	//server = "http://maxscholar.com/dashboard/v1/"
 	allClasses = server + "classes/"
 	login = server + "login/"
 	checkClassPassword =  server + "classes-password-validator/"
@@ -37,5 +37,9 @@ $(document).ready(function() {
 	getClassMaxwordsReport = server + "reports/class/maxwords/"
 	getClassMaxphonicsReport = server + "reports/class/maxphonics/"
 	getMaxphonicsGamesReport = server + "reports/games/maxphonics/"
+	getMaxwordsCloverReport = server + "reports/maxwords/clover/"
+	getMaxwordsCloverReportFinal = server + "reports/maxwords/clover/final/"
+	getMaxwordsSpellingReport = server +"reports/maxwords/spelling/"
+	getMaxwordsPreSufReport = server + "reports/maxwords/prefixes_suffixes/"
 	
 });

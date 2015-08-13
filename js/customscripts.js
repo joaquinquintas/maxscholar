@@ -100,16 +100,6 @@ height: '520px'
 
 
 
-$('.content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a').on('click', function(e) {
-e.preventDefault();
-$(this).text(function(i,v) {
-return v === 'Hide all (13)' ?  'Show all (13)'  : 'Hide all (13)';
-$('.content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a').css('background' , 'url(../images/hide-all-icon.png) left center no-repeat;');
-});
-
-$('.content .hidden-table ').slideToggle('slow');
-$('.search-filed-top ').css('opacity','1');
-});
 }); 
 $(function () {
 

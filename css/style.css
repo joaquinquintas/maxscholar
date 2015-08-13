@@ -282,7 +282,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .constant-detail .constant-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#CCCCCC; text-decoration:none; background:none;}
 .content .constant-detail .constant-table-detail table tbody tr td input[type="text"]{ width:100%; height:95px;font-size:16px; font-family: 'droid_sansregular';color:#5d5d5d; text-decoration:none; border:0px none; text-align:center; padding:0 5px; word-break:break-word; outline:none;}
 
-.reviewWord{color:#f7931e !important}
+.reviewWord  tbody tr td:first-child {color:#f7931e !important}
+.reviewWord  tbody tr td{color:#f7931e !important}
 .content .clover-tabs-detail .nav-tabs { padding:0px; text-align:center;} 
 .content .clover-tabs-detail .nav-tabs li { float:none; display:inline-block; border:1px solid #4d4d4d; border-radius:0px; color:#2f2f2f; line-height:38px; text-align:center; background:none;font-size:14px; font-family: 'droid_sansbold' !important;}
   
@@ -293,7 +294,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .clover-tabs-detail .clover-table-detail table thead td { height:40px; vertical-align:top;}
 
 .content .clover-tabs-detail .sprefixes-detail table thead td { height:40px; vertical-align:bottom !important;}
-.content .clover-tabs-detail .clover-table-detail table tbody tr td { height:95px;}
+.content .clover-tabs-detail .clover-table-detail table tbody tr td { height:108px;}
 .content .clover-tabs-detail .clover-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#CCCCCC; text-decoration:none; background:none;}
 .content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all { text-align:left; padding:0 52px; box-sizing:border-box;}
 .content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a { background:url(../images/show-all-icon.png) left center no-repeat; font-size:16px; color:#5D5D5D; padding-left:72px; width:100%; text-align:left; line-height:42px;}
@@ -307,7 +308,13 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .clover-tabs-detail .clover-bottom-table  table  tbody tr td:first-child { background:#fff;}
 .content .clover-tabs-detail .clover-bottom-table  table  tbody tr td { height:40px; text-align:center; padding:0 25px;}
 .content .clover-tabs-detail .clover-bottom-table  table  tbody tr td input[type="text"]  { height:40px !important; text-align:left; }
- 
+
+.content .clover-tabs-detail .clover-table-detail table.reviewWord{width: 100%;}
+.content .clover-tabs-detail .clover-table-detail table.reviewWord tbody tr td {color:#f7931e !important; height: 100px; border-left: 15px solid #f2f2f2;}
+.content .clover-tabs-detail .clover-table-detail table.reviewWord tbody tr td:first-child {color:#f7931e !important; height: 95px; }
+
+
+
  
  .content .individual-report-per-program h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;} 
 .content .individual-report-per-program table { width:98.5%; max-width:860px;  }
@@ -768,3 +775,5 @@ header .header-right ul li { float:none; display:inline-block;}
 }
 .deleteOutline{display:none}
 .noborderTable{border-left:0px!important}
+
+.clover-table-detail tr td img{ cursor:pointer;}
