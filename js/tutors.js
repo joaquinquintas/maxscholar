@@ -402,7 +402,7 @@ $(document).ready(function() {
 		
 		
 		e.preventDefault();
-		preparePrint("#session_tutors")
+		preparePrint("#session_tutors");
 		$("#table_session_list").css('display', 'none');
 		pk = localStorage.getItem("pk");
 		$("#tutor_sessions_lists_title").html("Loading ...");

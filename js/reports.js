@@ -410,6 +410,7 @@ $(document).ready(function() {
 
 					 
 			}
+			preparePrint(".indvidual-detail-left");
 			$('.content .indvidual-detail-left').css('display','block');
 			
 			levelk = data.level["level-k"]
