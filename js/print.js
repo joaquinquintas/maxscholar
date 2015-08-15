@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 
 function Popup(data) {
-    var mywindow = window.open('', 'my div', 'scrollbars=yes,height=1024,width=650');
+    var mywindow = window.open('', 'my div', 'scrollbars=1,resizable=1,height=1024,width=650');
     mywindow.document.write('<html><head><title></title>');
     mywindow.document.write('<link href="css/bootstrap.min.css" rel="stylesheet">');  
     mywindow.document.write('<link rel="stylesheet" href="css/datepicker.css">');  

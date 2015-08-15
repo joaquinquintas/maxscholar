@@ -32,6 +32,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('html, body').animate({ scrollTop: 0 }, 0);
 		$( ".lcs_wrap" ).trigger( "click" );
+		preparePrint("#individualdetailscore");
 		$('.lcs_switch').removeClass('lcs_off');
 		$('.lcs_switch').addClass('lcs_on');
 
@@ -410,9 +411,9 @@ $(document).ready(function() {
 
 					 
 			}
-			preparePrint(".indvidual-detail-left");
+			preparePrint("#individualgenralperformance");
 			$('.content .indvidual-detail-left').css('display','block');
-			
+			/***
 			levelk = data.level["level-k"]
 			level1 = data.level["level-1"]
 			level2 = data.level["level-2"]
@@ -464,6 +465,8 @@ $(document).ready(function() {
 					       level9, level10, level11,level12],
 				}]
 				});
+				
+				***/
 			
 			$('#container11').highcharts({
 				chart: {
