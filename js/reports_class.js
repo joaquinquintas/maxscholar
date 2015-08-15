@@ -190,6 +190,13 @@ $(document).ready(function() {
     		
     		
     		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
+    		
+    		reading_class_count = 0;
+    		words_class_count = 0;
+    		places_class_count = 0;
+    		bios_class_count = 0;
+    		music_class_count = 0;
+    		
     		$.ajax({type: "GET", async:false, url: getClassScoreAvg, data:to_send}).
     		done(function(data){
     			$("#class_score_report_table").html("");
@@ -207,10 +214,50 @@ $(document).ready(function() {
     			sa_count = 0;
     			ex_count = 0;
     			
+    			
+    			
     			$.each( data.reports, function( key, val ) {
+    				score_sum = 0;
+        			count_sum = 0;
+        			
+    				if (val.maxreading.value != "-"){
+    					score_sum = score_sum + val.maxreading.value;
+    					count_sum = count_sum + 1;
+    					reading_class_count = reading_class_count + 1;
+    					class_maxreading_sum = class_maxreading_sum + val.maxreading.value;
+    				}
+    				if (val.maxwords.value != "-"){
+    					score_sum = score_sum + val.maxwords.value;
+    					count_sum = count_sum + 1;
+    					words_class_count = words_class_count + 1;
+    					class_maxwords_sum = class_maxwords_sum + val.maxwords.value;
+    				}
+    				if (val.maxplaces.value != "-"){
+    					score_sum = score_sum + val.maxplaces.value;
+    					count_sum = count_sum + 1;
+    					places_class_count  = places_class_count + 1;
+    					class_maxplaces_sum = class_maxplaces_sum + val.maxplaces.value;
+        				
+    				}
+    				if (val.maxbios.value != "-"){
+    					score_sum = score_sum + val.maxbios.value;
+    					count_sum = count_sum + 1;
+    					bios_class_count = bios_class_count + 1;
+    					class_maxbios_sum = class_maxbios_sum + val.maxbios.value;
+    				}
+    				if (val.maxmusic.value != "-"){
+    					score_sum = score_sum + val.maxmusic.value;
+    					count_sum = count_sum + 1;
+    					music_class_count = music_class_count + 1;
+        				class_maxmusic_sum = class_maxmusic_sum + val.maxmusic.value;
+
+    				}
+    				if (count_sum != 0){
+    					score_avg = score_sum/count_sum;
+    				}else{
+    					score_avg = 0;
+    				}
     				
-    				score_sum = val.maxreading.value + val.maxwords.value + val.maxplaces.value +val.maxbios.value + val.maxmusic.value;
-    				score_avg = score_sum/5;
     				per = performance(score_avg)
     				if (per.id == "satisfactory"){
     					sa_count = sa_count + 1;
@@ -222,22 +269,22 @@ $(document).ready(function() {
     					}
     				}
     				class_time_sum = class_time_sum + val.time.value;
-    				class_maxreading_sum = class_maxreading_sum + val.maxreading.value;
-    				class_maxwords_sum = class_maxwords_sum + val.maxwords.value;
-    				class_maxplaces_sum = class_maxplaces_sum + val.maxplaces.value;
-    				class_maxbios_sum = class_maxbios_sum + val.maxbios.value;
-    				class_maxmusic_sum = class_maxmusic_sum + val.maxmusic.value;
+    				//class_maxreading_sum = class_maxreading_sum + val.maxreading.value;
+    				//class_maxwords_sum = class_maxwords_sum + val.maxwords.value;
+    				//class_maxplaces_sum = class_maxplaces_sum + val.maxplaces.value;
+    				//class_maxbios_sum = class_maxbios_sum + val.maxbios.value;
+    				//class_maxmusic_sum = class_maxmusic_sum + val.maxmusic.value;
     				
     				tr = '<tr>' +
                         '<td width="12%" class="cumulative-time student-name" style="background : none">'+
     						'<a class="report_class_user_list" data-user-report=' + val.student.pk +' href="#">'+val.student.name+'</a></td>'+
-                        '<td width="11%">'+val.time.value.toFixed(1)+'</td>'+
-                        '<td width="11%">'+val.maxreading.value.toFixed(1)+' </td>'+
+                        '<td width="11%">'+val.time.value+'</td>'+
+                        '<td width="11%">'+val.maxreading.value+' </td>'+
                         '<td width="11%" class="cumulative-time see-individual"><a class="maxphonic_class_to_ind" data-user-report=' + val.student.pk +' href="#">See individual report</a></td>'+
-                        '<td width="11%"> '+val.maxwords.value.toFixed(1)+'  </td>'+
-                        '<td width="10%"> '+val.maxplaces.value.toFixed(1)+'  </td>'+
-                        '<td width="10%"> '+val.maxbios.value.toFixed(1)+'  </td>'+
-                        '<td width="10%"> '+val.maxmusic.value.toFixed(1)+'  </td>'+
+                        '<td width="11%"> '+val.maxwords.value+'  </td>'+
+                        '<td width="10%"> '+val.maxplaces.value+'  </td>'+
+                        '<td width="10%"> '+val.maxbios.value+'  </td>'+
+                        '<td width="10%"> '+val.maxmusic.value+'  </td>'+
                         '<td width="10%" class="'+per.id+'"><span>'+per.label+' </span></td>'+
                       '</tr>';
     				
@@ -246,11 +293,34 @@ $(document).ready(function() {
     			});
     			
     			avg_time = class_time_sum/data.reports.length;
-    			avg_reading = class_maxreading_sum/data.reports.length;
-    			avg_words = class_maxwords_sum/data.reports.length;
-    			avg_places = class_maxplaces_sum/data.reports.length;
-    			avg_bios = class_maxbios_sum/data.reports.length;
-    			avg_music = class_maxmusic_sum/data.reports.length;
+    			if(reading_class_count !=0){
+    				avg_reading = class_maxreading_sum/reading_class_count;
+    			}else{
+    				avg_reading = 0;
+    			}
+    			if(words_class_count !=0){
+    				avg_words = class_maxwords_sum/words_class_count;
+    			}else{
+    				avg_words =0;
+    			}
+    			if(words_class_count !=0){
+    				avg_places = class_maxplaces_sum/places_class_count;
+    			}else{
+    				avg_places = 0
+    			}
+    			
+    			if(bios_class_count != 0){
+    				avg_bios = class_maxbios_sum/bios_class_count;
+    			}else{
+    				avg_bios = 0;
+    			}
+    			
+    			if(music_class_count !=0){
+    				avg_music = class_maxmusic_sum/music_class_count;
+    			}else{
+    				avg_music = 0;
+    			}
+    			
     			
     			sum_avg_score = avg_reading + avg_words + avg_places + avg_bios + avg_music;
     			class_avg_score = sum_avg_score/5;
@@ -576,7 +646,7 @@ $(document).ready(function() {
     		});
         	
         });
-		
+		preparePrint("#report_to_print");
         
 	});
 

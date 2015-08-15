@@ -8,8 +8,22 @@ $(document).ready(function() {
 		});
 	$(".printButton").click(function(e){
 		e.preventDefault();
-		Popup("<div style='display:block'class='"+$(".myDivToPrint").attr('class') +"'>"+$(".myDivToPrint").html()+"</div>");
+		//Popup("<div style='display:block'class='"+$(".myDivToPrint").attr('class') +"'>"+$(".myDivToPrint").html()+"</div>");
 
+		
+		$(".myDivToPrint").print({
+            globalStyles: true,
+            mediaPrint: false,
+            stylesheet: "css/print.css",
+            noPrintSelector: ".no-print",
+            iframe: false,
+            append: null,
+            prepend: null,
+            manuallyCopyFormValues: true,
+
+            timeout: 250
+    });
+		
 	});
 	
 	
@@ -29,8 +43,11 @@ $(document).ready(function() {
  * **/
 
 
+    
 function Popup(data) {
-    var mywindow = window.open('', 'my div', 'scrollbars=1,resizable=1,height=1024,width=650');
+	
+    var mywindow = window.open();
+    mywindow.document.open("text/html");
     mywindow.document.write('<html><head><title></title>');
     mywindow.document.write('<link href="css/bootstrap.min.css" rel="stylesheet">');  
     mywindow.document.write('<link rel="stylesheet" href="css/datepicker.css">');  
@@ -45,5 +62,8 @@ function Popup(data) {
     
     mywindow.document.write('</body></html>');
     mywindow.document.close();
-    mywindow.print();                        
+    mywindow.print();
+    mywindow.onfocus = function () {
+    	mywindow.close(); // Close the window
+    }
 }

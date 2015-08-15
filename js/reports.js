@@ -32,7 +32,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('html, body').animate({ scrollTop: 0 }, 0);
 		$( ".lcs_wrap" ).trigger( "click" );
-		preparePrint("#individualdetailscore");
+		preparePrint(".indvidual-detail-left");
 		$('.lcs_switch').removeClass('lcs_off');
 		$('.lcs_switch').addClass('lcs_on');
 
@@ -49,7 +49,12 @@ $(document).ready(function() {
 		$.ajax({type: "GET",  url: getStudentList, data:toSend }).
 	    done(function(resp){
 	    	$.each( resp, function( key, val ) {
-	    	var o = new Option(val.first_name+" "+val.last_name , val.pk);
+	    		if (val.first_name == "" && val.last_name == ""){
+	    			name = val.username;
+	    		}else{
+	    			name = val.first_name+" "+val.last_name ;
+	    		}
+	    	var o = new Option(name, val.pk);
 			$("#report_individual_selector").append(o);
 	    	});
 	    	$("#individual .individual-tab-detail").css("display", "block");
@@ -411,7 +416,7 @@ $(document).ready(function() {
 
 					 
 			}
-			preparePrint("#individualgenralperformance");
+			preparePrint("#report_to_print");
 			$('.content .indvidual-detail-left').css('display','block');
 			/***
 			levelk = data.level["level-k"]
@@ -556,8 +561,14 @@ $(document).ready(function() {
                       '<td width="14%">'+val.exercise.title +'</td>'+
                       '<td width="8%">'+ val.hl_score+'</td>'+
                       '<td width="10%">'+val.quiz_score +'</td>'+
-                      '<td width="33%"><a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
-				
+                      '<td width="33%">';
+                 if (val.hl_text!= undefined && val.hl_text !="" && val.hl_text !=null){    
+                      a_highlight = '<a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
+                 }else{
+                     a_highlight = '<a href="#" id="not_clickable">Highlighting </a> ';
+
+                 }
+				tr = tr + a_highlight;
 				 if (val.outline!= undefined && val.outline.outline !=""){
 	            	 a_outline = '<a href="#" data-toggle="modal" data-target="#OUT_'+val.exercise.pk+'"> Outline </a> ';
 	             }else{

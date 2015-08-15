@@ -112,7 +112,7 @@ header .header-right ul li a.logout { padding-top:5px; display:inline-block;}
 .content .tab-inner-right-detail .district-detail span { font-size:24px; color:#fff;font-family: 'droid_sansbold'; line-height:28px;}
 .content .tab-inner-right-detail .class-tab-detail { display:none;}
 .content .tab-inner-right-detail .class-tab-detail label { font-size:15px; line-height:20px; color:#5D5D5D; width:30%; display:inline-block; text-align:right; padding:0 10px; box-sizing:border-box;}
-.content .tab-inner-right-detail .class-tab-detail select { height:32px; border:1px solid #b3b3b3; width:68%; padding:0 10px; box-sizing:border-box; font-size:15px; font-weight:bold; color:#CCCCCC; -moz-appearance:none;-webkit-appearance:none;-ms-appearance:none; -o-appearance:none; background:url(../images/select-arrow.png) 96% center no-repeat #fff; outline:none;}
+.content .tab-inner-right-detail .class-tab-detail select { height:32px; border:1px solid #b3b3b3; width:68%; padding:0 10px; box-sizing:border-box; font-size:15px; font-weight:bold; color:#5c5c5c; -moz-appearance:none;-webkit-appearance:none;-ms-appearance:none; -o-appearance:none; background:url(../images/select-arrow.png) 96% center no-repeat #fff; outline:none;}
 .content .tab-inner-right-detail .class-tab-detail select.month { width:27%;}
 .content .tab-inner-right-detail .class-tab-detail select.day{ width:15%; }
 .content .tab-inner-right-detail .class-tab-detail select.year{width:25%;}
@@ -247,7 +247,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 
 .content .individual-tab-detail label { font-size:15px; line-height:20px; color:#5D5D5D; width:30%; display:inline-block; text-align:right; padding:0 10px; box-sizing:border-box;}
-.content .individual-tab-detail select { height:32px; border:1px solid #b3b3b3; width:68%; padding:0 10px; box-sizing:border-box; font-size:15px; font-weight:bold; color:#CCCCCC; -moz-appearance:none;-webkit-appearance:none;-ms-appearance:none; -o-appearance:none; background:url(../images/select-arrow.png) 96% center no-repeat #fff; outline:none;}
+.content .individual-tab-detail select { height:32px; border:1px solid #b3b3b3; width:68%; padding:0 10px; box-sizing:border-box; font-size:15px; font-weight:bold; color:#5c5c5c; -moz-appearance:none;-webkit-appearance:none;-ms-appearance:none; -o-appearance:none; background:url(../images/select-arrow.png) 96% center no-repeat #fff; outline:none;}
 .content .individual-tab-detail select.month { width:27%;}
 .content .individual-tab-detail select.day{ width:15%; }
 .content .individual-tab-detail select.year{width:25%;}
@@ -395,7 +395,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content  .create-class-detail ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
 .content  .create-class-detail ul li span { width:20px; text-align:center; padding-right:0px !important; margin-right:120px !important;}
 .content  .create-class-detail ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
-.content  .create-class-detail ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#CCCCCC; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
+.content  .create-class-detail ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#5c5c5c; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
 .content  .create-class-detail ul li select  { width:83.5%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
 .content  .create-class-detail .all-member-detail { margin-top:36px;}
 .content  .create-class-detail .all-member-detail span { font-size:14px; color:#5D5D5D;font-family: 'droid_sansregular'; margin-bottom:10px;}
@@ -465,7 +465,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .user-tab-right .all-user-detail .edit-user-outer ul { margin:0px; padding:0;}
 .content .user-tab-right .all-user-detail .edit-user-outer ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
 .content .user-tab-right .all-user-detail .edit-user-outer ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
-.content .user-tab-right .all-user-detail .edit-user-outer ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#CCCCCC; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
+.content .user-tab-right .all-user-detail .edit-user-outer ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#5c5c5c; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
 .content .user-tab-right .all-user-detail .edit-user-outer ul li select  { width:85%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
 .content .user-tab-right .all-user-detail .edit-user-outer .create-class-btn {float:right;}
 .content .user-tab-right .all-user-detail .edit-user-outer .create-class-btn a { padding:25px 60px 25px 110px; background:url(../images/create-clss-icon.png) 41px center no-repeat; border:1px solid #b3b3b3;font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none; display:inline-block; margin-top:40px; }
@@ -746,7 +746,7 @@ header .header-right ul li { float:none; display:inline-block;}
     background: #fff url("../images/select-arrow.png") no-repeat scroll 96% center;
     border: 1px solid #b3b3b3;
     box-sizing: border-box;
-    color: #cccccc;
+    color: #5c5c5c;
     font-size: 15px;
     font-weight: bold;
     height: 27px;
