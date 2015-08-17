@@ -777,3 +777,47 @@ header .header-right ul li { float:none; display:inline-block;}
 .noborderTable{border-left:0px!important}
 
 .clover-table-detail tr td img{ cursor:pointer;}
+
+@media print {
+	html {
+    font-family: Arial !important;
+}
+	body {
+    background: #f2f2f2 none repeat scroll 0 0;
+}
+	.col-sm-10 {
+	    width: 91.6667%;
+	    background: #f2f2f2 none repeat scroll 0 0;
+	}
+	#controles_menu,.col-sm-2 , .no-print, header, #step5{ display:none !important}
+
+	.removeOnPrint{
+		display:none !important;
+	}
+	.slimScrollDiv{overflow: visible !important; height: auto !important;}
+	.slimScrollDiv div:first-child{overflow: visible !important; height: auto !important}
+	.content .reports-detail .average-class-detail .average-class-top table thead td a {
+    color: #84b4ea;
+    font-family: "litera-regularregular";
+    font-size: 11px;
+    text-decoration: none;
+}
+.content .usage-program-detail .chart-inner-detail {
+    position: relative;
+    right: 70px;
+    top: 0;
+}
+.content .indvidual-detail-left label span, .content .reports-detail label span {
+    font-family: Arial !important;
+}
+.content .indvidual-detail-left label, .content .reports-detail label  {font-family: Arial !important;}
+.content .report-per-program .nav-tabs li { display:none !important}
+.content .report-per-program .nav-tabs li.active { display:block !important}
+.content .top-tabs-headings { display:none !important}
+.lcs_wrap{ display:none !important}
+.content .report-per-program .report-per-program-chart {
+    text-align: center;
+    width: 1000px !important;
+}
+.report-per-program .col-sm-6{width: 83.3333% !important}
+}

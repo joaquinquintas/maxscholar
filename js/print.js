@@ -6,7 +6,7 @@ $(document).ready(function() {
 			e.preventDefault();
 			$('.content .print-button ').css('display','none');
 		});
-	$(".printButton").click(function(e){
+	$(".printButton1").click(function(e){
 		e.preventDefault();
 		//Popup("<div style='display:block'class='"+$(".myDivToPrint").attr('class') +"'>"+$(".myDivToPrint").html()+"</div>");
 
@@ -26,11 +26,18 @@ $(document).ready(function() {
 		
 	});
 	
-	
+
+	$(".printButton").click(function(e){
+		e.preventDefault();
+		printDashboard();
+		})
 	
 	
 });
 
+function printDashboard() {
+    window.print();
+}
 
 /**
  * 

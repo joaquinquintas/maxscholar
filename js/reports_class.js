@@ -303,7 +303,7 @@ $(document).ready(function() {
     			}else{
     				avg_words =0;
     			}
-    			if(words_class_count !=0){
+    			if(places_class_count !=0){
     				avg_places = class_maxplaces_sum/places_class_count;
     			}else{
     				avg_places = 0
