@@ -42,7 +42,9 @@ $(document).ready(function() {
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: CheckloginStatus}).
+	$.ajax({type: "POST",  url: CheckloginStatus, {'X-CSRFToken':csrftoken,
+		'maxscholarSessionId':sessionId
+    }}).
     fail(function(resp){
         console.log('Not loggued.')
         $('#login-modal').modal('show');
