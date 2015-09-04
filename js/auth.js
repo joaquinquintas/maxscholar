@@ -42,7 +42,7 @@ $(document).ready(function() {
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: CheckloginStatus,  headers: {'X-CSRFToken':csrftoken,
+	$.ajax({type: "POST",  url: CheckloginStatus,  headers: {
 		'maxscholarSessionId':sessionId
     }}).
     fail(function(resp){
