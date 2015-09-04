@@ -36,11 +36,11 @@ $(document).ready(function() {
 	//});
 	
 		
-	$.ajaxSetup({
-		  xhrFields: {
-		    withCredentials: true
-		  }
-		});
+	//$.ajaxSetup({
+	//	  xhrFields: {
+	//	    withCredentials: true
+	//	  }
+	//	});
 	
 	$.ajax({type: "POST",  url: CheckloginStatus,  headers: {
 		'maxscholarSessionId':sessionId
