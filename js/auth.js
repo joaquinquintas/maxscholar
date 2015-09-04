@@ -16,7 +16,7 @@ $(document).ready(function() {
 	    return cookieValue;
 	}
 	var csrftoken = getCookie('csrftoken');
-	var sessionId = getCookie('sessionid');
+	var sessionId = getCookie('maxscholarSessionId');
 	console.log(sessionId);
 	
 	function csrfSafeMethod(method) {
