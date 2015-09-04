@@ -39,7 +39,7 @@ $(document).ready(function() {
 		
 	$.ajaxSetup({
 		  xhrFields: {
-		    withCredentials: true
+		    withCredentials: false
 		  }
 		});
 	
