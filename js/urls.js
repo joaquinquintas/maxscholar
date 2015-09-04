@@ -4,7 +4,7 @@ $(document).ready(function() {
 	server = "http://dev.maxscholar.com/dashboard/v1/"
 	allClasses = server + "classes/"
 	login = server + "login/"
-	CheckloginStatus = server + "check-login/"
+	checkloginStatus = server + "auth/"
 	checkClassPassword =  server + "classes-password-validator/"
 	getClassDetail = server + "classes-detail/"
 	getStudentFromSchool = server + "students/"
