@@ -41,7 +41,12 @@ $(document).ready(function() {
         $('#login-modal').modal('show');
     }).
     done(function(resp){
-    	after_login(resp)
+    	resp = JSON.parse(resp);
+    	if res.username == undefined:
+    		console.log('Not loggued.')
+            $('#login-modal').modal('show');
+    	else
+    		after_login(resp)
 
     });
 	
@@ -219,15 +224,14 @@ $.each(resp, function (i, item) {
 	            $( "#error_login" ).html("Invalid username and/or password");
 	        }).
 	        done(function(resp){
-	        	
+	        	resp = JSON.parse(resp);
 	        	after_login(resp);
 	        	});
 	});
 	
 	function after_login(resp){
 
-    	resp = JSON.parse(resp);
-    	
+
     	
     	 localStorage.setItem("schools",JSON.stringify(resp.schools) );
     	if (resp.schools.length == 0){
