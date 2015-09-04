@@ -31,11 +31,27 @@ $(document).ready(function() {
                                btoa(localStorage.getItem("username") + ':' + localStorage.getItem("password")));
     }
 	
-	$.ajaxSetup({
-	    beforeSend: setHeader,
-	});
+	//$.ajaxSetup({
+	//    beforeSend: setHeader,
+	//});
 	
 		
+	$.ajaxSetup({
+		  xhrFields: {
+		    withCredentials: true
+		  }
+		});
+	
+	$.ajax({type: "POST",  url: CheckloginStatus}).
+    fail(function(resp){
+        console.log('Not loggued.')
+        $('#login-modal').modal('show');
+    }).
+    done(function(resp){
+    	after_login(resp)
+
+    });
+	
 	
 	function checkCredentials(username, password){
 	    function setHeader(xhr) {
@@ -50,8 +66,7 @@ $(document).ready(function() {
 	            console.log('bad credentials.')
 	        }).
 	        done(function(resp){
-	        	localStorage.setItem("username", username);
-	        	localStorage.setItem("password", password);
+	        	
 	        	$(".welcome-notice h3").html("Welcome, "+resp.first_name +" "+ resp.last_name+".");
 
 	        });
@@ -212,158 +227,161 @@ $.each(resp, function (i, item) {
 	        }).
 	        done(function(resp){
 	        	
-	        	resp = JSON.parse(resp);
-	        	 localStorage.setItem("schools",JSON.stringify(resp.schools) );
-	        	if (resp.schools.length == 0){
-	        		console.log("Redirect!");
-	        		window.location.replace("http://maxscholar.com/mymax")
-	        	}else{
-	        		if (resp.schools.length == 1){
-	        			selected_school = resp.schools[0];
-	  	        	  	localStorage.setItem("school_pk", selected_school.pk);
-	  	        	  $("#selected_dashboard_school").css('display','none');
-	        		}else{
-	        			$("#selected_dashboard_school").html("");
-	        			selected_school = resp.schools[0];
-	  	        	  localStorage.setItem("school_pk", selected_school.pk);
-	  	        	  var o = new Option(selected_school.name , selected_school.pk);
-	  	      			/// jquerify the DOM object 'o' so we can use the html method
-	  	      			$(o).html(selected_school.name);
-	  	      			o.setAttribute("selected", "selected");
-	      			
-	  	      			$("#selected_dashboard_school").append(o);
-	  	      		 $.each(resp.schools.slice(1), function (i, item) {
-		        			var o = new Option(item.name , item.pk);
-		        			/// jquerify the DOM object 'o' so we can use the html method
-		        			$(o).html(item.name);
-		        			
-		        			
-		        			$("#selected_dashboard_school").append(o);
-		        			
-		        	  });
-	  	      		$("#selected_dashboard_school").css('display','block');
-	        		}
-	        	}
-	        	
-	        	
-	        	  
-	        	 
-	        	  
-	        	 
-	        	
-	        	console.log(resp);
-	        	localStorage.setItem("username", username);
-	        	localStorage.setItem("password", password);
-	        	localStorage.setItem("first_name", resp.user.first_name);
-	        	localStorage.setItem("last_name",  resp.user.last_name);
-	        	localStorage.setItem("pk", resp.user.pk);
-	        	
-	        	
-	        	
-	        	$(".welcome-notice h3").html("Welcome, "+resp.user.first_name +" "+ resp.user.last_name+".");
-	        	$('#login-modal').modal('hide');
-	        	var intro = introJs();
-	            intro.setOptions({
-	              steps: [
-	                {
-	                  element: '#step1',
-	                  intro: "<b>Hello "+resp.user.first_name +"</b><span>Welcome to MaxReports!</span><span>Click <a href = '#' >here</a> to see a video tutorial of all the features available for you.</span>"
-	                 } ,
-	  			   {
-	                  element: '#step2',
-	                  intro: "<span>Choose an icon to explore these features:</span><span><strong>Reports: </strong>check your student's data and progress.</span><span><strong>Classes: </strong>create and manage your groups or classes.</span><span><strong>Users: </strong>create and manage student accounts.</span><span><strong>Licenses: </strong>check school-wide license count. </span><span><strong>Materials: </strong>download teaching resources and materials.  </span><span><strong>Tutors: </strong>manage your tutoring sessions and progress.</span>"
-	                 } ,
-	  			   {
-	                  element: '#step3',
-	                  intro: "<span>Choose a tab to see student progress in each specific program.</span><span>Scroll down to see additional information and graphs.</span>"
-	                 } ,
-	  			    {
-	                  element: '#step4',
-	                  intro: "<span>Click this button if you want to see the student site.</span>"
-	                 },
-	  			    {
-	                  element: '#step5',
-	                  intro: "<span>Use these buttons to download or print sections</span><span>of the report or, its entirety</span>"
-	                 } 
-	              ]
-	  			
-	            });
-
-	            intro.start();
-	        	  
-	        	  $('.introjs-skipbutton') .click(function() {
-	        		 $('.reports-tab-title').removeClass('active');
-	        		 $('#reports').removeClass('active');
-	        		 $('.individual-title').removeClass('active');
-	        		 $('.content .welcome-notice ').css('opacity','1');
-	        		 $('#class').removeClass('active');
-	        		 $('.content ul.print-button ').css('display','none');
-	        		  });
-	        	  
-	        	  
-	        	  
-	        	  
-	        	$.ajax({type: "GET",  url: getStudentLevels}).
-	        	done(function(response){
-	        		
-	        		$("#level-edit-user").html("");
-	        		$("#level-create-user").html("");
-	        		var o = new Option("Select Level" , "no");
-	        		o.setAttribute("id", "no");
-	        		$("#level-edit-user").append(o);
-	        		var o = new Option("Select Level" , "no");
-	        		o.setAttribute("id", "no");
-	        		o.setAttribute("selected", "selected");
-	        		$("#level-create-user").append(o);
-	        		
-	        		$.each(response, function (i, item) {
-	        			var o = new Option(item.name , item.pk);
-	        			/// jquerify the DOM object 'o' so we can use the html method
-	        			$(o).html(item.name);
-	        			
-	        			
-	        			$("#level-edit-user").append(o);
-	        			var o = new Option(item.name , item.pk);
-	        			/// jquerify the DOM object 'o' so we can use the html method
-	        			$(o).html(item.name);
-	        			$("#level-create-user").append(o);
+	        	after_login(resp);
+	        	});
+	});
 	
-	        		});
-	        		
-	        		
-	        	});
-	        	
-	        	$.ajax({type: "GET",  url: getUserType}).
-	        	done(function(resp){
-	        		
-	        		$("#type-edit-user").html("");
-	        		$("#type-create-user").html("");
-	        		var o = new Option("Select Type" , "no");
-	        		o.setAttribute("id", "no");
-	        		$("#type-edit-user").append(o);
-	        		var o = new Option("Select Type" , "no");
-	        		o.setAttribute("id", "no");
-	        		o.setAttribute("selected", "selected");
-	        		$("#type-create-user").append(o);
-	        		
-	        		$.each(resp, function (i, item) {
-	        			var op = new Option(item.name , item.pk);
-	        			/// jquerify the DOM object 'o' so we can use the html method
-	        			$(op).html(item.name);
+	function after_login(resp){
 
-	        			
-	        			$("#type-edit-user").append(op);
-	        			var op = new Option(item.name , item.pk);
-	        			/// jquerify the DOM object 'o' so we can use the html method
-	        			$(op).html(item.name);
-	        			$("#type-create-user").append(op);
-	        			
-	        		});
+    	resp = JSON.parse(resp);
+    	
+    	
+    	 localStorage.setItem("schools",JSON.stringify(resp.schools) );
+    	if (resp.schools.length == 0){
+    		console.log("Redirect!");
+    		window.location.replace("http://maxscholar.com/mymax")
+    	}else{
+    		if (resp.schools.length == 1){
+    			selected_school = resp.schools[0];
+	        	  	localStorage.setItem("school_pk", selected_school.pk);
+	        	  $("#selected_dashboard_school").css('display','none');
+    		}else{
+    			$("#selected_dashboard_school").html("");
+    			selected_school = resp.schools[0];
+	        	  localStorage.setItem("school_pk", selected_school.pk);
+	        	  var o = new Option(selected_school.name , selected_school.pk);
+	      			/// jquerify the DOM object 'o' so we can use the html method
+	      			$(o).html(selected_school.name);
+	      			o.setAttribute("selected", "selected");
+  			
+	      			$("#selected_dashboard_school").append(o);
+	      		 $.each(resp.schools.slice(1), function (i, item) {
+        			var o = new Option(item.name , item.pk);
+        			/// jquerify the DOM object 'o' so we can use the html method
+        			$(o).html(item.name);
+        			
+        			
+        			$("#selected_dashboard_school").append(o);
+        			
+        	  });
+	      		$("#selected_dashboard_school").css('display','block');
+    		}
+    	}
+    	
+    	console.log(resp);
+    	localStorage.setItem("username", username);
+    	localStorage.setItem("password", password);
+    	localStorage.setItem("first_name", resp.user.first_name);
+    	localStorage.setItem("last_name",  resp.user.last_name);
+    	localStorage.setItem("pk", resp.user.pk);
+    	
+    	
+    	
+    	$(".welcome-notice h3").html("Welcome, "+resp.user.first_name +" "+ resp.user.last_name+".");
+    	$('#login-modal').modal('hide');
+    	var intro = introJs();
+        intro.setOptions({
+          steps: [
+            {
+              element: '#step1',
+              intro: "<b>Hello "+resp.user.first_name +"</b><span>Welcome to MaxReports!</span><span>Click <a href = '#' >here</a> to see a video tutorial of all the features available for you.</span>"
+             } ,
+			   {
+              element: '#step2',
+              intro: "<span>Choose an icon to explore these features:</span><span><strong>Reports: </strong>check your student's data and progress.</span><span><strong>Classes: </strong>create and manage your groups or classes.</span><span><strong>Users: </strong>create and manage student accounts.</span><span><strong>Licenses: </strong>check school-wide license count. </span><span><strong>Materials: </strong>download teaching resources and materials.  </span><span><strong>Tutors: </strong>manage your tutoring sessions and progress.</span>"
+             } ,
+			   {
+              element: '#step3',
+              intro: "<span>Choose a tab to see student progress in each specific program.</span><span>Scroll down to see additional information and graphs.</span>"
+             } ,
+			    {
+              element: '#step4',
+              intro: "<span>Click this button if you want to see the student site.</span>"
+             },
+			    {
+              element: '#step5',
+              intro: "<span>Use these buttons to download or print sections</span><span>of the report or, its entirety</span>"
+             } 
+          ]
+			
+        });
 
-	        		
-	        	});
-	});
-	});
+        intro.start();
+    	  
+    	  $('.introjs-skipbutton') .click(function() {
+    		 $('.reports-tab-title').removeClass('active');
+    		 $('#reports').removeClass('active');
+    		 $('.individual-title').removeClass('active');
+    		 $('.content .welcome-notice ').css('opacity','1');
+    		 $('#class').removeClass('active');
+    		 $('.content ul.print-button ').css('display','none');
+    		  });
+    	  
+    	  
+    	  
+    	  
+    	$.ajax({type: "GET",  url: getStudentLevels}).
+    	done(function(response){
+    		
+    		$("#level-edit-user").html("");
+    		$("#level-create-user").html("");
+    		var o = new Option("Select Level" , "no");
+    		o.setAttribute("id", "no");
+    		$("#level-edit-user").append(o);
+    		var o = new Option("Select Level" , "no");
+    		o.setAttribute("id", "no");
+    		o.setAttribute("selected", "selected");
+    		$("#level-create-user").append(o);
+    		
+    		$.each(response, function (i, item) {
+    			var o = new Option(item.name , item.pk);
+    			/// jquerify the DOM object 'o' so we can use the html method
+    			$(o).html(item.name);
+    			
+    			
+    			$("#level-edit-user").append(o);
+    			var o = new Option(item.name , item.pk);
+    			/// jquerify the DOM object 'o' so we can use the html method
+    			$(o).html(item.name);
+    			$("#level-create-user").append(o);
+
+    		});
+    		
+    		
+    	});
+    	
+    	$.ajax({type: "GET",  url: getUserType}).
+    	done(function(resp){
+    		
+    		$("#type-edit-user").html("");
+    		$("#type-create-user").html("");
+    		var o = new Option("Select Type" , "no");
+    		o.setAttribute("id", "no");
+    		$("#type-edit-user").append(o);
+    		var o = new Option("Select Type" , "no");
+    		o.setAttribute("id", "no");
+    		o.setAttribute("selected", "selected");
+    		$("#type-create-user").append(o);
+    		
+    		$.each(resp, function (i, item) {
+    			var op = new Option(item.name , item.pk);
+    			/// jquerify the DOM object 'o' so we can use the html method
+    			$(op).html(item.name);
+
+    			
+    			$("#type-edit-user").append(op);
+    			var op = new Option(item.name , item.pk);
+    			/// jquerify the DOM object 'o' so we can use the html method
+    			$(op).html(item.name);
+    			$("#type-create-user").append(op);
+    			
+    		});
+
+    		
+    	});
+
+		
+	}
 	
 	$("#help_icon").click(function(e){
 		e.preventDefault();
