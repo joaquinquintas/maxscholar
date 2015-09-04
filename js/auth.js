@@ -42,7 +42,7 @@ $(document).ready(function() {
     }).
     done(function(resp){
     	resp = JSON.parse(resp);
-    	if res.username == undefined:
+    	if resp.username == undefined:
     		console.log('Not loggued.')
             $('#login-modal').modal('show');
     	else
