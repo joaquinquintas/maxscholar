@@ -1,22 +1,6 @@
 $(document).ready(function() {
-// using jQuery
-	function getCookie(name) {
-	    var cookieValue = null;
-	    if (document.cookie && document.cookie != '') {
-	        var cookies = document.cookie.split(';');
-	        for (var i = 0; i < cookies.length; i++) {
-	            var cookie = jQuery.trim(cookies[i]);
-	            // Does this cookie string begin with the name we want?
-	            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-	                break;
-	            }
-	        }
-	    }
-	    return cookieValue;
-	}
-	var csrftoken = getCookie('csrftoken');
-	var sessionId = getCookie('maxscholarSessionId');
+	csrftoken = Cookies.get('csrftoken');
+	sessionId = Cookies.get('maxscholarSessionId');
 	console.log(sessionId);
 	console.log(csrftoken);
 	
@@ -24,6 +8,14 @@ $(document).ready(function() {
 	    // these HTTP methods do not require CSRF protection
 	    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 	}
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+	            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	        }
+	    }
+	});
 	
 	function setHeader(xhr) {
         // as per HTTP authentication spec [2], credentials must be
@@ -43,9 +35,7 @@ $(document).ready(function() {
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: checkloginStatus,  headers: {'X-CSRFToken':csrftoken,
-		'maxscholarSessionId':sessionId
-    }}).
+	$.ajax({type: "POST",  url: checkloginStatus}).
     fail(function(resp){
         console.log('Not loggued.')
         $('#login-modal').modal('show');
