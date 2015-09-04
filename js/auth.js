@@ -18,6 +18,7 @@ $(document).ready(function() {
 	var csrftoken = getCookie('csrftoken');
 	var sessionId = getCookie('maxscholarSessionId');
 	console.log(sessionId);
+	console.log(csrftoken);
 	
 	function csrfSafeMethod(method) {
 	    // these HTTP methods do not require CSRF protection
@@ -36,13 +37,13 @@ $(document).ready(function() {
 	//});
 	
 		
-	//$.ajaxSetup({
-	//	  xhrFields: {
-	//	    withCredentials: true
-	//	  }
-	//	});
+	$.ajaxSetup({
+		  xhrFields: {
+		    withCredentials: true
+		  }
+		});
 	
-	$.ajax({type: "POST",  url: CheckloginStatus,  headers: {
+	$.ajax({type: "POST",  url: CheckloginStatus,  headers: {'X-CSRFToken':csrftoken,
 		'maxscholarSessionId':sessionId
     }}).
     fail(function(resp){
