@@ -42,7 +42,7 @@ $(document).ready(function() {
     	resp = JSON.parse(resp);
     	school_changed = localStorage.getItem("school_changed");
     	console.log(school_changed);
-    	if(school_changed == false || school_changed== undefined){
+    	if(school_changed == 'false' || school_changed== undefined){
     		after_login(resp, true)
     	}else{
     		after_login(resp, false)
