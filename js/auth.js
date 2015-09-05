@@ -24,6 +24,7 @@ $(document).ready(function() {
                                btoa(localStorage.getItem("username") + ':' + localStorage.getItem("password")));
     }
 	
+
 		
 	$.ajaxSetup({
 		  xhrFields: {
@@ -117,19 +118,6 @@ $.each(resp, function (i, item) {
 	last_name = localStorage.getItem("last_name");
 	schools = localStorage.getItem("schools");
 	school_pk = localStorage.getItem("school_pk");
-	pk = localStorage.getItem("pk");
-	if(username == null || password == null || pk == null){
-		$('#login-modal').modal('show');
-	}else{
-		$(".welcome-notice h3").html("Welcome, "+first_name +" "+ last_name+".");
-		 $('.reports-tab-title').removeClass('active');
-		 $('#reports').removeClass('active');
-		 $('.individual-title').removeClass('active');
-		 $('.content .welcome-notice ').css('opacity','1');
-		 $('#class').removeClass('active');
-		 $('.content ul.print-button ').css('display','none');
-	}
-	
 	
 	$("#selected_dashboard_school").html("");
 	schools = JSON.parse(schools);
@@ -173,7 +161,18 @@ $.each(resp, function (i, item) {
 	}
 	
 	
-	
+	pk = localStorage.getItem("pk");
+	if(username == null || password == null || pk == null){
+		$('#login-modal').modal('show');
+	}else{
+		$(".welcome-notice h3").html("Welcome, "+first_name +" "+ last_name+".");
+		 $('.reports-tab-title').removeClass('active');
+		 $('#reports').removeClass('active');
+		 $('.individual-title').removeClass('active');
+		 $('.content .welcome-notice ').css('opacity','1');
+		 $('#class').removeClass('active');
+		 $('.content ul.print-button ').css('display','none');
+	}
 	
 	
 	$('#user_login_password').keypress(function (e) {
