@@ -189,70 +189,73 @@ $(document).ready(function() {
 		
 		var errors = false;
 		var errors_list = []
-		data = {hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
-				hour_end:hour_end, minutes_end:minutes_end, period_end:period_end}
-		to_send = JSON.stringify(data);
-		$.ajax({type: "POST", async: false, url: validateSessionTime, data:to_send}).
-    	fail(function(response){
-    		errors_list.push( "<li>Invalid Time</li>" );
-			errors = true;
-    	});
-		
-		
 		if (session_date == ""){
 			errors_list.push( "<li>Date is required</li>" );
 			errors = true;
 		}
-		if (errors){
-			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			$("#TutorSessionSave .modal-body span").html(message);
-			$('#TutorSessionSave').modal('show');
-			
-		}else{
-			data = {note:notes, hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
-					hour_end:hour_end, minutes_end:minutes_end, period_end:period_end, session_date:session_date}
-			to_send = JSON.stringify(data);
-			$.ajax({type: "POST",  url: setSession+rel_pk, data: to_send}).
-	        fail(function(resp){
-				$("#TutorSessionSave .modal-body span").html("Internal Error, Please try again later.");
-	        	$('#TutorSessionSave').modal('show');
-	            
-	        }).
-	        done(function(resp){
-	        	data = JSON.parse(resp)
-	        	console.log('Good saving')
-	        	session_user_pk= data.student_pk;
-	    		localStorage.setItem("user_tutor_session_pk", session_user_pk)
-	    		session_user_name= data.student_name;
-	    		localStorage.setItem("user_tutor_session_name", session_user_name)
-	    		session_user_username= data.student_username;
-	    		session_user_total_sessions = data.total_session;
-	    		session_user_used_sessions = data.used_sessions;
-	    		active = data.active;
-	    		rel_pk = data.rel_pk;
-	    		localStorage.setItem("tutor_session_pk", rel_pk);
+		data = {hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
+				hour_end:hour_end, minutes_end:minutes_end, period_end:period_end}
+		to_send = JSON.stringify(data);
+		$.ajax({type: "POST", url: validateSessionTime, data:to_send}).
+    	fail(function(response){
+    		errors_list.push( "<li>Invalid Time</li>" );
+			errors = true;
+    	}).complete(function(response){
 
-	    		$("#session_date").val("");
-	    		$("#progress_session_note").val("");
-	    		if (active==true){
-	    			message = "You have completed " +session_user_used_sessions+" out of " +session_user_total_sessions+" sessions with this student.";
-	    			$("#TutorSessionSave .modal-body span").html(message);
-		        	$('#TutorSessionSave').modal('show');
-	    		}else{
-	    			$("#new_session_outer_btn").hide();
-	    			$("#pre_new_session_user_name").val(session_user_name);
-		    		$("#pre_new_session_user_username").val(session_user_username);
-		    		message = "YOU HAVE COMPLETED " +session_user_used_sessions+" OUT OF " +session_user_total_sessions+" SESSIONS WITH THIS STUDENT.";
-		    		$("#message_sessions_used").html(message);
-		    		$('.content  .allstudent-detail').css('display','none');
-		    		$('.content .enter-session-outer ').css('display','block');
-		    		$('.new-session-outer').css('display','none');
-	    		}
-	    		
-	    		
-	    		
-	        });
-		}
+    		if (errors){
+    			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+    			$("#TutorSessionSave .modal-body span").html(message);
+    			$('#TutorSessionSave').modal('show');
+    			
+    		}else{
+    			data = {note:notes, hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
+    					hour_end:hour_end, minutes_end:minutes_end, period_end:period_end, session_date:session_date}
+    			to_send = JSON.stringify(data);
+    			$.ajax({type: "POST",  url: setSession+rel_pk, data: to_send}).
+    	        fail(function(resp){
+    				$("#TutorSessionSave .modal-body span").html("Internal Error, Please try again later.");
+    	        	$('#TutorSessionSave').modal('show');
+    	            
+    	        }).
+    	        done(function(resp){
+    	        	data = JSON.parse(resp)
+    	        	console.log('Good saving')
+    	        	session_user_pk= data.student_pk;
+    	    		localStorage.setItem("user_tutor_session_pk", session_user_pk)
+    	    		session_user_name= data.student_name;
+    	    		localStorage.setItem("user_tutor_session_name", session_user_name)
+    	    		session_user_username= data.student_username;
+    	    		session_user_total_sessions = data.total_session;
+    	    		session_user_used_sessions = data.used_sessions;
+    	    		active = data.active;
+    	    		rel_pk = data.rel_pk;
+    	    		localStorage.setItem("tutor_session_pk", rel_pk);
+
+    	    		$("#session_date").val("");
+    	    		$("#progress_session_note").val("");
+    	    		if (active==true){
+    	    			message = "You have completed " +session_user_used_sessions+" out of " +session_user_total_sessions+" sessions with this student.";
+    	    			$("#TutorSessionSave .modal-body span").html(message);
+    		        	$('#TutorSessionSave').modal('show');
+    	    		}else{
+    	    			$("#new_session_outer_btn").hide();
+    	    			$("#pre_new_session_user_name").val(session_user_name);
+    		    		$("#pre_new_session_user_username").val(session_user_username);
+    		    		message = "YOU HAVE COMPLETED " +session_user_used_sessions+" OUT OF " +session_user_total_sessions+" SESSIONS WITH THIS STUDENT.";
+    		    		$("#message_sessions_used").html(message);
+    		    		$('.content  .allstudent-detail').css('display','none');
+    		    		$('.content .enter-session-outer ').css('display','block');
+    		    		$('.new-session-outer').css('display','none');
+    	    		}
+    	    		
+    	    		
+    	    		
+    	        });
+    		}
+    	});
+		
+		
+		
 		
 		
 		
@@ -278,65 +281,69 @@ $(document).ready(function() {
 		
 		var errors = false;
 		var errors_list = []
-		data = {hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
-				hour_end:hour_end, minutes_end:minutes_end, period_end:period_end}
-		to_send = JSON.stringify(data);
-		$.ajax({type: "POST", async: false, url: validateSessionTime, data:to_send}).
-    	fail(function(response){
-    		errors_list.push( "<li>Invalid Time</li>" );
-			errors = true;
-    	});
-		
-		
 		if (session_date == ""){
 			errors_list.push( "<li>Date is required</li>" );
 			errors = true;
 		}
-		if (errors){
-			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			$("#TutorSessionSave .modal-body span").html(message);
-			$('#TutorSessionSave').modal('show');
-			
-		}else{
-			data = {note:notes, hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
-					hour_end:hour_end, minutes_end:minutes_end, period_end:period_end, session_date:session_date}
-			to_send = JSON.stringify(data);
-			$.ajax({type: "POST",  url: setSession+rel_pk, data: to_send}).
-	        fail(function(resp){
-				$("#TutorSessionSave .modal-body span").html("Internal Error, Please try again later.");
-	        	$('#TutorSessionSave').modal('show');
-	            
-	        }).
-	        done(function(resp){
-	        	data = JSON.parse(resp)
-	        	console.log('Good saving')
-	        	session_user_pk= data.student_pk;
-	    		localStorage.setItem("user_tutor_session_pk", session_user_pk)
-	    		session_user_name= data.student_name;
-	    		localStorage.setItem("user_tutor_session_name", session_user_name)
-	    		session_user_username= data.student_username;
-	    		session_user_total_sessions = data.total_session;
-	    		session_user_used_sessions = data.used_sessions;
-	    		active = data.active;
-	    		if (active==false){
-	    			$("#new_session_outer_btn").hide();
-	    		}else{
-	    			$("#new_session_outer_btn").show();
-	    		}
-	    		rel_pk = data.rel_pk;
-	    		localStorage.setItem("tutor_session_pk", rel_pk);
-	    		console.log("New Session");
-	    		console.log(session_user_pk);
-	    		$("#pre_new_session_user_name").val(session_user_name);
-	    		$("#pre_new_session_user_username").val(session_user_username);
-	    		message = "YOU HAVE COMPLETED " +session_user_used_sessions+" OUT OF " +session_user_total_sessions+" SESSIONS WITH THIS STUDENT.";
-	    		$("#message_sessions_used").html(message);
-	    		$('.content  .allstudent-detail').css('display','none');
-	    		$('.content .enter-session-outer ').css('display','block');
-	    		$('.new-session-outer').css('display','none');
-	    		
-	        });
-		}
+		data = {hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
+				hour_end:hour_end, minutes_end:minutes_end, period_end:period_end}
+		to_send = JSON.stringify(data);
+		
+		$.ajax({type: "POST", url: validateSessionTime, data:to_send}).
+    	fail(function(response){
+    		errors_list.push( "<li>Invalid Time</li>" );
+			errors = true;
+    	}).complete(function(response){
+    		if (errors){
+    			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+    			$("#TutorSessionSave .modal-body span").html(message);
+    			$('#TutorSessionSave').modal('show');
+    			
+    		}else{
+    			data = {note:notes, hour_start:hour_start, minutes_start:minutes_start, period_start:period_start,
+    					hour_end:hour_end, minutes_end:minutes_end, period_end:period_end, session_date:session_date}
+    			to_send = JSON.stringify(data);
+    			$.ajax({type: "POST",  url: setSession+rel_pk, data: to_send}).
+    	        fail(function(resp){
+    				$("#TutorSessionSave .modal-body span").html("Internal Error, Please try again later.");
+    	        	$('#TutorSessionSave').modal('show');
+    	            
+    	        }).
+    	        done(function(resp){
+    	        	data = JSON.parse(resp)
+    	        	console.log('Good saving')
+    	        	session_user_pk= data.student_pk;
+    	    		localStorage.setItem("user_tutor_session_pk", session_user_pk)
+    	    		session_user_name= data.student_name;
+    	    		localStorage.setItem("user_tutor_session_name", session_user_name)
+    	    		session_user_username= data.student_username;
+    	    		session_user_total_sessions = data.total_session;
+    	    		session_user_used_sessions = data.used_sessions;
+    	    		active = data.active;
+    	    		if (active==false){
+    	    			$("#new_session_outer_btn").hide();
+    	    		}else{
+    	    			$("#new_session_outer_btn").show();
+    	    		}
+    	    		rel_pk = data.rel_pk;
+    	    		localStorage.setItem("tutor_session_pk", rel_pk);
+    	    		console.log("New Session");
+    	    		console.log(session_user_pk);
+    	    		$("#pre_new_session_user_name").val(session_user_name);
+    	    		$("#pre_new_session_user_username").val(session_user_username);
+    	    		message = "YOU HAVE COMPLETED " +session_user_used_sessions+" OUT OF " +session_user_total_sessions+" SESSIONS WITH THIS STUDENT.";
+    	    		$("#message_sessions_used").html(message);
+    	    		$('.content  .allstudent-detail').css('display','none');
+    	    		$('.content .enter-session-outer ').css('display','block');
+    	    		$('.new-session-outer').css('display','none');
+    	    		
+    	        });
+    		}
+    		
+    	});
+		
+		
+		
 		
 		
 		

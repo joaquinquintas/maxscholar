@@ -329,7 +329,7 @@ $(document).ready(function() {
 		//studen_pk = "25922";
 		to_send={user_id:studen_pk};
 		
-		$.ajax({type: "GET", async:true, url: getMaxwordsSpellingReport, data:to_send}).
+		$.ajax({type: "GET", url: getMaxwordsSpellingReport, data:to_send}).
 		done(function(data){
 			data = JSON.parse(data);
 			$.each( data.spellings, function( key, val ) {
@@ -352,7 +352,7 @@ $(document).ready(function() {
 		//studen_pk = "11421";
 		to_send={user_id:studen_pk};
 		
-		$.ajax({type: "GET", async:true, url: getMaxwordsPreSufReport, data:to_send}).
+		$.ajax({type: "GET", url: getMaxwordsPreSufReport, data:to_send}).
 		done(function(data){
 			data = JSON.parse(data);
 			$.each( data.prefixes, function( key, val ) {
@@ -381,7 +381,7 @@ $(document).ready(function() {
 		//studen_pk = "15536";
 		to_send={user_id:studen_pk};
 		
-		$.ajax({type: "GET", async:true, url: getMaxwordsCloverReport, data:to_send}).
+		$.ajax({type: "GET", url: getMaxwordsCloverReport, data:to_send}).
 		done(function(data){
 			
 			data = JSON.parse(data);
@@ -447,7 +447,7 @@ $(document).ready(function() {
 		
 		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
 		
-		$.ajax({type: "GET", async:true, url: getClassMaxwordsReport, data:to_send}).
+		$.ajax({type: "GET", url: getClassMaxwordsReport, data:to_send}).
 		done(function(data){
 			
 			$("#words_class_report").html("");

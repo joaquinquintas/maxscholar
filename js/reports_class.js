@@ -198,7 +198,7 @@ $(document).ready(function() {
     		bios_class_count = 0;
     		music_class_count = 0;
     		
-    		$.ajax({type: "GET", async:false, url: getClassScoreAvg, data:to_send}).
+    		$.ajax({type: "GET", url: getClassScoreAvg, data:to_send}).
     		done(function(data){
     			$("#class_score_report_table").html("");
     			data = JSON.parse(data);
@@ -390,7 +390,7 @@ $(document).ready(function() {
 
     				});
     			
-    			$.ajax({type: "GET", async:true, url: getIndividualReportUsage, data:to_send}).
+    			$.ajax({type: "GET", url: getIndividualReportUsage, data:to_send}).
         		done(function(data){
         			data = JSON.parse(data);
         			logs = [{name: "MAXREADING", y: data.maxreading,drilldown: "MAXREADING"},
@@ -461,7 +461,7 @@ $(document).ready(function() {
     		$('.content #class-detail-message').css('display','none');
     		
     		
-    		$.ajax({type: "GET", async:true, url: getClassMaxreadingReport, data:to_send}).
+    		$.ajax({type: "GET", url: getClassMaxreadingReport, data:to_send}).
     		done(function(data){
     			
     			$("#reading_class_report_table").html("");
@@ -661,7 +661,7 @@ $(document).ready(function() {
 		
 		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
 		
-		$.ajax({type: "GET", async:true, url: getClassMaxplacesReport, data:to_send}).
+		$.ajax({type: "GET", url: getClassMaxplacesReport, data:to_send}).
 		done(function(data){
 			
 			$("#places_class_report").html("");
@@ -703,7 +703,7 @@ $(document).ready(function() {
 		
 		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
 		
-		$.ajax({type: "GET", async:true, url: getClassMaxbiosReport, data:to_send}).
+		$.ajax({type: "GET", url: getClassMaxbiosReport, data:to_send}).
 		done(function(data){
 			
 			$("#bios_class_report").html("");
@@ -745,7 +745,7 @@ $(document).ready(function() {
 		
 		to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
 		
-		$.ajax({type: "GET", async:true, url: getClassMaxmusicReport, data:to_send}).
+		$.ajax({type: "GET", url: getClassMaxmusicReport, data:to_send}).
 		done(function(data){
 			
 			$("#music_class_report").html("");
@@ -827,7 +827,7 @@ $("#class_phonics_report").click(function(e){
 	
 	to_send={start_date:start_date, end_date:end_date, class_id:class_pk};
 	
-	$.ajax({type: "GET", async:true, url: getClassMaxphonicsReport, data:to_send}).
+	$.ajax({type: "GET", url: getClassMaxphonicsReport, data:to_send}).
 	done(function(data){
 		
 		$("#phonics_class_report").html("");

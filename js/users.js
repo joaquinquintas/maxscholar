@@ -66,7 +66,7 @@ $(document).ready(function() {
     	fail(function(response){
     		errors_list.push( "<li>Username already taken</li>" );
 			errors = true;
-    	}).always(function(response){
+    	}).complete(function(response){
     		
     		if (errors){
     			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
@@ -217,21 +217,7 @@ $(document).ready(function() {
 			errors_list.push( "<li>Last Name is required</li>" );
 			errors = true;
 		}
-		var user_name = $( "#user-name-edit-user" ).val();
-		var user_name = user_name.split(' ').join('');
 		
-		if (user_name == ""){
-			errors_list.push( "<li>Username is required</li>" );
-			errors = true;
-		}else{
-			
-			$.ajax({type: "GET", async: false, url: validateUsername+"?user_id="+select_user+"&username="+user_name}).
-        	fail(function(response){
-        		errors_list.push( "<li>Username already taken</li>" );
-    			errors = true;
-        	});
-		}
-
 		var password = $( "#password-edit-user" ).val();
 		var repassword = $( "#repassword-edit-user" ).val();
 		var save_password = false;
@@ -256,39 +242,59 @@ $(document).ready(function() {
 			pre_test= false;
 		}
 		
-		if (errors){
-			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			$("#SaveEditUserModal .modal-body span").html(message);
-			localStorage.setItem("errors_in_user_edition", "true");
-			$('#SaveEditUserModal').modal('show');
-			
-		}else{
-			localStorage.setItem("errors_in_user_edition", "false");
-			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
-			if(save_password == true){
-				to_send_data.password = password;
-			}
-			if(save_level == true){
-				to_send_data.level = level;
-			}
-			if(save_user_type == true){
-				to_send_data.user_type = user_type;
-			}
-			//Redirect close to allClases.
-			var pk = localStorage.getItem("selected_clase");
-			$.ajax({type: "PUT",  url: getStudentDetail+select_user, data: JSON.stringify(to_send_data) }).
-	        fail(function(resp){
-				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
-	        	$('#SaveEditUserModal').modal('show');
-	            
-	        }).
-	        done(function(resp){
-	        	console.log('Good saving')
-				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
-	        	$('#SaveEditUserModal').modal('show');
-	        	
-	        });
+		var user_name = $( "#user-name-edit-user" ).val();
+		var user_name = user_name.split(' ').join('');
+		
+		if (user_name == ""){
+			errors_list.push( "<li>Username is required</li>" );
+			errors = true;
 		}
+		
+		$.ajax({type: "GET", url: validateUsername+"?user_id="+select_user+"&username="+user_name}).
+    	fail(function(response){
+    		errors_list.push( "<li>Username already taken</li>" );
+			errors = true;
+    	}).complete(function(response){
+    		if (errors){
+    			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+    			$("#SaveEditUserModal .modal-body span").html(message);
+    			localStorage.setItem("errors_in_user_edition", "true");
+    			$('#SaveEditUserModal').modal('show');
+    			
+    		}else{
+    			localStorage.setItem("errors_in_user_edition", "false");
+    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
+    			if(save_password == true){
+    				to_send_data.password = password;
+    			}
+    			if(save_level == true){
+    				to_send_data.level = level;
+    			}
+    			if(save_user_type == true){
+    				to_send_data.user_type = user_type;
+    			}
+    			//Redirect close to allClases.
+    			var pk = localStorage.getItem("selected_clase");
+    			$.ajax({type: "PUT",  url: getStudentDetail+select_user, data: JSON.stringify(to_send_data) }).
+    	        fail(function(resp){
+    				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
+    	        	$('#SaveEditUserModal').modal('show');
+    	            
+    	        }).
+    	        done(function(resp){
+    	        	console.log('Good saving')
+    				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
+    	        	$('#SaveEditUserModal').modal('show');
+    	        	
+    	        });
+    		}
+    	});
+
+		
+		
+		
+		
+		
 		
 		
 	});

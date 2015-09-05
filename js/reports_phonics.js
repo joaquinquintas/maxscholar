@@ -12,7 +12,7 @@ $("#maxphonics_ind").click(function(){
 	
 	to_send={start_date:start_date, end_date:end_date, user_id:user_pk}
 	
-	$.ajax({type: "GET",async:true,  url: getMaxphonicsGamesReport, data:to_send}).
+	$.ajax({type: "GET", url: getMaxphonicsGamesReport, data:to_send}).
 	done(function(data){
 		data = JSON.parse(data);
 		prepare_word_builder_chart(data.maxwordbuilder);
@@ -88,7 +88,7 @@ function createTable(exercises_list){
 	
 	to_send={ user_id:user_pk,capther_slug:capther_slug, app_id:app_id}
 	
-	$.ajax({type: "GET",async:false,  url: getIndividualReportPhonics, data:to_send}).
+	$.ajax({type: "GET", url: getIndividualReportPhonics, data:to_send}).
 	done(function(data){
 		data = JSON.parse(data);
 		$("#phonics_table_content").html("");

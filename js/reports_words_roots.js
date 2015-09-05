@@ -124,7 +124,7 @@ $(document).ready(function() {
 		//studen_pk = "23635";
 		to_send={user_id:studen_pk};
 		
-		$.ajax({type: "GET", async:true, url: getMaxwordsGreekReport, data:to_send}).
+		$.ajax({type: "GET", url: getMaxwordsGreekReport, data:to_send}).
 		done(function(data){
 			data = JSON.parse(data);
 			$.each( data, function( key, val ) {
@@ -147,7 +147,7 @@ $(document).ready(function() {
 		//studen_pk = "23635";
 		to_send={user_id:studen_pk};
 		
-		$.ajax({type: "GET", async:true, url: getMaxwordsLatinReport, data:to_send}).
+		$.ajax({type: "GET", url: getMaxwordsLatinReport, data:to_send}).
 		done(function(data){
 			data = JSON.parse(data);
 			$.each( data, function( key, val ) {
