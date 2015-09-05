@@ -151,7 +151,7 @@ $.each(resp, function (i, item) {
 	        }).
 	        done(function(resp){
 	        	resp = JSON.parse(resp);
-	        	after_login(resp);
+	        	after_login(resp, true);
 	        	});
 	});
 	
@@ -247,6 +247,7 @@ $.each(resp, function (i, item) {
 			
         });
         
+        console.log(show_intro);
         if(show_intro==true){
         	intro.start();
         }else{
