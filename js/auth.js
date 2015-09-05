@@ -35,7 +35,7 @@ $(document).ready(function() {
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: checkloginStatus,  xhrFields: {
+	$.ajax({type: "POST",  async:false, url: checkloginStatus,  xhrFields: {
 	    withCredentials: true
 	  }}).
     fail(function(resp){
