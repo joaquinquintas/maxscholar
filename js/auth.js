@@ -32,10 +32,12 @@ $(document).ready(function() {
 		  }
 		});
 	
+	console.log("to login:");
 	$.ajax({type: "POST",  async:false, url: checkloginStatus,  xhrFields: {
 	    withCredentials: true
 	  }}).
     fail(function(resp){
+    	console.log(resp);
         console.log('Not loggued.')
         $('#login-modal').modal('show');
     }).
