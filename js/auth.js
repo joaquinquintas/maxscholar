@@ -31,11 +31,13 @@ $(document).ready(function() {
 		
 	$.ajaxSetup({
 		  xhrFields: {
-		    withCredentials: false
+		    withCredentials: true
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: checkloginStatus}).
+	$.ajax({type: "POST",  url: checkloginStatus},  xhrFields: {
+	    withCredentials: true
+	  }).
     fail(function(resp){
         console.log('Not loggued.')
         $('#login-modal').modal('show');
