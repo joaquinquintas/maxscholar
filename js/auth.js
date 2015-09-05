@@ -241,8 +241,7 @@ $.each(resp, function (i, item) {
     	}
     	
     	console.log(resp);
-    	localStorage.setItem("username", username);
-    	localStorage.setItem("password", password);
+    	localStorage.setItem("username", resp.user.username);
     	localStorage.setItem("first_name", resp.user.first_name);
     	localStorage.setItem("last_name",  resp.user.last_name);
     	localStorage.setItem("pk", resp.user.pk);
