@@ -35,9 +35,9 @@ $(document).ready(function() {
 		  }
 		});
 	
-	$.ajax({type: "POST",  url: checkloginStatus},  xhrFields: {
+	$.ajax({type: "POST",  url: checkloginStatus,  xhrFields: {
 	    withCredentials: true
-	  }).
+	  }}).
     fail(function(resp){
         console.log('Not loggued.')
         $('#login-modal').modal('show');
