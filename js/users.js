@@ -16,6 +16,9 @@ $(document).ready(function() {
 		var errors = false;
 		var errors_list = []
 		
+		
+		
+		
 		var first_name = $( "#fist-name-create-user" ).val();
 		if (first_name == ""){
 			errors_list.push( "<li>First Name is required</li>" );
@@ -29,19 +32,7 @@ $(document).ready(function() {
 		var user_name = $( "#user-name-create-user" ).val();
 		var user_name = user_name.split(' ').join('');
 		
-		if (user_name == ""){
-			errors_list.push( "<li>Username is required</li>" );
-			errors = true;
-		}else{
-			
-			$.ajax({type: "GET", url: validateUsername+"?username="+user_name}).
-        	fail(function(response){
-        		console.log(response);
-        		errors_list.push( "<li>Username already taken</li>" );
-    			errors = true;
-        	});
-		}
-
+		
 		var password = $( "#password-create-user" ).val();
 		var repassword = $( "#repassword-create-user" ).val();
 		var save_password = false;
@@ -65,40 +56,58 @@ $(document).ready(function() {
 			pre_test= false;
 		}
 		
-		if (errors){
-			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			$("#CreateUserModal .modal-body span").html(message);
-			localStorage.setItem("errors_in_user_creation", "true");
-			$('#CreateUserModal').modal('show');
-			
-		}else{
-			localStorage.setItem("errors_in_user_creation", "false");
-			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
-				to_send_data.password = password;
-				
-			if(save_level == true){
-				to_send_data.level = level;
-			}
-			if(save_user_type == true){
-				to_send_data.user_type = user_type;
-			}
-			school_pk = localStorage.getItem("school_pk");
-			
-			to_send_data.school_id = school_pk;
-			
-			$.ajax({type: "POST",  url: getStudentList, data: JSON.stringify(to_send_data) }).
-	        fail(function(resp){
-				$("#CreateUserModal .modal-body span").html("Internal Error, Please try again later.");
-	        	$('#CreateUserModal').modal('show');
-	            
-	        }).
-	        done(function(resp){
-	        	console.log('Good Creation')
-				$("#CreateUserModal .modal-body span").html("Your new user has been created successfully");
-	        	$('#CreateUserModal').modal('show');
-	        	
-	        });
+		
+		if (user_name == ""){
+			errors_list.push( "<li>Username is required</li>" );
+			errors = true;
 		}
+		
+		$.ajax({type: "GET", url: validateUsername+"?username="+user_name}).
+    	fail(function(response){
+    		errors_list.push( "<li>Username already taken</li>" );
+			errors = true;
+    	}).always(function(response){
+    		
+    		if (errors){
+    			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+    			$("#CreateUserModal .modal-body span").html(message);
+    			localStorage.setItem("errors_in_user_creation", "true");
+    			$('#CreateUserModal').modal('show');
+    			
+    		}else{
+    			localStorage.setItem("errors_in_user_creation", "false");
+    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
+    				to_send_data.password = password;
+    				
+    			if(save_level == true){
+    				to_send_data.level = level;
+    			}
+    			if(save_user_type == true){
+    				to_send_data.user_type = user_type;
+    			}
+    			school_pk = localStorage.getItem("school_pk");
+    			
+    			to_send_data.school_id = school_pk;
+    			
+    			$.ajax({type: "POST",  url: getStudentList, data: JSON.stringify(to_send_data) }).
+    	        fail(function(resp){
+    				$("#CreateUserModal .modal-body span").html("Internal Error, Please try again later.");
+    	        	$('#CreateUserModal').modal('show');
+    	            
+    	        }).
+    	        done(function(resp){
+    	        	console.log('Good Creation')
+    				$("#CreateUserModal .modal-body span").html("Your new user has been created successfully");
+    	        	$('#CreateUserModal').modal('show');
+    	        	
+    	        });
+    		}
+    		
+    		
+    	});
+
+		
+		
 		
 		
 	});
