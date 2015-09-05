@@ -171,7 +171,7 @@ $.each(resp, function (i, item) {
     		}else{
     			$("#selected_dashboard_school").html("");
     			school_pk = localStorage.getItem("school_pk");
-    			if (school_pk == undefined){
+    			if (school_pk == undefined || school_pk == 'null'  || school_pk == null   ){
     				selected_school = resp.schools[0];
 	  	        	  localStorage.setItem("school_pk", selected_school.pk);
 	  	        	  var o = new Option(selected_school.name , selected_school.pk);
