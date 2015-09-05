@@ -134,6 +134,7 @@ $(document).ready(function() {
 		
 		$.ajax({type: "POST",  url: checkClassPassword, async:false, data: { password: class_password, pk:class_pk } }).
         fail(function(resp){
+        	console.log(resp)
             console.log('Bad password')
             console.log(resp.responseJSON.non_field_errors[0]);
             $( "#error_class_password" ).html(resp.responseJSON.non_field_errors[0]);

@@ -24,10 +24,6 @@ $(document).ready(function() {
                                btoa(localStorage.getItem("username") + ':' + localStorage.getItem("password")));
     }
 	
-	//$.ajaxSetup({
-	//    beforeSend: setHeader,
-	//});
-	
 		
 	$.ajaxSetup({
 		  xhrFields: {
@@ -47,30 +43,59 @@ $(document).ready(function() {
     	
     		after_login(resp)
     	
+    		//checkCredentials("eliecer", "max123");
+    		//Read this data from the Login PopUp :) 
+    		username = localStorage.getItem("username");
+    		password = localStorage.getItem("password");
+    		first_name = localStorage.getItem("first_name");
+    		last_name = localStorage.getItem("last_name");
+    		schools = localStorage.getItem("schools");
+    		school_pk = localStorage.getItem("school_pk");
     		
+    		$("#selected_dashboard_school").html("");
+    		schools = JSON.parse(schools);
+    		console.log("My Schools");
+    		if (schools!=null){
+    			
+    			console.log("Schools is not null");
+    			if (schools.length == 0){
+    				console.log("schools.length == 0");
+    				console.log("Redirect!");
+    				window.location.replace("http://maxscholar.com/mymax")
+    			}else{
+    				if (schools.length == 1){
+    					console.log("schools.length == 1");
+    					//selected_school = schools[0];
+    		      	  	//localStorage.setItem("school_pk", selected_school.pk);
+    		      	  $("#selected_dashboard_school").css('display','none');
+    				}else{
+    					console.log("schools.length > 1");
+    					$.each(schools, function (i, item) {
+    						console.log(item.name);
+    						var o = new Option(item.name , item.pk);
+    						$(o).html(item.name);
+
+    						if (school_pk == item.pk){
+    							o.setAttribute("selected", "selected");
+    						}
+    						
+    						$("#selected_dashboard_school").append(o);
+    						
+    				  });
+    					console.log("Showing the selector");
+    					$("#selected_dashboard_school").css('display','block');
+    				}
+    			}
+    			
+    			
+    				
+    				
+    				
+    		}
 
     });
 	
-	
-	function checkCredentials(username, password){
-	    function setHeader(xhr) {
-	        // as per HTTP authentication spec [2], credentials must be
-	        // encoded in base64. Lets use window.btoa [3]
-	        xhr.setRequestHeader ("Authorization", "Basic " +
-	                               btoa(username + ':' + password));
-	    }
-	 
-	    $.ajax({type: "POST",  url: login,  beforeSend: setHeader}).
-	        fail(function(resp){
-	            console.log('bad credentials.')
-	        }).
-	        done(function(resp){
-	        	
-	        	$(".welcome-notice h3").html("Welcome, "+resp.first_name +" "+ resp.last_name+".");
 
-	        });
-	 };
-	 
 	 
  	$.ajax({type: "GET",  url: getStudentLevels}).
 	done(function(response){
@@ -132,55 +157,7 @@ $.each(resp, function (i, item) {
 
 });
 
-	//checkCredentials("eliecer", "max123");
-	//Read this data from the Login PopUp :) 
-	username = localStorage.getItem("username");
-	password = localStorage.getItem("password");
-	first_name = localStorage.getItem("first_name");
-	last_name = localStorage.getItem("last_name");
-	schools = localStorage.getItem("schools");
-	school_pk = localStorage.getItem("school_pk");
-	
-	$("#selected_dashboard_school").html("");
-	schools = JSON.parse(schools);
-	console.log("My Schools");
-	if (schools!=null){
-		
-		console.log("Schools is not null");
-		if (schools.length == 0){
-			console.log("schools.length == 0");
-			console.log("Redirect!");
-			window.location.replace("http://maxscholar.com/mymax")
-		}else{
-			if (schools.length == 1){
-				console.log("schools.length == 1");
-				//selected_school = schools[0];
-	      	  	//localStorage.setItem("school_pk", selected_school.pk);
-	      	  $("#selected_dashboard_school").css('display','none');
-			}else{
-				console.log("schools.length > 1");
-				$.each(schools, function (i, item) {
-					console.log(item.name);
-					var o = new Option(item.name , item.pk);
-					$(o).html(item.name);
 
-					if (school_pk == item.pk){
-						o.setAttribute("selected", "selected");
-					}
-					
-					$("#selected_dashboard_school").append(o);
-					
-			  });
-				console.log("Showing the selector");
-				$("#selected_dashboard_school").css('display','block');
-			}
-		}
-		
-		
-			
-			
-			
-	}
 	
 	
 	pk = localStorage.getItem("pk");
@@ -395,7 +372,7 @@ $.each(resp, function (i, item) {
 	
 	$(".logout").click(function(e){
 		e.preventDefault();
-		
+		//call log out function server
 		localStorage.setItem("username", null);
     	localStorage.setItem("password", null);
     	localStorage.setItem("pk", null);
