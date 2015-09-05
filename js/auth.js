@@ -1,8 +1,7 @@
 $(document).ready(function() {
 	csrftoken = Cookies.get('csrftoken');
 	sessionId = Cookies.get('maxscholarSessionId');
-	console.log(sessionId);
-	console.log(csrftoken);
+
 	
 	function csrfSafeMethod(method) {
 	    // these HTTP methods do not require CSRF protection
@@ -32,19 +31,17 @@ $(document).ready(function() {
 		  }
 		});
 	
-	console.log("to login:");
 	$.ajax({type: "POST", url: checkloginStatus,  xhrFields: {
 	    withCredentials: true
 	  }}).
     fail(function(resp){
-    	console.log(resp);
         console.log('Not loggued.')
         $('#login-modal').modal('show');
     }).
     done(function(resp){
     	resp = JSON.parse(resp);
     	school_changed = localStorage.getItem("school_changed");
-    	
+    	console.log(school_changed);
     	if(school_changed == false || school_changed== undefined){
     		after_login(resp, true)
     	}else{
@@ -197,7 +194,6 @@ $.each(resp, function (i, item) {
     			}else{
     				
     				$.each(resp.schools, function (i, item) {
-						console.log(item.name);
 						var o = new Option(item.name , item.pk);
 						$(o).html(item.name);
 
@@ -347,7 +343,6 @@ $.each(resp, function (i, item) {
 	});
 	
 	$( "#selected_dashboard_school" ).change(function() {
-		  console.log($(this).val());
 		  localStorage.setItem("school_pk", $(this).val());
 		  localStorage.setItem("school_changed", true);
 		  location.reload();
