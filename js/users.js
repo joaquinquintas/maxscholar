@@ -34,7 +34,7 @@ $(document).ready(function() {
 			errors = true;
 		}else{
 			
-			$.ajax({type: "GET",  async: false, url: validateUsername+"?username="+user_name}).
+			$.ajax({type: "GET", url: validateUsername+"?username="+user_name}).
         	fail(function(response){
         		errors_list.push( "<li>Username already taken</li>" );
     			errors = true;
