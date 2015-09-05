@@ -33,7 +33,7 @@ $(document).ready(function() {
 		});
 	
 	console.log("to login:");
-	$.ajax({type: "POST",  async:false, url: checkloginStatus,  xhrFields: {
+	$.ajax({type: "POST", url: checkloginStatus,  xhrFields: {
 	    withCredentials: true
 	  }}).
     fail(function(resp){
