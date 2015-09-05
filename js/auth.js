@@ -352,11 +352,22 @@ $.each(resp, function (i, item) {
 	$(".logout").click(function(e){
 		e.preventDefault();
 		//call log out function server
-		localStorage.setItem("username", null);
-    	localStorage.setItem("password", null);
-    	localStorage.setItem("pk", null);
-    	localStorage.setItem("schools", null);
-    	localStorage.setItem("school_pk", null);
-    	$('#login-modal').modal('show');
+		
+		$.ajax({type: "POST", url: logout}).
+	    fail(function(resp){
+	        console.log('Not loggued.')
+	        $('#login-modal').modal('show');
+	    }).
+	    done(function(resp){
+	    	localStorage.setItem("username", null);
+	    	localStorage.setItem("password", null);
+	    	localStorage.setItem("pk", null);
+	    	localStorage.setItem("schools", null);
+	    	localStorage.setItem("school_pk", null);
+	    	
+	    	$('#login-modal').modal('show');
+
+	    });
+		
 	});
 });
