@@ -44,11 +44,13 @@ $(document).ready(function() {
     done(function(resp){
     	resp = JSON.parse(resp);
     	school_changed = localStorage.getItem("school_changed");
+    	
     	if(school_changed == false || school_changed== undefined){
     		after_login(resp, true)
     	}else{
     		after_login(resp, false)
     	}
+    	
     		
     		
     	localStorage.setItem("school_changed", false);
@@ -251,6 +253,15 @@ $.each(resp, function (i, item) {
         
         if(show_intro==true){
         	intro.start();
+        }else{
+        	
+    		    		
+    		 $('.reports-tab-title').removeClass('active');
+    		 $('#reports').removeClass('active');
+    		 $('.individual-title').removeClass('active');
+    		 $('.content .welcome-notice ').css('opacity','1');
+    		 $('#class').removeClass('active');
+    		 $('.content ul.print-button ').css('display','none');
         }
         
     	  
