@@ -43,65 +43,17 @@ $(document).ready(function() {
     }).
     done(function(resp){
     	resp = JSON.parse(resp);
-    	
-    		after_login(resp)
-    	
-    		username = localStorage.getItem("username");
-    		password = localStorage.getItem("password");
-    		first_name = localStorage.getItem("first_name");
-    		last_name = localStorage.getItem("last_name");
-    		schools = localStorage.getItem("schools");
-    		school_pk = localStorage.getItem("school_pk");
-    		
-    		$(".welcome-notice h3").html("Welcome, "+first_name +" "+ last_name+".");
-    		 $('.reports-tab-title').removeClass('active');
-    		 $('#reports').removeClass('active');
-    		 $('.individual-title').removeClass('active');
-    		 $('.content .welcome-notice ').css('opacity','1');
-    		 $('#class').removeClass('active');
-    		 $('.content ul.print-button ').css('display','none');
+    	school_changed = localStorage.getItem("school_changed");
+    	if(school_changed == false || school_changed== undefined){
+    		after_login(resp, true)
+    	}else{
+    		after_login(resp, false)
+    	}
     		
     		
-    		$("#selected_dashboard_school").html("");
-    		schools = JSON.parse(schools);
-    		console.log("My Schools");
-    		if (schools!=null){
-    			
-    			console.log("Schools is not null");
-    			if (schools.length == 0){
-    				console.log("schools.length == 0");
-    				console.log("Redirect!");
-    				window.location.replace("http://maxscholar.com/mymax")
-    			}else{
-    				if (schools.length == 1){
-    					console.log("schools.length == 1");
-    					//selected_school = schools[0];
-    		      	  	//localStorage.setItem("school_pk", selected_school.pk);
-    		      	  $("#selected_dashboard_school").css('display','none');
-    				}else{
-    					console.log("schools.length > 1");
-    					$.each(schools, function (i, item) {
-    						console.log(item.name);
-    						var o = new Option(item.name , item.pk);
-    						$(o).html(item.name);
-
-    						if (school_pk == item.pk){
-    							o.setAttribute("selected", "selected");
-    						}
-    						
-    						$("#selected_dashboard_school").append(o);
-    						
-    				  });
-    					console.log("Showing the selector");
-    					$("#selected_dashboard_school").css('display','block');
-    				}
-    			}
-    			
-    			
-    				
-    				
-    				
-    		}
+    	localStorage.setItem("school_changed", false);
+    		
+    		
     		
 
     });
@@ -204,7 +156,7 @@ $.each(resp, function (i, item) {
 	        	});
 	});
 	
-	function after_login(resp){
+	function after_login(resp, show_intro){
 
 
     	
@@ -219,28 +171,48 @@ $.each(resp, function (i, item) {
 	        	  $("#selected_dashboard_school").css('display','none');
     		}else{
     			$("#selected_dashboard_school").html("");
-    			selected_school = resp.schools[0];
-	        	  localStorage.setItem("school_pk", selected_school.pk);
-	        	  var o = new Option(selected_school.name , selected_school.pk);
-	      			/// jquerify the DOM object 'o' so we can use the html method
-	      			$(o).html(selected_school.name);
-	      			o.setAttribute("selected", "selected");
-  			
-	      			$("#selected_dashboard_school").append(o);
-	      		 $.each(resp.schools.slice(1), function (i, item) {
-        			var o = new Option(item.name , item.pk);
-        			/// jquerify the DOM object 'o' so we can use the html method
-        			$(o).html(item.name);
-        			
-        			
-        			$("#selected_dashboard_school").append(o);
-        			
-        	  });
+    			school_pk = localStorage.getItem("school_pk");
+    			if (school_pk == undefined){
+    				selected_school = resp.schools[0];
+	  	        	  localStorage.setItem("school_pk", selected_school.pk);
+	  	        	  var o = new Option(selected_school.name , selected_school.pk);
+	  	      			/// jquerify the DOM object 'o' so we can use the html method
+	  	      			$(o).html(selected_school.name);
+	  	      			o.setAttribute("selected", "selected");
+	    			
+	  	      			$("#selected_dashboard_school").append(o);
+	  	      		 $.each(resp.schools.slice(1), function (i, item) {
+	          			var o = new Option(item.name , item.pk);
+	          			/// jquerify the DOM object 'o' so we can use the html method
+	          			$(o).html(item.name);
+	          			
+	          			
+	          			$("#selected_dashboard_school").append(o);
+	          			
+	          	  });
+    				
+    				
+    			}else{
+    				
+    				$.each(resp.schools, function (i, item) {
+						console.log(item.name);
+						var o = new Option(item.name , item.pk);
+						$(o).html(item.name);
+
+						if (school_pk == item.pk){
+							o.setAttribute("selected", "selected");
+						}
+						
+						$("#selected_dashboard_school").append(o);
+						
+				  });
+    			}
+    			
+    			
 	      		$("#selected_dashboard_school").css('display','block');
     		}
     	}
     	
-    	console.log(resp);
     	localStorage.setItem("username", resp.user.username);
     	localStorage.setItem("first_name", resp.user.first_name);
     	localStorage.setItem("last_name",  resp.user.last_name);
@@ -276,8 +248,11 @@ $.each(resp, function (i, item) {
           ]
 			
         });
-
-        intro.start();
+        
+        if(show_intro==true){
+        	intro.start();
+        }
+        
     	  
     	  $('.introjs-skipbutton') .click(function() {
     		 $('.reports-tab-title').removeClass('active');
@@ -363,6 +338,7 @@ $.each(resp, function (i, item) {
 	$( "#selected_dashboard_school" ).change(function() {
 		  console.log($(this).val());
 		  localStorage.setItem("school_pk", $(this).val());
+		  localStorage.setItem("school_changed", true);
 		  location.reload();
 		});
 	
