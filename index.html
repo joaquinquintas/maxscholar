@@ -43,7 +43,7 @@
         <div class="header-right no-print"> 
         
           <a href="http://maxscholar.com/mymax/" target="_blank" class="mymax-btn" id="step4" ><span>Go to</span> MYMAX</a>
-          <ul>
+          <ul id="menu_items">
             <li><a id="help_icon" href="#" ><img src="images/help-icon.png" alt="" title="" id="step1" ></a></li>
             <!-- li><a href="#"><img src="images/setting-icon.png" alt="" title="" ></a></li-->
             <li class="seprator"><a href="#"><img src="images/seprator-top.png" alt="" title="" ></a></li>
@@ -60,7 +60,7 @@
   <section class="content">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="submenu">
           <div class="row">
             <div role="tabpanel"> 
               <!-- Nav tabs -->
@@ -2805,17 +2805,18 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-body">
+                <span>YOU NEED TO LOGIN</span><br/><br/>
                 <span id="error_login" style="color:red"></span>
-                 <span>username : </span>
+                 <span>Username </span>
                   <input id="user_login_username" type="text" placeholder="" >
-                 <span>password : </span>
+                 <span>Password </span>
                  <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
 				<input style="display:none" type="text" name="fakeusernameremembered"/>
 				<input style="display:none" type="password" name="fakepasswordremembered"/>
                   <input id="user_login_password" type="password" placeholder="" >
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="enter-pass">Login</button>
+                  <button type="button" style="background: #ED8884 none repeat scroll 0 0;" class="enter-pass">CONTINUE</button>
                 </div>
               </div>
             </div>
@@ -2828,6 +2829,26 @@
             <p>Choose an option from the menu.</p>
           </div>
         </div>
+        
+        
+        
+        <div class="col-sm-6 col-sm-offset-3 login_page">
+          <div class="welcome-login" style="background: #DBD4D4 none repeat scroll 0 0;">
+            <h3>YOU NEED TO LOGIN</h3>
+               <span id="error_login_page" style="color:red"></span><br/>
+                 <span>Username </span>
+                  <input id="user_login_username_page" type="text" placeholder="" ><br/>
+                 <span>Password </span>
+                 <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+				<input style="display:none" type="text" name="fakeusernameremembered"/>
+				<input style="display:none" type="password" name="fakepasswordremembered"/>
+				<input id="user_login_password_page" type="password" placeholder="" >
+                  <button type="button" class="enter-pass-login">CONTINUE</button>
+          </div>
+        </div>
+        
+        
+        
         <div class="col-sm-4"></div>
       </div>
     </div>

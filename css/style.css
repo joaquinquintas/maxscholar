@@ -756,13 +756,7 @@ header .header-right ul li { float:none; display:inline-block;}
       width: 100%;
 }
 
-#user_login_username{
-	    margin-bottom: 20px;
-	width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #b3b3b3;
-    height: 32px;
-}
+
 
 #phonics_table_content tr td img{ cursor:pointer;}
 
@@ -820,4 +814,49 @@ header .header-right ul li { float:none; display:inline-block;}
     width: 1000px !important;
 }
 .report-per-program .col-sm-6{width: 83.3333% !important}
+}
+
+.content .welcome-login {
+    display: inline-block;
+    margin: 60px auto;
+    max-width: 610px;
+    opacity: 1;
+    padding: 55px;
+}
+
+.content .welcome-login img { display:block;max-width:39px; margin:0 auto;margin-bottom:18px;}
+.content .welcome-login h2 {font-family: 'litera-regularregular'; margin:0px; padding:0px; font-size:24px; background:url(../images/content-logo.png) left center no-repeat; color:#F7931E; padding-left:45px; margin-bottom:10px; line-height:24px; max-width:187px; display:inline-block;}
+.content .welcome-login h3 { font-size:16px; color:#5D5D5D;  margin:0; padding:0; font-family: 'droid_sansbold'; margin-bottom:20px; line-height:25px;}
+.content .welcome-login p { margin:0; padding:0px; font-size:20px; color:#999999; line-height:20px;}
+.enter-pass-login {
+    background: #ed8884 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    float: right;
+    font-family: "droid_sansbold";
+    font-size: 12px;
+    line-height: 30px;
+    margin-right: 13%;
+    outline: medium none;
+    text-transform: uppercase;
+    width: 48%;
+}
+
+#user_login_username_page{
+	    margin-bottom: 20px;
+	width: 67%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
+    padding-left: 10px;
+}
+ #user_login_password_page{
+ padding-left: 10px;
+ margin-left: 5px;
+	    margin-bottom: 20px;
+	width: 67%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
 }

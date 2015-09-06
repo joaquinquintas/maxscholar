@@ -3,6 +3,7 @@ $(document).ready(function() {
 	sessionId = Cookies.get('maxscholarSessionId');
 
 	
+	
 	function csrfSafeMethod(method) {
 	    // these HTTP methods do not require CSRF protection
 	    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -36,7 +37,22 @@ $(document).ready(function() {
 	  }}).
     fail(function(resp){
         console.log('Not loggued.')
-        $('#login-modal').modal('show');
+        //$('#login-modal').modal('show');
+        
+        $('.reports-tab-title').removeClass('active');
+		 $('#reports').removeClass('active');
+		 $('.individual-title').removeClass('active');
+		 $('.content .welcome-notice ').css('opacity','0');
+		 $('#class').removeClass('active');
+		 $('.content ul.print-button ').css('display','none');
+		 $('#submenu').css('display','none');
+		 $('#login_page').css('display','block');
+		 $(".logo").html("<a href='http://maxscholar.com'>MAXSCHOLAR</a>");
+		 $('#selected_dashboard_school').css('display','none');
+		 $('#menu_items').css('display','none');
+		 $(".welcome-notice-outer").hide();
+		         
+        
     }).
     done(function(resp){
     	resp = JSON.parse(resp);
@@ -122,21 +138,21 @@ $.each(resp, function (i, item) {
 	
 	
 	
-	$('#user_login_password').keypress(function (e) {
+	$('#user_login_password_page').keypress(function (e) {
 		 var key = e.which;
 		 
 		 if(key == 13)  // the enter key code
 		  {
-			 $('.content #login-modal .modal-content .modal-footer .enter-pass').trigger( "click" );
+			 $('.enter-pass-login').trigger( "click" );
 		    return false;  
 		  }
 		});
 	
-	//$('#user_login_username').focus();
-	$(".content #login-modal .modal-content .modal-footer .enter-pass").click(function(){
+	$('#user_login_username_page').focus();
+	$(".enter-pass-login").click(function(){
 
-		username = $('#user_login_username').val();
-		password = $('#user_login_password').val();
+		username = $('#user_login_username_page').val();
+		password = $('#user_login_password_page').val();
 		function setHeader(xhr) {
 	        // as per HTTP authentication spec [2], credentials must be
 	        // encoded in base64. Lets use window.btoa [3]
@@ -146,8 +162,9 @@ $.each(resp, function (i, item) {
 	 
 	    $.ajax({type: "POST",  url: login,  beforeSend: setHeader}).
 	        fail(function(resp){
+	        	console.log(resp);
 	            console.log('bad credentials.')
-	            $( "#error_login" ).html("Invalid username and/or password");
+	            $( "#error_login_page" ).html("Invalid username and/or password");
 	        }).
 	        done(function(resp){
 	        	resp = JSON.parse(resp);
@@ -259,9 +276,19 @@ $.each(resp, function (i, item) {
     		 $('.content .welcome-notice ').css('opacity','1');
     		 $('#class').removeClass('active');
     		 $('.content ul.print-button ').css('display','none');
+    		 
+    		 
+    		 
+    		 
         }
         
-    	  
+        $('#submenu').css('display','block');
+		 $('#login_page').css('display','none');
+		 $(".logo").html("<a href='index.html'>DASHBOARD</a>");
+		 $('#menu_items').css('display','block');
+		 $(".welcome-notice-outer").show();
+		 $(".login_page").hide();  
+        
     	  $('.introjs-skipbutton') .click(function() {
     		 $('.reports-tab-title').removeClass('active');
     		 $('#reports').removeClass('active');
@@ -365,7 +392,19 @@ $.each(resp, function (i, item) {
 	    	localStorage.setItem("schools", null);
 	    	localStorage.setItem("school_pk", null);
 	    	
-	    	$('#login-modal').modal('show');
+	    	$('.reports-tab-title').removeClass('active');
+			 $('#reports').removeClass('active');
+			 $('.individual-title').removeClass('active');
+			 $('.content .welcome-notice ').css('opacity','0');
+			 $('#class').removeClass('active');
+			 $('.content ul.print-button ').css('display','none');
+			 $('#submenu').css('display','none');
+			 $('#login_page').css('display','block');
+			 $(".logo").html("<a href='http://maxscholar.com'>MAXSCHOLAR</a>");
+			 $('#selected_dashboard_school').css('display','none');
+			 $('#menu_items').css('display','none');
+			 $(".welcome-notice-outer").hide();
+			 $(".login_page").show();  
 
 	    });
 		
