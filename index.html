@@ -2821,6 +2821,19 @@
               </div>
             </div>
           </div>
+          
+	    <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	      <div class="modal-dialog" >
+	        <div class="modal-content">
+	          <div class="modal-body"> <span>Please contact our administrator:</span><br/>
+	          <span><a href="mailto:info@maxscholar.com">info@maxscholar.com</a></span> </div>
+	          <div class="modal-footer">
+	            <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
         
         <div class="col-sm-4 col-sm-offset-4 welcome-notice-outer">
           <div class="welcome-notice"> <img src="images/welcome-arrow.png" alt="" title="" >
@@ -2842,7 +2855,8 @@
                  <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
 				<input style="display:none" type="text" name="fakeusernameremembered"/>
 				<input style="display:none" type="password" name="fakepasswordremembered"/>
-				<input id="user_login_password_page" type="password" placeholder="" >
+				<input id="user_login_password_page" type="password" placeholder="" ><br/>
+				<span ><a href="#"  id="forgot_password" data-toggle="modal" data-target="#adminModal">Forgot password?</a></span>
                   <button type="button" class="enter-pass-login">CONTINUE</button>
           </div>
         </div>

@@ -860,3 +860,10 @@ header .header-right ul li { float:none; display:inline-block;}
     border: 1px solid #b3b3b3;
     height: 32px;
 }
+
+#forgot_password{
+	float: right;
+    margin-right: 13%;
+    padding-bottom: 20px !important;
+	
+}
