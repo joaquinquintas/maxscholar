@@ -881,3 +881,5 @@ header .header-right ul li { float:none; display:inline-block;}
 padding-left: 60px;
     padding-right: 20px;
 	}
+	
+#add-subpoint, #add-point {display:none !important}
