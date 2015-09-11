@@ -2,6 +2,7 @@ $(document).ready(function() {
 	//server = "http://localhost:8080/dashboard/v1/"
 	server = "http://maxscholar.com/dashboard/v1/"
 	//server = "http://dev.maxscholar.com/dashboard/v1/"
+	forgotPassword = server + "forgot-password/"
 	allClasses = server + "classes/"
 	login = server + "login/"
 	logout = server + "logout/"

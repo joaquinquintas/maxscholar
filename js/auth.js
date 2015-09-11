@@ -409,4 +409,43 @@ $.each(resp, function (i, item) {
 	    });
 		
 	});
+	
+	
+	function IsEmail(email) {
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (regex.test(email) == false){
+			return false
+		};
+	
+		return true
+		  
+		};
+	
+	$('#error_forgot').html("");
+	$('#forgot_email').val("");
+	
+	$("#adminModal .close-btn").click(function(e){
+		e.preventDefault();
+		
+		email = $('#forgot_email').val();
+		
+		if(!IsEmail(email)){
+			$('#error_forgot').html("Email invalid")
+			return false
+		}
+		$.ajax({type: "POST", url: forgotPassword, data: JSON.stringify({ email: email}) }).
+	    fail(function(resp){
+	        console.log('invalid email')
+	        $('#error_forgot').html("Email doesn't exist in Maxscholar")
+	    }).
+	    done(function(resp){
+	    	$('#forgot_email').val("");
+	    	$('#error_forgot').html("");
+	    	$("#adminModal").modal("hide");
+	    	$("#ThanksadminModal").modal("show");
+
+	    });
+		
+	});
+	
 });
