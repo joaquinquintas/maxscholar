@@ -239,6 +239,7 @@ $.each(resp, function (i, item) {
     	$('#login-modal').modal('hide');
     	var intro = introJs();
         intro.setOptions({
+        	exitOnOverlayClick: false,
           steps: [
             {
               element: '#step1',
