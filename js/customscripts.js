@@ -56,6 +56,7 @@ $('.content ul.print-button').css('display','none');
 
 $(".alluser-tab-detail").click(function(){
 $('.edit-user-outer').css('display','none');
+$('.edit-teacher-outer').css('display','none');
 $('.all-user-outer').css('display','block');
 });
 

@@ -58,7 +58,7 @@ $(document).ready(function() {
     	resp = JSON.parse(resp);
     	school_changed = localStorage.getItem("school_changed");
     	console.log(school_changed);
-    	if(school_changed == 'false' || school_changed== undefined){
+    	if((school_changed == 'false' || school_changed== undefined) && resp.user.saw_dashboard_tutorial != true){
     		after_login(resp, true)
     	}else{
     		after_login(resp, false)
@@ -73,7 +73,14 @@ $(document).ready(function() {
 
     });
 	
-
+	/*$(".introjs-button introjs-skipbutton").click(function(e){
+		e.preventDefault();
+		console.log("Click Done!");
+		value = $(this).html();
+		if (value == "Done"){
+			console.log("Click Done!");
+		}
+	})*/
 	 
  	$.ajax({type: "GET",  url: getStudentLevels}).
 	done(function(response){
@@ -291,6 +298,13 @@ $.each(resp, function (i, item) {
 		 $(".login_page").hide();  
         
     	  $('.introjs-skipbutton') .click(function() {
+    		  value = $(this).html();
+    		  if(value == "Done"){
+    			  //POST not show help again
+    			  console.log("done!");
+    			  to_send = JSON.stringify({"saw_dashboard_tutorial": true});
+    			  $.ajax({type: "POST", url: settings, data:to_send})
+    		  }
     		 $('.reports-tab-title').removeClass('active');
     		 $('#reports').removeClass('active');
     		 $('.individual-title').removeClass('active');

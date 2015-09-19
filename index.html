@@ -2070,21 +2070,81 @@
                                         </div>
                                       </div>
                                       
+                     <div class="modal fade" id="deleteTeacherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-body"> <span> <b>Are you sure you want to delete this teacher?</b> All teacher information will be erased </span> </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="enter-pass">Yes</button>
+                                              <button type="button" class="close-btn" data-dismiss="modal">No</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
                         <div role="tabpanel" class="tab-pane all-user-detail" id="allusers">
                            <div class="all-user-outer">
-                            <h2>Users in your class : </h2>
+                            <h2 id="allusersTitle">Users in your class : </h2>
                             <div class="user-detail-table">
                               <table>
                                 <tbody id="user-list">
-                                  <!-- tr>
-                                    <td width="55%"><span>1-</span>Kid 1 (jdoe)</td>
-                                    <td width="11%"><a href="#" class="edit-user"><img src="images/edit-icon.png" alt="" title=""> </a></td>
-                                    <td width="11%"><a href="#"data-toggle="modal" data-target="#deleteUserModal" class="delete-user"> <img src="images/chosse-member-icon.png" alt="" title="" > </a></td>
-                                    <td><a href="#" class="user-report">see report</a></td>
-                                  </tr -->
-                                  
+           
                                 </tbody>
                               </table>
+                            </div>
+                          </div>
+                          <div class="all-user-outer">
+                            <h2 id="allTeachers"> </h2>
+                            <div class="user-detail-table">
+                              <table>
+                                <tbody id="teacher-list">
+           
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="edit-teacher-outer">
+                          <h2>Loading ... </h2>
+                            <ul>
+                              <li>
+                                <label>First Name : </label>
+                                <input id="teacher-fist-name-edit-user" type="text" value="John" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Last Name : </label>
+                                <input id="teacher-last-name-edit-user" type="text" value="Doe" placeholder="Type here">
+                              </li>
+                             
+                              <li>
+                                <label>Username : </label>
+                                <input id="teacher-user-name-edit-user" type="text" value="Jdoe" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Email : </label>
+                                <input id="teacher-email-edit-user" type="text" value="Jdoe" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Password : </label>
+                                <input id="teacher-password-edit-user" type="text" value="********" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Retype password : </label>
+                                <input id="teacher-repassword-edit-user" type="text" value="********" placeholder="Type here">
+                              </li>
+                            </ul>
+                            <div class="modal fade" id="SaveEditTeacherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-body"> <span>The teacher has been modified successfully</span> </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                            <div id="editTeacherConfirmation" class="create-class-btn"> <a href="#">SAVE CHANGES</a>
+                              
                             </div>
                           </div>
                           <div class="edit-user-outer">
@@ -2960,6 +3020,7 @@ MAXMUSIC 5.0	10%
 
           intro.start();
           $('.introjs-skipbutton') .click(function() {
+        	  
      		 $('.reports-tab-title').removeClass('active');
      		 $('#reports').removeClass('active');
      		 $('.individual-title').removeClass('active');

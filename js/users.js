@@ -135,11 +135,25 @@ $(document).ready(function() {
 		
 	});
 	
+	$(".content #SaveEditTeacherModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_user_edition") );
+		if (localStorage.getItem("errors_in_user_edition") == "false" ){
+
+
+			$("#max_user_list").trigger( "click" );
+
+			
+		}
+		
+	});
+	
 	// END CREATE USER   ------------------
 	// EDIT USER   ------------------
 	$('#user-list').on('click', '#edit-user-action',  function(e) {
 		e.preventDefault();
 		$('.content  .edit-user-outer').css('display','block');
+		$('.content  .edit-teacher-outer').css('display','none');
+		
 		$('.content  .all-user-outer').css('display','none');
 		$('.edit-user-outer ul').css('display','none');
 		$('#editConfirmation').css('display','none');
@@ -289,14 +303,7 @@ $(document).ready(function() {
     	        });
     		}
     	});
-
-		
-		
-		
-		
-		
-		
-		
+			
 	});
 	
 
@@ -336,7 +343,7 @@ $(document).ready(function() {
 	// LIST USER ------------------
 	$('#max_user_list').click(function(){
 		$('#user-list').html("");
-		$('#allusers h2').html("Loading ...");
+		$('#allusersTitle').html("Loading ...");
 		school_pk = localStorage.getItem("school_pk");
 		toSend = {school_id:school_pk};
 		$.ajax({type: "GET",  url: getStudentSearch, data:toSend}).
@@ -359,18 +366,214 @@ $(document).ready(function() {
 				});
 				
 				if(data.length == 0){
-					$('#allusers h2').html("No Users");
+					$('#allusersTitle').html("No Users");
 				}else{
-					$('#allusers h2').html("Users in your school :");
+					$('#allusersTitle').html("Users in your school :");
 					preparePrint("#allusers");
 				}
 				
 			});
 		
+		
+		$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend}).
+		done(function(data) {
+			$('#teacher-list').html("")
+			data = JSON.parse(data);
+			count = 1;
+			$.each( data, function( key, val ) {
+				
+				tr ='<tr id="' + val.pk + '">'+
+                '<td width="55%"><span>'+count+'-</span>'+ val.name+'</td>'+
+                 '<td class="removeOnPrint" width="11%"><a href="#" data-user-edit-pk="' + val.pk + '" id="edit-user-action" class="edit-user"><img src="images/edit-icon.png" alt="" title=""></a></td>'+
+                  '<td class="removeOnPrint" width="11%"><a href="#" data-user-delete-pk="' + val.pk + '" data-toggle="modal" data-target="#deleteTeacherModal" class="delete-user"><img src="images/chosse-member-icon.png" alt="" title=""></a></td>'+
+                  '</tr>';
+			$('#teacher-list').append(tr);
+			count = count + 1;
+			});
+			
+			if(data.length == 0){
+				$('#allTeachers').html("No Teachers");
+			}else{
+				$('#allTeachers').html("Teachers in your school :");
+				preparePrint("#allusers");
+			}
+			
+		});
+		
 	});
 	
 	// END LIST USER ------------------
 	
+	
+	// EDIT TEACHER   ------------------
+	$('#teacher-list').on('click', '#edit-user-action',  function(e) {
+		e.preventDefault();
+		$('.content  .edit-teacher-outer').css('display','none');
+		$('.content  .edit-user-outer').css('display','none');
+		$('.content  .all-user-outer').css('display','none');
+		$('.edit-user-outer ul').css('display','none');
+		$('#editTeacherConfirmation').css('display','none');
+		
+		$('.edit-teacher-outer h2').html("Loading ...");
+		
+		var user_selected = this.dataset.userEditPk;
+		localStorage.setItem("user_selected_to_edit", user_selected);
+		$.ajax({type: "GET",  url: getTeacherDetail+user_selected}).
+		fail(function(resp){
+            console.log('Error in Get Teachers')
+        }).
+        done(function(data){
+        	console.log(data);        	
+        	
+    		$("#teacher-fist-name-edit-user").val(data.first_name);
+        	$("#teacher-last-name-edit-user").val(data.last_name);
+        	$("#teacher-user-name-edit-user").val(data.username);
+        	$("#teacher-email-edit-user").val(data.email);
+        	
+        	
+        	$('.edit-teacher-outer h2').html("");
+        	$('.content  .edit-teacher-outer').css('display','block');
+        	$('.edit-user-outer ul').css('display','block');
+        	$('#editTeacherConfirmation').css('display','block');
+    
+        	
+    		
+        	
+        	
+        });
+		
+		
+	});
+	
+	$("#editTeacherConfirmation").click(function(e){
+		var select_user = localStorage.getItem("user_selected_to_edit");
+		e.preventDefault();
+		console.log("Click Saved Edited User");
+		var errors = false;
+		var errors_list = []
+		
+		var first_name = $( "#teacher-fist-name-edit-user" ).val();
+		if (first_name == ""){
+			errors_list.push( "<li>First Name is required</li>" );
+			errors = true;
+		}
+		var last_name = $( "#teacher-last-name-edit-user" ).val();
+		if (last_name == ""){
+			errors_list.push( "<li>Last Name is required</li>" );
+			errors = true;
+		}
+		
+		var password = $( "#teacher-password-edit-user" ).val();
+		var repassword = $( "#teacher-repassword-edit-user" ).val();
+		var save_password = false;
+		if(password.indexOf("*")== -1  && password.length>0){
+			if(password != repassword){
+				errors_list.push( "<li>Password mismatch</li>");
+
+				errors = true;
+			}else{
+				save_password = true;
+			}
+		}
+		
+		
+		var user_name = $( "#teacher-user-name-edit-user" ).val();
+		var user_name = user_name.split(' ').join('');
+		
+		if (user_name == ""){
+			errors_list.push( "<li>Username is required</li>" );
+			errors = true;
+		}
+		
+		var email = $( "#teacher-email-edit-user" ).val();
+		
+		if (email == ""){
+			errors_list.push( "<li>Email is required</li>" );
+			errors = true;
+		}else{
+			if(!IsEmail(email)){
+				//$("#class_m_email_error").html("Invalid Email.")
+				errors_list.push( "<li>Invalid Email</li>" );
+				errors = true;
+			}
+		}
+		
+		
+		$.ajax({type: "GET", url: validateUsername+"?user_id="+select_user+"&username="+user_name}).
+    	fail(function(response){
+    		errors_list.push( "<li>Username already taken</li>" );
+			errors = true;
+    	}).complete(function(response){
+    		if (errors){
+    			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
+    			$("#SaveEditTeacherModal .modal-body span").html(message);
+    			localStorage.setItem("errors_in_user_edition", "true");
+    			$('#SaveEditTeacherModal').modal('show');
+    			
+    		}else{
+    			localStorage.setItem("errors_in_user_edition", "false");
+    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, email:email};
+    			if(save_password == true){
+    				to_send_data.password = password;
+    			}
+
+    			//Redirect close to allClases.
+    			var pk = localStorage.getItem("selected_clase");
+    			$.ajax({type: "PUT",  url: getTeacherDetail+select_user, data: JSON.stringify(to_send_data) }).
+    	        fail(function(resp){
+    				$("#SaveEditTeacherModal .modal-body span").html("Internal Error, Please try again later.");
+    	        	$('#SaveEditTeacherModal').modal('show');
+    	            
+    	        }).
+    	        done(function(resp){
+    	        	console.log('Good saving')
+    				$("#SaveEditTeacherModal .modal-body span").html("The teacher has been modified successfully");
+    	        	$('#SaveEditTeacherModal').modal('show');
+    	        	
+    	        });
+    		}
+    	});
+			
+	});
+	
+	function IsEmail(email) {
+		  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		  return regex.test(email);
+		};
+		
+		
+		// DELETE TEACHER -------------------
+		$('#deleteTeacherModal').on('show.bs.modal', function(e) {
+			  var user_selected = e.relatedTarget.dataset.userDeletePk;
+			  localStorage.setItem("selected_user_to_delete", parseInt(user_selected));
+			});
+		
+		$(".content #deleteTeacherModal .modal-content .modal-footer .enter-pass").click(function(){
+			
+			console.log("Delete!");
+			to_delete_user_pk = localStorage.getItem("selected_user_to_delete");
+			console.log(to_delete_user_pk);
+			
+			$.ajax({type: "DELETE",  url: getTeacherDetail+to_delete_user_pk}).
+				fail(function(resp){
+		            console.log('Error in Delete')
+		        }).
+		        done(function(data){
+		        	id= "#teacher-list #"+to_delete_user_pk
+		        	$(id).remove();
+		        	$('#deleteTeacherModal').modal('hide');
+		        	count = 0;
+		        	$( "#teacher-list" ).children().each(function () {
+		        		count = count + 1;
+		        		$(this).find("span").html(count+"-")
+		        		
+		        	});
+		        	if (count==0){
+		        		$('#allTeachers').html("No Users");
+		        	}
+		        });
+		});
+		
 	// DELETE USER -------------------
 	$('#deleteUserModal').on('show.bs.modal', function(e) {
 		  var user_selected = e.relatedTarget.dataset.userDeletePk;
@@ -398,7 +601,7 @@ $(document).ready(function() {
 	        		
 	        	});
 	        	if (count==0){
-	        		$('#allusers h2').html("No Users");
+	        		$('#allusersTitle').html("No Users");
 	        	}
 	        });
 	});
