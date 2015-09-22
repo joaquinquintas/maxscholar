@@ -1,4 +1,21 @@
 $(document).ready(function() {
+	
+	var getUrlParameter = function getUrlParameter(sParam) {
+	    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
+
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : sParameterName[1];
+	        }
+	    }
+	};
+	
+
 	csrftoken = Cookies.get('csrftoken');
 	sessionId = Cookies.get('maxscholarSessionId');
 
@@ -58,11 +75,24 @@ $(document).ready(function() {
     	resp = JSON.parse(resp);
     	school_changed = localStorage.getItem("school_changed");
     	console.log(school_changed);
-    	if((school_changed == 'false' || school_changed== undefined) && resp.user.saw_dashboard_tutorial != true){
-    		after_login(resp, true)
-    	}else{
+    	
+    	var show_report = getUrlParameter("show_report");
+    	console.log(show_report);
+    	
+    	if (show_report == "true"){
+    		//Show 
     		after_login(resp, false)
+    		$(".reports").trigger( "click" );
+    		$("#class_report").trigger( "click" );
+    	}else{
+    		if((school_changed == 'false' || school_changed== undefined) && resp.user.saw_dashboard_tutorial != true){
+        		after_login(resp, true)
+        	}else{
+        		after_login(resp, false)
+        	}
     	}
+    	
+    	
     	
     		
     		
@@ -72,15 +102,7 @@ $(document).ready(function() {
     		
 
     });
-	
-	/*$(".introjs-button introjs-skipbutton").click(function(e){
-		e.preventDefault();
-		console.log("Click Done!");
-		value = $(this).html();
-		if (value == "Done"){
-			console.log("Click Done!");
-		}
-	})*/
+
 	 
  	$.ajax({type: "GET",  url: getStudentLevels}).
 	done(function(response){
@@ -316,7 +338,8 @@ $.each(resp, function (i, item) {
     	  
     	  
     	  
-    	$.ajax({type: "GET",  url: getStudentLevels}).
+    	/*
+    	  $.ajax({type: "GET",  url: getStudentLevels}).
     	done(function(response){
     		
     		$("#level-edit-user").html("");
@@ -375,7 +398,7 @@ $.each(resp, function (i, item) {
 
     		
     	});
-
+    	 */
 		
 	}
 	
