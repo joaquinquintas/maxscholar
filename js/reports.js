@@ -541,6 +541,8 @@ $(document).ready(function() {
 			
 			var books = {};
 			var books_name = {};
+
+			if(data.scores.length < 1) {$("#maxread-indivdual").hide();}
 			
 			$.each( data.scores, function( key, val ) {
 				
