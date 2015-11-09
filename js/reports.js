@@ -559,9 +559,10 @@ $(document).ready(function() {
 				tr = '<tr><td width="10%">'+ val.exercise.book.level.name+'</td>'+
                       '<td width="12%">'+ val.exercise.book.title+'</td>'+
                       '<td width="14%">'+val.exercise.title +'</td>'+
-                      '<td width="8%">'+ val.hl_score+'</td>'+
+                      '<td width="8%" class="highlighting">'+ val.hl_score+'</td>'+
                       '<td width="10%">'+val.quiz_score +'</td>'+
                       '<td width="33%">';
+			console.log(val.hl_text);
                  if (val.hl_text!= undefined && val.hl_text !="" && val.hl_text !=null){    
                       a_highlight = '<a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
                  }else{
