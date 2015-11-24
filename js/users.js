@@ -57,6 +57,22 @@ $(document).ready(function() {
 		}
 		
 		
+		var reading_hl = $( "#reading_hl-create-user" ).val();
+		var pre_test_phonics = $( "#pretest_phonics-create-user" ).val();
+		
+
+
+		if(reading_hl=="yes"){
+			reading_hl = true;
+		}else{
+			reading_hl= false;
+		}
+		if(pre_test_phonics=="yes"){
+			pre_test_phonics = true;
+		}else{
+			pre_test_phonics= false;
+		}
+		
 		if (user_name == ""){
 			errors_list.push( "<li>Username is required</li>" );
 			errors = true;
@@ -76,7 +92,8 @@ $(document).ready(function() {
     			
     		}else{
     			localStorage.setItem("errors_in_user_creation", "false");
-    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
+    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test,
+    					do_reading_hl:reading_hl, do_phonics_pretest:pre_test_phonics};
     				to_send_data.password = password;
     				
     			if(save_level == true){
@@ -198,6 +215,18 @@ $(document).ready(function() {
         	else{
         		$("#pretest-edit-user #yes").attr("selected","selected");
         	}
+        	if(data.do_phonics_pretest == false){
+        		$("#pretest_phonics-edit-user #no").attr("selected","selected");
+        	}
+        	else{
+        		$("#pretest_phonics-edit-user #yes").attr("selected","selected");
+        	}
+        	if(data.do_reading_hl == false){
+        		$("#reading_hl-edit-user #no").attr("selected","selected");
+        	}
+        	else{
+        		$("#reading_hl-edit-user #yes").attr("selected","selected");
+        	}
         	
         	
     		$('.edit-user-outer h2').html("");
@@ -246,14 +275,29 @@ $(document).ready(function() {
 		}
 		
 		var user_type = $( "#type-edit-user" ).val();
+		
 		var pre_test = $( "#pretest-edit-user" ).val();
+		var reading_hl = $( "#reading_hl-edit-user" ).val();
+		var pre_test_phonics = $( "#pretest_phonics-edit-user" ).val();
+		
 		var level = $( "#level-edit-user" ).val();
 		var save_level = level != "no"
 		var save_user_type = user_type != "no"
+			
 		if(pre_test=="yes"){
 			pre_test = true;
 		}else{
 			pre_test= false;
+		}
+		if(reading_hl=="yes"){
+			reading_hl = true;
+		}else{
+			reading_hl= false;
+		}
+		if(pre_test_phonics=="yes"){
+			pre_test_phonics = true;
+		}else{
+			pre_test_phonics= false;
 		}
 		
 		var user_name = $( "#user-name-edit-user" ).val();
@@ -277,7 +321,8 @@ $(document).ready(function() {
     			
     		}else{
     			localStorage.setItem("errors_in_user_edition", "false");
-    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test};
+    			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, 
+    					pre_test:pre_test, do_phonics_pretest:pre_test_phonics, do_reading_hl:reading_hl};
     			if(save_password == true){
     				to_send_data.password = password;
     			}
