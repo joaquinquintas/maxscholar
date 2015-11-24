@@ -541,6 +541,8 @@ $(document).ready(function() {
 			
 			var books = {};
 			var books_name = {};
+
+			if(data.scores.length < 1) {$("#maxread-indivdual").hide();}
 			
 			$.each( data.scores, function( key, val ) {
 				
@@ -559,9 +561,10 @@ $(document).ready(function() {
 				tr = '<tr><td width="10%">'+ val.exercise.book.level.name+'</td>'+
                       '<td width="12%">'+ val.exercise.book.title+'</td>'+
                       '<td width="14%">'+val.exercise.title +'</td>'+
-                      '<td width="8%">'+ val.hl_score+'</td>'+
+                      '<td width="8%" class="no-highlighting">'+ val.hl_score+'</td>'+
                       '<td width="10%">'+val.quiz_score +'</td>'+
                       '<td width="33%">';
+			console.log("hl score: "+val.hl_score);
                  if (val.hl_text!= undefined && val.hl_text !="" && val.hl_text !=null){    
                       a_highlight = '<a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
                  }else{
