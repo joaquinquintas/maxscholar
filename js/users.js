@@ -50,7 +50,7 @@ $(document).ready(function() {
 		var level = $( "#level-create-user" ).val();
 		var save_level = level != "no"
 		var save_user_type = user_type != "no"
-		if(pre_test=="yes"){
+		if(pre_test=="Yes"){
 			pre_test = true;
 		}else{
 			pre_test= false;
@@ -62,12 +62,12 @@ $(document).ready(function() {
 		
 
 
-		if(reading_hl=="yes"){
+		if(reading_hl=="Yes"){
 			reading_hl = true;
 		}else{
 			reading_hl= false;
 		}
-		if(pre_test_phonics=="yes"){
+		if(pre_test_phonics=="Yes"){
 			pre_test_phonics = true;
 		}else{
 			pre_test_phonics= false;
@@ -209,7 +209,9 @@ $(document).ready(function() {
     		$("#fist-name-edit-user").val(data.first_name);
         	$("#last-name-edit-user").val(data.last_name);
         	$("#user-name-edit-user").val(data.username);
+        	console.log(data);
         	if(data.do_pretest == false){
+        		
         		$("#pretest-edit-user #no").attr("selected","selected");
         	}
         	else{
@@ -283,18 +285,22 @@ $(document).ready(function() {
 		var level = $( "#level-edit-user" ).val();
 		var save_level = level != "no"
 		var save_user_type = user_type != "no"
-			
-		if(pre_test=="yes"){
+		
+		console.log(pre_test);
+		console.log(reading_hl);
+		console.log(pre_test_phonics);
+		
+		if(pre_test=="Yes"){
 			pre_test = true;
 		}else{
 			pre_test= false;
 		}
-		if(reading_hl=="yes"){
+		if(reading_hl=="Yes"){
 			reading_hl = true;
 		}else{
 			reading_hl= false;
 		}
-		if(pre_test_phonics=="yes"){
+		if(pre_test_phonics=="Yes"){
 			pre_test_phonics = true;
 		}else{
 			pre_test_phonics= false;
