@@ -375,6 +375,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
 .content .modal-content span { font-family: 'droid_sansbold';font-size:14px; display:inline-block; margin-bottom:18px; color:#5D5D5D;}
 .content #login-modal .modal-content span { font-family: 'droid_sansbold';font-size:14px; display:inline-block; margin-bottom:5px; color:#5D5D5D;}
 
+#CreateUserModal .modal-content { background:#f2f2f2; border:0px none; border-radius:0px;box-shadow:none; padding:78px 10px 64px 80px; box-sizing:border-box;}
+#SaveEditUserModal .modal-content { background:#f2f2f2; border:0px none; border-radius:0px;box-shadow:none; padding:78px 10px 64px 80px; box-sizing:border-box;}
 .content .modal-content input[type="password"]{ width:100%; box-sizing:border-box;border:1px solid #b3b3b3;}
 .content .modal-content .modal-body { padding:0px;}
 .content .modal-content .modal-footer { border:0px; padding:0px; margin-top:23px; text-align:left; margin-left:3px;}

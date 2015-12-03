@@ -626,7 +626,7 @@
                             <div id="report_individual" class="indvidual-detail-left">
                               <label>Student name : <span id="invidual_report_user_name"></span></label>
                               <label>Username : <span id="invidual_report_user_username"></span></label>
-                              <label>Assigned level : <span id="invidual_report_user_level"></span></label>
+                              <label>Reading level : <span id="invidual_report_user_level"></span></label>
                               <label>Student type : <span id="invidual_report_user_type"></span></label>
                               <label>Dates : <span id="invidual_report_user_date"></span></label>
                               <label>Pretest score : <span id="invidual_report_user_pretest"></span></label>
@@ -2173,8 +2173,14 @@
                                 <input id="last-name-edit-user" type="text" value="Doe" placeholder="Type here">
                               </li>
                               <li>
-                                <label>Assigned Level : </label>
+                                <label>Reading Level : </label>
                                 <select id="level-edit-user" style="width : 79%;">
+                                <option value="no" id="no">Select Level</option>
+                                </select>
+                              </li>
+                              <li>
+                                <label>Phonics Level : </label>
+                                <select id="level-phonics-edit-user" style="width : 79%;">
                                 <option value="no" id="no">Select Level</option>
                                 </select>
                               </li>
@@ -2250,8 +2256,14 @@
                                 <input id="last-name-create-user" type="text" placeholder="Type here">
                               </li>
                               <li>
-                                <label>Assigned Level : </label>
+                                <label>Reading Level : </label>
                                 <select id="level-create-user" style="width : 77%;">
+                                <option value="no" id="no">Select Level</option>
+                                </select>
+                              </li>
+                              <li>
+                                <label>Phonics Level : </label>
+                                <select id="level-phonics-create-user" style="width : 77%;">
                                 <option value="no" id="no">Select Level</option>
                                 </select>
                               </li>

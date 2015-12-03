@@ -17,6 +17,7 @@ $(document).ready(function() {
 	getStudentSearch = server + "students-school/search/"
 	getStudentDetail = server + "students-detail/"
 	getStudentLevels = server + "students-level-list/"
+	getStudentLevelsPhonics = server + "students-level-phonics-list/"
 	getTeacherDetail = server + "teacher-detail/"
 	getLicense = server + "license/"
 	getMaterials = server + "materials/"

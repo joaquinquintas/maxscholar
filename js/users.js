@@ -7,6 +7,7 @@ $(document).ready(function() {
 		$( "#password-create-user" ).val("");
 		$( "#repassword-create-user" ).val("");
 		$( "#level-create-user" ).val("no");
+		$( "#level-phonics-create-user" ).val("no");
 		$( "#type-create-user" ).val("no");
 	});
 	// CREATE USER   ------------------
@@ -48,7 +49,9 @@ $(document).ready(function() {
 		var user_type = $( "#type-create-user" ).val();
 		var pre_test = $( "#pretest-create-user" ).val();
 		var level = $( "#level-create-user" ).val();
+		var level_phonics = $( "#level-phonics-create-user" ).val();
 		var save_level = level != "no"
+		var save_phonics_level = level_phonics != "no"
 		var save_user_type = user_type != "no"
 		if(pre_test=="Yes"){
 			pre_test = true;
@@ -98,6 +101,9 @@ $(document).ready(function() {
     				
     			if(save_level == true){
     				to_send_data.level = level;
+    			}
+    			if (save_phonics_level == true){
+    				to_send_data.phonics_level = level_phonics;
     			}
     			if(save_user_type == true){
     				to_send_data.user_type = user_type;
@@ -192,6 +198,11 @@ $(document).ready(function() {
         			$(this).attr("selected","selected");
         		}
         	});
+        	$.each($("#level-phonics-edit-user").children(), function(i){
+        		if ($(this).val() == data.phonics_level.pk){
+        			$(this).attr("selected","selected");
+        		}
+        	});
         	$.each($("#type-edit-user").children(), function(i){
         		if ($(this).val() == data.type.pk){
         			$(this).attr("selected","selected");
@@ -200,6 +211,10 @@ $(document).ready(function() {
         	
         	if(data.level.pk == "no"){
     			$("#level-edit-user #no").attr("selected","selected");
+			}
+        	
+        	if(data.phonics_level.pk == "no"){
+    			$("#level-phonics-edit-user #no").attr("selected","selected");
 			}
     		
         	if(data.type.pk == "no"){
@@ -230,7 +245,8 @@ $(document).ready(function() {
         		$("#reading_hl-edit-user #yes").attr("selected","selected");
         	}
         	
-        	
+        	$( "#password-edit-user" ).val("********");
+    		$( "#repassword-edit-user" ).val("********");
     		$('.edit-user-outer h2').html("");
         	$('.edit-user-outer ul').css('display','block');
         	$('#editConfirmation').css('display','block');
@@ -284,6 +300,8 @@ $(document).ready(function() {
 		
 		var level = $( "#level-edit-user" ).val();
 		var save_level = level != "no"
+		var phonics_level = $( "#level-phonics-edit-user" ).val();
+		var save_phonics_level = phonics_level != "no"
 		var save_user_type = user_type != "no"
 		
 		console.log(pre_test);
@@ -334,6 +352,9 @@ $(document).ready(function() {
     			}
     			if(save_level == true){
     				to_send_data.level = level;
+    			}
+    			if(save_phonics_level == true){
+    				to_send_data.phonics_level = phonics_level;
     			}
     			if(save_user_type == true){
     				to_send_data.user_type = user_type;
