@@ -116,7 +116,7 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	var students = [];
         	$.each( resp, function( key, val ) {
-        		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'>"+ val.last_name +' '+ val.first_name+'</a></li>' );
         		$( "#student-add-class-list-created" ).html(students.join( "" ));
         	  });
         	
@@ -139,7 +139,7 @@ $(document).ready(function() {
         		//Use the clase response Obj
             	var students = [];
             	$.each( resp, function( key, val ) {
-            		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +"  data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+            		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +"  data-user-pk="+val.pk+" href='#'>"+ val.last_name +' '+ val.first_name+'</a></li>' );
             		$( "#student-add-class-list-created" ).html(students.join( "" ));
             	  });
         	}else{
@@ -304,7 +304,7 @@ $(document).ready(function() {
 		console.log(users_class.indexOf(user_to_add) == -1);
 		console.log(user_to_add);
 		if (users_class.indexOf(user_to_add) == -1){
-			$('#clase_student_list_create').append( "<li><a  class='user-to-delete' data-user-last-name="+this.dataset.userLastName+" data-user-first-name="+this.dataset.userFirstName+" data-user-pk="+this.dataset.userPk+" href='#'><span>" +count+" -</span>"+ this.dataset.userFirstName +" "+ this.dataset.userLastName+"</a></li>");
+			$('#clase_student_list_create').append( "<li><a  class='user-to-delete' data-user-last-name="+this.dataset.userLastName+" data-user-first-name="+this.dataset.userFirstName+" data-user-pk="+this.dataset.userPk+" href='#'><span>" +count+" -</span>"+ this.dataset.userLastName +" "+ this.dataset.userFirstName+"</a></li>");
 		}
 		
 		
@@ -404,7 +404,7 @@ $(document).ready(function() {
         	$( "#clase_name" ).html(resp.name);
         	teachers = []
         	$.each(resp.teachers, function(i, data){
-        		teachers.push(data.first_name + " " + data.last_name );
+        		teachers.push(data.last_name + " " + data.first_name );
         	});
         	$( "#clase_teacher" ).html(teachers.join( ", " ));
         	$( "#clase_password_value" ).html(resp.password);
@@ -415,7 +415,7 @@ $(document).ready(function() {
         	count = 1;
         	students = [];
         	$.each( resp.students, function( key, val ) {
-        		students.push( "<li><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</li>' );
+        		students.push( "<li><span>" +count+' -</span>'+ val.last_name +' '+ val.first_name+'</li>' );
         		count = count + 1;
         		$( "#clase_student_list" ).html(students.join( "" ));
         	  });
@@ -458,7 +458,7 @@ $(document).ready(function() {
         	var students = [];
         	count = 1;
         	$.each( resp.students, function( key, val ) {
-        		students.push( "<li><a  class='user-to-delete' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'><span>" +count+' -</span>'+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a  class='user-to-delete' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'><span>" +count+' -</span>'+ val.last_name +' '+ val.first_name+'</a></li>' );
         		count = count + 1;
         		$( "#clase_student_list_modify" ).html(students.join( "" ));
         	  });
@@ -472,7 +472,7 @@ $(document).ready(function() {
         	//Use the clase response Obj
         	var students = [];
         	$.each( resp, function( key, val ) {
-        		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+        		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +" data-user-pk="+val.pk+" href='#'>"+ val.last_name +' '+ val.first_name+'</a></li>' );
         		$( "#student-add-class-list" ).html(students.join( "" ));
         	  });
 
@@ -508,7 +508,7 @@ $(document).ready(function() {
         		//Use the clase response Obj
             	var students = [];
             	$.each( resp, function( key, val ) {
-            		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +"  data-user-pk="+val.pk+" href='#'>"+ val.first_name +' '+ val.last_name+'</a></li>' );
+            		students.push( "<li><a class='user-to-add' data-user-last-name="+ val.last_name +" data-user-first-name="+ val.first_name +"  data-user-pk="+val.pk+" href='#'>"+ val.last_name +' '+ val.first_name+'</a></li>' );
             		$( "#student-add-class-list" ).html(students.join( "" ));
             	  });
         	}else{
@@ -627,7 +627,7 @@ $(document).ready(function() {
 		console.log(users_class);
 		console.log(user_to_add);
 		if (users_class.indexOf(user_to_add) == -1){
-			$( "#clase_student_list_modify" ).append( "<li><a  class='user-to-delete' data-user-last-name="+this.dataset.userLastName+" data-user-first-name="+this.dataset.userFirstName+" data-user-pk="+this.dataset.userPk+" href='#'><span>" +count+" -</span>"+ this.dataset.userFirstName +" "+ this.dataset.userLastName+"</a></li>");
+			$( "#clase_student_list_modify" ).append( "<li><a  class='user-to-delete' data-user-last-name="+this.dataset.userLastName+" data-user-first-name="+this.dataset.userFirstName+" data-user-pk="+this.dataset.userPk+" href='#'><span>" +count+" -</span>"+ this.dataset.userLastName +" "+ this.dataset.userFirstName+"</a></li>");
 		}
 
 		

@@ -425,7 +425,7 @@ $(document).ready(function() {
 					if (val.first_name =="" && val.last_name ==""){
 						name = val.username;
 					}else{
-						name = val.first_name +' '+ val.last_name;
+						name = val.last_name +' '+ val.first_name;
 					}
 					tr ='<tr id="' + val.pk + '">'+
                     '<td width="55%"><span>'+count+'-</span>'+ name+'</td>'+

@@ -52,7 +52,7 @@ $(document).ready(function() {
 	    		if (val.first_name == "" && val.last_name == ""){
 	    			name = val.username;
 	    		}else{
-	    			name = val.first_name+" "+val.last_name ;
+	    			name = val.last_name+" "+val.first_name ;
 	    		}
 	    	var o = new Option(name, val.pk);
 			$("#report_individual_selector").append(o);
@@ -546,8 +546,7 @@ $(document).ready(function() {
 			
 			$.each( data.scores, function( key, val ) {
 				
-				avg_score = (val.hl_score+val.quiz_score+val.hl_topic_score+val.hl_idea_score+val.hl_detail_score)/5;
-				avg_score = Math.round( avg_score * 10 ) / 10;
+				avg_score = val.avg;
 				//Iterate and aggregate by Book
 				if (!(val.exercise.book.pk in books )){
 					books[val.exercise.book.pk] = [];
