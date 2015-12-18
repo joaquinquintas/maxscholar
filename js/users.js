@@ -238,6 +238,19 @@ $(document).ready(function() {
         	else{
         		$("#pretest_phonics-edit-user #yes").attr("selected","selected");
         	}
+
+            if(data.reading_interim == false) {
+        		$("#interim-edit-user #no").attr("selected","selected");
+            } else {
+        		$("#interim-edit-user #yes").attr("selected","selected");
+            }
+
+            if (data.phonics_pretest_done == false) {
+                $("#interim-edit-user").attr("disabled","disabled").parent().css("opacity", "0.3");
+            } else {
+                $("#interim-edit-user").attr("enabled","enabled");
+            }
+
         	if(data.do_reading_hl == false){
         		$("#reading_hl-edit-user #no").attr("selected","selected");
         	}
@@ -296,6 +309,7 @@ $(document).ready(function() {
 		
 		var pre_test = $( "#pretest-edit-user" ).val();
 		var reading_hl = $( "#reading_hl-edit-user" ).val();
+		var reading_interim = $( "#interim-edit-user" ).val();
 		var pre_test_phonics = $( "#pretest_phonics-edit-user" ).val();
 		
 		var level = $( "#level-edit-user" ).val();
@@ -318,6 +332,12 @@ $(document).ready(function() {
 		}else{
 			reading_hl= false;
 		}
+		if(reading_interim=="Yes"){
+			reading_interim = true;
+		}else{
+			reading_interim= false;
+		}
+		
 		if(pre_test_phonics=="Yes"){
 			pre_test_phonics = true;
 		}else{
@@ -346,7 +366,7 @@ $(document).ready(function() {
     		}else{
     			localStorage.setItem("errors_in_user_edition", "false");
     			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, 
-    					pre_test:pre_test, do_phonics_pretest:pre_test_phonics, do_reading_hl:reading_hl};
+    					pre_test:pre_test, reading_interim:reading_interim,do_phonics_pretest:pre_test_phonics, do_reading_hl:reading_hl};
     			if(save_password == true){
     				to_send_data.password = password;
     			}
