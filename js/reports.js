@@ -236,7 +236,7 @@ $(document).ready(function() {
             if(data.reading_ptest){
                 if (Object.keys(data.reading_ptest).length > 1) {
                     $("#reading_ptest_head").show();
-                     $("#individual_reading_ptest").html("<tr><td>"+data.reading_ptest.starting_level+"</td><td>"+data.reading_ptest.score+"</td><td>"+data.reading_ptest.ending_level+"</td><td>"+data.reading_ptest.created+"</td></tr>");
+                     $("#individual_reading_ptest").html("<tr><td>"+data.reading_ptest.starting_level+"</td><td>"+data.reading_ptest.ending_level+"</td><td>"+data.reading_ptest.score+"</td><td>"+data.reading_ptest.created+"</td></tr>");
                 } else {
                     $("#reading_ptest_head").hide();
                     $("#individual_reading_ptest").html("<tr><td colspan='3'>STUDENT HAS NO READING PRE-TEST</td></tr>");
@@ -249,7 +249,7 @@ $(document).ready(function() {
                     $("#individual_reading_interim").html("");
                     var obj = data.reading_interim;
                     for (var i = 0; i < obj.length; i++) {
-                        $("#individual_reading_interim").append("<tr><td>"+obj[i].starting_level+"</td><td>"+obj[i].score+"</td><td>"+obj[i].ending_level+"</td><td>"+obj[i].created+"</td></tr>");
+                        $("#individual_reading_interim").append("<tr><td>"+obj[i].starting_level+"</td><td>"+obj[i].ending_level+"</td><td>"+obj[i].score+"</td><td>"+obj[i].created+"</td></tr>");
                     };
 
                 } else {
