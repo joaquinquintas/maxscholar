@@ -234,7 +234,7 @@ $(document).ready(function() {
 
 
             if(data.reading_ptest){
-                if (Object.keys(data.reading_ptest).length > 1) {
+                if (Object.keys(data.reading_ptest).length > 0) {
                     $("#reading_ptest_head").show();
                      $("#individual_reading_ptest").html("<tr><td>"+data.reading_ptest.starting_level+"</td><td>"+data.reading_ptest.ending_level+"</td><td>"+data.reading_ptest.score+"</td><td>"+data.reading_ptest.created+"</td></tr>");
                 } else {
@@ -248,7 +248,7 @@ $(document).ready(function() {
 	    }
 
             if(data.reading_interim){
-                if (Object(data.reading_interim).length > 1) {
+                if (Object(data.reading_interim).length > 0) {
                     $("#reading_interim_head").show();
                     $("#individual_reading_interim").html("");
                     var obj = data.reading_interim;
