@@ -241,11 +241,15 @@ $(document).ready(function() {
                     $("#reading_ptest_head").hide();
                     $("#individual_reading_ptest").html("<tr><td colspan='3'>STUDENT HAS NO READING PRE-TEST</td></tr>");
                 }
-            }
+            } else {
+
+                    $("#reading_ptest_head").hide();
+                    $("#individual_reading_ptest").html("<tr><td colspan='3'>STUDENT HAS NO READING PRE-TEST</td></tr>");
+	    }
 
             if(data.reading_interim){
                 if (Object(data.reading_interim).length > 1) {
-                    $("#reading_inter_head").show();
+                    $("#reading_interim_head").show();
                     $("#individual_reading_interim").html("");
                     var obj = data.reading_interim;
                     for (var i = 0; i < obj.length; i++) {
@@ -253,10 +257,13 @@ $(document).ready(function() {
                     };
 
                 } else {
-                    $("#reading_ptest_interim").hide();
+                    $("#reading_interim_head").hide();
                     $("#individual_reading_interim").html("<tr><td colspan='3'>STUDENT HAS NO READING INTERIM-TESTS</td></tr>");
                 }
-            }
+            } else {
+                    $("#reading_interim_head").hide();
+                    $("#individual_reading_interim").html("<tr><td colspan='3'>STUDENT HAS NO READING INTERIM-TESTS</td></tr>");
+	    }
 
 		
 			if(!(data.vocab.definitions.won == 0 && data.vocab.definitions.lost == 0)){
