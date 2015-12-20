@@ -113,17 +113,16 @@ $(document).ready(function() {
     			to_send_data.school_id = school_pk;
     			
     			$.ajax({type: "POST",  url: getStudentList, data: JSON.stringify(to_send_data) }).
-    	        fail(function(resp){
-    				$("#CreateUserModal .modal-body span").html("Internal Error, Please try again later.");
-    	        	$('#CreateUserModal').modal('show');
-    	            
-    	        }).
+    	        
     	        done(function(resp){
     	        	console.log('Good Creation')
     				$("#CreateUserModal .modal-body span").html("Your new user has been created successfully");
     	        	$('#CreateUserModal').modal('show');
     	        	
-    	        });
+    	        }).fail(function(response){
+    	        	$("#CreateUserModal .modal-body span").html('There are no more licenses to assign. Please contact us for more information.');
+    	        	$('#CreateUserModal').modal('show');
+    	    	});
     		}
     		
     		
