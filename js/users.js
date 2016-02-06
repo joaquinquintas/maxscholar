@@ -6,6 +6,12 @@ $(document).ready(function() {
 		$( "#user-name-create-user" ).val("");
 		$( "#password-create-user" ).val("");
 		$( "#repassword-create-user" ).val("");
+		
+		$( "#first-name-create-parent" ).val("");
+		$( "#last-name-create-parent" ).val("");
+		$( "#email-create-parent" ).val("");
+		$('.create-user-outer h2#parent_title').html("Parent Information");
+		
 		$( "#level-create-user" ).val("no");
 		$( "#level-phonics-create-user" ).val("no");
 		$( "#type-create-user" ).val("no");
@@ -115,9 +121,27 @@ $(document).ready(function() {
     			$.ajax({type: "POST",  url: getStudentList, data: JSON.stringify(to_send_data) }).
     	        
     	        done(function(resp){
-    	        	console.log('Good Creation')
-    				$("#CreateUserModal .modal-body span").html("Your new user has been created successfully");
-    	        	$('#CreateUserModal').modal('show');
+    	        	//resp = JSON.parse(resp);
+    	        	var parent_first_name = $( "#first-name-create-parent" ).val();
+    	    		var parent_last_name = $( "#last-name-create-parent" ).val();
+    	    		var parent_email= $( "#email-create-parent" ).val();
+    	    		
+    	    		to_send_data = {parent_id:null, parent_first_name:parent_first_name,
+    	    				parent_last_name:parent_last_name, parent_email:parent_email,
+    	    				student_id:resp.id}
+    	    		
+    	        	$.ajax({type: "POST",  url: parentCreate, data: JSON.stringify(to_send_data) }).
+        	        fail(function(resp){
+        				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
+        	        	$('#SaveEditUserModal').modal('show');
+        	            
+        	        }).
+        	        done(function(resp){
+        	        	console.log('Good saving')
+        				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
+        	        	$('#SaveEditUserModal').modal('show');
+        	        	
+        	        });
     	        	
     	        }).fail(function(response){
     	        	$("#CreateUserModal .modal-body span").html('There are no more licenses to assign. Please contact us for more information.');
@@ -180,7 +204,7 @@ $(document).ready(function() {
 		$('.edit-user-outer ul').css('display','none');
 		$('#editConfirmation').css('display','none');
 		
-		$('.edit-user-outer h2').html("Loading ...");
+		$('.edit-user-outer h2.loading').html("Loading ...");
 		
 		var user_selected = this.dataset.userEditPk;
 		localStorage.setItem("user_selected_to_edit", user_selected);
@@ -223,6 +247,8 @@ $(document).ready(function() {
     		$("#fist-name-edit-user").val(data.first_name);
         	$("#last-name-edit-user").val(data.last_name);
         	$("#user-name-edit-user").val(data.username);
+        	$("#id-edit-student").val(user_selected);
+        	
         	console.log(data);
         	if(data.do_pretest == false){
         		
@@ -259,7 +285,14 @@ $(document).ready(function() {
         	
         	$( "#password-edit-user" ).val("********");
     		$( "#repassword-edit-user" ).val("********");
-    		$('.edit-user-outer h2').html("");
+    		$('.edit-user-outer h2.loading').html("");
+    		
+    		$("#first-name-edit-parent").val(data.parent.first_name);
+        	$("#last-name-edit-parent").val(data.parent.last_name);
+        	$("#email-edit-parent").val(data.parent.email);
+        	$("#id-parent").val(data.parent.id);
+    		
+    		$('.edit-user-outer h2#parent_title').html("Parent Information");
         	$('.edit-user-outer ul').css('display','block');
         	$('#editConfirmation').css('display','block');
     
@@ -387,9 +420,29 @@ $(document).ready(function() {
     	            
     	        }).
     	        done(function(resp){
-    	        	console.log('Good saving')
-    				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
-    	        	$('#SaveEditUserModal').modal('show');
+	    	        	var parent_first_name = $( "#first-name-edit-parent" ).val();
+	    	    		var parent_last_name = $( "#last-name-edit-parent" ).val();
+	    	    		var parent_email= $( "#email-edit-parent" ).val();
+	    	    		var parent_id = $( "#id-edit-parent" ).val();
+	    	    		var student_id = $( "#id-edit-student" ).val();
+	    	    		
+	    	    		to_send_data = {parent_id:parent_id, parent_first_name:parent_first_name,
+	    	    				parent_last_name:parent_last_name, parent_email:parent_email,
+	    	    				student_id:student_id}
+	    	    		
+	    	        	$.ajax({type: "POST",  url: parentCreate, data: JSON.stringify(to_send_data) }).
+	        	        fail(function(resp){
+	        				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
+	        	        	$('#SaveEditUserModal').modal('show');
+	        	            
+	        	        }).
+	        	        done(function(resp){
+	        	        	console.log('Good saving')
+	        				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
+	        	        	$('#SaveEditUserModal').modal('show');
+	        	        	
+	        	        });
+    	        	
     	        	
     	        });
     		}

@@ -84,7 +84,7 @@
                 <li role="presentation" class="user-tab-title"><a href="#users" aria-controls="users" role="tab" data-toggle="tab" class="users">users</a></li>
                 <li role="presentation" class="license-tab-title"><a href="#license" aria-controls="license" role="tab" data-toggle="tab" class="license">licenses</a></li>
                 <li role="presentation" class="material-tab-title"><a href="#material" aria-controls="material" role="tab" data-toggle="tab" class="material"> materials</a></li>
-                <li role="presentation" class="tutors-tab-title"><a href="#tutors" aria-controls="tutors" role="tab" data-toggle="tab" class="tutors">tutors</a></li>
+                <li role="presentation" class="tutors-tab-title" style="display: none!important"><a href="#tutors" aria-controls="tutors" role="tab" data-toggle="tab" class="tutors">tutors</a></li>
               </ul>
               <ul class="print-button" id="step5"  >
               <!--	<div class="search-filed-top">
@@ -2199,7 +2199,7 @@
                             </div>
                           </div>
                           <div class="edit-user-outer">
-                          <h2>Loading ... </h2>
+                          <h2 class="loading">Loading ... </h2>
                             <ul>
                               <li>
                                 <label>First Name : </label>
@@ -2269,6 +2269,32 @@
                                 <input id="repassword-edit-user" type="text" value="********" placeholder="Type here">
                               </li>
                             </ul>
+                            
+                            <h2 id="parent_title" style="margin-top: 30px;font-size: 18px"></h2>
+                            
+                            <ul>
+                              <li>
+                                <label>First Name : </label>
+                                <input id="first-name-edit-parent" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Last Name : </label>
+                                <input id="last-name-edit-parent" type="text"  placeholder="Type here">
+                              </li>
+
+                              <li>
+                                <label>Email : </label>
+                                <input id="email-edit-parent" type="text" placeholder="Type here">
+                                
+                              </li>
+                              <li>
+                                <input id="id-edit-parent" type="hidden">
+                                <input id="id-edit-student" type="hidden">
+                                
+                              </li>
+ 
+                            </ul>
+                            
                             <div class="modal fade" id="SaveEditUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -2290,7 +2316,7 @@
                           <div class="create-class-detail">
                             <div class="choose-class">
                               <div class="edit-user-outer create-user-outer">
-                                <h2></h2>
+                                <h2 class="loading"></h2>
                             <ul>
                               <li>
                                 <label>First Name : </label>
@@ -2351,6 +2377,26 @@
                                 <label>Retype password : </label>
                                 <input id="repassword-create-user" type="text" placeholder="Type here">
                               </li>
+                            </ul>
+                            <h2 id="parent_title" style="margin-top: 30px;font-size: 18px"></h2>
+                            
+                            <ul>
+                              <li>
+                                <label>First Name : </label>
+                                <input id="first-name-create-parent" type="text" placeholder="Type here">
+                              </li>
+                              <li>
+                                <label>Last Name : </label>
+                                <input id="last-name-create-parent" type="text"  placeholder="Type here">
+                              </li>
+
+                              <li>
+                                <label>Email : </label>
+                                <input id="email-create-parent" type="text" placeholder="Type here">
+                                
+                              </li>
+
+ 
                             </ul>
                             <div class="modal fade" id="CreateUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
