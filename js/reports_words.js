@@ -459,13 +459,37 @@ $(document).ready(function() {
 			sum_latin = 0;
 			sum_greek = 0;
 			
+			avg_clover_div_count = 0;
+			avg_spelling_div_count = 0;
+			avg_pre_suf_div_count = 0;
+			avg_latin_div_count = 0;
+			avg_greek_div_count = 0;
+			
 			$.each( data.reports, function( key, val ) {
 				sum_time = sum_time + val.time.value;
-				sum_clover = sum_clover + val.clover.value;
-				sum_spelling = sum_spelling + val.spelling.value;
-				sum_pre_suf = sum_pre_suf + val.pre_suf.value;
-				sum_latin = sum_latin + val.latin.value;
-				sum_greek = sum_greek + val.greek.value;
+				
+				if (val.clover.value != "-"){
+					sum_clover = sum_clover + val.clover.value;
+					avg_clover_div_count = avg_clover_div_count + 1;
+				}
+				
+				if (val.spelling.value != "-"){
+					sum_spelling = sum_spelling + val.spelling.value;
+					avg_spelling_div_count = avg_spelling_div_count + 1;
+				}
+				if (val.pre_suf.value != "-"){
+					sum_pre_suf = sum_pre_suf + val.pre_suf.value;
+					avg_pre_suf_div_count = avg_pre_suf_div_count + 1;
+				}
+				if (val.latin.value != "-"){
+					sum_latin = sum_latin + val.latin.value;
+					avg_latin_div_count = avg_latin_div_count + 1;
+				}
+				if (val.greek.value != "-"){
+					sum_greek = sum_greek + val.greek.value;
+					avg_greek_div_count = avg_greek_div_count + 1;
+				}
+
 				
 				tr = '<tr>' +
                 '<td width="14.6%">'+ val.student.name +'</td>'+
@@ -484,11 +508,11 @@ $(document).ready(function() {
 			tr = '<tr class="average">' +
             '<td width="14.6%">Average</td>'+
             '<td width="14.2%"> '+ getAvg(sum_time, total) +'</td>'+
-            '<td width="14.2%">'+ getAvg(sum_clover, total) +' </td>'+
-            '<td width="14.2%"> '+ getAvg(sum_spelling, total)+'</td>'+
-            '<td width="14.2%">'+ getAvg(sum_pre_suf, total)+' </td>'+
-            '<td width="14.2%"> '+ getAvg(sum_latin, total)+'</td>'+
-            '<td width="14.2%">'+ getAvg(sum_greek, total)+' </td>'+
+            '<td width="14.2%">'+ getAvg(sum_clover, avg_clover_div_count) +' </td>'+
+            '<td width="14.2%"> '+ getAvg(sum_spelling, avg_spelling_div_count)+'</td>'+
+            '<td width="14.2%">'+ getAvg(sum_pre_suf, avg_pre_suf_div_count)+' </td>'+
+            '<td width="14.2%"> '+ getAvg(sum_latin, avg_latin_div_count)+'</td>'+
+            '<td width="14.2%">'+ getAvg(sum_greek, avg_greek_div_count)+' </td>'+
             '</tr>';
 			
 			$("#words_class_report").append(tr);
@@ -500,6 +524,9 @@ $(document).ready(function() {
 	});
 	
 function getAvg(sum, total){
+	if(total == 0){
+		return "-";
+	}
 	return  (sum/total).toFixed(1);
 }
 });

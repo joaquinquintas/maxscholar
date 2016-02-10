@@ -205,11 +205,11 @@ $(document).ready(function() {
     			$("#report_class_online").html(data.online);
 
     			class_time_sum = 0;
-    			class_maxreading_sum = 0;
-    			class_maxwords_sum = 0;
-    			class_maxplaces_sum = 0;
-    			class_maxbios_sum = 0;
-    			class_maxmusic_sum = 0;
+    			class_maxreading_sum = "-";
+    			class_maxwords_sum = "-";
+    			class_maxplaces_sum = "-";
+    			class_maxbios_sum = "-";
+    			class_maxmusic_sum = "-";
     			
     			insa_count = 0;
     			sa_count = 0;
@@ -297,45 +297,94 @@ $(document).ready(function() {
     			if(reading_class_count !=0){
     				avg_reading = class_maxreading_sum/reading_class_count;
     			}else{
-    				avg_reading = 0;
+    				avg_reading = "-";
     			}
     			if(words_class_count !=0){
     				avg_words = class_maxwords_sum/words_class_count;
     			}else{
-    				avg_words =0;
+    				avg_words = "-";
     			}
     			if(places_class_count !=0){
     				avg_places = class_maxplaces_sum/places_class_count;
     			}else{
-    				avg_places = 0
+    				avg_places = "-"
     			}
     			
     			if(bios_class_count != 0){
     				avg_bios = class_maxbios_sum/bios_class_count;
     			}else{
-    				avg_bios = 0;
+    				avg_bios = "-";
     			}
     			
     			if(music_class_count !=0){
     				avg_music = class_maxmusic_sum/music_class_count;
     			}else{
-    				avg_music = 0;
+    				avg_music = "-";
     			}
     			
+    			avg_div_count = 0
+    			sum_avg_score = 0
+    			if (avg_reading != "-"){
+    				avg_div_count = avg_div_count+ 1
+    				sum_avg_score = sum_avg_score + avg_reading
+    				avg_reading_to_show = avg_reading.toFixed(1)
+    			}else{
+    				avg_reading_to_show = "-"
+    			}
     			
-    			sum_avg_score = avg_reading + avg_words + avg_places + avg_bios + avg_music;
-    			class_avg_score = sum_avg_score/5;
+    			if (avg_words != "-"){
+    				avg_div_count = avg_div_count+ 1
+    				sum_avg_score = sum_avg_score + avg_words
+    				
+    				avg_words_to_show = avg_words.toFixed(1)
+    			}else{
+    				avg_words_to_show = "-"
+    			}
+    			
+    			if (avg_places != "-"){
+    				avg_div_count = avg_div_count+ 1
+    				sum_avg_score = sum_avg_score + avg_places
+    				
+    				avg_places_to_show = avg_places.toFixed(1)
+    			}else{
+    				avg_places_to_show = "-"
+    			}
+    			
+    			if (avg_bios != "-"){
+    				avg_div_count = avg_div_count+ 1
+    				sum_avg_score = sum_avg_score + avg_bios
+    				
+    				avg_bios_to_show = avg_bios.toFixed(1)
+    			}else{
+    				avg_bios_to_show = "-"
+    			}
+    			
+    			if (avg_music != "-"){
+    				avg_div_count = avg_div_count+ 1
+    				sum_avg_score = sum_avg_score + avg_music
+    				
+    				avg_music_to_show = avg_music.toFixed(1)
+    			}else{
+    				avg_music_to_show = "-"
+    			}
+    			//sum_avg_score = avg_reading + avg_words + avg_places + avg_bios + avg_music;
+    			if (avg_div_count != 0){
+    				class_avg_score = sum_avg_score/avg_div_count;
+    			}else{
+    				class_avg_score = "-";
+    			}
+    			
     			per = performance(class_avg_score)
     			
     			tr_avg = '<tr class="average">' +
                 	'<td width="12%" class="cumulative-time" style="background : none"><a href="#">Class Average</a></td>'+
 	                '<td width="11%">'+avg_time.toFixed(1)+' </td>'+
-	                '<td width="11%">'+avg_reading.toFixed(1)+' </td>'+
+	                '<td width="11%">'+avg_reading_to_show+' </td>'+
 	                '<td width="11%" class="cumulative-time">-</td>'+
-	                '<td width="11%"> '+avg_words.toFixed(1)+' </td>'+
-	                '<td width="10%"> '+avg_places.toFixed(1)+' </td>'+
-	                '<td width="10%"> '+avg_bios.toFixed(1)+' </td>'+
-	                '<td width="10%"> '+avg_music.toFixed(1)+' </td>'+
+	                '<td width="11%"> '+avg_words_to_show+' </td>'+
+	                '<td width="10%"> '+avg_places_to_show+' </td>'+
+	                '<td width="10%"> '+avg_bios_to_show+' </td>'+
+	                '<td width="10%"> '+avg_music_to_show+' </td>'+
 	                '<td width="10%" class="'+per.id+'"><span>'+per.label+ '</span></td>'+
 	              '</tr>';
     			
@@ -805,15 +854,20 @@ function percentage(value, total){
 }
 	
 function performance(score){
-	if (score <= 60){
-		return {"id": "not-satifactory", "label":"Not Satisfactory"}
+	if (score == "-"){
+		return {"id": "not-satifactory", "label":"Not Available"}
 	}else{
-		if (score>60 && score <=80){
-			return {"id": "satisfactory", "label":"Satisfactory"}
+		if (score <= 60){
+			return {"id": "not-satifactory", "label":"Not Satisfactory"}
 		}else{
-			return {"id": "excellent", "label":"Excellent"}
+			if (score>60 && score <=80){
+				return {"id": "satisfactory", "label":"Satisfactory"}
+			}else{
+				return {"id": "excellent", "label":"Excellent"}
+			}
 		}
 	}
+	
         
         
 };
