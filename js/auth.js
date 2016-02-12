@@ -349,13 +349,13 @@ $.each(resp, function (i, item) {
 		 $(".login_page").hide();  
         
     	  $('.introjs-skipbutton') .click(function() {
-    		  value = $(this).html();
-    		  if(value == "Done"){
+    		  //value = $(this).html();
+    		  //if(value == "Done"){
     			  //POST not show help again
     			  console.log("done!");
     			  to_send = JSON.stringify({"saw_dashboard_tutorial": true});
     			  $.ajax({type: "POST", url: settings, data:to_send})
-    		  }
+    		  //}
     		 $('.reports-tab-title').removeClass('active');
     		 $('#reports').removeClass('active');
     		 $('.individual-title').removeClass('active');
