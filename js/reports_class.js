@@ -205,11 +205,11 @@ $(document).ready(function() {
     			$("#report_class_online").html(data.online);
 
     			class_time_sum = 0;
-    			class_maxreading_sum = "-";
-    			class_maxwords_sum = "-";
-    			class_maxplaces_sum = "-";
-    			class_maxbios_sum = "-";
-    			class_maxmusic_sum = "-";
+    			class_maxreading_sum = 0;
+    			class_maxwords_sum = 0;
+    			class_maxplaces_sum = 0;
+    			class_maxbios_sum = 0;
+    			class_maxmusic_sum = 0;
     			
     			insa_count = 0;
     			sa_count = 0;
