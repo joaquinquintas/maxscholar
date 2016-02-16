@@ -230,7 +230,15 @@ $.each(resp, function (i, item) {
 	        }).
 	        done(function(resp){
 	        	resp = JSON.parse(resp);
-	        	after_login(resp, true);
+	        	
+	        	if(resp.user.saw_dashboard_tutorial != true && resp.user.saw_dashboard_tutorial != "true"){
+	    			console.log("show tuto");
+	    			after_login(resp, true)
+	        	}else{
+	        		console.log("NO show tuto");
+	        		after_login(resp, false)
+	        	}
+	        	
 	        	});
 	});
 	
