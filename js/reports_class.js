@@ -17,6 +17,13 @@ $(document).ready(function() {
 	$("#class_report_to_year").val(to_date.getUTCFullYear());
 	
 	$("#class_report").click(function(e){
+		
+		user_categoy = localStorage.getItem("category");
+		if (user_categoy == "admin"){
+			$( "#class_password" ).parent().css('display','none');
+		}else{
+			$( "#class_password" ).parent().css('display','block');
+		}
 		$( "#class_password" ).select();
 		$('.reports-detail').css('display','none');
 		$( "#error_class_password" ).html("");

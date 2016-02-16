@@ -106,7 +106,7 @@ $(document).ready(function() {
 		 $( "#class_email_create" ).val("");
 		 $( "#class_name_create" ).val("");
 		 $("#search-student-create").val("");
-		toSend = {school_id:school_pk};
+		toSend = {school_id:school_pk, to_create:true};
 		$.ajax({type: "GET",  url: getStudentList,data:toSend }).
         
         done(function(resp){
@@ -323,6 +323,7 @@ $(document).ready(function() {
 				
 
 				school_pk = localStorage.getItem("school_pk");
+				category = localStorage.getItem("category");
 				toSend = {school_id:school_pk};
 				
 				
@@ -334,7 +335,14 @@ $(document).ready(function() {
 		        	
 		        	var items = [];
 		        	$.each( data, function( key, val ) {
-		        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#clase-password-modal">'+val.name+'</a>' + "</li>" );
+		        		if (category=="teacher"){
+			        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#clase-password-modal">'+val.name+'</a>' + "</li>" );
+
+		        		}else{
+			        		items.push( "<li  >" +' <a href="#" class="class_id_edit"  data-clase-password="'+ val.password+'" data-clase-pk="' + val.pk + '">'+val.name+'</a>' + "</li>" );
+		        			
+		        		}
+		        		
 		        		$( "#classes_list" ).html(items.join( "" ));
 		        	  });
 		        	if(items.length == 0){
@@ -364,11 +372,7 @@ $(document).ready(function() {
 	
 	var teacher_selection_modify= null;
 	
-	$(".content #clase-password-modal .modal-content .modal-footer .enter-pass").click(function(){
-
-		var password = $('#clase_password').val();
-		$( "#error_clase_password" ).html("");
-		var pk = localStorage.getItem("selected_clase");
+	function _get_class_info(pk, password){
 		$.ajax({type: "POST",  url: checkClassPassword, data: { password: password, pk:pk } }).
         fail(function(resp){
             console.log('Bad password')
@@ -377,66 +381,98 @@ $(document).ready(function() {
             $( "#clase_password" ).select();
         }).
         done(function(resp){
-        	$('#clase-password-modal').modal('hide');
-        	$( "#error_clase_password" ).html("");
-        	school_pk = localStorage.getItem("school_pk");
-    		toSend = {school_id:school_pk};
-        	$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend} ).done(function(response){
-        		
-        		teacher_selection_modify = $('#magicsuggest').magicSuggest({
-            		allowFreeEntries:false,
-            		data: JSON.parse(response),
-            		valueField: 'pk',
-                    displayField: 'name',
-                    placeholder: 'Type Here',
-                });
-        		
-        		teachers = []
-            	$.each(resp.teachers, function(i, data){
-            		teachers.push(data.pk);
-            	});
-            	teacher_selection_modify.setValue(teachers);
-        	});
-        	
-        	
-        	//Use the clase response Obj
-        	console.log(resp.pk);
-        	$( "#clase_name" ).html(resp.name);
-        	teachers = []
-        	$.each(resp.teachers, function(i, data){
-        		teachers.push(data.last_name + " " + data.first_name );
-        	});
-        	$( "#clase_teacher" ).html(teachers.join( ", " ));
-        	$( "#clase_password_value" ).html(resp.password);
-        	console.log(resp.email);
-
-        	$( "#clase_email" ).html(resp.email.join( ", " ));
-        	
-        	count = 1;
-        	students = [];
-        	$.each( resp.students, function( key, val ) {
-        		students.push( "<li><span>" +count+' -</span>'+ val.last_name +' '+ val.first_name+'</li>' );
-        		count = count + 1;
-        		$( "#clase_student_list" ).html(students.join( "" ));
-        	  });
-        	
-
-        	preparePrint(".allclasse-detail")
-        	$('.content .choose-class').css('display','none');
-    		$('.content .allclasse-detail').css('display','block');
-    		$('.content .modify ').css('display','block');
-    		$('.content .delete ').css('display','block');
-    		
-    		$('.modify-classes-tab-title').css('display', 'block');
+        	_prepare_clase(resp);
 
         });
+	};
+	
+	function _prepare_clase(resp){
+		$('#clase-password-modal').modal('hide');
+    	$( "#error_clase_password" ).html("");
+    	school_pk = localStorage.getItem("school_pk");
+		toSend = {school_id:school_pk};
+    	$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend} ).done(function(response){
+    		
+    		teacher_selection_modify = $('#magicsuggest').magicSuggest({
+        		allowFreeEntries:false,
+        		data: JSON.parse(response),
+        		valueField: 'pk',
+                displayField: 'name',
+                placeholder: 'Type Here',
+            });
+    		
+    		teachers = []
+        	$.each(resp.teachers, function(i, data){
+        		teachers.push(data.pk);
+        	});
+        	teacher_selection_modify.setValue(teachers);
+    	});
+    	
+    	
+    	//Use the clase response Obj
+    	console.log(resp.pk);
+    	$( "#clase_name" ).html(resp.name);
+    	teachers = []
+    	$.each(resp.teachers, function(i, data){
+    		teachers.push(data.last_name + " " + data.first_name );
+    	});
+    	$( "#clase_teacher" ).html(teachers.join( ", " ));
+    	$( "#clase_password_value" ).html(resp.password);
+    	console.log(resp.email);
+
+    	$( "#clase_email" ).html(resp.email.join( ", " ));
+    	
+    	count = 1;
+    	students = [];
+    	$.each( resp.students, function( key, val ) {
+    		students.push( "<li><span>" +count+' -</span>'+ val.last_name +' '+ val.first_name+'</li>' );
+    		count = count + 1;
+    		$( "#clase_student_list" ).html(students.join( "" ));
+    	  });
+    	
+
+    	preparePrint(".allclasse-detail")
+    	$('.content .choose-class').css('display','none');
+		$('.content .allclasse-detail').css('display','block');
+		$('.content .modify ').css('display','block');
+		$('.content .delete ').css('display','block');
+		
+		$('.modify-classes-tab-title').css('display', 'block');
+	};
+	
+
+	$('#classes_list').on('click', '.class_id_edit',  function(e) {
+
+		console.log("works!");
+		console.log(e);
+		var password = e.currentTarget.dataset.clasePassword;
+		var pk = e.currentTarget.dataset.clasePk;
+		_get_class_info(pk, password);
+		
+	});
+	
+	
+	
+	$(".content #clase-password-modal .modal-content .modal-footer .enter-pass").click(function(e){
+		if (category=="teacher"){
+			var password = $('#clase_password').val();
+			var pk = localStorage.getItem("selected_clase");
+		
+		}else{
+			var password = e.relatedTarget.dataset.clasePassword;
+			var pk = e.relatedTarget.dataset.clasePk;
+		}
+		
+		$( "#error_clase_password" ).html("");
+		
+		_get_class_info(pk, password);
 		
 		
 		
 	
 	});
 	
-		
+
 
 	$(".modify-classes-tab-title").click(function(){
 		$('.content .print-button ').css('display','none');

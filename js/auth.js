@@ -78,16 +78,20 @@ $(document).ready(function() {
     	
     	var show_report = getUrlParameter("show_report");
     	console.log(show_report);
-    	
-    	if (show_report == "true"){
+    	console.log(resp.user.saw_dashboard_tutorial);
+    	if (show_report == "true" || show_report == true){
     		//Show 
     		after_login(resp, false)
     		$(".reports").trigger( "click" );
     		$("#class_report").trigger( "click" );
     	}else{
-    		if((school_changed == 'false' || school_changed== undefined) && resp.user.saw_dashboard_tutorial != true){
-        		after_login(resp, true)
+    		if((school_changed == false || school_changed == 'false' || school_changed== undefined) && ( resp.user.saw_dashboard_tutorial != true && resp.user.saw_dashboard_tutorial != "true")){
+        		console.log((school_changed == false || school_changed == 'false' || school_changed== undefined));
+        		console.log(( resp.user.saw_dashboard_tutorial != true|| resp.user.saw_dashboard_tutorial != "true"));
+    			console.log("show tuto");
+    			after_login(resp, true)
         	}else{
+        		console.log("NO show tuto");
         		after_login(resp, false)
         	}
     	}
@@ -290,6 +294,13 @@ $.each(resp, function (i, item) {
     	localStorage.setItem("first_name", resp.user.first_name);
     	localStorage.setItem("last_name",  resp.user.last_name);
     	localStorage.setItem("pk", resp.user.pk);
+    	localStorage.setItem("category", resp.user.category);
+    	
+    	if (resp.user.category == "teacher"){
+    			$(".license-tab-title").css('display','none');
+    	}else{
+    		$(".license-tab-title").css('display','block');
+    	}
     	
     	
     	
@@ -398,6 +409,7 @@ $.each(resp, function (i, item) {
 	    	localStorage.setItem("pk", null);
 	    	localStorage.setItem("schools", null);
 	    	localStorage.setItem("school_pk", null);
+	    	localStorage.setItem("category", null);
 	    	
 	    	$('.reports-tab-title').removeClass('active');
 			 $('#reports').removeClass('active');
