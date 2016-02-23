@@ -454,13 +454,14 @@ $.each(resp, function (i, item) {
 	$("#adminModal .close-btn").click(function(e){
 		e.preventDefault();
 		
-		username = $('#forgot_email').val();
+		username = $('#forgot_username').val();
+		email = $('#forgot_email').val();
 		
-		//if(!IsEmail(email)){
-		//	$('#error_forgot').html("Email invalid")
-		//	return false
-		//}
-		$.ajax({type: "POST", url: forgotPassword, data: JSON.stringify({ username: username}) }).
+		if(!IsEmail(email)){
+			$('#error_forgot').html("Email invalid")
+			return false
+		}
+		$.ajax({type: "POST", url: forgotPassword, data: JSON.stringify({ username: username, email:email}) }).
 	    fail(function(resp){
 	        console.log('invalid username')
 	        $('#error_forgot').html("Username doesn't exist")

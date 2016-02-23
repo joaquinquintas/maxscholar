@@ -869,7 +869,7 @@ header .header-right ul li { float:none; display:inline-block;}
     padding-bottom: 20px !important;
 	
 }
-#forgot_email{
+#forgot_email, #forgot_username{
 	
 	margin-bottom: 20px;
 	width: 98%;
