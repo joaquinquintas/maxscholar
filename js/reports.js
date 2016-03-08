@@ -111,6 +111,7 @@ $(document).ready(function() {
 		
 		localStorage.setItem("individual_report_start_date", start_date);
 		localStorage.setItem("individual_report_end_date", end_date);
+		localStorage.removeItem("individual_report_student_id");
 		localStorage.setItem("individual_report_student_id", user_pk);
 		
 		

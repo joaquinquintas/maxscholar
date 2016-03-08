@@ -72,6 +72,7 @@ $(document).ready(function() {
     	
     	//this.dataset.userReport;
 		//$("#report_individual_selector").val("22707");
+    	localStorage.removeItem("individual_report_student_id");
 		localStorage.setItem("individual_report_student_id", this.dataset.userReport);
 		
 		start_year = localStorage.getItem("class_report_start_year");
@@ -109,6 +110,7 @@ $(document).ready(function() {
     	
     	//this.dataset.userReport;
 		//$("#report_individual_selector").val("22707");
+    	localStorage.removeItem("individual_report_student_id");
 		localStorage.setItem("individual_report_student_id", this.dataset.userReport);
 		
 		start_year = localStorage.getItem("class_report_start_year");
