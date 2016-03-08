@@ -35,6 +35,7 @@ $(document).ready(function() {
 		preparePrint(".indvidual-detail-left");
 		$('.lcs_switch').removeClass('lcs_off');
 		$('.lcs_switch').addClass('lcs_on');
+		$("#maxread-indivdual").show()
 
 		});
 	
