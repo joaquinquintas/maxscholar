@@ -72,6 +72,7 @@ $(document).ready(function() {
     	
     	//this.dataset.userReport;
 		//$("#report_individual_selector").val("22707");
+    	$("#report_individual_selector").html("");
     	localStorage.removeItem("individual_report_student_id");
 		localStorage.setItem("individual_report_student_id", this.dataset.userReport);
 		
@@ -110,6 +111,7 @@ $(document).ready(function() {
     	
     	//this.dataset.userReport;
 		//$("#report_individual_selector").val("22707");
+    	$("#report_individual_selector").html("");
     	localStorage.removeItem("individual_report_student_id");
 		localStorage.setItem("individual_report_student_id", this.dataset.userReport);
 		
