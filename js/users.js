@@ -132,14 +132,14 @@ $(document).ready(function() {
     	    		
     	        	$.ajax({type: "POST",  url: parentCreate, data: JSON.stringify(to_send_data) }).
         	        fail(function(resp){
-        				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
-        	        	$('#SaveEditUserModal').modal('show');
+        				$("#CreateUserModal .modal-body span").html("Internal Error, Please try again later.");
+        	        	$('#CreateUserModal').modal('show');
         	            
         	        }).
         	        done(function(resp){
         	        	console.log('Good saving')
-        				$("#SaveEditUserModal .modal-body span").html("The user has been modified successfully");
-        	        	$('#SaveEditUserModal').modal('show');
+        				$("#CreateUserModal .modal-body span").html("The user has been modified successfully");
+        	        	$('#CreateUserModal').modal('show');
         	        	
         	        });
     	        	
