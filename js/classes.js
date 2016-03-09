@@ -447,6 +447,7 @@ $(document).ready(function() {
 		console.log(e);
 		var password = e.currentTarget.dataset.clasePassword;
 		var pk = e.currentTarget.dataset.clasePk;
+		localStorage.setItem("selected_clase", parseInt(pk));
 		_get_class_info(pk, password);
 		
 	});
