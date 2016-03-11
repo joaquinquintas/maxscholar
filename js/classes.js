@@ -214,12 +214,14 @@ $(document).ready(function() {
 									password:password, email:email, teachers:teacher, students: users_class}) }).
 	        fail(function(resp){
 				$("#savedCreateClassModal .modal-body span").html("Internal Error, Please try again later.");
+				localStorage.setItem("errors_in_class_creation", "true");
 	        	$('#savedCreateClassModal').modal('show');
 	            
 	        }).
 	        done(function(resp){
 	        	console.log('Good saving')
 				$("#savedCreateClassModal .modal-body span").html("Your class has been created successfully");
+	        	localStorage.setItem("errors_in_class_creation", "false");
 	        	$('#savedCreateClassModal').modal('show');
 	        	
 	        });
@@ -391,6 +393,7 @@ $(document).ready(function() {
     	$( "#error_clase_password" ).html("");
     	school_pk = localStorage.getItem("school_pk");
 		toSend = {school_id:school_pk};
+		
     	$.ajax({type: "GET",  url: getAdminsFromSchool, data:toSend} ).done(function(response){
     		
     		teacher_selection_modify = $('#magicsuggest').magicSuggest({
@@ -612,21 +615,34 @@ $(document).ready(function() {
 			$.ajax({type: "PUT",  url: getClassDetail+pk, data: JSON.stringify({ class_name: class_name, password:password, email:email, teachers:teacher, students: users_class}) }).
 	        fail(function(resp){
 				$("#savedModifiedClassModal .modal-body span").html("Internal Error, Please try again later.");
+				localStorage.setItem("errors_in_class_edit", "true");
 	        	$('#savedModifiedClassModal').modal('show');
 	            
 	        }).
 	        done(function(resp){
 	        	console.log('Good saving')
 				$("#savedModifiedClassModal .modal-body span").html("Your class has been modified successfully");
+	        	localStorage.setItem("errors_in_class_edit", "false");
 	        	$('#savedModifiedClassModal').modal('show');
 	        	
 	        });
 		}
 		
-		$
+		
 		
 	});
 	
+	
+	$(".content #savedModifiedClassModal .modal-content .modal-footer .close-btn").click(function(){
+		console.log(localStorage.getItem("errors_in_class_edit") );
+		if (localStorage.getItem("errors_in_class_edit") == "false" ){
+
+
+			$(".all-classes-tab-title").trigger( "click" );
+			
+		}
+		
+	});
 	
 	$('#clase_student_list_modify').on('click', '.user-to-delete', function(e) {
 
