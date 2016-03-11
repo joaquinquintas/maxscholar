@@ -229,20 +229,7 @@ $(document).ready(function() {
 		
 		
 	});
-	
-	$(".content #savedModifiedClassModal .modal-content .modal-footer .close-btn").click(function(){
-		console.log(localStorage.getItem("errors_in_class_edition") );
-		if (localStorage.getItem("errors_in_class_edition") == "false" ){
 
-			//$(".all-classes-tab-title").addClass("active");
-			//$(".createclass-tab-title").removeClass("active");
-			//$('.choose-class').css('display', 'block');
-			$("#all-classes-tab-title_id").trigger( "click" );
-			//$(".all-classes-tab-title").trigger( "click" );
-			
-		}
-		
-	});
 	
 	$(".content #savedCreateClassModal .modal-content .modal-footer .close-btn").click(function(){
 		console.log(localStorage.getItem("errors_in_class_creation") );
@@ -404,10 +391,11 @@ $(document).ready(function() {
                 placeholder: 'Type Here',
             });
     		
-    		teachers = []
+    		var teachers = []
         	$.each(resp.teachers, function(i, data){
         		teachers.push(data.pk);
         	});
+    		console.log(teachers);
         	teacher_selection_modify.setValue(teachers);
     	});
     	
@@ -415,10 +403,11 @@ $(document).ready(function() {
     	//Use the clase response Obj
     	console.log(resp.pk);
     	$( "#clase_name" ).html(resp.name);
-    	teachers = []
+    	var teachers = []
     	$.each(resp.teachers, function(i, data){
     		teachers.push(data.last_name + " " + data.first_name );
     	});
+    	console.log(teachers);
     	$( "#clase_teacher" ).html(teachers.join( ", " ));
     	$( "#clase_password_value" ).html(resp.password);
     	console.log(resp.email);
