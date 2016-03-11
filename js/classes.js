@@ -585,14 +585,14 @@ $(document).ready(function() {
 		
 		if (errors){
 			var message = "<p>Errors:</p><br/><ul>"+errors_list.join( "" ) +"</ul>"
-			localStorage.setItem("errors_in_class_edition", "true");
+			localStorage.setItem("errors_in_class_edit", "true");
 			$("#savedModifiedClassModal .modal-body span").html(message);
 			$('#savedModifiedClassModal').modal('show');
 			
 			
 		}else{
 			//SaveItems
-			
+			localStorage.setItem("errors_in_class_edit", "false");
 			//SaveStudents
 			//Recorrer  todos los items de clase_student_list_modify y guardarlos
 			var users_class = []
@@ -626,6 +626,7 @@ $(document).ready(function() {
 	
 	$(".content #savedModifiedClassModal .modal-content .modal-footer .close-btn").click(function(){
 		console.log(localStorage.getItem("errors_in_class_edit") );
+		console.log("cerrar clase")
 		if (localStorage.getItem("errors_in_class_edit") == "false" ){
 
 
