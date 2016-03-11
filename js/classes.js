@@ -395,6 +395,7 @@ $(document).ready(function() {
         	$.each(resp.teachers, function(i, data){
         		teachers.push(data.pk);
         	});
+    		console.log("taechers in combo")
     		console.log(teachers);
         	teacher_selection_modify.setValue(teachers);
     	});
@@ -403,12 +404,12 @@ $(document).ready(function() {
     	//Use the clase response Obj
     	console.log(resp.pk);
     	$( "#clase_name" ).html(resp.name);
-    	var teachers = []
+    	var teachers_list = []
     	$.each(resp.teachers, function(i, data){
-    		teachers.push(data.last_name + " " + data.first_name );
+    		teachers_list.push(data.last_name + " " + data.first_name );
     	});
-    	console.log(teachers);
-    	$( "#clase_teacher" ).html(teachers.join( ", " ));
+    	console.log(teachers_list);
+    	$( "#clase_teacher" ).html(teachers_list.join( ", " ));
     	$( "#clase_password_value" ).html(resp.password);
     	console.log(resp.email);
 
