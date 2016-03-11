@@ -397,7 +397,7 @@ $(document).ready(function() {
         	});
     		console.log("taechers in combo")
     		console.log(teachers);
-    		teacher_selection_modify.empty();
+    		teacher_selection_modify.clear();
         	teacher_selection_modify.setValue(teachers);
     	});
     	
