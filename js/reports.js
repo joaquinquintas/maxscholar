@@ -41,6 +41,7 @@ $(document).ready(function() {
 	
 	$("#individual_report").click(function(e){
 		$("#report_info_text").html("Loading ...");
+		
 		$('.indvidual-detail-left').css('display','none');
     	$('.individual-tab-detail').css('display','none');
 		$("#report_individual_selector").html("");
@@ -692,6 +693,7 @@ $(document).ready(function() {
 			
 		});
 		
+		$('#maxread-indivdual').css('display','block');
 		
 	});
 	
