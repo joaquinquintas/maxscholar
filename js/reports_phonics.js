@@ -21,9 +21,35 @@ $("#maxphonics_ind").click(function(){
 		prepare_withinwords_chart(data.withinwords);
 	});
 	
+	$.ajax({type: "GET",  url: getMaxphonicsPretest, data:to_send}).
+	done(function(data){
+		console.log(data);
+		var section_len = data.sections.length;
+		for (var i = 0; i < section_len; i++) {
+			name = data.sections[i].name;
+			tr = '<tr><td>' + name + '</td>';
+			
+			var incorrect_len = data.sections[i].incorrect.length;
+			inc_list = []
+			for (var j = 0; j < incorrect_len; j++) {
+				value = data.sections[i].incorrect[j];
+				if (value.term == undefined){
+					v= value.word;
+				}else{
+					v = value.term;
+				}
+				inc_list.push(v);
+				
+			}
+			tr = tr + '<td>' + inc_list.join(", ") + '</td></tr>'
+			$("#individual_phonics_ptest_list").append(tr);
+			console.log(name)
+			
+		}
+		
+	});
 	
 	});
-
 
 
 $(".phonics_apps").click(function(e){

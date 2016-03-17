@@ -261,6 +261,7 @@ $(document).ready(function() {
         	else{
         		$("#pretest-edit-user #yes").attr("selected","selected");
         	}
+        	
         	if(data.do_phonics_pretest == false){
         		$("#pretest_phonics-edit-user #no").attr("selected","selected");
         	}
@@ -268,18 +269,29 @@ $(document).ready(function() {
         		$("#pretest_phonics-edit-user #yes").attr("selected","selected");
         	}
 
+        	if(data.phonics_pretest_done == true){
+        		$("#pretest_phonics-edit-user").attr("disabled","disabled").parent().css("opacity", "0.3");
+        	}
+        	
             if(data.reading_interim == false) {
         		$("#interim-edit-user #no").attr("selected","selected");
             } else {
         		$("#interim-edit-user #yes").attr("selected","selected");
             }
 
-            if (data.phonics_pretest_done == false) {
+            if (data.reading_pretest_done == false) {
                 $("#interim-edit-user").attr("disabled","disabled").parent().css("opacity", "0.3");
             } else {
                 $("#interim-edit-user").attr("enabled","enabled");
+                $("#pretest-edit-user").attr("disabled","disabled").parent().css("opacity", "0.3");
             }
-
+            
+            if (data.reading_interim_done == true){
+            	$("#interim-edit-user").attr("disabled","disabled").parent().css("opacity", "0.3");
+            }
+            
+            
+            
         	if(data.do_reading_hl == false){
         		$("#reading_hl-edit-user #no").attr("selected","selected");
         	}

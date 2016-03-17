@@ -146,6 +146,15 @@ $(document).ready(function() {
 					$('#ind_per_bios').addClass(data.maxbios.eval.id);
 					$("#ind_per_music").html(data.maxmusic.eval.label);
 					$('#ind_per_music').addClass(data.maxmusic.eval.id);
+					
+					if (data.phonics_pretest == null){
+						$("#phonics-pretest-data").css('display','none');
+					}else{
+						$("#phonics-pretest-data").css('display','block');
+						$("#score-phonics-pretest").html(data.phonics_pretest.score + " %");
+						$("#date-phonics-pretest").html(data.phonics_pretest.completed_date);
+						$("#level-phonics-pretest").html(data.phonics_pretest.level_before);
+					}
 				});
 		
 		$("#container10").hide();
@@ -697,6 +706,8 @@ $(document).ready(function() {
 		
 	});
 	
+	
+
 	
 	$("#maxplaces_ind").click(function(){
 		start_date = localStorage.getItem("individual_report_start_date");

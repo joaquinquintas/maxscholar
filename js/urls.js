@@ -1,7 +1,10 @@
 $(document).ready(function() {	
-	//server = "http://localhost:8080/dashboard/v1/"
-	server = "http://maxscholar.com/dashboard/v1/"
-	//server = "http://dev.maxscholar.com/dashboard/v1/"
+	//host = "http://localhost:8080"
+	host = "http://maxscholar.com"
+	//host = "http://dev.maxscholar.com"
+		
+	point = "/dashboard/v1/"
+	server = host + point
 	forgotPassword = server + "forgot-password/"
 	parentCreate = server + "parent/create/"
 	allClasses = server + "classes/"
@@ -51,5 +54,6 @@ $(document).ready(function() {
 	getMaxwordsPreSufReport = server + "reports/maxwords/prefixes_suffixes/"
 	getMaxwordsLatinReport = server + "reports/maxwords/latin/"
 	getMaxwordsGreekReport = server + "reports/maxwords/greek/"
+	getMaxphonicsPretest = host + "/maxphonics/pretest/go/"
 	
 });

@@ -633,7 +633,7 @@
                               <label>Reading level : <span id="invidual_report_user_level"></span></label>
                               <label style="display:none">Student type : <span id="invidual_report_user_type"></span></label>
                               <label>Dates : <span id="invidual_report_user_date"></span></label>
-                              <label>Pretest score : <span id="invidual_report_user_pretest"></span></label>
+                              <!-- label>Pretest score : <span id="invidual_report_user_pretest"></span></label-->
                               <label class="last-login">Last login : <span id="invidual_report_user_last_login"></span></label>
                                <input type="checkbox" name="check-3" value="6" checked="checked" class="lcs_check lcs_tt1 lcs_off"   autocomplete="off">
                               <div role="tabpanel"> 
@@ -701,6 +701,7 @@
                                           <li role="presentation"><a href="#maxplace-indivdual" id="maxplaces_ind" aria-controls="maxplace-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXPLACES</a></li>
                                           <li role="presentation"><a href="#maxbio-indivdual" id="maxbios_ind" aria-controls="maxbio-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXBIOS</a></li>
                                           <li role="presentation"><a href="#maxmusic-indivdual" id="maxmusic_ind" aria-controls="maxmusic-indivdual" role="tab" data-toggle="tab" aria-expanded="true">MAXMUSIC</a></li>
+                                          <!-- li role="presentation"><a href="#pretest-indivdual" id="pretest_ind" aria-controls="pretest-indivdual" role="tab" data-toggle="tab" aria-expanded="true">PRETESTS</a></li-->
                                         </ul>
                                         
                                         <!-- Tab panes -->
@@ -838,7 +839,37 @@
                                                 </div>
                                               </div>
                                             </div>
-
+											
+											 <!-- PRETEST -->
+                                            <div class="individual-report" id="phonics-pretest-data">
+                                              <div class="individual-graphs">
+                                                <h2>PRE-TEST: </h2>
+                                              <table>
+                                                  <thead id="reading_ptest_head">
+                                                    <td>SCORE</td>
+                                                    <td style="width: 38%">LEVEL BEFORE PRE-TEST</td>
+                                                    <td>DATE</td>
+                                                  </thead>
+                                                  <tbody id="individual_phonics_ptest">
+                                                  <tr>
+                                                  	<td id="score-phonics-pretest"></td>
+                                                  	<td id="level-phonics-pretest"></td>
+                                                  	<td id="date-phonics-pretest"></td>
+                                                  </tr>
+                                                  </tbody>
+                                              </table>
+                                              <table>
+                                                  <thead id="reading_ptest_head">
+                                                    <td>SECTION</td>
+                                                    <td>INCORRECT</td>
+                      
+                                                  </thead>
+                                                  <tbody id="individual_phonics_ptest_list">
+                                                  </tbody>
+                                              </table>
+                                              </div>
+                                              </div>
+											
                                             <div class="individual-report">
                                               <div class="individual-graphs">
                                                 <h2>PHONICS GAMES : </h2>
@@ -854,6 +885,9 @@
 												</div>
                                               </div>
                                             </div>
+                                            
+                                           
+                                              
                                           </div>
                                           <div role="tabpanel" class="tab-pane" id="maxword-indivdual">
                                             <div role="tabpanel">
