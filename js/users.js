@@ -57,6 +57,10 @@ $(document).ready(function() {
 		var level = $( "#level-create-user" ).val();
 		var level_phonics = $( "#level-phonics-create-user" ).val();
 		var save_level = level != "no"
+		if (level == "no"){
+			errors_list.push( "<li>Reading Level is required</li>" );
+			errors = true;
+		}
 		var save_phonics_level = level_phonics != "no"
 		var save_user_type = user_type != "no"
 		if(pre_test=="Yes"){
@@ -346,6 +350,10 @@ $(document).ready(function() {
 		
 		var level = $( "#level-edit-user" ).val();
 		var save_level = level != "no"
+		if (level == "no"){
+			errors_list.push( "<li>Reading Level is required</li>" );
+			errors = true;
+		}
 		var phonics_level = $( "#level-phonics-edit-user" ).val();
 		var save_phonics_level = phonics_level != "no"
 		var save_user_type = user_type != "no"
