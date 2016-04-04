@@ -376,6 +376,7 @@ $(document).ready(function() {
 	$("#maxwords_ind").click(function(e){
 		
 		e.preventDefault();
+		$("#maxread-indivdual").hide();
 		$("#clover-table-detail").css("display","none");
 		studen_pk = localStorage.getItem("individual_report_student_id");
 		//studen_pk = "15536";

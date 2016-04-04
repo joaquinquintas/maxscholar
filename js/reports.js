@@ -26,6 +26,7 @@ $(document).ready(function() {
 		$('#maxread-indivdual').removeClass('active');
 		$('#maxphonics-indivdual').addClass('active');
 		$( "#maxphonics_ind" ).trigger( "click" );
+		
 	});
 	
 	$(".see-detail-report-btn a").click(function(e){
@@ -710,6 +711,7 @@ $(document).ready(function() {
 
 	
 	$("#maxplaces_ind").click(function(){
+		$("#maxread-indivdual").hide();
 		start_date = localStorage.getItem("individual_report_start_date");
 		end_date = localStorage.getItem("individual_report_end_date");
 		user_pk = localStorage.getItem("individual_report_student_id");
@@ -741,6 +743,7 @@ $(document).ready(function() {
 	});
 	
 	$("#maxbios_ind").click(function(){
+		$("#maxread-indivdual").hide();
 		start_date = localStorage.getItem("individual_report_start_date");
 		end_date = localStorage.getItem("individual_report_end_date");
 		user_pk = localStorage.getItem("individual_report_student_id");
@@ -772,7 +775,11 @@ $(document).ready(function() {
 		
 	});
 	
+	$("#maxread_ind").click(function(){
+		$("#maxread-indivdual").show();
+	});
 	$("#maxmusic_ind").click(function(){
+		$("#maxread-indivdual").hide();
 		start_date = localStorage.getItem("individual_report_start_date");
 		end_date = localStorage.getItem("individual_report_end_date");
 		user_pk = localStorage.getItem("individual_report_student_id");

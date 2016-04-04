@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 
 $("#maxphonics_ind").click(function(){
+	$("#maxread-indivdual").hide();
 	$("#phonics_table").css("display","none");
 	$(".constant-table-detail h2").css("display","block");
 	$( "li.active .phonics_apps" ).trigger( "click" );
