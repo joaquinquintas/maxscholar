@@ -452,7 +452,7 @@ $(document).ready(function() {
 	    	    		
 	    	        	$.ajax({type: "POST",  url: parentCreate, data: JSON.stringify(to_send_data) }).
 	        	        fail(function(resp){
-	        				$("#SaveEditUserModal .modal-body span").html("Internal Error, Please try again later.");
+	        				$("#SaveEditUserModal .modal-body span").html("Error Creating parent.");
 	        	        	$('#SaveEditUserModal').modal('show');
 	        	            
 	        	        }).
