@@ -162,6 +162,7 @@ $(document).ready(function() {
 			errors = true;
 		}
 		var teacher = teacher_selection_modify.getValue();
+		/**
 		var password = $( "#class_password_create" ).val();
 		var repassword = $( "#class_repassword_create" ).val();
 		
@@ -171,6 +172,7 @@ $(document).ready(function() {
 
 			errors = true;
 		}
+		**/
 		var email = $( "#class_email_create" ).val().replace(/ /g,'').split(",");
 		
 		console.log("email");
@@ -211,7 +213,7 @@ $(document).ready(function() {
 			
 			//Redirect close to allClases.
 			$.ajax({type: "POST",  url: allClasses, data: JSON.stringify({ class_name: class_name, school_id:school_pk, 
-									password:password, email:email, teachers:teacher, students: users_class}) }).
+									password:null, email:email, teachers:teacher, students: users_class}) }).
 	        fail(function(resp){
 				$("#savedCreateClassModal .modal-body span").html("Internal Error, Please try again later.");
 				localStorage.setItem("errors_in_class_creation", "true");
@@ -324,6 +326,7 @@ $(document).ready(function() {
 		        	
 		        	var items = [];
 		        	$.each( data, function( key, val ) {
+		        		/**
 		        		if (category=="teacher"){
 			        		items.push( "<li  >" +' <a href="#" data-clase-pk="' + val.pk + '" data-toggle="modal" data-target="#clase-password-modal">'+val.name+'</a>' + "</li>" );
 
@@ -331,7 +334,9 @@ $(document).ready(function() {
 			        		items.push( "<li  >" +' <a href="#" class="class_id_edit"  data-clase-password="'+ val.password+'" data-clase-pk="' + val.pk + '">'+val.name+'</a>' + "</li>" );
 		        			
 		        		}
-		        		
+		        		**/
+		        		items.push( "<li  >" +' <a href="#" class="class_id_edit"  data-clase-pk="' + val.pk + '">'+val.name+'</a>' + "</li>" );
+
 		        		$( "#classes_list" ).html(items.join( "" ));
 		        	  });
 		        	if(items.length == 0){
@@ -348,26 +353,31 @@ $(document).ready(function() {
 	
 
 
+	/**
 	$('#clase-password-modal').on('show.bs.modal', function(e) {
 		  var clase_selected = e.relatedTarget.dataset.clasePk;
 		  localStorage.setItem("selected_clase", parseInt(clase_selected));
 		});
 	
+	**/
+	/**
 	$(".content #clase-password-modal .modal-content .modal-footer .close-btn").click(function(){
 		
 		$( "#error_clase_password" ).html("");
 		 $('#clase_password').val("");
 	});
+	**/
 	
 	var teacher_selection_modify= null;
 	
 	function _get_class_info(pk, password){
+		
 		$.ajax({type: "POST",  url: checkClassPassword, data: { password: password, pk:pk } }).
         fail(function(resp){
             console.log('Bad password')
             console.log(resp.responseJSON.non_field_errors[0]);
-            $( "#error_clase_password" ).html(resp.responseJSON.non_field_errors[0]);
-            $( "#clase_password" ).select();
+            $( "#error_clase_password" ).html("Internal Error: Please try again later.");
+            //$( "#clase_password" ).select();
         }).
         done(function(resp){
         	_prepare_clase(resp);
@@ -376,7 +386,7 @@ $(document).ready(function() {
 	};
 	
 	function _prepare_clase(resp){
-		$('#clase-password-modal').modal('hide');
+		//$('#clase-password-modal').modal('hide');
     	$( "#error_clase_password" ).html("");
     	school_pk = localStorage.getItem("school_pk");
 		toSend = {school_id:school_pk};
@@ -448,6 +458,7 @@ $(document).ready(function() {
 	
 	
 	
+	/**
 	$(".content #clase-password-modal .modal-content .modal-footer .enter-pass").click(function(e){
 		if (category=="teacher"){
 			var password = $('#clase_password').val();
@@ -466,6 +477,7 @@ $(document).ready(function() {
 		
 	
 	});
+	**/
 	
 
 

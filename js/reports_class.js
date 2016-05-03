@@ -21,14 +21,16 @@ $(document).ready(function() {
 	$("#class_report").click(function(e){
 		
 		user_categoy = localStorage.getItem("category");
+		/**
 		if (user_categoy == "admin"){
 			$( "#class_password" ).parent().css('display','none');
 		}else{
 			$( "#class_password" ).parent().css('display','block');
 		}
 		$( "#class_password" ).select();
+		**/
 		$('.reports-detail').css('display','none');
-		$( "#error_class_password" ).html("");
+		//$( "#error_class_password" ).html("");
 		$("#report_class_info_text").html("Loading ...");
 		$('.class-tab-detail').css('display','none');
 		$("#report_class_selector").html("");
@@ -53,6 +55,7 @@ $(document).ready(function() {
 		
 	});
 	
+	/**
 	$('#class_password').keypress(function (e) {
 		 var key = e.which;
 		 
@@ -62,7 +65,7 @@ $(document).ready(function() {
 		    return false;  
 		  }
 		});  
-	
+	**/
 	
 	$("#class_score_report_table").on('click', '.maxphonic_class_to_ind', function(e){
 		e.preventDefault();
@@ -143,15 +146,15 @@ $(document).ready(function() {
 
 		class_pk = $("#report_class_selector").val();
 		
-		class_password = $("#class_password").val();
+		//class_password = $("#class_password").val();
 		
-		$.ajax({type: "POST",  url: checkClassPassword, data: { password: class_password, pk:class_pk } }).
+		$.ajax({type: "POST",  url: checkClassPassword, data: { password: null, pk:class_pk } }).
         fail(function(resp){
         	console.log(resp)
             console.log('Bad password')
             console.log(resp.responseJSON.non_field_errors[0]);
-            $( "#error_class_password" ).html(resp.responseJSON.non_field_errors[0]);
-            $( "#class_password" ).select();
+            //$( "#error_class_password" ).html(resp.responseJSON.non_field_errors[0]);
+            //$( "#class_password" ).select();
         })
         .done(function(resp){
         	$('.class-tab-detail').css('display','none');
