@@ -271,7 +271,7 @@ text-align: center; border-left:8px solid #f2f2f2; }
  .content .see-detail-report-btn  a { background:url(../images/detail-repot-icon.png) left center no-repeat; padding-left:58px; line-height:40px; display:inline-block; font-size:18px; font-family: 'droid_sansbold';color:#5D5D5D; outline:none; text-decoration:none;}
 .content .constant-detail .nav-tabs { padding:0px; text-align:center;} 
 .content .constant-detail .nav-tabs li { float:none; display:inline-block; border:1px solid #4d4d4d; border-radius:0px; color:#2f2f2f; line-height:38px; text-align:center; background:none;font-size:14px; font-family: 'droid_sansbold' !important;}
-.content .constant-detail .nav-tabs li a {font-size:14px; font-family: 'droid_sansbold' !important;}
+.content .constant-detail .nav-tabs li a {font-size:15px; font-family: 'droid_sansbold' !important;}
 .content .constant-detail .nav-tabs li.active { background:#2f2f2f; color:#fff; border-radius:0px !important ;font-size:14px; font-family: 'droid_sansbold'!important;} 
 .content .constant-detail .constant-table-detail {}
 .content .constant-detail .constant-table-detail table { max-width:820px; width:98.2%;}
@@ -279,8 +279,8 @@ text-align: center; border-left:8px solid #f2f2f2; }
   width: 11px !important;background: #999999 !important; margin-top:36px;}
 .content .constant-detail .constant-table-detail table thead td { height:40px; vertical-align:top;}
 .content .constant-detail .constant-table-detail table tbody tr td { height:95px;}
-.content .constant-detail .constant-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#CCCCCC; text-decoration:none; background:none;}
-.content .constant-detail .constant-table-detail table tbody tr td input[type="text"]{ width:100%; height:95px;font-size:16px; font-family: 'droid_sansregular';color:#5d5d5d; text-decoration:none; border:0px none; text-align:center; padding:0 5px; word-break:break-word; outline:none;}
+.content .constant-detail .constant-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#5E5E5F; text-decoration:none; background:none;}
+.content .constant-detail .constant-table-detail table tbody tr td input[type="text"]{ width:100%; height:95px;font-size:16px; font-family: 'droid_sansregular';color:#5E5E5F; text-decoration:none; border:0px none; text-align:center; padding:0 5px; word-break:break-word; outline:none;}
 
 .reviewWord  tbody tr td:first-child {color:#f7931e !important}
 .reviewWord  tbody tr td{color:#f7931e !important}
@@ -295,10 +295,10 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 .content .clover-tabs-detail .sprefixes-detail table thead td { height:40px; vertical-align:bottom !important;}
 .content .clover-tabs-detail .clover-table-detail table tbody tr td { height:108px;}
-.content .clover-tabs-detail .clover-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#CCCCCC; text-decoration:none; background:none;}
+.content .clover-tabs-detail .clover-table-detail table tbody tr td a { font-size:16px; font-family: 'droid_sansregular';color:#5E5E5F; text-decoration:none; background:none;}
 .content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all { text-align:left; padding:0 52px; box-sizing:border-box;}
-.content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a { background:url(../images/show-all-icon.png) left center no-repeat; font-size:16px; color:#5D5D5D; padding-left:72px; width:100%; text-align:left; line-height:42px;}
-.content .clover-tabs-detail .clover-table-detail table tbody tr td input[type="text"]{ width:100%; height:95px;font-size:16px; font-family: 'droid_sansregular';color:#5d5d5d; text-decoration:none; border:0px none; text-align:center; padding:0 5px; word-break:break-word; outline:none;} 
+.content .clover-tabs-detail .clover-table-detail table tbody tr td.show-all a { background:url(../images/show-all-icon.png) left center no-repeat; font-size:16px; color:#E5E5F; padding-left:72px; width:100%; text-align:left; line-height:42px;}
+.content .clover-tabs-detail .clover-table-detail table tbody tr td input[type="text"]{ width:100%; height:95px;font-size:17px; font-family: 'droid_sansregular';color:#E5E5F; text-decoration:none; border:0px none; text-align:center; padding:0 5px; word-break:break-word; outline:none;} 
 .content .clover-tabs-detail .clover-table-detail table tbody tr td:first-child { font-size:15px; color:#000 !important;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:13px; }
 
 .content .clover-tabs-detail #spellingrule .clover-table-detail table tbody tr td:first-child {color:#84B4EA !important; }
@@ -319,16 +319,16 @@ text-align: center; border-left:8px solid #f2f2f2; }
  .content .individual-report-per-program h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;} 
 .content .individual-report-per-program table { width:98.5%; max-width:860px;  }
 .content .individual-report { margin-top:42px !important ;}
-.content .individual-report-per-program table thead td {background:none; text-align:center; font-size:12px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
+.content .individual-report-per-program table thead td {background:none; text-align:center; font-size:15px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
 .content .individual-graphs { }
 /* .content .individual-graphs h2 { width:590px; display:inline-block;}*/
 .content .individual-graphs ul { margin:0px; padding:0; display:block; text-align:right;}
 .content .individual-graphs ul li { font-size:13px; color:#5d5d5d;font-family: 'droid_sansregular'; background:url(../images/correct-icon.png) left center no-repeat; padding-left:37px; display:inline-block; line-height:32px; margin-left:25px;}
 .content .individual-graphs ul li + li {background:url(../images/uncorrect-icon.png) left center no-repeat;}
-.content .individual-report-per-program table tbody tr td { height:93px;background:none; text-align:center; vertical-align:middle; background:#fff; border-left:5px solid #f2f2f2;border-bottom:2px solid #f2f2f2; font-size:13px;color:#5D5D5D; font-family: 'droid_sansregular';}
+.content .individual-report-per-program table tbody tr td { height:93px;background:none; text-align:center; vertical-align:middle; background:#fff; border-left:5px solid #f2f2f2;border-bottom:2px solid #f2f2f2; font-size:16px;color:#5D5D5D; font-family: 'droid_sansregular';}
 .content .individual-report-per-program table tbody tr td a { line-height:25px; text-decoration:none; color:#fff; font-size:12px; font-family: 'droid_sansregular'; background:#84b4ea; display:inline-block; border-radius:5px;  width:74px; text-align:center;}
 .content .individual-report-per-program table tbody tr { border-bottom:10px solid #f2f2f2;}
-.content .individual-report-per-program table tbody tr td:first-child {  color:#84B4EA;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:12px; }
+.content .individual-report-per-program table tbody tr td:first-child {  color:#84B4EA;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:15px; }
 .content .book-completion-table {}
 .content .book-completion-table table { max-width:860px; width:100%;}
 .content .book-completion-table table thead td { background:none; font-size:13px; color:#84B4EA; text-align:center; vertical-align:middle;font-family: 'droid_sansbold'; line-height:34px;}
@@ -735,7 +735,7 @@ header .header-right ul li { float:none; display:inline-block;}
 
 
 .chapters li a{
-	font-size: 10px !important;
+	font-size: 12px !important;
 }
 
 .chapters li{

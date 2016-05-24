@@ -142,7 +142,7 @@ $(document).ready(function() {
         	        }).
         	        done(function(resp){
         	        	console.log('Good saving')
-        				$("#CreateUserModal .modal-body span").html("The user has been modified successfully");
+        				$("#CreateUserModal .modal-body span").html("The user has been created successfully");
         	        	$('#CreateUserModal').modal('show');
         	        	
         	        });
