@@ -703,7 +703,30 @@ $(document).ready(function() {
 			
 		});
 		
+		//$(".individual-report-per-program ul li.active").removeClass("active");
+		
+		$('.lcs_switch').removeClass('lcs_on');
+		$('.lcs_switch').addClass('lcs_off');
+		$('#individualgenralperformance').addClass('active');
+		$('.overalldetail').removeClass('active');
+		$('#individualdetailscore').removeClass('active');
+		$('.overallperformance').addClass('active');
+		
 		$('#maxread-indivdual').css('display','block');
+		
+		$('.max-phonics').removeClass('active');
+		$('.max-word_tab').removeClass('active');
+		$('.max-place_tab').removeClass('active');
+		$('.max-bio_tab').removeClass('active');
+		$('.max-music_tab').removeClass('active');
+		
+		$('.max-read-individual').addClass('active');
+		
+		$('#maxphonics-indivdual').removeClass('active');
+		$('#maxword-indivdual').removeClass('active');
+		$('#maxplace-indivdual').removeClass('active');
+		$('#maxbio-indivdual').removeClass('active');
+		$('#maxmusic-indivdual').removeClass('active');
 		
 	});
 	
