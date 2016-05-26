@@ -895,3 +895,35 @@ padding-left: 60px;
 .content .user-tab-right .all-user-detail .edit-teacher-outer ul li select  { width:85%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
 .content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn {float:right;}
 .content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn a { padding:25px 60px 25px 110px; background:url(../images/create-clss-icon.png) 41px center no-repeat; border:1px solid #b3b3b3;font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none; display:inline-block; margin-top:40px; }
+
+
+#allusers .search-field input[type="search"] {
+    border: 0 none;
+    box-sizing: border-box;
+    color: #5E5E5F;
+    font-family: "droid_sansregular";
+    font-size: 16px;
+    line-height: 37px;
+    outline: medium none;
+    padding: 0 10px;
+    width: 97%;
+}
+#allusers .other-student-serach button {
+    top: 28px;
+}
+#allusers .other-student-serach {
+    margin-bottom: 10px;
+}
+#allusers .search-field {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#allusers .search-field button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    outline: medium none;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+}

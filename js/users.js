@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	$( "#search-student-create-1" ).val("");
 	$('#max_user_create').click(function(e) {
 		$('.content .print-button ').css('display','none');
 		$( "#fist-name-create-user" ).val("");
@@ -501,6 +503,53 @@ $(document).ready(function() {
 	
 		$( "#generate_individual_report" ).trigger( "click" );
 		
+	});
+	
+	$('#search-student-create-1').keypress(function (e) {
+		 var key = e.which;
+		 
+		 if(key == 13)  // the enter key code
+		  {
+			 console.log("go to searhc");
+			 $('#search-student-create-button-1').trigger( "click" );
+		    return false;  
+		  }
+		});  
+	
+	$("#search-student-create-button-1").click(function(){
+		$('#user-list').html("");
+		$('#allusersTitle').html("Searching ...");
+		var pk = localStorage.getItem("selected_clase");
+		var student_name = $( "#search-student-create-1" ).val();
+		school_pk = localStorage.getItem("school_pk");
+		$.ajax({type: "GET",  url: getStudentSearch+"?username="+student_name+"&school_id="+school_pk }).
+        
+        done(function(data){
+        	count = 1;
+			$.each( data, function( key, val ) {
+				if (val.first_name =="" && val.last_name ==""){
+					name = val.username;
+				}else{
+					name = val.last_name +' '+ val.first_name;
+				}
+				tr ='<tr id="' + val.pk + '">'+
+                '<td width="55%"><span>'+count+'-</span>'+ name+'</td>'+
+                 '<td class="removeOnPrint" width="11%"><a href="#" data-user-edit-pk="' + val.pk + '" id="edit-user-action" class="edit-user"><img src="images/edit-icon.png" alt="" title=""></a></td>'+
+                  '<td class="removeOnPrint" width="11%"><a href="#" data-user-delete-pk="' + val.pk + '" data-toggle="modal" data-target="#deleteUserModal" class="delete-user"><img src="images/chosse-member-icon.png" alt="" title=""></a></td>'+
+                  '<td class="removeOnPrint"><a href="#" data-user-report-pk="' + val.pk + '" id="report-user-action" class="user-report">see report</a></td>'+ 
+                  '</tr>';
+			$('#user-list').append(tr);
+			count = count + 1;
+			});
+			
+			if(data.length == 0){
+				$('#allusersTitle').html("No Users");
+			}else{
+				$('#allusersTitle').html("Users in your school :");
+				preparePrint("#allusers");
+			}
+
+        });
 	});
 	
 	
