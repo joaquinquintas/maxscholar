@@ -731,7 +731,9 @@ $(document).ready(function() {
 	});
 	
 	
-
+	$('.overalldetail').click(function(){
+		//$("#maxread-indivdual").show();
+	})
 	
 	$("#maxplaces_ind").click(function(){
 		$("#maxread-indivdual").hide();
