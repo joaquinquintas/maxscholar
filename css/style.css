@@ -950,6 +950,37 @@ header .header-right ul li { float:none; display:inline-block;}
     width: 1000px !important;
 }
 .report-per-program .col-sm-6{width: 83.3333% !important}
+
+ .content .individual-report-per-program h2 {background:#fff; line-height:30px; padding:0 20px; font-size:14px; color:#5D5D5D;font-family: 'droid_sansbold'; margin:0px; margin-bottom:16px;} 
+.content .individual-report-per-program table { width:98.5%; max-width:860px;  }
+.content .individual-report { margin-top:42px !important ;}
+.content .individual-report-per-program table thead td {background:none; text-align:center; font-size:15px; color:#84B4EA;font-family: 'droid_sansbold'; vertical-align:middle;}
+.content .individual-graphs { }
+/* .content .individual-graphs h2 { width:590px; display:inline-block;}*/
+.content .individual-graphs ul { margin:0px; padding:0; display:block; text-align:right;}
+.content .individual-graphs ul li { font-size:13px; color:#5d5d5d;font-family: 'droid_sansregular'; background:url(../images/correct-icon.png) left center no-repeat; padding-left:37px; display:inline-block; line-height:32px; margin-left:25px;}
+.content .individual-graphs ul li + li {background:url(../images/uncorrect-icon.png) left center no-repeat;}
+.content .individual-report-per-program table tbody tr td { height:93px;background:none; text-align:center; vertical-align:middle; background:#fff; border-left:5px solid #f2f2f2;border-bottom:2px solid #f2f2f2; font-size:16px;color:#5D5D5D; font-family: 'droid_sansregular';}
+.content .individual-report-per-program table tbody tr td a { line-height:25px; text-decoration:none; color:#fff; font-size:12px; font-family: 'droid_sansregular'; background:#84b4ea; display:inline-block; border-radius:5px;  width:74px; text-align:center;}
+.content .individual-report-per-program table tbody tr { border-bottom:10px solid #f2f2f2;}
+.content .individual-report-per-program table tbody tr td:first-child {  color:#84B4EA;font-family: 'droid_sansbold'; background:none; color:#84B4EA;font-family: 'droid_sansbold';font-size:15px; }
+.content .book-completion-table {}
+.content .book-completion-table table { max-width:860px; width:100%;}
+.content .book-completion-table table thead td { background:none; font-size:13px; color:#84B4EA; text-align:center; vertical-align:middle;font-family: 'droid_sansbold'; line-height:34px;}
+.content .book-completion-table table tbody tr td { background:#c3ddf4; height:56px; text-align:center; font-size:16px; color:#5D5D5D; font-family: 'droid_sansregular';}
+.content .book-completion-table table tbody tr td.full-score { background:url(../images/full-scroe.png) 90% center no-repeat #c3ddf4;}
+.content .book-completion-table table tbody tr td:first-child { background:#c3ddf4; height:56px; text-align:center; font-size:16px; color:#5D5D5D; font-family: 'droid_sansregular';}
+.content .individual-average-score .report-per-top{padding-left:0px; margin-bottom:34px;}
+.content .individual-average-score .report-per-top table { max-width:818px; width:100%;}
+.content .individual-average-score .report-per-top table thead td.comulative {font-family: 'droid_sansbold'; }
+.content .individual-average-score .report-per-top table thead { margin-bottom:10px;}
+.content .individual-average-score .report-per-top table thead td { vertical-align:bottom;font-size: 13px;color: #84B4EA;text-decoration: none;  text-align:center; vertical-align:bottom;font-family: 'litera-regularregular';}
+.content .individual-average-score .report-per-top table tbody {}
+.content .individual-average-score .report-per-top table tbody td { background:#fff; border-left:8px solid #f2f2f2; text-align:center; height:90px; font-size:16px;color:#5D5D5D;font-family: 'droid_sansregular';}
+.content .individual-average-score .report-per-top table tbody tr{ border-bottom:2px solid #f2f2f2; }
+.content .individual-average-score .report-per-top table tbody tr td:first-child { background:none;font-family: 'droid_sansbold'; font-size:15px;}
+.content .individual-average-score .report-per-top table tbody td a {font-size: 13px;color: #84B4EA;font-family: 'droid_sansbold';text-decoration: underline; padding:0 10px; display:inline-block;}
+
 }
 
 
