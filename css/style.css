@@ -909,6 +909,20 @@ header .header-right ul li { float:none; display:inline-block;}
 	.removeOnPrint{
 		display:none !important;
 	}
+	.detail, .seeCorrect .correctDetail {
+    background-color: yellow !important;
+    -webkit-print-color-adjust: exact !important;
+	}
+	.topic, .seeCorrect .correctTopic {
+	    background-color: #00aade !important;
+	    -webkit-print-color-adjust: exact !important;
+	}
+	
+	.idea, .seeCorrect .correctIdea {
+	    background-color: #94fb42 !important;
+	    -webkit-print-color-adjust: exact !important;
+	}
+
 	.printExercise{ display: table-row !important}
 	.slimScrollDiv{overflow: visible !important; height: auto !important;}
 	.slimScrollDiv div:first-child{overflow: visible !important; height: auto !important}
