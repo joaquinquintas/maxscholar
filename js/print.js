@@ -36,6 +36,7 @@ $(document).ready(function() {
 });
 
 function printDashboard() {
+	console.log("Aca terminar el print!")
     window.print();
 }
 

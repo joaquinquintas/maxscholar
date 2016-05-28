@@ -616,24 +616,31 @@ $(document).ready(function() {
 			console.log("hl score: "+val.hl_score);
                  if (val.hl_text!= undefined && val.hl_text !="" && val.hl_text !=null){    
                       a_highlight = '<a href="#" data-toggle="modal" data-target="#HL_'+val.exercise.pk+'" >Highlighting </a> ';
+                      tr_hl = '<tr class="printExercise"><td colspan="7"><p>Highlighting</p><br/> '+val.hl_text+' </td></tr>';
                  }else{
                      a_highlight = '<a href="#" id="not_clickable">Highlighting </a> ';
+                     tr_hl = '<tr class="printExercise"><td colspan="7"><p>Highlighting</p><br/> NO DATA </td></tr>';
 
                  }
 				tr = tr + a_highlight;
+				
 				 if (val.outline!= undefined && val.outline.outline !=""){
 	            	 a_outline = '<a href="#" data-toggle="modal" data-target="#OUT_'+val.exercise.pk+'"> Outline </a> ';
+	            	 tr_out = '<tr class="printExercise"><td colspan="7"><p>Outline</p><br/> '+val.outline.outline+' </td></tr>';
 	             }else{
 	            	 a_outline = '<a href="#" id="not_clickable"> Outline </a> ';
+	            	 tr_out = '<tr class="printExercise"><td colspan="7"><p>Outline</p><br/> NO DATA </td></tr>';
 	            	 
 	             }
 	             tr = tr + a_outline; 
 	             
 				if (val.summary!= undefined && val.summary.summary !=""){
 					a_summary = '<a href="#" data-toggle="modal" data-target="#SUM_'+val.exercise.pk+'">Writing exercise </a></td>';
+					tr_wr = '<tr class="printExercise"><td colspan="7"><p>Writing exercise</p><br/> '+val.summary.summary+' </td></tr>';
 					
 				}else{
 					a_summary = '<a href="#" id="not_clickable"> Writing exercise </a></td>';
+					tr_wr = '<tr class="printExercise"><td colspan="7"><p>Writing exercise</p><br/> NO DATA </td></tr>';
 				}
 				tr = tr + a_summary;     
 	            
@@ -648,6 +655,12 @@ $(document).ready(function() {
                 '</div></div></div>';
 				
 				$("#individual_maxreading").append(tr);
+				
+				$("#individual_maxreading").append(tr_hl);
+				$("#individual_maxreading").append(tr_out);
+				$("#individual_maxreading").append(tr_wr);
+				
+				
 				$("#individual_maxreading_hl_modals").append(modal);
 				if (val.summary!= undefined && val.summary.summary !=""){
 					modal = '<div class="modal fade" id="SUM_'+val.exercise.pk+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+

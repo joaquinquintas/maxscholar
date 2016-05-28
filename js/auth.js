@@ -113,25 +113,52 @@ $(document).ready(function() {
 		
 		$("#level-edit-user").html("");
 		$("#level-create-user").html("");
-		var o = new Option("Select Level" , "no");
+		
+		var o = new Option("High Level" , "no");
 		o.setAttribute("id", "no");
 		$("#level-edit-user").append(o);
-		var o = new Option("Select Level" , "no");
+		
+		var o = new Option("High Level" , "no");
 		o.setAttribute("id", "no");
 		o.setAttribute("selected", "selected");
 		$("#level-create-user").append(o);
 		
+		
+		$("#low-level-edit-user").html("");
+		$("#low-level-create-user").html("");
+		
+		
+		
+		/*var o = new Option("Low Level" , "no");
+		o.setAttribute("id", "no");
+		$("#low-level-edit-user").append(o);
+		
+		var o = new Option("Low Level" , "no");
+		o.setAttribute("id", "no");
+		o.setAttribute("selected", "selected");
+		$("#low-level-create-user").append(o);
+		*/
+		
 		$.each(response, function (i, item) {
 			var o = new Option(item.name , item.pk);
-			/// jquerify the DOM object 'o' so we can use the html method
 			$(o).html(item.name);
-			
-			
 			$("#level-edit-user").append(o);
+			
 			var o = new Option(item.name , item.pk);
-			/// jquerify the DOM object 'o' so we can use the html method
 			$(o).html(item.name);
+			
 			$("#level-create-user").append(o);
+			
+			var o = new Option(item.name , item.pk);
+			$(o).html(item.name);
+			if(i==0){
+				o.setAttribute("selected", "selected");
+			}
+			$("#low-level-create-user").append(o);
+			
+			var o = new Option(item.name , item.pk);
+			$(o).html(item.name);
+			$("#low-level-edit-user").append(o);
 
 		});
 		

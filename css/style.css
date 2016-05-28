@@ -35,7 +35,7 @@ font-style: normal;
 }
 
 
-
+@media screen{
 body { background:#f2f2f2;font-family: 'droid_sansregular';}
 .clear {clear:both;}
 .container { max-width:1030px;}
@@ -540,6 +540,214 @@ text-align: center; border-left:8px solid #f2f2f2; }
 
 
 
+
+.detail, .seeCorrect .correctDetail {
+    background-color: yellow !important;
+}
+.topic, .seeCorrect .correctTopic {
+    background-color: #00aade !important;
+}
+
+.idea, .seeCorrect .correctIdea {
+    background-color: #94fb42 !important;
+}
+
+#not_clickable{
+	cursor:default;
+	color:#F2F2F2;
+	background: #5C5C6E none repeat scroll 0 0;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: "droid_sansregular";
+    font-size: 12px;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: none;
+    width: 74px;
+}
+
+.addDetail, .addIdea{
+	display: none;
+}
+
+.edit{width:100%}
+
+#categories,#categories ul, #categories ol, .detailsList{
+	 list-style-type: none;
+  margin: 0;
+  padding: 0;
+	
+}
+
+#container3 .highcharts-title,
+#container4 .highcharts-title,
+#container18 .highcharts-title, 
+#container11 .highcharts-title, 
+#container10 .highcharts-title,
+#container6  .highcharts-title {display:none;}
+
+.form-row p {
+    margin: 10px 0 10px 120px;
+    width: 40%;
+}
+
+
+.chapters li a{
+	font-size: 12px !important;
+}
+
+.chapters li{
+	line-height: 21px !important;
+}
+
+.select_school{
+	-webkit-appearance:none;
+	-moz-appearance: none;
+    background: #fff url("../images/select-arrow.png") no-repeat scroll 96% center;
+    border: 1px solid #b3b3b3;
+    box-sizing: border-box;
+    color: #5c5c5c;
+    font-size: 15px;
+    font-weight: bold;
+    height: 27px;
+    outline: medium none;
+     float: none;
+      display: block;
+      width: 100%;
+}
+
+
+
+#phonics_table_content tr td img{ cursor:pointer;}
+
+.content .user-tab-right .all-user-detail .all-user-outer-other {
+    max-width: 660px;
+}
+
+.user-detail-table a{
+	color: #5d5d5d;
+}
+.deleteOutline{display:none}
+.noborderTable{border-left:0px!important}
+
+.clover-table-detail tr td img{ cursor:pointer;}
+.printExercise{ display:none !important}
+
+
+.content .welcome-login {
+    display: inline-block;
+    margin: 60px auto;
+    max-width: 610px;
+    opacity: 1;
+    padding: 55px;
+}
+
+.content .welcome-login img { display:block;max-width:39px; margin:0 auto;margin-bottom:18px;}
+.content .welcome-login h2 {font-family: 'litera-regularregular'; margin:0px; padding:0px; font-size:24px; background:url(../images/content-logo.png) left center no-repeat; color:#F7931E; padding-left:45px; margin-bottom:10px; line-height:24px; max-width:187px; display:inline-block;}
+.content .welcome-login h3 { font-size:16px; color:#5D5D5D;  margin:0; padding:0; font-family: 'droid_sansbold'; margin-bottom:20px; line-height:25px;}
+.content .welcome-login p { margin:0; padding:0px; font-size:20px; color:#999999; line-height:20px;}
+.enter-pass-login {
+    background: #ed8884 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    float: right;
+    font-family: "droid_sansbold";
+    font-size: 12px;
+    line-height: 30px;
+    margin-right: 13%;
+    outline: medium none;
+    text-transform: uppercase;
+    width: 48%;
+}
+
+#user_login_username_page{
+	    margin-bottom: 20px;
+	width: 67%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
+    padding-left: 10px;
+}
+ #user_login_password_page{
+ padding-left: 10px;
+ margin-left: 5px;
+	    margin-bottom: 20px;
+	width: 67%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
+}
+
+#forgot_password{
+	float: right;
+    margin-right: 13%;
+    padding-bottom: 20px !important;
+	
+}
+#forgot_email, #forgot_username{
+	
+	margin-bottom: 20px;
+	width: 98%;
+    box-sizing: border-box;
+    border: 1px solid #b3b3b3;
+    height: 32px;
+    padding-left: 10px
+}
+
+#ThanksadminModal  .modal-content{ 
+padding-left: 60px;
+    padding-right: 20px;
+	}
+	
+#add-subpoint, #add-point {display:none !important}
+
+
+.content .user-tab-right .all-user-detail .edit-teacher-outer { display:none; max-width:660px;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer ul { margin:0px; padding:0;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
+.content .user-tab-right .all-user-detail .edit-teacher-outer ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#5c5c5c; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer ul li select  { width:85%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn {float:right;}
+.content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn a { padding:25px 60px 25px 110px; background:url(../images/create-clss-icon.png) 41px center no-repeat; border:1px solid #b3b3b3;font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none; display:inline-block; margin-top:40px; }
+
+
+#allusers .search-field input[type="search"] {
+    border: 0 none;
+    box-sizing: border-box;
+    color: #5E5E5F;
+    font-family: "droid_sansregular";
+    font-size: 16px;
+    line-height: 37px;
+    outline: medium none;
+    padding: 0 10px;
+    width: 97%;
+}
+#allusers .other-student-serach button {
+    top: 28px;
+}
+#allusers .other-student-serach {
+    margin-bottom: 10px;
+}
+#allusers .search-field {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#allusers .search-field button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    outline: medium none;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+}
+
+
+
+}
+
 /*Media Quries*/
 @media screen and (max-width: 1200px) { 
 header .logo { width:20%;}
@@ -683,120 +891,32 @@ header .header-right ul li { float:none; display:inline-block;}
 
 
 
-.detail, .seeCorrect .correctDetail {
-    background-color: yellow !important;
-}
-.topic, .seeCorrect .correctTopic {
-    background-color: #00aade !important;
-}
-
-.idea, .seeCorrect .correctIdea {
-    background-color: #94fb42 !important;
-}
-
-#not_clickable{
-	cursor:default;
-	color:#F2F2F2;
-	background: #5C5C6E none repeat scroll 0 0;
-    border-radius: 5px;
-    display: inline-block;
-    font-family: "droid_sansregular";
-    font-size: 12px;
-    line-height: 25px;
-    text-align: center;
-    text-decoration: none;
-    width: 74px;
-}
-
-.addDetail, .addIdea{
-	display: none;
-}
-
-.edit{width:100%}
-
-#categories,#categories ul, #categories ol, .detailsList{
-	 list-style-type: none;
-  margin: 0;
-  padding: 0;
-	
-}
-
-#container3 .highcharts-title,
-#container4 .highcharts-title,
-#container18 .highcharts-title, 
-#container11 .highcharts-title, 
-#container10 .highcharts-title,
-#container6  .highcharts-title {display:none;}
-
-.form-row p {
-    margin: 10px 0 10px 120px;
-    width: 40%;
-}
-
-
-.chapters li a{
-	font-size: 12px !important;
-}
-
-.chapters li{
-	line-height: 21px !important;
-}
-
-.select_school{
-	-webkit-appearance:none;
-	-moz-appearance: none;
-    background: #fff url("../images/select-arrow.png") no-repeat scroll 96% center;
-    border: 1px solid #b3b3b3;
-    box-sizing: border-box;
-    color: #5c5c5c;
-    font-size: 15px;
-    font-weight: bold;
-    height: 27px;
-    outline: medium none;
-     float: none;
-      display: block;
-      width: 100%;
-}
-
-
-
-#phonics_table_content tr td img{ cursor:pointer;}
-
-.content .user-tab-right .all-user-detail .all-user-outer-other {
-    max-width: 660px;
-}
-
-.user-detail-table a{
-	color: #5d5d5d;
-}
-.deleteOutline{display:none}
-.noborderTable{border-left:0px!important}
-
-.clover-table-detail tr td img{ cursor:pointer;}
-
 @media print {
+	*{text-shadow:none !important;background:transparent !important;box-shadow:none !important; print-color-adjust: exact !important;}
 	html {
     font-family: Arial !important;
 }
 	body {
-    background: #f2f2f2 none repeat scroll 0 0;
+    background: #f2f2f2 none repeat scroll 0 0 !important;
+    -webkit-print-color-adjust: exact !important;
 }
 	.col-sm-10 {
 	    width: 91.6667%;
-	    background: #f2f2f2 none repeat scroll 0 0;
+	    background: #f2f2f2 none repeat scroll 0 0 !important;
 	}
 	#controles_menu,.col-sm-2 , .no-print, header, #step5{ display:none !important}
 
 	.removeOnPrint{
 		display:none !important;
 	}
+	.printExercise{ display: table-row !important}
 	.slimScrollDiv{overflow: visible !important; height: auto !important;}
 	.slimScrollDiv div:first-child{overflow: visible !important; height: auto !important}
 	.content .reports-detail .average-class-detail .average-class-top table thead td a {
-    color: #84b4ea;
+    color: #84b4ea !important;
     font-family: "litera-regularregular";
-    font-size: 11px;
-    text-decoration: none;
+    font-size: 11px !important;
+    text-decoration: none !important;
 }
 .content .usage-program-detail .chart-inner-detail {
     position: relative;
@@ -818,112 +938,4 @@ header .header-right ul li { float:none; display:inline-block;}
 .report-per-program .col-sm-6{width: 83.3333% !important}
 }
 
-.content .welcome-login {
-    display: inline-block;
-    margin: 60px auto;
-    max-width: 610px;
-    opacity: 1;
-    padding: 55px;
-}
 
-.content .welcome-login img { display:block;max-width:39px; margin:0 auto;margin-bottom:18px;}
-.content .welcome-login h2 {font-family: 'litera-regularregular'; margin:0px; padding:0px; font-size:24px; background:url(../images/content-logo.png) left center no-repeat; color:#F7931E; padding-left:45px; margin-bottom:10px; line-height:24px; max-width:187px; display:inline-block;}
-.content .welcome-login h3 { font-size:16px; color:#5D5D5D;  margin:0; padding:0; font-family: 'droid_sansbold'; margin-bottom:20px; line-height:25px;}
-.content .welcome-login p { margin:0; padding:0px; font-size:20px; color:#999999; line-height:20px;}
-.enter-pass-login {
-    background: #ed8884 none repeat scroll 0 0;
-    border: 0 none;
-    border-radius: 8px;
-    color: #fff;
-    float: right;
-    font-family: "droid_sansbold";
-    font-size: 12px;
-    line-height: 30px;
-    margin-right: 13%;
-    outline: medium none;
-    text-transform: uppercase;
-    width: 48%;
-}
-
-#user_login_username_page{
-	    margin-bottom: 20px;
-	width: 67%;
-    box-sizing: border-box;
-    border: 1px solid #b3b3b3;
-    height: 32px;
-    padding-left: 10px;
-}
- #user_login_password_page{
- padding-left: 10px;
- margin-left: 5px;
-	    margin-bottom: 20px;
-	width: 67%;
-    box-sizing: border-box;
-    border: 1px solid #b3b3b3;
-    height: 32px;
-}
-
-#forgot_password{
-	float: right;
-    margin-right: 13%;
-    padding-bottom: 20px !important;
-	
-}
-#forgot_email, #forgot_username{
-	
-	margin-bottom: 20px;
-	width: 98%;
-    box-sizing: border-box;
-    border: 1px solid #b3b3b3;
-    height: 32px;
-    padding-left: 10px
-}
-
-#ThanksadminModal  .modal-content{ 
-padding-left: 60px;
-    padding-right: 20px;
-	}
-	
-#add-subpoint, #add-point {display:none !important}
-
-
-.content .user-tab-right .all-user-detail .edit-teacher-outer { display:none; max-width:660px;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer ul { margin:0px; padding:0;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer ul li { line-height:37px; background:#fff; margin-bottom:4px; display:block; padding:0 15px; font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular';}
-.content .user-tab-right .all-user-detail .edit-teacher-outer ul li label { margin:0px; color:#5d5d5d; font-size:16px;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer ul li input[type="text"] ,select ,input[type="password"]{ line-height:20px; color:#5c5c5c; padding:0 5px; font-size:16px; font-family: 'droid_sansregular';border:0px none;outline:none; width:68%;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer ul li select  { width:85%;-moz-appearance:none;-webkit-appearance:none;-o-apperance:nonw;-ms-appearance:none; background:url(../images/select-arrow.png) 100% center no-repeat;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn {float:right;}
-.content .user-tab-right .all-user-detail .edit-teacher-outer .create-class-btn a { padding:25px 60px 25px 110px; background:url(../images/create-clss-icon.png) 41px center no-repeat; border:1px solid #b3b3b3;font-size:16px; color:#5D5D5D;font-family: 'droid_sansregular'; text-decoration:none; display:inline-block; margin-top:40px; }
-
-
-#allusers .search-field input[type="search"] {
-    border: 0 none;
-    box-sizing: border-box;
-    color: #5E5E5F;
-    font-family: "droid_sansregular";
-    font-size: 16px;
-    line-height: 37px;
-    outline: medium none;
-    padding: 0 10px;
-    width: 97%;
-}
-#allusers .other-student-serach button {
-    top: 28px;
-}
-#allusers .other-student-serach {
-    margin-bottom: 10px;
-}
-#allusers .search-field {
-    margin-bottom: 25px;
-    position: relative;
-}
-
-#allusers .search-field button {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 0 none;
-    outline: medium none;
-    position: absolute;
-    right: 20px;
-    top: 8px;
-}

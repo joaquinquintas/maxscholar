@@ -57,11 +57,18 @@ $(document).ready(function() {
 		var user_type = $( "#type-create-user" ).val();
 		var pre_test = $( "#pretest-create-user" ).val();
 		var level = $( "#level-create-user" ).val();
+		var low_level = $( "#low-level-create-user" ).val();
+		
 		var level_phonics = $( "#level-phonics-create-user" ).val();
 		var save_level = level != "no"
 		if (level == "no"){
 			errors_list.push( "<li>Reading Level is required</li>" );
 			errors = true;
+		}else{
+			if(low_level>level){
+				errors_list.push( "<li>Low Reading Level is higher than the High Level</li>" );
+				errors = true;
+			}
 		}
 		var save_phonics_level = level_phonics != "no"
 		var save_user_type = user_type != "no"
@@ -108,7 +115,7 @@ $(document).ready(function() {
     		}else{
     			localStorage.setItem("errors_in_user_creation", "false");
     			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, pre_test:pre_test,
-    					do_reading_hl:reading_hl, do_phonics_pretest:pre_test_phonics};
+    					do_reading_hl:reading_hl, do_phonics_pretest:pre_test_phonics, low_level:low_level};
     				to_send_data.password = password;
     				
     			if(save_level == true){
@@ -166,8 +173,7 @@ $(document).ready(function() {
 	
 	$(".content #CreateUserModal .modal-content .modal-footer .close-btn").click(function(){
 		console.log(localStorage.getItem("errors_in_user_creation") );
-		if (localStorage.getItem("errors_in_user_edition") == "false" ){
-
+		if (localStorage.getItem("errors_in_user_creation") == "false" ){
 
 			$("#max_user_list").trigger( "click" );
 			
@@ -224,6 +230,11 @@ $(document).ready(function() {
         	
         	$.each($("#level-edit-user").children(), function(i){
         		if ($(this).val() == data.level.pk){
+        			$(this).attr("selected","selected");
+        		}
+        	});
+        	$.each($("#low-level-edit-user").children(), function(i){
+        		if ($(this).val() == data.low_level.pk){
         			$(this).attr("selected","selected");
         		}
         	});
@@ -363,11 +374,20 @@ $(document).ready(function() {
 		var pre_test_phonics = $( "#pretest_phonics-edit-user" ).val();
 		
 		var level = $( "#level-edit-user" ).val();
+		var low_level = $( "#low-level-edit-user" ).val();
+		
 		var save_level = level != "no"
 		if (level == "no"){
 			errors_list.push( "<li>Reading Level is required</li>" );
 			errors = true;
+		}else{
+			if(low_level>level){
+				errors_list.push( "<li>Low Reading Level is higher than the High Level</li>" );
+				errors = true;
+			}
 		}
+		
+		
 		var phonics_level = $( "#level-phonics-edit-user" ).val();
 		var save_phonics_level = phonics_level != "no"
 		var save_user_type = user_type != "no"
@@ -420,7 +440,8 @@ $(document).ready(function() {
     		}else{
     			localStorage.setItem("errors_in_user_edition", "false");
     			var to_send_data = { first_name: first_name, last_name:last_name, username:user_name, 
-    					pre_test:pre_test, reading_interim:reading_interim,do_phonics_pretest:pre_test_phonics, do_reading_hl:reading_hl};
+    					pre_test:pre_test, reading_interim:reading_interim,do_phonics_pretest:pre_test_phonics,
+    					do_reading_hl:reading_hl, low_level:low_level};
     			if(save_password == true){
     				to_send_data.password = password;
     			}
