@@ -48,6 +48,7 @@ $(document).ready(function() {
 	getClassMaxwordsReport = server + "reports/class/maxwords/"
 	getClassMaxphonicsReport = server + "reports/class/maxphonics/"
 	getMaxphonicsGamesReport = server + "reports/games/maxphonics/"
+	getMaxwordsPretest = server + "reports/maxwords/pretest/"
 	getMaxwordsCloverReport = server + "reports/maxwords/clover/"
 	getMaxwordsCloverReportFinal = server + "reports/maxwords/clover/final/"
 	getMaxwordsSpellingReport = server +"reports/maxwords/spelling/"

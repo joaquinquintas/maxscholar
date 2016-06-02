@@ -27,8 +27,9 @@ $("#maxphonics_ind").click(function(){
 		console.log(data);
 		var section_len = data.sections.length;
 		for (var i = 0; i < section_len; i++) {
-			name = data.sections[i].name;
-			tr = '<tr><td>' + name + '</td>';
+			var name = data.sections[i].name;
+			var sub_name = name.substring(10);
+			tr = '<tr><td>' + sub_name + '</td>';
 			
 			var incorrect_len = data.sections[i].incorrect.length;
 			inc_list = []

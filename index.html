@@ -846,19 +846,31 @@
                                                 <h2>PRE-TEST: </h2>
                                               <table>
                                                   <thead id="reading_ptest_head">
-                                                    <td>SCORE</td>
-                                                    <td style="width: 38%">LEVEL BEFORE PRE-TEST</td>
                                                     <td>DATE</td>
+                                                    
+                                                    <td style="width: 38%">BEGINNING LEVEL</td>
+                                                    <td>SCORE</td>
+                                                    <td>ASSIGNED MODULE</td>
+                                                    <td></td>
+                                                    
                                                   </thead>
                                                   <tbody id="individual_phonics_ptest">
                                                   <tr>
-                                                  	<td id="score-phonics-pretest"></td>
-                                                  	<td id="level-phonics-pretest"></td>
                                                   	<td id="date-phonics-pretest"></td>
+                                                  	<td id="level-phonics-pretest"></td>
+                                                  	<td id="score-phonics-pretest"></td>
+                                                  	<td id="app-phonics-after-pretest"></td>
+                                                  	<td id="pretest-phonics-see-more">
+                                                  	<a href="#" data-toggle="modal" data-target="#ptest_see_more">See More </a>
+                                                  	</td>
                                                   </tr>
                                                   </tbody>
                                               </table>
-                                              <table>
+                                              <div id="pretest_modal">
+                                              <div class="modal fade" id="ptest_see_more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								                <div class="modal-activity"><div class="modal-content-activity">
+								                <div id="pretest_modal_content" class="modal-body">
+								                <table>
                                                   <thead id="reading_ptest_head">
                                                     <td>SECTION</td>
                                                     <td>INCORRECT</td>
@@ -867,6 +879,12 @@
                                                   <tbody id="individual_phonics_ptest_list">
                                                   </tbody>
                                               </table>
+	                </div>
+	                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
+	                </div></div></div>
+					
+                                              </div>
+                                              
                                               </div>
                                               </div>
 											
@@ -900,6 +918,7 @@
                                                     & SUFFIXES</a></li>
                                                   <li role="presentation"><a id="latin_roots"  href="#latinroot" aria-controls="latinroot" role="tab" data-toggle="tab">LATIN ROOTS</a></li>
                                                   <li role="presentation"><a id="greek_roots"  href="#greekroot" aria-controls="greekroot" role="tab" data-toggle="tab">GREEK ROOTS</a></li>
+                                                <li id="maxwords_pretest" style="display:none" role="presentation"><a id="word_ptests"  href="#word_ptest" aria-controls="word_ptest" role="tab" data-toggle="tab">PRETEST</a></li>
                                                 </ul>
                                                 
                                                 <!-- Tab panes -->
@@ -1868,6 +1887,27 @@
 										                <div class="modal-body">No text</div>
 										                <div class="modal-footer"><button type="button" class="close-btn" data-dismiss="modal">Close</button></div>
 										                </div></div></div>
+                                                     
+                                                      
+                                                    </div>
+                                                  </div>
+                                                  <div role="tabpanel" class="tab-pane" id="word_ptest">
+                                                    <div class="sprefixes-detail clover-table-detail" id="word_ptest_table">
+                                                      <table>
+                                                        <thead>
+                                                        	<td width="33%">Date</td>
+                                                          <td width="33%">Ending Level</td>
+                                                          <td width="33%">Score</td>
+                                                          
+                                                            </thead>
+                                                          <tbody>
+                                                          <td id="date_w_ptest"></td>
+                                                          <td id="date_w_level"></td>
+                                                          <td id="date_w_score"></td>
+                                                        </tbody>
+                                                      </table>
+                                           
+							
                                                      
                                                       
                                                     </div>

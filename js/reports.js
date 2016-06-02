@@ -155,6 +155,7 @@ $(document).ready(function() {
 						$("#score-phonics-pretest").html(data.phonics_pretest.score + " %");
 						$("#date-phonics-pretest").html(data.phonics_pretest.completed_date);
 						$("#level-phonics-pretest").html(data.phonics_pretest.level_before);
+						$("#app-phonics-after-pretest").html(data.phonics_pretest.app_after_pretest);
 					}
 				});
 		

@@ -344,6 +344,27 @@ $(document).ready(function() {
 		
 	});
 	
+	$("#word_ptests_").click(function(e){
+		
+		$("#word_ptest_table").css("display","none");
+		e.preventDefault();
+		studen_pk = localStorage.getItem("individual_report_student_id");
+		//studen_pk = "11421";
+		to_send={user_id:studen_pk};
+		
+		$.ajax({type: "GET", url: getMaxwordsPretest, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
+			if(data.status ="ok"){
+				$("#date_w_ptest").html(data.date);
+				$("#date_w_level").html(data.level);
+				$("#date_w_score").html(data.score);
+			}else{
+				
+			}
+			$("#word_ptest_table").css("display","block");
+		});
+	});
 	
 	$("#pre_suf_report").click(function(e){
 		$("#pre_suf-table-detail").css("display","none");
@@ -381,6 +402,20 @@ $(document).ready(function() {
 		studen_pk = localStorage.getItem("individual_report_student_id");
 		//studen_pk = "15536";
 		to_send={user_id:studen_pk};
+		$.ajax({type: "GET", url: getMaxwordsPretest, data:to_send}).
+		done(function(data){
+			data = JSON.parse(data);
+			
+			if(data.status =="ok"){
+				console.log(data);
+				$("#date_w_ptest").html(data.date);
+				$("#date_w_level").html(data.level);
+				$("#date_w_score").html(data.score);
+				$("#word_ptest_table").css("display","block");
+				$("#maxwords_pretest").css("display","inline-block");
+			}
+			
+		});
 		
 		$.ajax({type: "GET", url: getMaxwordsCloverReport, data:to_send}).
 		done(function(data){

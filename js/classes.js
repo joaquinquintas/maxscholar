@@ -162,6 +162,11 @@ $(document).ready(function() {
 			errors = true;
 		}
 		var teacher = teacher_selection_modify.getValue();
+		console.log(teacher)
+		if (teacher.length ==0){
+			errors_list.push( "<li>Teacher is required</li>" );
+			errors = true;
+		}
 		/**
 		var password = $( "#class_password_create" ).val();
 		var repassword = $( "#class_repassword_create" ).val();
@@ -577,6 +582,12 @@ $(document).ready(function() {
 		var teacher = teacher_selection_modify.getValue();
 		var password = $( "#class_password_modify" ).val();
 		var repassword = $( "#class_repassword_modify" ).val();
+		
+		console.log(teacher)
+		if (teacher.length ==0){
+			errors_list.push( "<li>Teacher is required</li>" );
+			errors = true;
+		}
 		
 		if(password != repassword){
 			//$("#class_m_password_error").html("Password mismatch.")
