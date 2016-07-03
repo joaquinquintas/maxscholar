@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
@@ -40,9 +40,13 @@ export class NameListService {
       return Observable.from([this.names]);
     }
     if (!this.request) {
-      this.request = this.http.get('/assets/data.json')
+        let headers = new Headers();
+            headers.append('school_id', '4067');
+
+      this.request = this.http.get('http://0.0.0.0:8000/dashboard/v1/students-list/', {headers: headers})
         .map((response: Response) => response.json())
         .map((data: string[]) => {
+          console.log("HERE", data);
           this.request = null;
           return this.names = data;
         }).publishReplay(1).refCount();
