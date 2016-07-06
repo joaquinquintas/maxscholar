@@ -56,7 +56,7 @@ export class NameListService {
 
 	  /* LOGIN WORKING ! */
       let body = JSON.stringify({"test": "test"});
-      let headers = new Headers({ 'Authorization': 'Basic '+btoa('admin' + ':' + 'maxscholarback2017') });
+      let headers = new Headers({ 'Authorization': 'Basic '+btoa('admin' + ':' + 'maxscholarback2016') });
       let options = new RequestOptions({ headers: headers });
 
       this.request = this.http.post('http://0.0.0.0:8000/dashboard/v1/login/', body, options)
